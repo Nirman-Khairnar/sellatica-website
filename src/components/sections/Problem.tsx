@@ -1,32 +1,27 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { AlertCircle, TrendingDown, Clock, Database } from 'lucide-react';
 
 const problems = [
   {
-    icon: Database,
+    stat: '89%',
+    label: 'Adopt AI Tools',
+    description: 'But only 51% achieve expected outcomes',
+  },
+  {
     stat: '6-15',
     label: 'Disconnected Systems',
     description: 'Data scattered across tools that don\'t talk to each other',
   },
   {
-    icon: TrendingDown,
-    stat: '51%',
-    label: 'Achieve Expected Outcomes',
-    description: '89% adopt AI tools, but only half see real value',
-  },
-  {
-    icon: Clock,
     stat: '82%',
     label: 'Integration Struggles',
     description: 'Data quality and integration blocking progress',
   },
   {
-    icon: AlertCircle,
     stat: '$400K+',
-    label: 'Revenue Leakage',
-    description: 'Lost to operational inefficiencies annually',
+    label: 'Annual Revenue Leakage',
+    description: 'Lost to operational inefficiencies',
   },
 ];
 
@@ -35,74 +30,75 @@ const Problem = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">The Problem</span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-            Tech Adoption ≠ Tech Value
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Most organizations invest heavily in technology but struggle to move 
-            beyond pilots to production systems that deliver real business outcomes.
-          </p>
-        </motion.div>
+    <section ref={ref} className="py-24 lg:py-32 bg-background border-t border-border/50">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+              The Problem
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
+              Tech adoption ≠ tech value
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Most organizations invest heavily in technology but struggle to move 
+              beyond pilots to production systems that deliver real business outcomes.
+            </p>
+            
+            {/* Business Impact */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-medium text-foreground uppercase tracking-wider">
+                The Business Impact
+              </h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Revenue leakage from slow response times
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Cash flow surprises from invisible receivables
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Team burnout from constant firefighting
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Growth paralysis without proportional hiring
+                </li>
+              </ul>
+            </div>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {problems.map((problem, index) => (
-            <motion.div
-              key={problem.label}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative p-6 rounded-xl bg-card border-gradient hover:shadow-glow transition-all duration-500"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <problem.icon className="h-6 w-6 text-primary" />
-                <span className="font-display text-2xl font-semibold text-foreground">
+          {/* Right Column - Stats Grid */}
+          <div className="grid grid-cols-2 gap-6">
+            {problems.map((problem, index) => (
+              <motion.div
+                key={problem.label}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="p-6 lg:p-8 rounded-xl bg-card border border-border/50 hover:border-border transition-colors"
+              >
+                <span className="font-display text-3xl lg:text-4xl font-medium text-foreground block mb-2">
                   {problem.stat}
                 </span>
-              </div>
-              <h3 className="font-body text-sm font-semibold text-foreground mb-2">
-                {problem.label}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {problem.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Root causes */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 p-8 rounded-2xl bg-secondary/30 border border-border"
-        >
-          <h3 className="font-display text-xl font-semibold text-foreground mb-6 text-center">
-            The Business Impact
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div>
-              <p className="text-muted-foreground text-sm">Revenue leakage from slow response times</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground text-sm">Cash flow surprises from invisible receivables</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground text-sm">Team burnout from constant firefighting</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground text-sm">Growth paralysis without proportional hiring</p>
-            </div>
+                <h3 className="text-sm font-medium text-foreground mb-2">
+                  {problem.label}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {problem.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
