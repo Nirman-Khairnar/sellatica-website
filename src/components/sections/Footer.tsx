@@ -75,10 +75,10 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a 
-                  href="mailto:hello@sellatica.com"
+                  href="mailto:hello@sellatica.in"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hello@sellatica.com
+                  hello@sellatica.in
                 </a>
               </li>
               <li>
