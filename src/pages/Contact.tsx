@@ -64,6 +64,17 @@ const Contact = () => {
       setIsSubmitting(false);
       return;
     }
+
+    // Send email notification (don't block on failure)
+    supabase.functions.invoke('send-contact-notification', {
+      body: {
+        name: validation.data.name,
+        email: validation.data.email,
+        company: validation.data.company,
+        phone: validation.data.phone,
+        message: validation.data.message,
+      },
+    }).catch(err => console.error('Email notification failed:', err));
     
     toast({
       title: "Message sent successfully",
