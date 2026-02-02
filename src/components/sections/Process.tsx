@@ -34,57 +34,53 @@ const Process = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" ref={ref} className="py-24 bg-gradient-hero relative">
-      <div className="container mx-auto px-6">
+    <section id="process" ref={ref} className="py-24 lg:py-32 bg-card/30 border-t border-border/50">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-2xl mb-16"
         >
-          <span className="text-sm font-medium text-primary uppercase tracking-wider">How We Work</span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-foreground mt-4 mb-6">
-            Every Engagement is Custom-Designed
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+            How We Work
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
+            Every engagement is custom-designed
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            No fixed packages. Solutions tailored to your specific operational challenges 
-            and business objectives.
-          </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {phases.map((phase, index) => (
             <motion.div
               key={phase.number}
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative flex gap-6 pb-12 last:pb-0"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative"
             >
-              {/* Timeline line */}
+              {/* Connecting line for desktop */}
               {index < phases.length - 1 && (
-                <div className="absolute left-[27px] top-14 bottom-0 w-px bg-border" />
+                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-border/50 -z-10" />
               )}
               
-              {/* Number circle */}
-              <div className="relative z-10 flex-shrink-0 w-14 h-14 rounded-full bg-secondary border border-border flex items-center justify-center">
-                <span className="font-display text-sm font-semibold text-primary">{phase.number}</span>
+              <div className="mb-6">
+                <span className="font-display text-5xl lg:text-6xl font-medium text-muted-foreground/20">
+                  {phase.number}
+                </span>
               </div>
-
-              {/* Content */}
-              <div className="flex-1 pt-2">
-                <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h3 className="font-display text-xl font-semibold text-foreground">
-                    {phase.title}
-                  </h3>
-                  <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                    {phase.duration}
-                  </span>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  {phase.description}
-                </p>
+              
+              <div className="flex items-center gap-3 mb-3">
+                <h3 className="font-display text-xl font-medium text-foreground">
+                  {phase.title}
+                </h3>
               </div>
+              <span className="text-xs text-muted-foreground mb-4 block">
+                {phase.duration}
+              </span>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {phase.description}
+              </p>
             </motion.div>
           ))}
         </div>
