@@ -7,6 +7,16 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  company: z.string().trim().max(200, "Company name must be less than 200 characters").optional(),
+  phone: z.string().trim().max(50, "Phone must be less than 50 characters").optional(),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,7 +24,7 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
-    revenue: '',
+    phone: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,9 +32,38 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Validate form data
+    const validation = contactSchema.safeParse(formData);
+    if (!validation.success) {
+      toast({
+        title: "Validation Error",
+        description: validation.error.errors[0]?.message || "Please check your input",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from('contact_submissions')
+      .insert({
+        name: validation.data.name,
+        email: validation.data.email,
+        company: validation.data.company || null,
+        phone: validation.data.phone || null,
+        message: validation.data.message,
+      });
+
+    if (error) {
+      toast({
+        title: "Submission failed",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
     
     toast({
       title: "Message sent successfully",
@@ -35,7 +74,7 @@ const Contact = () => {
       name: '',
       email: '',
       company: '',
-      revenue: '',
+      phone: '',
       message: '',
     });
     setIsSubmitting(false);
@@ -165,24 +204,18 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="revenue" className="text-sm font-medium text-foreground block mb-2">
-                      Annual Revenue
+                    <label htmlFor="phone" className="text-sm font-medium text-foreground block mb-2">
+                      Phone Number
                     </label>
-                    <select
-                      id="revenue"
-                      name="revenue"
-                      value={formData.revenue}
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
                       onChange={handleChange}
-                      className="w-full h-10 px-3 rounded-md bg-card border border-border/50 text-foreground text-sm focus:border-foreground/50 focus:outline-none focus:ring-1 focus:ring-foreground/20"
-                    >
-                      <option value="">Select range</option>
-                      <option value="1-5m">$1M - $5M</option>
-                      <option value="5-10m">$5M - $10M</option>
-                      <option value="10-25m">$10M - $25M</option>
-                      <option value="25-50m">$25M - $50M</option>
-                      <option value="50-100m">$50M - $100M</option>
-                      <option value="100m+">$100M+</option>
-                    </select>
+                      placeholder="+1 (555) 000-0000"
+                      className="bg-card border-border/50 focus:border-foreground/50"
+                    />
                   </div>
                 </div>
 
