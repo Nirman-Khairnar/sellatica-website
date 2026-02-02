@@ -100,9 +100,9 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-foreground mt-1" />
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Direct Email</h3>
-                    <p className="text-sm text-muted-foreground">
-                      hello@sellatica.com
-                    </p>
+                    <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      hello@sellatica.in
+                    </a>
                   </div>
                 </div>
               </div>
