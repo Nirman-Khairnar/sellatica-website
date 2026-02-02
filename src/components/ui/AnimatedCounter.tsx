@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, forwardRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 interface AnimatedCounterProps {
@@ -9,16 +9,17 @@ interface AnimatedCounterProps {
   className?: string;
 }
 
-const AnimatedCounter = ({ 
+const AnimatedCounter = forwardRef<HTMLSpanElement, AnimatedCounterProps>(({ 
   end, 
   duration = 2, 
   suffix = '', 
   prefix = '',
   className = '' 
-}: AnimatedCounterProps) => {
+}, forwardedRef) => {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const internalRef = useRef<HTMLSpanElement>(null);
+  const ref = (forwardedRef as React.RefObject<HTMLSpanElement>) || internalRef;
+  const isInView = useInView(internalRef, { once: true, margin: "-50px" });
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const AnimatedCounter = ({
       const animate = () => {
         const now = Date.now();
         const progress = Math.min((now - startTime) / (duration * 1000), 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
         
         setCount(Math.floor(easeProgress * end));
 
@@ -46,16 +47,15 @@ const AnimatedCounter = ({
   }, [isInView, end, duration]);
 
   return (
-    <motion.span
-      ref={ref}
+    <span
+      ref={internalRef}
       className={className}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4 }}
     >
       {prefix}{count.toLocaleString()}{suffix}
-    </motion.span>
+    </span>
   );
-};
+});
+
+AnimatedCounter.displayName = 'AnimatedCounter';
 
 export default AnimatedCounter;

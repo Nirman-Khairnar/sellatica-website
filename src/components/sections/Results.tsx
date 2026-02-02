@@ -116,13 +116,11 @@ const Results = () => {
                 {study.metrics.map((metric) => (
                   <div key={metric.label}>
                     <div className="font-display text-2xl font-medium text-foreground">
-                      {isInView && (
-                        <AnimatedCounter
-                          end={metric.value}
-                          prefix={metric.prefix}
-                          suffix={metric.suffix}
-                        />
-                      )}
+                      <AnimatedCounter
+                        end={metric.value}
+                        prefix={metric.prefix}
+                        suffix={metric.suffix}
+                      />
                     </div>
                     <p className="text-xs text-muted-foreground">{metric.label}</p>
                   </div>
