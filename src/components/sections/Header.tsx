@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Services', href: '/services' },
   { name: 'Results', href: '/results' },
   { name: 'About', href: '/about' },
+  { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -35,17 +36,16 @@ const Header = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? 'bg-background/95 backdrop-blur-xl border-b border-border/50' 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+            ? 'bg-background/95 backdrop-blur-xl border-b border-border/50'
             : 'bg-transparent'
-        }`}
+          }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
             <Link to="/" className="relative z-10">
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
@@ -66,11 +66,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 ${
-                    location.pathname === item.href
+                  className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 ${location.pathname === item.href
                       ? 'text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                    }`}
                 >
                   {item.name}
                   {location.pathname === item.href && (
@@ -87,9 +86,9 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <Link to="/contact">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
+                <Button
+                  variant="outline"
+                  size="sm"
                   className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
                 >
                   <span>Book Discovery Call</span>
@@ -142,7 +141,7 @@ const Header = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div 
+            <div
               className="absolute inset-0 bg-background/98 backdrop-blur-xl"
               onClick={() => setMobileMenuOpen(false)}
             />
@@ -162,11 +161,10 @@ const Header = () => {
                 >
                   <Link
                     to={item.href}
-                    className={`text-3xl font-display font-medium transition-colors ${
-                      location.pathname === item.href
+                    className={`text-3xl font-display font-medium transition-colors ${location.pathname === item.href
                         ? 'text-foreground'
                         : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </Link>
