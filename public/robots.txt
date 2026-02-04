@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.sellatica.com/sitemap.xml
+Sitemap: https://www.sellatica.in/sitemap.xml
