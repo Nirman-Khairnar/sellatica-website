@@ -30,7 +30,7 @@ const faqs = [
     },
     {
         question: "How do I contact Sellatica?",
-        answer: "You can reach us at hello@sellatica.in. We're located in Bilimora, Gujarat, India."
+        answer: "You can reach us at hello@sellatica.in."
     }
 ];
 
