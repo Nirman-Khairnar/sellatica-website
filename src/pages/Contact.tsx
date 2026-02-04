@@ -9,6 +9,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { z } from 'zod';
+import SEO from '@/components/SEO';
+import { Helmet } from 'react-helmet-async';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -75,12 +77,12 @@ const Contact = () => {
         message: validation.data.message,
       },
     }).catch(err => console.error('Email notification failed:', err));
-    
+
     toast({
       title: "Message sent successfully",
       description: "We'll get back to you within 24 hours.",
     });
-    
+
     setFormData({
       name: '',
       email: '',
@@ -100,8 +102,32 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Sellatica | Schedule a Discovery Call"
+        description="Ready to transform your operations? Book a discovery call with Sellatica to discuss your challenges and explore AI solutions."
+        canonical="https://www.sellatica.in/contact"
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.sellatica.in"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact",
+              "item": "https://www.sellatica.in/contact"
+            }]
+          })}
+        </script>
+      </Helmet>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
@@ -116,11 +142,11 @@ const Contact = () => {
                 Get in Touch
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-                Let's discuss your 
+                Let's discuss your
                 <span className="text-muted-foreground"> operations</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Every engagement starts with a discovery call. We'll explore your operational 
+                Every engagement starts with a discovery call. We'll explore your operational
                 challenges and determine if we're the right fit to help.
               </p>
 
@@ -135,7 +161,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <MessageSquare className="w-6 h-6 text-foreground mt-1" />
                   <div>
@@ -145,7 +171,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <Mail className="w-6 h-6 text-foreground mt-1" />
                   <div>
@@ -246,9 +272,9 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full group"
                   disabled={isSubmitting}
                 >
@@ -278,40 +304,40 @@ const Contact = () => {
             <h2 className="font-display text-3xl font-medium text-foreground text-center mb-12">
               Common Questions
             </h2>
-            
+
             <div className="space-y-8">
               <div>
                 <h3 className="font-medium text-foreground mb-2">Who is Sellatica a good fit for?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Mid-market businesses ($5M-$100M revenue) experiencing operational chaos from growth. 
-                  If you have data trapped in multiple systems, manual processes killing productivity, 
+                  Mid-market businesses ($5M-$100M revenue) experiencing operational chaos from growth.
+                  If you have data trapped in multiple systems, manual processes killing productivity,
                   or can't scale without proportional hiring—we can help.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-foreground mb-2">How long does a typical engagement take?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Total timeline is typically 6-14 weeks from discovery to deployment. 
-                  However, we deploy highest-impact modules first, so you'll see results 
+                  Total timeline is typically 6-14 weeks from discovery to deployment.
+                  However, we deploy highest-impact modules first, so you'll see results
                   within weeks, not months.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-foreground mb-2">What's the investment range?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Every engagement is custom-designed based on your specific challenges and goals. 
-                  We provide detailed proposals with clear ROI projections after the discovery phase. 
+                  Every engagement is custom-designed based on your specific challenges and goals.
+                  We provide detailed proposals with clear ROI projections after the discovery phase.
                   Typical projects achieve break-even within 2-4 weeks.
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="font-medium text-foreground mb-2">Do I need technical expertise to work with you?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  No. We handle all technical implementation. Your team just needs to share 
-                  how they work today and what outcomes they want. We build systems that integrate 
+                  No. We handle all technical implementation. Your team just needs to share
+                  how they work today and what outcomes they want. We build systems that integrate
                   with existing workflows—minimal behavior change required.
                 </p>
               </div>

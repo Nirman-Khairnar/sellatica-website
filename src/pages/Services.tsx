@@ -4,6 +4,8 @@ import Footer from '@/components/sections/Footer';
 import { ArrowRight, Search, Cog, Rocket, TrendingUp, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import SEO from '@/components/SEO';
+import { Helmet } from 'react-helmet-async';
 
 const services = [
   {
@@ -63,8 +65,32 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="AI Solutions & Services | Sellatica"
+        description="Explore our custom AI system development services for mid-market businesses. Strategic assessment, system build, and optimization."
+        canonical="https://www.sellatica.in/services"
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.sellatica.in"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.sellatica.in/services"
+            }]
+          })}
+        </script>
+      </Helmet>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
@@ -78,11 +104,11 @@ const Services = () => {
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              Custom-built systems for 
+              Custom-built systems for
               <span className="text-muted-foreground"> operational excellence</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Not generic consulting. Not off-the-shelf software. Every engagement is designed 
+              Not generic consulting. Not off-the-shelf software. Every engagement is designed
               specifically for your operational chaos and business goals.
             </p>
           </motion.div>
@@ -109,7 +135,7 @@ const Services = () => {
                       {service.phase}
                     </span>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="lg:col-span-6">
                     <div className="flex items-center gap-4 mb-4">
@@ -123,7 +149,7 @@ const Services = () => {
                       {service.description}
                     </p>
                   </div>
-                  
+
                   {/* Features */}
                   <div className="lg:col-span-4">
                     <ul className="space-y-3">
@@ -160,31 +186,31 @@ const Services = () => {
                 Industry-specific intelligence, not generic tools
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Our systems understand your business context—legal metrics, real estate deal cycles, 
-                freight Incoterms, content brand voice. We build for your existing workflows, 
+                Our systems understand your business context—legal metrics, real estate deal cycles,
+                freight Incoterms, content brand voice. We build for your existing workflows,
                 meeting teams where they already work.
               </p>
             </div>
-            
+
             <div className="space-y-6">
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <h3 className="font-medium text-foreground mb-2">Built for Existing Workflows</h3>
                 <p className="text-sm text-muted-foreground">
-                  Systems integrate where teams already work—Slack, WhatsApp, Gmail. 
+                  Systems integrate where teams already work—Slack, WhatsApp, Gmail.
                   Minimal behavior change required.
                 </p>
               </div>
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <h3 className="font-medium text-foreground mb-2">Learning Systems</h3>
                 <p className="text-sm text-muted-foreground">
-                  AI accuracy improves as systems learn from team feedback—one client saw 
+                  AI accuracy improves as systems learn from team feedback—one client saw
                   accuracy increase from 82% to 94% in 4 months.
                 </p>
               </div>
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
                 <p className="text-sm text-muted-foreground">
-                  Custom-built infrastructure deployed on your accounts. You own the system, 
+                  Custom-built infrastructure deployed on your accounts. You own the system,
                   not dependent on subscriptions to us.
                 </p>
               </div>

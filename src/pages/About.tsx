@@ -4,6 +4,8 @@ import Footer from '@/components/sections/Footer';
 import { ArrowRight, Target, Users, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import SEO from '@/components/SEO';
+import { Helmet } from 'react-helmet-async';
 
 const values = [
   {
@@ -31,8 +33,32 @@ const values = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Sellatica | AI System Integration Experts"
+        description="We build custom AI systems that transform operational chaos into predictable execution. Learn about our mission and core principles."
+        canonical="https://www.sellatica.in/about"
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.sellatica.in"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About",
+              "item": "https://www.sellatica.in/about"
+            }]
+          })}
+        </script>
+      </Helmet>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
@@ -46,12 +72,12 @@ const About = () => {
               About Sellatica
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              We transform operational chaos into 
+              We transform operational chaos into
               <span className="text-muted-foreground"> predictable execution</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Sellatica is an AI-powered systems integration firm that designs and implements 
-              custom tech systems for mid-market businesses—turning fragmented tools into 
+              Sellatica is an AI-powered systems integration firm that designs and implements
+              custom tech systems for mid-market businesses—turning fragmented tools into
               unified workflows that deliver measurable value.
             </p>
           </motion.div>
@@ -75,16 +101,16 @@ const About = () => {
                 Bridging the gap between tech investment and business value
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                89% of enterprises adopt AI and automation tools, but only 51% achieve expected outcomes. 
+                89% of enterprises adopt AI and automation tools, but only 51% achieve expected outcomes.
                 The problem isn't the technology—it's the implementation.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We exist to close that gap. Through custom-built operational systems, we help 
-                growth-stage businesses move beyond pilots to production-ready infrastructure 
+                We exist to close that gap. Through custom-built operational systems, we help
+                growth-stage businesses move beyond pilots to production-ready infrastructure
                 that scales with them.
               </p>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}

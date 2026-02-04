@@ -5,6 +5,8 @@ import { ArrowRight, Building2, Home, Truck, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
+import SEO from '@/components/SEO';
+import { Helmet } from 'react-helmet-async';
 
 const caseStudies = [
   {
@@ -72,8 +74,32 @@ const caseStudies = [
 const Results = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Case Studies & Results | Sellatica"
+        description="See how Sellatica delivers measurable ROI for mid-market businesses. Real case studies with proven outcomes."
+        canonical="https://www.sellatica.in/results"
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.sellatica.in"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Results",
+              "item": "https://www.sellatica.in/results"
+            }]
+          })}
+        </script>
+      </Helmet>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
@@ -87,11 +113,11 @@ const Results = () => {
               Case Studies
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              Proven results across 
+              Proven results across
               <span className="text-muted-foreground"> industries</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Real outcomes from real clients. Every system we build delivers measurable 
+              Real outcomes from real clients. Every system we build delivers measurable
               business value—typically within weeks of deployment.
             </p>
           </motion.div>
@@ -133,7 +159,7 @@ const Results = () => {
                       <span className="text-sm font-medium text-foreground">{study.breakeven}</span>
                     </div>
                   </div>
-                  
+
                   {/* Challenge & Solution */}
                   <div className="lg:col-span-4 space-y-6">
                     <div>
@@ -153,7 +179,7 @@ const Results = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   {/* Results */}
                   <div className="lg:col-span-4">
                     <div className="grid grid-cols-2 gap-6">
