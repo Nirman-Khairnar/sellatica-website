@@ -12,52 +12,56 @@ const services = [
     icon: Search,
     phase: '01',
     title: 'Strategic Assessment & Architecture Design',
-    description: 'We begin with a deep-dive analysis of your current systems, data flows, and manual workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a roadmap for ROI. We don\'t just look at technology; we look at business outcomes.',
+    description: 'We begin with a deep-dive analysis of your current systems, data flows, and manual workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a roadmap for ROI. We don\'t just look at technology; we look at business outcomes. For example, identifying where manual data entry in freight forwarding causes 20% delays.',
     features: [
       'Comprehensive audit of current tech stack and workflows',
       'Identification of integration gaps and automation opportunities',
       'Design of end-to-end, scalable system architecture',
       'ROI modeling and detailed business case development',
     ],
+    whyMatters: 'Without a clear architectural blueprint, 60% of automation projects fail. We ensure every dollar spent drives specific, measurable operational improvements.',
     duration: '1-2 weeks',
   },
   {
     icon: Cog,
     phase: '02',
     title: 'System Build & Integration',
-    description: 'We execute the build, connecting fragmented tools (CRM, ERP, Email, Spreadsheets) into a unified ecosystem. We build custom AI agents and automation layers that handle repetitive tasks with human-like precision, creating a single source of truth for your data.',
+    description: 'We execute the build, connecting fragmented tools (CRM, ERP, Email, Spreadsheets) into a unified ecosystem. We build custom AI agents and automation layers that handle repetitive tasks with human-like precision, creating a single source of truth for your data. We might automate invoice processing using optical character recognition (OCR) or build a custom CRM agent that pre-qualifies leads 24/7.',
     features: [
       'Connect 8-15 fragmented systems via secure APIs',
       'Build AI-powered automation layers for complex tasks',
       'Create unified data warehouses for real-time insights',
       'Deploy real-time dashboards and custom alert systems',
     ],
+    whyMatters: 'Disconnected tools create data silos. A unified ecosystem provides a single source of truth, enabling real-time decision-making and eliminating manual reconciliation errors.',
     duration: '4-10 weeks',
   },
   {
     icon: Rocket,
     phase: '03',
     title: 'Deployment & Training',
-    description: 'Technology is only as good as its adoption. We manage a staged rollout to ensure system stability and provide hands-on training for your team. We ensure your staff feels empowered, not replaced, by the new tools.',
+    description: 'Technology is only as good as its adoption. We manage a staged rollout to ensure system stability and provide hands-on training for your team. We ensure your staff feels empowered, not replaced, by the new tools. We conduct role-specific workshops, ensuring your sales team knows exactly how to leverage their new AI assistant effectively.',
     features: [
       'Staged, low-risk rollout to minimize operational disruption',
       'Hands-on team training and workshops on new interfaces',
       'Setup of comprehensive performance monitoring',
       'Creation of detailed Documentation and SOPs',
     ],
+    whyMatters: 'Adoption is the biggest hurdle in tech implementation. Our hands-on training ensures your team is confident and productive from day one, maximizing immediate ROI.',
     duration: '1-2 weeks',
   },
   {
     icon: TrendingUp,
     phase: '04',
     title: 'Optimization & Scale',
-    description: 'Launch is just the beginning. We implement feedback loops where the AI system learns from human corrections, improving accuracy over time. We support you as you scale, adding new capabilities and handling increased volume.',
+    description: 'Launch is just the beginning. We implement feedback loops where the AI system learns from human corrections, improving accuracy over time. We support you as you scale, adding new capabilities and handling increased volume. If the AI misclassifies a complex customer query, our feedback loop allows a human to correct it, preventing the same error from happening twice.',
     features: [
       'Continuous system performance tracking and tuning',
       'AI accuracy improvement mechanisms over time',
       'Quarterly strategy and optimization reviews',
       'On-demand scaling support as your business grows',
     ],
+    whyMatters: 'Static systems degrade. Our adaptive systems get smarter with use, compounding value over time and ensuring your infrastructure remains a competitive advantage.',
     duration: 'Ongoing',
   },
 ];
@@ -88,6 +92,39 @@ const Services = () => {
             }]
           })}
         </script>
+        {/* Service-Specific FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How long does a typical implementation take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A typical end-to-end implementation ranges from 6 to 14 weeks. This includes 1-2 weeks for assessment, 4-10 weeks for build and integration, and 1-2 weeks for deployment and training."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to replace my existing software?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Our methodology focuses on integrating your existing tools (like CRMs, ERPs, and spreadsheets) into a unified system. We only recommend replacements if a tool is critically blocking automation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you ensure data security?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We build on secure, enterprise-grade cloud infrastructure (like AWS or Google Cloud) with strict access controls. Your data remains yours; we design systems where we do not retain or sell your proprietary information."
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Header />
 
@@ -107,9 +144,12 @@ const Services = () => {
               Custom-built systems for
               <span className="text-muted-foreground"> operational excellence</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
               Not generic consulting. Not off-the-shelf software. Every engagement is designed
               specifically for your operational chaos and business goals.
+            </p>
+            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6 italic">
+              Our approach is rooted in direct operational experience. We don't just patch software holes; we re-architect how your data flows across the entire organization. By combining deep business logic with cutting-edge AI automation, we create systems that are not only efficient but resilient—capable of adapting as your business scales and market conditions change.
             </p>
           </motion.div>
         </div>
@@ -145,9 +185,18 @@ const Services = () => {
                     <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed mb-6">
                       {service.description}
                     </p>
+                    {/* Why This Matters Subsection */}
+                    <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
+                      <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                         Why This Matters
+                      </h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {service.whyMatters}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Features */}
