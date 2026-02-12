@@ -47,50 +47,56 @@ const Contact = () => {
       return;
     }
 
-    const { data, error } = await supabase
-      .from('contact_submissions')
-      .insert({
-        name: validation.data.name,
-        email: validation.data.email,
-        company: validation.data.company || null,
-        phone: validation.data.phone || null,
-        message: validation.data.message,
+    try {
+      // Construct message with additional details
+      const fullMessage = `
+Name: ${validation.data.name}
+Email: ${validation.data.email}
+Company: ${validation.data.company || 'N/A'}
+Phone: ${validation.data.phone || 'N/A'}
+
+Message:
+${validation.data.message}
+      `.trim();
+
+      const res = await fetch('https://xolq8brqgd.execute-api.us-east-1.amazonaws.com/Prod/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: validation.data.email,
+          name: validation.data.name,
+          message: fullMessage,
+        }),
       });
 
-    if (error) {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      toast({
+        title: "Message sent successfully",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Submission error:', error);
       toast({
         title: "Submission failed",
-        description: "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again or email us directly.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-      return;
     }
-
-    // Send email notification (don't block on failure)
-    supabase.functions.invoke('send-contact-notification', {
-      body: {
-        name: validation.data.name,
-        email: validation.data.email,
-        company: validation.data.company,
-        phone: validation.data.phone,
-        message: validation.data.message,
-      },
-    }).catch(err => console.error('Email notification failed:', err));
-
-    toast({
-      title: "Message sent successfully",
-      description: "We'll get back to you within 24 hours.",
-    });
-
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      message: '',
-    });
-    setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
