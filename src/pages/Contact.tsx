@@ -59,7 +59,7 @@ Message:
 ${validation.data.message}
       `.trim();
 
-      const res = await fetch('https://xolq8brqgd.execute-api.us-east-1.amazonaws.com/Prod/form', {
+      const res = await fetch('https://ggi55uz2hk.execute-api.ap-south-1.amazonaws.com/Prod/form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
