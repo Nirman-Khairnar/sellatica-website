@@ -11,7 +11,7 @@ import SEO from '@/components/SEO';
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SEO />
+      <SEO canonical="https://www.sellatica.in" />
       <Header />
       <Hero />
       <Problem />
