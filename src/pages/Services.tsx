@@ -92,6 +92,7 @@ const Services = () => {
             }]
           })}
         </script>
+        {/* Service-Specific FAQ Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -128,59 +129,29 @@ const Services = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.15)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.15)_1px,transparent_1px)] bg-[size:80px_80px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[60px]" />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="pt-32 lg:pt-40 pb-20">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
           >
-            <span className="inline-flex items-center gap-3 text-sm text-muted-foreground uppercase tracking-[0.2em]">
-              <span className="w-12 h-px bg-[hsl(45_80%_60%/0.5)]" />
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
               Our Services
             </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
+              Custom-built systems for
+              <span className="text-muted-foreground"> operational excellence</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
+              Not generic consulting. Not off-the-shelf software. Every engagement is designed
+              specifically for your operational chaos and business goals.
+            </p>
+            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6 italic">
+              Our approach is rooted in direct operational experience. We don't just patch software holes; we re-architect how your data flows across the entire organization. By combining deep business logic with cutting-edge AI automation, we create systems that are not only efficient but resilient—capable of adapting as your business scales and market conditions change.
+            </p>
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-foreground leading-[1.05] mb-4 max-w-5xl"
-          >
-            Custom-built systems for
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-gold-gradient leading-[1.05] mb-8 max-w-5xl"
-          >
-            operational excellence
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8"
-          >
-            Not generic consulting. Not off-the-shelf software. Every engagement is designed
-            specifically for your operational chaos and business goals.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-[hsl(45_80%_60%/0.3)] pl-6 italic"
-          >
-            Our approach is rooted in direct operational experience. We don't just patch software holes; we re-architect how your data flows across the entire organization. By combining deep business logic with cutting-edge AI automation, we create systems that are not only efficient but resilient—capable of adapting as your business scales and market conditions change.
-          </motion.p>
         </div>
       </section>
 
@@ -200,7 +171,7 @@ const Services = () => {
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
                   {/* Phase Number */}
                   <div className="lg:col-span-2">
-                    <span className="font-display text-4xl lg:text-5xl font-medium text-gold-gradient opacity-60 group-hover:opacity-100 transition-opacity">
+                    <span className="font-display text-4xl lg:text-5xl font-medium text-muted-foreground/30 group-hover:text-muted-foreground/50 transition-colors">
                       {service.phase}
                     </span>
                   </div>
@@ -208,9 +179,7 @@ const Services = () => {
                   {/* Content */}
                   <div className="lg:col-span-6">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-gold-subtle flex items-center justify-center">
-                        <service.icon className="w-5 h-5 text-gold" />
-                      </div>
+                      <service.icon className="w-6 h-6 text-foreground" />
                       <span className="text-sm text-muted-foreground">{service.duration}</span>
                     </div>
                     <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
@@ -220,10 +189,9 @@ const Services = () => {
                       {service.description}
                     </p>
                     {/* Why This Matters Subsection */}
-                    <div className="p-5 rounded-lg border border-[hsl(45_80%_60%/0.15)] bg-gold-subtle">
+                    <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
                       <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[hsl(45_80%_60%)]" />
-                        Why This Matters
+                         Why This Matters
                       </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {service.whyMatters}
@@ -236,7 +204,7 @@ const Services = () => {
                     <ul className="space-y-3">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-gold mt-1 flex-shrink-0" />
+                          <Check className="w-4 h-4 text-foreground mt-1 flex-shrink-0" />
                           <span className="text-sm text-muted-foreground">{feature}</span>
                         </li>
                       ))}
@@ -250,9 +218,8 @@ const Services = () => {
       </section>
 
       {/* What We Don't Do */}
-      <section className="py-24 lg:py-32 border-t border-border/50 bg-card/30 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.03)_0%,transparent_70%)] blur-[40px]" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="py-20 border-t border-border/50 bg-card/30">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,12 +228,11 @@ const Services = () => {
             className="grid lg:grid-cols-2 gap-16"
           >
             <div>
-              <span className="inline-flex items-center gap-3 text-sm text-muted-foreground uppercase tracking-[0.2em] mb-6">
-                <span className="w-8 h-px bg-[hsl(45_80%_60%/0.5)]" />
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
                 What Makes Us Different
               </span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
-                Industry-specific intelligence, not <span className="text-gold-gradient">generic tools</span>
+              <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+                Industry-specific intelligence, not generic tools
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Our systems understand your business context—legal metrics, real estate deal cycles,
@@ -276,46 +242,54 @@ const Services = () => {
             </div>
 
             <div className="space-y-6">
-              {[
-                { title: 'Built for Existing Workflows', desc: 'Systems integrate where teams already work—Slack, WhatsApp, Gmail. Minimal behavior change required.' },
-                { title: 'Learning Systems', desc: 'AI accuracy improves as systems learn from team feedback—one client saw accuracy increase from 82% to 94% in 4 months.' },
-                { title: 'You Own Everything', desc: 'Custom-built infrastructure deployed on your accounts. You own the system, not dependent on subscriptions to us.' },
-              ].map((item) => (
-                <div key={item.title} className="p-6 rounded-xl border border-border/50 hover:border-[hsl(45_80%_60%/0.3)] transition-all duration-300 bg-card/50 hover-glow-gold">
-                  <h3 className="font-medium text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">Built for Existing Workflows</h3>
+                <p className="text-sm text-muted-foreground">
+                  Systems integrate where teams already work—Slack, WhatsApp, Gmail.
+                  Minimal behavior change required.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">Learning Systems</h3>
+                <p className="text-sm text-muted-foreground">
+                  AI accuracy improves as systems learn from team feedback—one client saw
+                  accuracy increase from 82% to 94% in 4 months.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
+                <p className="text-sm text-muted-foreground">
+                  Custom-built infrastructure deployed on your accounts. You own the system,
+                  not dependent on subscriptions to us.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 border-t border-border/50 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[40px]" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="py-20 border-t border-border/50">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-2xl mx-auto"
           >
-            <div className="p-10 lg:p-16 rounded-2xl border border-[hsl(45_80%_60%/0.15)] glow-gold">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
-                Ready to discuss your <span className="text-gold-gradient">operations</span>?
-              </h2>
-              <p className="text-muted-foreground mb-8 text-lg">
-                Every engagement starts with a discovery call to understand your specific challenges.
-              </p>
-              <Link to="/contact">
-                <Button size="lg" className="group text-base px-8 py-6 hover-glow-gold">
-                  <span>Book Discovery Call</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+              Ready to discuss your operations?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Every engagement starts with a discovery call to understand your specific challenges.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="group">
+                <span>Book Discovery Call</span>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

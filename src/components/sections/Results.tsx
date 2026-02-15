@@ -68,15 +68,14 @@ const Results = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-6"
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16"
         >
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
               Proven Results
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-              Don't take our word for it.{' '}
-              <span className="text-muted-foreground">Read the numbers.</span>
+              Real systems, real outcomes
             </h2>
           </div>
           <Link 
@@ -88,15 +87,6 @@ const Results = () => {
           </Link>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-muted-foreground mb-16 max-w-2xl"
-        >
-          Every engagement is measured against hard business outcomes. Here's what our systems delivered.
-        </motion.p>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {caseStudies.map((study, index) => (
             <motion.div
@@ -106,13 +96,10 @@ const Results = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               onMouseEnter={() => setHoveredCase(index)}
               onMouseLeave={() => setHoveredCase(null)}
-              className="group relative p-6 lg:p-8 rounded-xl bg-card border border-border/50 hover:border-[hsl(45_80%_60%/0.3)] hover:shadow-elevated transition-all duration-300 cursor-pointer"
+              className="group relative p-6 lg:p-8 rounded-xl bg-card border border-border/50 hover:border-border transition-all cursor-pointer"
             >
-              {/* Gold accent line at top */}
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-[hsl(45_80%_60%/0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
               <div className="flex items-center gap-3 mb-6">
-                <study.icon className="w-5 h-5 text-muted-foreground group-hover:text-[hsl(45_80%_60%)] transition-colors duration-300" />
+                <study.icon className="w-5 h-5 text-foreground" />
                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
                   {study.industry}
                 </span>

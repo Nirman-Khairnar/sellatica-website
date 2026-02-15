@@ -101,50 +101,26 @@ const Results = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.15)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.15)_1px,transparent_1px)] bg-[size:80px_80px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[60px]" />
-
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="pt-32 lg:pt-40 pb-20">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
           >
-            <span className="inline-flex items-center gap-3 text-sm text-muted-foreground uppercase tracking-[0.2em]">
-              <span className="w-12 h-px bg-[hsl(45_80%_60%/0.5)]" />
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
               Case Studies
             </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
+              Proven results across
+              <span className="text-muted-foreground"> industries</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              Real outcomes from real clients. Every system we build delivers measurable
+              business value—typically within weeks of deployment.
+            </p>
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-foreground leading-[1.05] mb-4 max-w-5xl"
-          >
-            Proven results across
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-gold-gradient leading-[1.05] mb-8 max-w-5xl"
-          >
-            industries
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl"
-          >
-            Real outcomes from real clients. Every system we build delivers measurable
-            business value—typically within weeks of deployment.
-          </motion.p>
         </div>
       </section>
 
@@ -152,7 +128,7 @@ const Results = () => {
       <section className="pb-20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="space-y-0">
-            {caseStudies.map((study) => (
+            {caseStudies.map((study, index) => (
               <motion.div
                 key={study.title}
                 initial={{ opacity: 0, y: 40 }}
@@ -165,8 +141,8 @@ const Results = () => {
                   {/* Header */}
                   <div className="lg:col-span-4">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-lg bg-gold-subtle border border-[hsl(45_80%_60%/0.15)]">
-                        <study.icon className="w-6 h-6 text-gold" />
+                      <div className="p-3 rounded-lg bg-card border border-border/50">
+                        <study.icon className="w-6 h-6 text-foreground" />
                       </div>
                       <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                         {study.industry}
@@ -178,9 +154,9 @@ const Results = () => {
                     <p className="text-sm text-muted-foreground mb-6">
                       {study.client}
                     </p>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[hsl(45_80%_60%/0.2)] bg-gold-subtle">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50">
                       <span className="text-xs text-muted-foreground">Break-even:</span>
-                      <span className="text-sm font-medium text-gold">{study.breakeven}</span>
+                      <span className="text-sm font-medium text-foreground">{study.breakeven}</span>
                     </div>
                   </div>
 
@@ -209,7 +185,7 @@ const Results = () => {
                     <div className="grid grid-cols-2 gap-6">
                       {study.results.map((result) => (
                         <div key={result.label} className="text-center lg:text-left">
-                          <div className="font-display text-2xl lg:text-3xl font-medium text-gold-gradient mb-1">
+                          <div className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-1">
                             <AnimatedCounter
                               end={result.value}
                               prefix={result.prefix}
@@ -230,9 +206,8 @@ const Results = () => {
       </section>
 
       {/* Summary Stats */}
-      <section className="py-24 lg:py-32 border-t border-border/50 bg-card/30 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[60px]" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="py-20 border-t border-border/50 bg-card/30">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,25 +216,25 @@ const Results = () => {
             className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center"
           >
             <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-gold-gradient mb-2">
+              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
                 <AnimatedCounter end={1500} suffix="%" duration={2.5} />
               </div>
               <span className="text-sm text-muted-foreground">Average Year 1 ROI</span>
             </div>
             <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-gold-gradient mb-2">
+              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
                 <AnimatedCounter end={3} suffix=" weeks" duration={2} />
               </div>
               <span className="text-sm text-muted-foreground">Avg. Break-even</span>
             </div>
             <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-gold-gradient mb-2">
+              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
                 <AnimatedCounter end={94} suffix="%" duration={2} />
               </div>
               <span className="text-sm text-muted-foreground">AI Accuracy Achieved</span>
             </div>
             <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-gold-gradient mb-2">
+              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
                 <AnimatedCounter end={8} suffix="-15" duration={2} />
               </div>
               <span className="text-sm text-muted-foreground">Systems Integrated</span>
@@ -269,30 +244,27 @@ const Results = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-24 lg:py-32 border-t border-border/50 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[40px]" />
-        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <section className="py-20 border-t border-border/50">
+        <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-2xl mx-auto"
           >
-            <div className="p-10 lg:p-16 rounded-2xl border border-[hsl(45_80%_60%/0.15)] glow-gold">
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
-                What could we build <span className="text-gold-gradient">for you</span>?
-              </h2>
-              <p className="text-muted-foreground mb-8 text-lg">
-                Every business has unique operational challenges. Let's discuss yours.
-              </p>
-              <Link to="/contact" className="block">
-                <Button size="lg" className="group text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 hover-glow-gold w-full sm:w-auto">
-                  <span>Start Your Transformation</span>
-                  <ArrowRight className="w-4 h-4 ml-2 shrink-0 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+              What could we build for you?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Every business has unique operational challenges. Let's discuss yours.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="group">
+                <span>Start Your Transformation</span>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

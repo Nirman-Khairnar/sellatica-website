@@ -15,7 +15,7 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="py-16 lg:py-20 bg-background border-t border-[hsl(45_80%_60%/0.1)]">
+    <footer className="py-16 lg:py-20 bg-background border-t border-border/50">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
@@ -24,8 +24,8 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Enterprise-grade AI systems for companies ready to scale 
-              without the chaos.
+              AI-powered systems integration for mid-market businesses experiencing 
+              operational chaos from growth.
             </p>
           </div>
 
