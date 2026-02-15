@@ -72,8 +72,13 @@ const FAQ = () => {
 
             <Header />
 
-            <main className="pt-32 lg:pt-40 pb-20">
-                <div className="container mx-auto px-6 lg:px-12">
+            <main className="relative pt-32 lg:pt-40 pb-20 overflow-hidden">
+                {/* Background effects */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.15)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.15)_1px,transparent_1px)] bg-[size:80px_80px]" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[60px]" />
+
+                <div className="container mx-auto px-6 lg:px-12 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -81,23 +86,25 @@ const FAQ = () => {
                         className="max-w-3xl mx-auto"
                     >
                         <div className="text-center mb-16">
-                            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
+                            <span className="inline-flex items-center gap-3 text-sm text-muted-foreground uppercase tracking-[0.2em] mb-6 justify-center">
+                                <span className="w-8 h-px bg-[hsl(45_80%_60%/0.5)]" />
                                 Common Questions
+                                <span className="w-8 h-px bg-[hsl(45_80%_60%/0.5)]" />
                             </span>
-                            <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] mb-6 flex items-center justify-center gap-4">
-                                Frequently Asked Questions
-                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground/50" />
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-6 flex items-center justify-center gap-4">
+                                Frequently Asked <span className="text-gold-gradient">Questions</span>
+                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-gold opacity-50" />
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 Everything you need to know about our services, process, and results.
                             </p>
                         </div>
 
-                        <div className="bg-card border border-border/50 rounded-xl p-6 md:p-8">
+                        <div className="p-6 md:p-8 rounded-2xl border border-[hsl(45_80%_60%/0.15)] bg-card/50 glow-gold">
                             <Accordion type="single" collapsible className="w-full">
                                 {faqs.map((faq, index) => (
-                                    <AccordionItem key={index} value={`item-${index}`}>
-                                        <AccordionTrigger className="text-left font-display text-lg font-medium text-foreground hover:text-primary transition-colors">
+                                    <AccordionItem key={index} value={`item-${index}`} className="border-border/50">
+                                        <AccordionTrigger className="text-left font-display text-lg font-medium text-foreground hover:text-gold transition-colors">
                                             {faq.question}
                                         </AccordionTrigger>
                                         <AccordionContent className="text-muted-foreground leading-relaxed">
