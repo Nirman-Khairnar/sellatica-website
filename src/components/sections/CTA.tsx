@@ -11,6 +11,9 @@ const CTA = () => {
 
   return (
     <section ref={ref} className="py-24 lg:py-32 bg-card/30 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[40px]" />
+
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -18,23 +21,27 @@ const CTA = () => {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-            Get Started
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-[1.1]">
-            Ready to transform your operations?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            Let's discuss how we can turn your operational chaos into predictable 
-            execution with a custom-built system designed for your specific challenges.
-          </p>
+          {/* Premium gold border frame */}
+          <div className="p-10 lg:p-16 rounded-2xl border border-[hsl(45_80%_60%/0.15)] glow-gold">
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
+              Get Started
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-[1.1]">
+              The cost of inaction is{' '}
+              <span className="text-gold-gradient">compounding daily</span>
+            </h2>
+            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+              Every week without a unified system is another week of revenue leakage, 
+              team burnout, and decisions made without data. Let's fix that.
+            </p>
 
-          <Link to="/contact">
-            <Button size="lg" className="group">
-              Schedule Discovery Call
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+            <Link to="/contact">
+              <Button size="lg" className="group text-base px-8 py-6 hover-glow-gold">
+                Book Your Free Strategy Session
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
 
           {/* Trust signals */}
           <motion.div
@@ -46,20 +53,20 @@ const CTA = () => {
             <p className="text-sm text-muted-foreground mb-6">What you get from our discovery call:</p>
             <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                Free systems audit
+                <span className="w-1 h-1 rounded-full bg-[hsl(45_80%_60%)]" />
+                Complimentary systems audit
               </span>
               <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                ROI projection
+                <span className="w-1 h-1 rounded-full bg-[hsl(45_80%_60%)]" />
+                Custom ROI forecast
               </span>
               <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                Custom architecture plan
+                <span className="w-1 h-1 rounded-full bg-[hsl(45_80%_60%)]" />
+                Architecture blueprint
               </span>
               <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                No obligation
+                <span className="w-1 h-1 rounded-full bg-[hsl(45_80%_60%)]" />
+                Zero obligation
               </span>
             </div>
           </motion.div>
