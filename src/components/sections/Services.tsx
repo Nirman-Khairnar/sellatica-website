@@ -7,26 +7,26 @@ import { ArrowRight, Check } from 'lucide-react';
 const services = [
   {
     number: '01',
-    title: 'Strategic Assessment',
-    description: 'Audit your tech stack, identify integration gaps, and design end-to-end system architecture with clear ROI modeling.',
+    title: 'Diagnose & Design',
+    description: 'We map every inefficiency, quantify the cost, and architect a system blueprint with guaranteed ROI projections before a single line of code is written.',
     features: ['Tech stack audit', 'Gap analysis', 'Architecture design', 'ROI projection'],
   },
   {
     number: '02',
-    title: 'System Build & Integration',
-    description: 'Connect fragmented tools via APIs, build AI-powered automation layers, and create unified data warehouses.',
+    title: 'Engineer & Integrate',
+    description: 'We connect your fragmented tools into a single nervous system — APIs, AI automation layers, and unified dashboards that eliminate manual handoffs.',
     features: ['API integrations', 'AI automation', 'Data warehouse', 'Real-time dashboards'],
   },
   {
     number: '03',
-    title: 'Deployment & Training',
-    description: 'Staged rollout to minimize disruption, team training on new interfaces, and comprehensive documentation.',
+    title: 'Deploy & Enable',
+    description: 'Zero-disruption rollout with hands-on team training. Your people adopt the new system confidently, with documentation they\'ll actually use.',
     features: ['Phased rollout', 'Team training', 'Performance monitoring', 'Documentation'],
   },
   {
     number: '04',
-    title: 'Continuous Optimization',
-    description: 'Learning loops that improve accuracy over time, quarterly reviews, and support for scaling as you grow.',
+    title: 'Evolve & Scale',
+    description: 'Systems that get smarter over time. Quarterly performance reviews, AI model tuning, and architecture that scales with your next growth phase.',
     features: ['Performance tracking', 'AI improvement', 'Quarterly reviews', 'Scale support'],
   },
 ];
@@ -46,10 +46,11 @@ const Services = () => {
         >
           <div className="max-w-2xl">
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-              What We Offer
+              What We Build
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-              Custom-built operational systems
+              We don't sell software.{' '}
+              <span className="text-muted-foreground">We build the system your business is missing.</span>
             </h2>
           </div>
           <Link 
@@ -68,9 +69,9 @@ const Services = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-8 lg:p-10 bg-background hover:bg-card/50 transition-colors"
+              className="p-8 lg:p-10 bg-background hover:bg-card/50 transition-all duration-300 group hover:border-[hsl(45_80%_60%/0.15)]"
             >
-              <span className="text-sm text-muted-foreground/50 font-medium mb-6 block">
+              <span className="text-sm font-medium mb-6 block text-gold-gradient">
                 {service.number}
               </span>
               <h3 className="font-display text-xl lg:text-2xl font-medium text-foreground mb-4">
@@ -82,7 +83,7 @@ const Services = () => {
               <ul className="space-y-2">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Check className="w-3 h-3 text-foreground" />
+                    <Check className="w-3 h-3 text-[hsl(45_80%_60%)]" />
                     {feature}
                   </li>
                 ))}

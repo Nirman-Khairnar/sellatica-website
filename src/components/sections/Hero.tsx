@@ -13,11 +13,12 @@ const Hero = () => {
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       
-      {/* Subtle glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-foreground/[0.02] rounded-full blur-[100px]" />
+      {/* Gold-tinted radial glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse,hsl(45_80%_60%/0.04)_0%,transparent_70%)] blur-[60px]" />
       
       <div className="container mx-auto px-6 lg:px-12 pt-32 pb-20 relative z-10">
         <div className="max-w-5xl mx-auto">
+          {/* Gold accent line + badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -25,7 +26,7 @@ const Hero = () => {
             className="mb-8"
           >
             <span className="inline-flex items-center gap-3 text-sm text-muted-foreground uppercase tracking-[0.2em]">
-              <span className="w-12 h-px bg-border" />
+              <span className="w-12 h-px bg-[hsl(45_80%_60%/0.5)]" />
               AI-Powered Systems Integration
             </span>
           </motion.div>
@@ -34,10 +35,17 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-foreground leading-[1.05] mb-8"
+            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-foreground leading-[1.05] mb-4"
           >
-            Turn operational chaos into{' '}
-            <span className="text-muted-foreground">predictable execution</span>
+            Your tech stack is growing.
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-muted-foreground leading-[1.05] mb-8"
+          >
+            Your margins aren't.
           </motion.h1>
 
           <motion.p
@@ -46,9 +54,9 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed"
           >
-            We design and implement custom AI-powered systems that transform 
-            fragmented tech stacks into unified workflows—delivering measurable 
-            business value for mid-market enterprises.
+            We architect AI-powered systems that eliminate the operational drag 
+            between your tools, your teams, and your revenue — delivering 
+            measurable ROI in weeks, not quarters.
           </motion.p>
 
           <motion.div
@@ -58,48 +66,52 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-start gap-4 mb-20"
           >
             <Link to="/contact">
-              <Button size="lg" className="group text-base">
-                Schedule Discovery Call
+              <Button size="lg" className="group text-base hover-glow-gold">
+                Book Your Free Strategy Session
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/results">
               <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-foreground text-base">
-                View Case Studies
+                See How We Did It
               </Button>
             </Link>
           </motion.div>
 
-          {/* Stats */}
+          {/* Trust line + Stats */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pt-12 border-t border-border/50"
           >
-            <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
-                <AnimatedCounter end={1500} suffix="%" />
+            <p className="text-xs text-muted-foreground uppercase tracking-[0.15em] mb-8">
+              Trusted by teams managing <span className="text-gold">$100M+</span> in revenue
+            </p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pt-12 border-t border-border/50">
+              <div>
+                <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
+                  <AnimatedCounter end={1500} suffix="%" />
+                </div>
+                <p className="text-sm text-muted-foreground">Avg. First-Year ROI</p>
               </div>
-              <p className="text-sm text-muted-foreground">Average Year 1 ROI</p>
-            </div>
-            <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
-                <AnimatedCounter end={3} suffix=" weeks" />
+              <div>
+                <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
+                  <AnimatedCounter end={3} suffix=" weeks" />
+                </div>
+                <p className="text-sm text-muted-foreground">To Positive ROI</p>
               </div>
-              <p className="text-sm text-muted-foreground">To Break-Even</p>
-            </div>
-            <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
-                <AnimatedCounter end={89} suffix="%" />
+              <div>
+                <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
+                  <AnimatedCounter end={89} suffix="%" />
+                </div>
+                <p className="text-sm text-muted-foreground">Operational Time Reclaimed</p>
               </div>
-              <p className="text-sm text-muted-foreground">Time Savings</p>
-            </div>
-            <div>
-              <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
-                <AnimatedCounter prefix="$" end={100} suffix="M+" />
+              <div>
+                <div className="font-display text-4xl lg:text-5xl font-medium text-foreground mb-2">
+                  <AnimatedCounter prefix="$" end={100} suffix="M+" />
+                </div>
+                <p className="text-sm text-muted-foreground">Client Revenue Protected</p>
               </div>
-              <p className="text-sm text-muted-foreground">Revenue Protected</p>
             </div>
           </motion.div>
         </div>
