@@ -35,10 +35,10 @@ const CTA = () => {
               team burnout, and decisions made without data. Let's fix that.
             </p>
 
-            <Link to="/contact">
-              <Button size="lg" className="group text-base px-8 py-6 hover-glow-gold">
+            <Link to="/contact" className="block">
+              <Button size="lg" className="group text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 hover-glow-gold w-full sm:w-auto">
                 Book Your Free Strategy Session
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 shrink-0 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
