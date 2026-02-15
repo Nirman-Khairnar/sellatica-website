@@ -91,9 +91,9 @@ const FAQ = () => {
                                 Common Questions
                                 <span className="w-8 h-px bg-[hsl(45_80%_60%/0.5)]" />
                             </span>
-                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-6 flex items-center justify-center gap-4">
-                                Frequently Asked <span className="text-gold-gradient">Questions</span>
-                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-gold opacity-50" />
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-6 text-center">
+                                Frequently Asked{' '}
+                                <span className="text-gold-gradient">Questions</span>
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 Everything you need to know about our services, process, and results.
