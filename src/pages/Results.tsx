@@ -286,10 +286,10 @@ const Results = () => {
               <p className="text-muted-foreground mb-8 text-lg">
                 Every business has unique operational challenges. Let's discuss yours.
               </p>
-              <Link to="/contact">
-                <Button size="lg" className="group text-base px-8 py-6 hover-glow-gold">
+              <Link to="/contact" className="block">
+                <Button size="lg" className="group text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 hover-glow-gold w-full sm:w-auto">
                   <span>Start Your Transformation</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 ml-2 shrink-0 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
             </div>
