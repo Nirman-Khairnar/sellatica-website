@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-
 import { z } from 'zod';
 import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
@@ -15,10 +14,14 @@ import { Helmet } from 'react-helmet-async';
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  company: z.string().trim().max(200, "Company name must be less than 200 characters").optional(),
+  company: z.string().trim().min(1, "Company name is required").max(200, "Company name must be less than 200 characters"),
   phone: z.string().trim().max(50, "Phone must be less than 50 characters").optional(),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
 });
+
+const CONTACT_WEBHOOK_URL =
+  import.meta.env.VITE_CONTACT_WEBHOOK_URL ||
+  'https://n8n.sellatica.in/webhook/sellatica/company-contact-web-v1';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -48,31 +51,26 @@ const Contact = () => {
     }
 
     try {
-      // Construct message with additional details
-      const fullMessage = `
-Name: ${validation.data.name}
-Email: ${validation.data.email}
-Company: ${validation.data.company || 'N/A'}
-Phone: ${validation.data.phone || 'N/A'}
+      const payload = {
+        name: validation.data.name,
+        email: validation.data.email,
+        company: validation.data.company,
+        phone: validation.data.phone || undefined,
+        message: validation.data.message,
+        source: 'sellatica_website_contact_form',
+      };
 
-Message:
-${validation.data.message}
-      `.trim();
-
-      const res = await fetch('https://ggi55uz2hk.execute-api.ap-south-1.amazonaws.com/Prod/form', {
+      const response = await fetch(CONTACT_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: validation.data.email,
-          name: validation.data.name,
-          message: fullMessage,
-        }),
+        body: JSON.stringify(payload),
       });
+      const responseData = await response.json().catch(() => null);
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
+      if (!response.ok || responseData?.status !== 'accepted') {
+        throw new Error(`Contact webhook request failed with status ${response.status}`);
       }
 
       toast({
