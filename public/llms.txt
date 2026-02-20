@@ -1,0 +1,28 @@
+# Sellatica
+
+> Custom AI systems integration partner for operations-heavy mid-market businesses.
+
+## Canonical site
+- https://www.sellatica.in/
+
+## Primary pages
+- Home: https://www.sellatica.in/
+- Services: https://www.sellatica.in/services
+- Solutions: https://www.sellatica.in/results
+- About: https://www.sellatica.in/about
+- FAQ: https://www.sellatica.in/faq
+- Contact: https://www.sellatica.in/contact
+
+## What Sellatica offers
+- Custom AI systems integration
+- Workflow orchestration across existing tools
+- Operations visibility and reporting architecture
+- Deployment, enablement, and optimization support
+
+## Ideal customer profile
+- Mid-market businesses with active sales or delivery operations
+- Teams with disconnected systems and manual handoffs
+- Operators seeking predictable execution and reliable workflow control
+
+## Contact
+- Email: hello@sellatica.in

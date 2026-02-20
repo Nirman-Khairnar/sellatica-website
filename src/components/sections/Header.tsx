@@ -2,16 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Menu, X, ArrowRight } from 'lucide-react';
-
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Results', href: '/results' },
-  { name: 'About', href: '/about' },
-  { name: 'FAQ', href: '/faq' },
-  { name: 'Contact', href: '/contact' },
-];
+import { Menu, X, ArrowRight, Dot } from 'lucide-react';
+import { navItems, siteMeta } from '@/content/siteContent';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,10 +11,14 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,61 +31,63 @@ const Header = () => {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? 'bg-background/95 backdrop-blur-xl border-b border-border/50'
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? 'border-b border-border/70 bg-background/70 backdrop-blur-2xl'
             : 'bg-transparent'
-          }`}
+        }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20 lg:h-24">
-            {/* Logo */}
-            <Link to="/" className="relative z-10">
+          <div className="flex h-20 items-center justify-between lg:h-24">
+            <Link to="/" className="relative z-10 group">
               <motion.div
                 className="flex items-center gap-3"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
-                <span className="font-display text-2xl lg:text-3xl font-semibold text-foreground tracking-tight">
-                  Sellatica
+                <span className="text-xl font-semibold tracking-tight text-foreground lg:text-2xl">
+                  {siteMeta.brand}
                 </span>
-                <span className="hidden sm:block w-px h-6 bg-border" />
-                <span className="hidden sm:block text-xs font-body text-muted-foreground uppercase tracking-[0.2em]">
-                  Systems
+                <span className="hidden h-5 w-px bg-border sm:block" />
+                <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:block">
+                  operations OS
                 </span>
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden items-center gap-1 rounded-full border border-border/50 bg-card/45 p-1 backdrop-blur-xl lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 ${location.pathname === item.href
+                  className={`relative rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
+                    location.pathname === item.href
                       ? 'text-foreground'
                       : 'text-muted-foreground hover:text-foreground'
-                    }`}
+                  }`}
                 >
                   {item.name}
                   {location.pathname === item.href && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground"
-                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 -z-10 rounded-full bg-foreground/12"
+                      transition={{ duration: 0.25 }}
                     />
                   )}
                 </Link>
               ))}
             </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden items-center gap-4 lg:flex">
+              <span className="text-kicker">
+                <Dot className="h-3 w-3 text-primary" />
+                Reply within 24h
+              </span>
               <Link to="/contact">
                 <Button
-                  variant="outline"
                   size="sm"
-                  className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
+                  className="group rounded-full px-5"
                 >
                   <span>Book Discovery Call</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
@@ -97,10 +95,9 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden relative z-10 p-2 text-foreground"
+              className="relative z-10 rounded-full border border-border/60 bg-card/60 p-2 text-foreground backdrop-blur lg:hidden"
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait">
@@ -141,43 +138,46 @@ const Header = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div
-              className="absolute inset-0 bg-background/98 backdrop-blur-xl"
+            <button
+              className="absolute inset-0 h-full w-full bg-background/96 backdrop-blur-xl"
               onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu overlay"
             />
             <motion.nav
-              initial={{ y: -20, opacity: 0 }}
+              initial={{ y: -12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
+              exit={{ y: -12, opacity: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="relative flex flex-col items-center justify-center h-full gap-8"
+              className="relative mx-6 mt-28 rounded-3xl border border-border/60 bg-card/85 px-6 py-10 backdrop-blur-2xl"
             >
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ y: 20, opacity: 0 }}
+                  initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+                  className="w-full"
                 >
                   <Link
                     to={item.href}
-                    className={`text-3xl font-display font-medium transition-colors ${location.pathname === item.href
-                        ? 'text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                      }`}
+                    className={`block w-full rounded-2xl px-4 py-3 text-lg transition-colors ${
+                      location.pathname === item.href
+                        ? 'bg-foreground/10 text-foreground'
+                        : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'
+                    }`}
                   >
                     {item.name}
                   </Link>
                 </motion.div>
               ))}
               <motion.div
-                initial={{ y: 20, opacity: 0 }}
+                initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.35 }}
-                className="mt-8"
+                className="mt-6 w-full"
               >
                 <Link to="/contact">
-                  <Button size="lg" className="text-lg">
+                  <Button size="lg" className="w-full rounded-full text-base">
                     Book Discovery Call
                   </Button>
                 </Link>

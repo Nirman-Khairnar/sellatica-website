@@ -1,0 +1,68 @@
+SELLATICA WEBSITE - POST-DEPLOY INDEXING CHECKLIST
+
+Date: 2026-02-20
+Primary domain: https://www.sellatica.in
+
+1) Deploy and verify production pages
+- Deploy latest build from main branch.
+- Open and verify these URLs load correctly:
+  - https://www.sellatica.in/
+  - https://www.sellatica.in/services
+  - https://www.sellatica.in/results
+  - https://www.sellatica.in/about
+  - https://www.sellatica.in/faq
+  - https://www.sellatica.in/contact
+
+2) Verify crawl-control files are live
+- Open robots.txt: https://www.sellatica.in/robots.txt
+- Open sitemap: https://www.sellatica.in/sitemap.xml
+- Open llms.txt: https://www.sellatica.in/llms.txt
+- Confirm no accidental noindex headers/tags on key pages.
+
+3) Google Search Console setup
+- Confirm the correct property is verified for sellatica.in.
+- In Search Console > Sitemaps, submit:
+  - https://www.sellatica.in/sitemap.xml
+- Ensure sitemap status becomes "Success".
+
+4) Request indexing for priority pages
+- Use URL Inspection for each key page and click "Request Indexing":
+  - /
+  - /services
+  - /results
+  - /about
+  - /faq
+  - /contact
+- If Google reports blocked resources, fix and resubmit.
+
+5) Mobile-first and performance checks
+- Run Lighthouse (mobile) on homepage and service/contact pages.
+- Check Core Web Vitals in Search Console after data appears.
+- Validate no mobile usability issues are reported.
+
+6) Structured data validation
+- Test key pages with Rich Results Test:
+  - Home
+  - Services
+  - FAQ
+  - Contact
+- Resolve any structured data errors/warnings that affect eligibility.
+
+7) AEO + LLM discoverability checks
+- Confirm FAQ content is visible in rendered HTML.
+- Confirm robots.txt allows major AI/search crawlers.
+- Confirm llms.txt is publicly reachable and up to date.
+
+8) Monitor indexing health (first 14 days)
+- Check Search Console > Pages for excluded/error trends.
+- Check Search Console > Performance for impression growth on core pages.
+- Re-request indexing after any major copy/structure update.
+
+9) Ongoing maintenance cadence
+- Update sitemap lastmod values when major pages change.
+- Keep canonical URLs stable and consistent.
+- Keep claims and messaging aligned with approved context policy.
+
+Owner notes
+- Keep this checklist with each major website release.
+- Run this checklist fully after redesigns and major copy updates.

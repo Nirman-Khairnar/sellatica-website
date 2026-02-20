@@ -1,93 +1,70 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
-
-const services = [
-  {
-    number: '01',
-    title: 'Strategic Assessment',
-    description: 'Audit your tech stack, identify integration gaps, and design end-to-end system architecture with clear ROI modeling.',
-    features: ['Tech stack audit', 'Gap analysis', 'Architecture design', 'ROI projection'],
-  },
-  {
-    number: '02',
-    title: 'System Build & Integration',
-    description: 'Connect fragmented tools via APIs, build AI-powered automation layers, and create unified data warehouses.',
-    features: ['API integrations', 'AI automation', 'Data warehouse', 'Real-time dashboards'],
-  },
-  {
-    number: '03',
-    title: 'Deployment & Training',
-    description: 'Staged rollout to minimize disruption, team training on new interfaces, and comprehensive documentation.',
-    features: ['Phased rollout', 'Team training', 'Performance monitoring', 'Documentation'],
-  },
-  {
-    number: '04',
-    title: 'Continuous Optimization',
-    description: 'Learning loops that improve accuracy over time, quarterly reviews, and support for scaling as you grow.',
-    features: ['Performance tracking', 'AI improvement', 'Quarterly reviews', 'Scale support'],
-  },
-];
+import { Link } from 'react-router-dom';
+import { servicePillars } from '@/content/siteContent';
 
 const Services = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="services" ref={ref} className="py-24 lg:py-32 bg-card/30 border-t border-border/50">
+    <section id="services" ref={ref} className="section-shell border-t border-border/60">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16"
+          transition={{ duration: 0.55 }}
+          className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"
         >
-          <div className="max-w-2xl">
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-              What We Offer
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-              Custom-built operational systems
+          <div className="max-w-3xl">
+            <span className="text-kicker">Service architecture</span>
+            <h2 className="text-fluid-heading mt-4 font-semibold text-foreground">
+              Engagement model built for operations-heavy mid-market teams.
             </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              We do not ship generic automation bundles. Each implementation follows an operating model that aligns workflow logic,
+              ownership, and reporting into one system.
+            </p>
           </div>
-          <Link 
-            to="/services" 
-            className="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+
+          <Link
+            to="/services"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            View all services
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            View detailed service scope
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-px bg-border/50 rounded-xl overflow-hidden">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+        <div className="grid gap-5 md:grid-cols-2">
+          {servicePillars.map((service, index) => (
+            <motion.article
+              key={service.id}
+              initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="p-8 lg:p-10 bg-background hover:bg-card/50 transition-colors"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="surface h-full p-6"
             >
-              <span className="text-sm text-muted-foreground/50 font-medium mb-6 block">
-                {service.number}
-              </span>
-              <h3 className="font-display text-xl lg:text-2xl font-medium text-foreground mb-4">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-              <ul className="space-y-2">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Check className="w-3 h-3 text-foreground" />
-                    {feature}
+              <div className="mb-5 flex items-center justify-between">
+                <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">PHASE {service.phase}</span>
+                <span className="rounded-full border border-border/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Custom
+                </span>
+              </div>
+
+              <h3 className="text-2xl font-medium text-foreground">{service.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.summary}</p>
+
+              <ul className="mt-5 space-y-2.5">
+                {service.deliverables.map((deliverable) => (
+                  <li key={deliverable} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>{deliverable}</span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

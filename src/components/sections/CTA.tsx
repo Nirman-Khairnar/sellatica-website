@@ -1,68 +1,54 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { trustPillars } from '@/content/siteContent';
 
 const CTA = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section ref={ref} className="py-24 lg:py-32 bg-card/30 relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+    <section ref={ref} className="section-shell border-t border-border/60">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.6 }}
+          className="surface relative overflow-hidden px-6 py-10 text-center sm:px-10"
         >
-          <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-            Get Started
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-[1.1]">
-            Ready to transform your operations?
+          <div className="floating-orb left-[-7rem] top-[-5rem] h-44 w-44 bg-primary/25" />
+          <div className="floating-orb bottom-[-8rem] right-[-6rem] h-52 w-52 bg-accent/15" />
+
+          <span className="text-kicker justify-center">Next Step</span>
+          <h2 className="mt-4 text-fluid-heading font-semibold text-foreground">
+            Ready to align your systems around one operating workflow?
           </h2>
-          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            Let's discuss how we can turn your operational chaos into predictable 
-            execution with a custom-built system designed for your specific challenges.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+            Start with a discovery call. We will review your current state, identify friction points,
+            and propose a build sequence based on business impact.
           </p>
 
-          <Link to="/contact">
-            <Button size="lg" className="group">
-              Schedule Discovery Call
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+          <div className="mt-8">
+            <Link to="/contact">
+              <Button size="lg" className="group rounded-full px-8 text-base">
+                Schedule Discovery Call
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </div>
 
-          {/* Trust signals */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-16 pt-10 border-t border-border/50"
-          >
-            <p className="text-sm text-muted-foreground mb-6">What you get from our discovery call:</p>
-            <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-              <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                Free systems audit
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                ROI projection
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                Custom architecture plan
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1 h-1 rounded-full bg-foreground" />
-                No obligation
-              </span>
-            </div>
-          </motion.div>
+          <ul className="mx-auto mt-8 grid max-w-3xl gap-2 text-left sm:grid-cols-3">
+            {trustPillars.map((item) => (
+              <li
+                key={item}
+                className="rounded-xl border border-border/65 bg-background/65 px-3 py-2 text-xs text-muted-foreground"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>
