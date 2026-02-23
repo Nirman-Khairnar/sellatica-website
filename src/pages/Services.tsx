@@ -1,166 +1,298 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
-import SEO from '@/components/SEO';
+import { ArrowRight, Search, Cog, Rocket, TrendingUp, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { servicePillars, siteMeta } from '@/content/siteContent';
-import { breadcrumbSchema, faqSchema, webpageSchema } from '@/lib/structuredData';
+import SEO from '@/components/SEO';
+import { Helmet } from 'react-helmet-async';
 
-const serviceFaqs = [
+const services = [
   {
-    question: 'How does Sellatica scope a custom integration build?',
-    answer:
-      'Scope is defined during discovery by mapping existing workflows, ownership boundaries, and operational bottlenecks before implementation starts.',
+    icon: Search,
+    phase: '01',
+    title: 'Strategic Assessment & Architecture Design',
+    description: 'We begin with a deep-dive analysis of your current systems, data flows, and manual workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a roadmap for ROI. We don\'t just look at technology; we look at business outcomes. For example, identifying where manual data entry in freight forwarding causes 20% delays.',
+    features: [
+      'Comprehensive audit of current tech stack and workflows',
+      'Identification of integration gaps and automation opportunities',
+      'Design of end-to-end, scalable system architecture',
+      'ROI modeling and detailed business case development',
+    ],
+    whyMatters: 'Without a clear architectural blueprint, 60% of automation projects fail. We ensure every dollar spent drives specific, measurable operational improvements.',
+    duration: '1-2 weeks',
   },
   {
-    question: 'Will Sellatica replace our current tools?',
-    answer:
-      'Not by default. The preferred approach is integrating existing systems first and replacing only when a platform blocks operational reliability.',
+    icon: Cog,
+    phase: '02',
+    title: 'System Build & Integration',
+    description: 'We execute the build, connecting fragmented tools (CRM, ERP, Email, Spreadsheets) into a unified ecosystem. We build custom AI agents and automation layers that handle repetitive tasks with human-like precision, creating a single source of truth for your data. We might automate invoice processing using optical character recognition (OCR) or build a custom CRM agent that pre-qualifies leads 24/7.',
+    features: [
+      'Connect 8-15 fragmented systems via secure APIs',
+      'Build AI-powered automation layers for complex tasks',
+      'Create unified data warehouses for real-time insights',
+      'Deploy real-time dashboards and custom alert systems',
+    ],
+    whyMatters: 'Disconnected tools create data silos. A unified ecosystem provides a single source of truth, enabling real-time decision-making and eliminating manual reconciliation errors.',
+    duration: '4-10 weeks',
   },
   {
-    question: 'What does deployment include?',
-    answer:
-      'Deployment includes phased release, SOP documentation, team enablement, and monitoring setup for each workflow module.',
+    icon: Rocket,
+    phase: '03',
+    title: 'Deployment & Training',
+    description: 'Technology is only as good as its adoption. We manage a staged rollout to ensure system stability and provide hands-on training for your team. We ensure your staff feels empowered, not replaced, by the new tools. We conduct role-specific workshops, ensuring your sales team knows exactly how to leverage their new AI assistant effectively.',
+    features: [
+      'Staged, low-risk rollout to minimize operational disruption',
+      'Hands-on team training and workshops on new interfaces',
+      'Setup of comprehensive performance monitoring',
+      'Creation of detailed Documentation and SOPs',
+    ],
+    whyMatters: 'Adoption is the biggest hurdle in tech implementation. Our hands-on training ensures your team is confident and productive from day one, maximizing immediate ROI.',
+    duration: '1-2 weeks',
+  },
+  {
+    icon: TrendingUp,
+    phase: '04',
+    title: 'Optimization & Scale',
+    description: 'Launch is just the beginning. We implement feedback loops where the AI system learns from human corrections, improving accuracy over time. We support you as you scale, adding new capabilities and handling increased volume. If the AI misclassifies a complex customer query, our feedback loop allows a human to correct it, preventing the same error from happening twice.',
+    features: [
+      'Continuous system performance tracking and tuning',
+      'AI accuracy improvement mechanisms over time',
+      'Quarterly strategy and optimization reviews',
+      'On-demand scaling support as your business grows',
+    ],
+    whyMatters: 'Static systems degrade. Our adaptive systems get smarter with use, compounding value over time and ensuring your infrastructure remains a competitive advantage.',
+    duration: 'Ongoing',
   },
 ];
 
 const Services = () => {
-  const description =
-    'Sellatica services cover operational assessment, custom system build, deployment, and optimization for mid-market teams with fragmented workflows.';
-
   return (
-    <div className="page-shell bg-background">
+    <div className="min-h-screen bg-background">
       <SEO
-        title="Services | Sellatica Custom AI Systems"
-        description={description}
+        title="AI Solutions & Services | Sellatica"
+        description="Explore our custom AI system development services for mid-market businesses. Strategic assessment, system build, and optimization."
         canonical="https://www.sellatica.in/services"
-        keywords="ai systems services, workflow integration services, operations automation consulting, custom business systems"
-        structuredData={[
-          breadcrumbSchema([
-            { name: 'Home', url: 'https://www.sellatica.in' },
-            { name: 'Services', url: 'https://www.sellatica.in/services' },
-          ]),
-          webpageSchema({
-            title: 'Sellatica Services',
-            description,
-            url: 'https://www.sellatica.in/services',
-          }),
-          faqSchema(serviceFaqs),
-        ]}
       />
-
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.sellatica.in"
+            }, {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://www.sellatica.in/services"
+            }]
+          })}
+        </script>
+        {/* Service-Specific FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How long does a typical implementation take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A typical end-to-end implementation ranges from 6 to 14 weeks. This includes 1-2 weeks for assessment, 4-10 weeks for build and integration, and 1-2 weeks for deployment and training."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need to replace my existing software?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Our methodology focuses on integrating your existing tools (like CRMs, ERPs, and spreadsheets) into a unified system. We only recommend replacements if a tool is critically blocking automation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you ensure data security?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We build on secure, enterprise-grade cloud infrastructure (like AWS or Google Cloud) with strict access controls. Your data remains yours; we design systems where we do not retain or sell your proprietary information."
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
       <Header />
 
-      <main className="pb-8 pt-32 lg:pt-36">
-        <section className="pb-12">
-          <div className="container mx-auto px-6 lg:px-12">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl"
-            >
-              <span className="text-kicker">Service Scope</span>
-              <h1 className="text-fluid-display mt-4 max-w-4xl font-semibold text-foreground">
-                Build one coordinated operating workflow across your existing systems.
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Each engagement is custom-designed around your operating reality. We focus on workflow reliability,
-                reporting clarity, and execution speed without forcing a full-stack replacement.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="pt-32 lg:pt-40 pb-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl"
+          >
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
+              Our Services
+            </span>
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
+              Custom-built systems for
+              <span className="text-muted-foreground"> operational excellence</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
+              Not generic consulting. Not off-the-shelf software. Every engagement is designed
+              specifically for your operational chaos and business goals.
+            </p>
+            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6 italic">
+              Our approach is rooted in direct operational experience. We don't just patch software holes; we re-architect how your data flows across the entire organization. By combining deep business logic with cutting-edge AI automation, we create systems that are not only efficient but resilient—capable of adapting as your business scales and market conditions change.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        <section className="section-shell border-y border-border/60 py-14">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid gap-5 md:grid-cols-2">
-              {servicePillars.map((service, index) => (
-                <motion.article
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.08 * index }}
-                  className="surface p-6"
-                >
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Phase {service.phase}</p>
-                  <h2 className="mt-3 text-2xl font-medium text-foreground">{service.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.summary}</p>
-
-                  <ul className="mt-5 space-y-2.5">
-                    {service.deliverables.map((deliverable) => (
-                      <li key={deliverable} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                        <span>{deliverable}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section-shell">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid gap-5 lg:grid-cols-2">
-              <motion.article
-                initial={{ opacity: 0, y: 20 }}
+      {/* Services Detail */}
+      <section className="pb-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="space-y-0">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.55 }}
-                className="surface p-6"
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="group border-t border-border/50 py-16 lg:py-20"
               >
-                <h3 className="text-xl font-medium text-foreground">What we prioritize in every build</h3>
-                <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Clear workflow ownership by stage and function.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Operational visibility for founders and operations leaders.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Failure-safe routing and exception handling.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Team enablement so adoption survives scale pressure.</li>
-                </ul>
-              </motion.article>
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+                  {/* Phase Number */}
+                  <div className="lg:col-span-2">
+                    <span className="font-display text-4xl lg:text-5xl font-medium text-muted-foreground/30 group-hover:text-muted-foreground/50 transition-colors">
+                      {service.phase}
+                    </span>
+                  </div>
 
-              <motion.article
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: 0.08 }}
-                className="surface p-6"
-              >
-                <h3 className="text-xl font-medium text-foreground">What we avoid</h3>
-                <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Generic automation templates detached from business context.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Vanity dashboards with no workflow ownership model.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">One-shot delivery without operational handoff readiness.</li>
-                  <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">System recommendations that ignore compliance and governance.</li>
-                </ul>
-              </motion.article>
+                  {/* Content */}
+                  <div className="lg:col-span-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <service.icon className="w-6 h-6 text-foreground" />
+                      <span className="text-sm text-muted-foreground">{service.duration}</span>
+                    </div>
+                    <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    {/* Why This Matters Subsection */}
+                    <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
+                      <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                         Why This Matters
+                      </h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {service.whyMatters}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="lg:col-span-4">
+                    <ul className="space-y-3">
+                      {service.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 text-foreground mt-1 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Don't Do */}
+      <section className="py-20 border-t border-border/50 bg-card/30">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="grid lg:grid-cols-2 gap-16"
+          >
+            <div>
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+                What Makes Us Different
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+                Industry-specific intelligence, not generic tools
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Our systems understand your business context—legal metrics, real estate deal cycles,
+                freight Incoterms, content brand voice. We build for your existing workflows,
+                meeting teams where they already work.
+              </p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mt-10 text-center"
-            >
-              <h2 className="text-fluid-heading font-semibold text-foreground">Need a scoped plan for your workflow stack?</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                Start with a discovery call. {siteMeta.brand} will map your current systems and define a practical implementation sequence.
-              </p>
-              <Link to="/contact" className="mt-7 inline-block">
-                <Button size="lg" className="group rounded-full px-8">
-                  Book Discovery Call
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
-      </main>
+            <div className="space-y-6">
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">Built for Existing Workflows</h3>
+                <p className="text-sm text-muted-foreground">
+                  Systems integrate where teams already work—Slack, WhatsApp, Gmail.
+                  Minimal behavior change required.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">Learning Systems</h3>
+                <p className="text-sm text-muted-foreground">
+                  AI accuracy improves as systems learn from team feedback—one client saw
+                  accuracy increase from 82% to 94% in 4 months.
+                </p>
+              </div>
+              <div className="p-6 rounded-xl bg-card border border-border/50">
+                <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
+                <p className="text-sm text-muted-foreground">
+                  Custom-built infrastructure deployed on your accounts. You own the system,
+                  not dependent on subscriptions to us.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 border-t border-border/50">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+              Ready to discuss your operations?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Every engagement starts with a discovery call to understand your specific challenges.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="group">
+                <span>Book Discovery Call</span>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </div>

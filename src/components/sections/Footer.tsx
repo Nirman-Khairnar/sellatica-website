@@ -1,81 +1,111 @@
-﻿import { Link } from 'react-router-dom';
-import { navItems, siteMeta } from '@/content/siteContent';
+import { Link } from 'react-router-dom';
+
+const footerLinks = {
+  company: [
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Results', href: '/results' },
+    { name: 'Contact', href: '/contact' },
+  ],
+  resources: [
+    { name: 'Case Studies', href: '/results' },
+    { name: 'Process', href: '/services' },
+  ],
+};
 
 const Footer = () => {
   return (
-    <footer className="section-shell border-t border-border/60 pt-16">
+    <footer className="py-16 lg:py-20 bg-background border-t border-border/50">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <span className="text-2xl font-semibold tracking-tight text-foreground">{siteMeta.brand}</span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Operations Systems</span>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand */}
+          <div className="col-span-2 lg:col-span-1">
+            <Link to="/" className="inline-block mb-6">
+              <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              {siteMeta.description}
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              AI-powered systems integration for mid-market businesses experiencing 
+              operational chaos from growth.
             </p>
-            <p className="mt-3 text-sm text-muted-foreground">{siteMeta.location}</p>
           </div>
 
+          {/* Company */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Navigate</h4>
-            <ul className="mt-4 space-y-2">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link to={item.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                    {item.name}
+            <h4 className="text-sm font-medium text-foreground uppercase tracking-wider mb-6">
+              Company
+            </h4>
+            <ul className="space-y-4">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Resources */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Contact</h4>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li>
-                <a href={`mailto:${siteMeta.email}`} className="transition-colors hover:text-foreground">
-                  {siteMeta.email}
-                </a>
-              </li>
-              <li>
-                <Link to="/contact" className="transition-colors hover:text-foreground">
-                  Book Discovery Call
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="transition-colors hover:text-foreground">
-                  Frequently Asked Questions
-                </Link>
-              </li>
+            <h4 className="text-sm font-medium text-foreground uppercase tracking-wider mb-6">
+              Resources
+            </h4>
+            <ul className="space-y-4">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Legal</h4>
-            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            <h4 className="text-sm font-medium text-foreground uppercase tracking-wider mb-6">
+              Contact
+            </h4>
+            <ul className="space-y-4">
               <li>
-                <Link to="/privacy" className="transition-colors hover:text-foreground">
-                  Privacy Policy
-                </Link>
+                <a 
+                  href="mailto:hello@sellatica.in"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  hello@sellatica.in
+                </a>
               </li>
               <li>
-                <Link to="/terms" className="transition-colors hover:text-foreground">
-                  Terms &amp; Conditions
-                </Link>
-              </li>
-              <li>
-                <Link to="/refund" className="transition-colors hover:text-foreground">
-                  Refund &amp; Cancellation
+                <Link 
+                  to="/contact"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Book a Call
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-border/60 pt-5 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} {siteMeta.brand}. All rights reserved.</p>
-          <p>{siteMeta.tagline}</p>
+        {/* Bottom */}
+        <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Sellatica. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Terms
+            </a>
+          </div>
         </div>
       </div>
     </footer>

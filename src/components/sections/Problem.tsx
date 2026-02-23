@@ -1,86 +1,103 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { AlertTriangle, DatabaseZap, Workflow, Wrench } from 'lucide-react';
 
-const frictionSignals = [
+const problems = [
   {
-    icon: Workflow,
-    title: 'Workflow ownership is unclear',
-    text: 'Tasks move across teams with no reliable state change, so follow-up depends on manual checking.',
+    stat: '89%',
+    label: 'Adopt AI Tools',
+    description: 'But only 51% achieve expected outcomes',
   },
   {
-    icon: DatabaseZap,
-    title: 'Data context is fragmented',
-    text: 'Operators switch between tools to answer one business question, which slows execution and increases error risk.',
+    stat: '6-15',
+    label: 'Disconnected Systems',
+    description: 'Data scattered across tools that don\'t talk to each other',
   },
   {
-    icon: AlertTriangle,
-    title: 'Escalations happen too late',
-    text: 'Without real-time operational signals, teams discover failures after revenue or service impact is already visible.',
+    stat: '82%',
+    label: 'Integration Struggles',
+    description: 'Data quality and integration blocking progress',
   },
   {
-    icon: Wrench,
-    title: 'Automation is brittle',
-    text: 'Quick fixes and disconnected scripts fail under scale because system assumptions were never standardized.',
+    stat: '$400K+',
+    label: 'Annual Revenue Leakage',
+    description: 'Lost to operational inefficiencies',
   },
 ];
 
 const Problem = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-shell border-t border-border/60">
+    <section ref={ref} className="py-24 lg:py-32 bg-background border-t border-border/50">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left Column */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55 }}
-            className="lg:col-span-7"
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-kicker">Why teams hit execution ceilings</span>
-            <h2 className="text-fluid-heading mt-4 max-w-3xl font-semibold text-foreground">
-              Most growth problems are operations problems disguised as tool decisions.
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+              The Problem
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
+              Tech adoption ≠ tech value
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              When systems do not share context, teams compensate with manual work. That creates invisible latency,
-              inconsistent decisions, and unnecessary operational stress.
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              Most organizations invest heavily in technology but struggle to move 
+              beyond pilots to production systems that deliver real business outcomes.
             </p>
+            
+            {/* Business Impact */}
+            <div className="space-y-4">
+              <h3 className="text-sm font-medium text-foreground uppercase tracking-wider">
+                The Business Impact
+              </h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Revenue leakage from slow response times
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Cash flow surprises from invisible receivables
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Team burnout from constant firefighting
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
+                  Growth paralysis without proportional hiring
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            className="surface-muted lg:col-span-5 p-6"
-          >
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">What changes after integration</p>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">One workflow state visible to every owner.</li>
-              <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Exceptions trigger action automatically, not by chance.</li>
-              <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Operations leaders get decision-grade data in real time.</li>
-              <li className="rounded-lg border border-border/60 bg-background/55 px-3 py-2">Teams spend more time executing and less time reconciling.</li>
-            </ul>
-          </motion.div>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2">
-          {frictionSignals.map((signal, index) => (
-            <motion.article
-              key={signal.title}
-              initial={{ opacity: 0, y: 24 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.08 * index }}
-              className="surface p-5 sm:p-6"
-            >
-              <div className="mb-4 inline-flex rounded-xl bg-primary/15 p-2.5 text-primary">
-                <signal.icon className="h-5 w-5" />
-              </div>
-              <h3 className="text-xl font-medium text-foreground">{signal.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{signal.text}</p>
-            </motion.article>
-          ))}
+          {/* Right Column - Stats Grid */}
+          <div className="grid grid-cols-2 gap-6">
+            {problems.map((problem, index) => (
+              <motion.div
+                key={problem.label}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="p-6 lg:p-8 rounded-xl bg-card border border-border/50 hover:border-border transition-colors"
+              >
+                <span className="font-display text-3xl lg:text-4xl font-medium text-foreground block mb-2">
+                  {problem.stat}
+                </span>
+                <h3 className="text-sm font-medium text-foreground mb-2">
+                  {problem.label}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {problem.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

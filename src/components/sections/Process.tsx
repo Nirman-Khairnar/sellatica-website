@@ -1,46 +1,87 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { processPhases } from '@/content/siteContent';
+
+const phases = [
+  {
+    number: '01',
+    title: 'Discovery & Strategy',
+    duration: '1-2 weeks',
+    description: 'Deep-dive into systems, workflows, and pain points. Data audit and architecture design with clear ROI projections.',
+  },
+  {
+    number: '02',
+    title: 'Build & Integration',
+    duration: '4-10 weeks',
+    description: 'Phased development with highest-impact modules first. Weekly demos and real-time collaboration.',
+  },
+  {
+    number: '03',
+    title: 'Deployment & Training',
+    duration: '1-2 weeks',
+    description: 'Staged rollout, team training, and comprehensive documentation. Performance monitoring and stabilization.',
+  },
+  {
+    number: '04',
+    title: 'Optimization & Scale',
+    duration: 'Ongoing',
+    description: 'System performance tracking, learning loops, and quarterly reviews. Support for scaling as your business grows.',
+  },
+];
 
 const Process = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" ref={ref} className="section-shell border-t border-border/60">
+    <section id="process" ref={ref} className="py-24 lg:py-32 bg-card/30 border-t border-border/50">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55 }}
-          className="mb-10 max-w-3xl"
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mb-16"
         >
-          <span className="text-kicker">Execution model</span>
-          <h2 className="text-fluid-heading mt-4 font-semibold text-foreground">
-            A phased delivery sequence built for minimal operational disruption.
+          <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
+            How We Work
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
+            Every engagement is custom-designed
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">
-            Each phase has explicit owners, outputs, and handoff criteria so teams know what changes and when.
-          </p>
         </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {processPhases.map((phase, index) => (
-            <motion.article
-              key={phase.name}
-              initial={{ opacity: 0, y: 20 }}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {phases.map((phase, index) => (
+            <motion.div
+              key={phase.number}
+              initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="surface relative h-full p-5"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative"
             >
-              {index < processPhases.length - 1 && (
-                <span className="absolute right-[-14px] top-1/2 hidden h-px w-7 bg-border/70 lg:block" />
+              {/* Connecting line for desktop */}
+              {index < phases.length - 1 && (
+                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-border/50 -z-10" />
               )}
-
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{phase.timeline}</p>
-              <h3 className="mt-3 text-2xl font-medium text-foreground">{phase.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{phase.description}</p>
-            </motion.article>
+              
+              <div className="mb-6">
+                <span className="font-display text-5xl lg:text-6xl font-medium text-muted-foreground/20">
+                  {phase.number}
+                </span>
+              </div>
+              
+              <div className="flex items-center gap-3 mb-3">
+                <h3 className="font-display text-xl font-medium text-foreground">
+                  {phase.title}
+                </h3>
+              </div>
+              <span className="text-xs text-muted-foreground mb-4 block">
+                {phase.duration}
+              </span>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {phase.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
