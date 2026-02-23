@@ -15,7 +15,6 @@ const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   company: z.string().trim().min(1, "Company name is required").max(200, "Company name must be less than 200 characters"),
-  phone: z.string().trim().max(50, "Phone must be less than 50 characters").optional(),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
 });
 
@@ -29,7 +28,6 @@ const Contact = () => {
     name: '',
     email: '',
     company: '',
-    phone: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -55,7 +53,6 @@ const Contact = () => {
         name: validation.data.name,
         email: validation.data.email,
         company: validation.data.company,
-        phone: validation.data.phone || undefined,
         message: validation.data.message,
         source: 'sellatica_website_contact_form',
       };
@@ -82,7 +79,6 @@ const Contact = () => {
         name: '',
         email: '',
         company: '',
-        phone: '',
         message: '',
       });
     } catch (error) {
@@ -156,6 +152,18 @@ const Contact = () => {
 
               {/* Contact Methods */}
               <div className="space-y-6">
+                <div className="p-6 rounded-xl bg-card border border-border/50">
+                  <h3 className="font-medium text-foreground mb-3">Business Contact Details</h3>
+                  <div className="space-y-2 text-sm text-muted-foreground">
+                    <p><span className="text-foreground font-medium">Business Name:</span> Sellatica</p>
+                    <p>
+                      <span className="text-foreground font-medium">Email:</span>{' '}
+                      <a href="mailto:hello@sellatica.in" className="hover:text-foreground transition-colors">hello@sellatica.in</a>
+                    </p>
+                    <p><span className="text-foreground font-medium">Address:</span> Bilimora, Navsari, Gujarat 396321, India</p>
+                  </div>
+                </div>
+
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <Calendar className="w-6 h-6 text-foreground mt-1" />
                   <div>
@@ -228,7 +236,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-1 gap-6">
                   <div>
                     <label htmlFor="company" className="text-sm font-medium text-foreground block mb-2">
                       Company Name *
@@ -241,20 +249,6 @@ const Contact = () => {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Acme Inc."
-                      className="bg-card border-border/50 focus:border-foreground/50"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="text-sm font-medium text-foreground block mb-2">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+1 (555) 000-0000"
                       className="bg-card border-border/50 focus:border-foreground/50"
                     />
                   </div>
