@@ -73,7 +73,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            (c) {new Date().getFullYear()} Sellatica. All rights reserved.
+            &copy; {new Date().getFullYear()} Sellatica. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
