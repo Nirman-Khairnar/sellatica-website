@@ -66,7 +66,7 @@ const sections = [
 
 const Refund = () => {
   return (
-    <div className="min-h-screen bg-[#0a0f1e] text-slate-100">
+    <div className="min-h-screen bg-background">
       <SEO
         title="Refund & Cancellation Policy | Sellatica"
         description="Cancellation and Refunds Policy for Sellatica B2B AI automation consulting services."
@@ -84,11 +84,11 @@ const Refund = () => {
               transition={{ duration: 0.5 }}
               className="max-w-4xl"
             >
-              <span className="inline-block rounded-full border border-cyan-400/40 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em]">
                 LEGAL
               </span>
-              <h1 className="mt-4 text-4xl font-semibold text-white md:text-5xl">Refund &amp; Cancellation Policy</h1>
-              <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-300 md:text-lg">
+              <h1 className="mt-4 font-display text-4xl md:text-5xl font-medium text-foreground">Refund &amp; Cancellation Policy</h1>
+              <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 This policy defines how cancellations and refund eligibility are handled for Sellatica&apos;s B2B services.
               </p>
             </motion.div>
@@ -105,10 +105,10 @@ const Refund = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.02 }}
-                  className="rounded-2xl border border-cyan-900/60 bg-slate-950/40 p-6"
+                  className="rounded-2xl border border-border/60 bg-card/50 p-6"
                 >
-                  <h2 className="text-xl font-medium text-cyan-300">{section.title}</h2>
-                  <div className="mt-3 space-y-2.5 text-sm leading-relaxed text-slate-300">
+                  <h2 className="text-xl font-medium text-foreground">{section.title}</h2>
+                  <div className="mt-3 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
                     {section.content.map((line) => (
                       <p key={line}>{line}</p>
                     ))}
