@@ -64,9 +64,9 @@ const sections = [
   {
     title: '8. Privacy Contact',
     content: [
-      'For privacy requests, email hello@sellatica.in with subject line: Privacy Request.',
+      'For privacy requests, email contact@sellatica.in with subject line: Privacy Request.',
       'Business Name: Sellatica',
-      'Address: Bilimora, Navsari, Gujarat 396321, India',
+      'Address: Vadodara, Gujarat',
       'Last updated: February 23, 2026',
     ],
   },

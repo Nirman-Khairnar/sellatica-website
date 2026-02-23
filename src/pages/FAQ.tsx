@@ -22,7 +22,7 @@ const faqs = [
     },
     {
         question: "What industries does Sellatica serve?",
-        answer: "We serve mid-market businesses across various industries seeking to transform operational chaos into scalable execution through custom AI systems. Our core expertise lies in Logistics, Real Estate, Legal Services, and Manufacturing—sectors where high-volume data processing and operational precision are critical."
+        answer: "We serve mid-market businesses across various industries seeking to transform operational chaos into scalable execution through custom AI systems. Our core expertise lies in Logistics, Real Estate, Legal Services, and Manufacturingâ€”sectors where high-volume data processing and operational precision are critical."
     },
     {
         question: "Do I need technical expertise to manage these systems?",
@@ -34,11 +34,11 @@ const faqs = [
     },
     {
         question: "What is Sellatica's pricing model?",
-        answer: "Our pricing is customized based on your specific needs and project scope. We typically work on a project basis for initial builds with optional retainer models for ongoing optimization and support. Contact us at hello@sellatica.in for a detailed consultation and quote."
+        answer: "Our pricing is customized based on your specific needs and project scope. We typically work on a project basis for initial builds with optional retainer models for ongoing optimization and support. Contact us at contact@sellatica.in for a detailed consultation and quote."
     },
     {
         question: "How do I contact Sellatica?",
-        answer: "You can reach us at hello@sellatica.in for general inquiries. For project discussions, we recommend booking a discovery call through our website to help us better understand your specific operational challenges."
+        answer: "You can reach us at contact@sellatica.in for general inquiries. For project discussions, we recommend booking a discovery call through our website to help us better understand your specific operational challenges."
     }
 ];
 

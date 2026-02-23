@@ -42,7 +42,7 @@ const sections = [
   {
     title: '6. Dispute Process',
     content: [
-      'For delivery or billing disputes, email hello@sellatica.in within 7 days of delivery.',
+      'For delivery or billing disputes, email contact@sellatica.in within 7 days of delivery.',
       'Include project name, invoice/milestone reference, and issue details for review.',
     ],
   },
@@ -57,8 +57,8 @@ const sections = [
     title: '8. Contact',
     content: [
       'Business Name: Sellatica',
-      'Address: Bilimora, Navsari, Gujarat 396321, India',
-      'Email: hello@sellatica.in',
+      'Address: Vadodara, Gujarat',
+      'Email: contact@sellatica.in',
       'Last updated: February 23, 2026',
     ],
   },

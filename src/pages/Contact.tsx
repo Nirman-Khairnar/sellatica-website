@@ -158,9 +158,9 @@ const Contact = () => {
                     <p><span className="text-foreground font-medium">Business Name:</span> Sellatica</p>
                     <p>
                       <span className="text-foreground font-medium">Email:</span>{' '}
-                      <a href="mailto:hello@sellatica.in" className="hover:text-foreground transition-colors">hello@sellatica.in</a>
+                      <a href="mailto:contact@sellatica.in" className="hover:text-foreground transition-colors">contact@sellatica.in</a>
                     </p>
-                    <p><span className="text-foreground font-medium">Address:</span> Bilimora, Navsari, Gujarat 396321, India</p>
+                    <p><span className="text-foreground font-medium">Address:</span> Vadodara, Gujarat</p>
                   </div>
                 </div>
 
@@ -188,8 +188,8 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-foreground mt-1" />
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Direct Email</h3>
-                    <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      hello@sellatica.in
+                    <a href="mailto:contact@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      contact@sellatica.in
                     </a>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ const Contact = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Mid-market businesses ($5M-$100M revenue) experiencing operational chaos from growth.
                   If you have data trapped in multiple systems, manual processes killing productivity,
-                  or can't scale without proportional hiring—we can help.
+                  or can't scale without proportional hiringâ€”we can help.
                 </p>
               </div>
 
@@ -336,7 +336,7 @@ const Contact = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   No. We handle all technical implementation. Your team just needs to share
                   how they work today and what outcomes they want. We build systems that integrate
-                  with existing workflows—minimal behavior change required.
+                  with existing workflowsâ€”minimal behavior change required.
                 </p>
               </div>
             </div>

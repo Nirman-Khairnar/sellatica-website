@@ -48,13 +48,13 @@ const sections = [
     title: '6. Governing Law',
     content: [
       'These Terms are governed by the laws of India.',
-      'Business location reference: Bilimora, Navsari, Gujarat 396321, India.',
+      'Business location reference: Vadodara, Gujarat.',
     ],
   },
   {
     title: '7. Dispute Resolution',
     content: [
-      'Any dispute must first be raised in writing at hello@sellatica.in for good-faith resolution.',
+      'Any dispute must first be raised in writing at contact@sellatica.in for good-faith resolution.',
       'If unresolved, disputes are subject to competent courts in Gujarat, India, unless otherwise agreed in writing.',
     ],
   },
@@ -62,8 +62,8 @@ const sections = [
     title: '8. Business Contact',
     content: [
       'Business Name: Sellatica',
-      'Address: Bilimora, Navsari, Gujarat 396321, India',
-      'Contact: hello@sellatica.in',
+      'Address: Vadodara, Gujarat',
+      'Contact: contact@sellatica.in',
       'Last updated: February 23, 2026',
     ],
   },

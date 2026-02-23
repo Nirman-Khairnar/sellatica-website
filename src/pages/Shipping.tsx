@@ -44,8 +44,8 @@ const sections = [
     title: '6. Contact',
     content: [
       'Business Name: Sellatica',
-      'Address: Bilimora, Navsari, Gujarat 396321, India',
-      'Email: hello@sellatica.in',
+      'Address: Vadodara, Gujarat',
+      'Email: contact@sellatica.in',
       'Last updated: February 23, 2026',
     ],
   },
