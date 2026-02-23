@@ -158,7 +158,7 @@ const Contact = () => {
                     <p><span className="text-foreground font-medium">Business Name:</span> Sellatica</p>
                     <p>
                       <span className="text-foreground font-medium">Email:</span>{' '}
-                      <a href="mailto:contact@sellatica.in" className="hover:text-foreground transition-colors">contact@sellatica.in</a>
+                      <a href="mailto:hello@sellatica.in" className="hover:text-foreground transition-colors">hello@sellatica.in</a>
                     </p>
                     <p><span className="text-foreground font-medium">Address:</span> Vadodara, Gujarat</p>
                   </div>
@@ -188,8 +188,8 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-foreground mt-1" />
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Direct Email</h3>
-                    <a href="mailto:contact@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      contact@sellatica.in
+                    <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      hello@sellatica.in
                     </a>
                   </div>
                 </div>

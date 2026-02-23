@@ -58,8 +58,8 @@ const Footer = () => {
             <h4 className="text-sm font-medium text-foreground uppercase tracking-wider mb-6">Contact</h4>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:contact@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  contact@sellatica.in
+                <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  hello@sellatica.in
                 </a>
               </li>
               <li>
