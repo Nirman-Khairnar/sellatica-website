@@ -24,7 +24,7 @@ npm run build
 
 Build command runs:
 1. Vite production build
-2. Static prerender snapshots for routes (`/`, `/about`, `/services`, `/results`, `/contact`, `/faq`)
+2. Static prerender snapshots for routes (`/`, `/about`, `/services`, `/results`, `/contact`, `/faq`, `/privacy`, `/terms`, `/refund`)
 
 ## Tests
 

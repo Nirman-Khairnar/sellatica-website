@@ -15,7 +15,10 @@ const routes = [
     '/services',
     '/results',
     '/contact',
-    '/faq'
+    '/faq',
+    '/privacy',
+    '/terms',
+    '/refund'
 ];
 
 async function prerender() {

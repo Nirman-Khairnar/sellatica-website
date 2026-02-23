@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { navItems, siteMeta } from '@/content/siteContent';
 
 const Footer = () => {
   return (
     <footer className="section-shell border-t border-border/60 pt-16">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-flex items-center gap-3">
               <span className="text-2xl font-semibold tracking-tight text-foreground">{siteMeta.brand}</span>
@@ -50,10 +50,31 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+
+          <div>
+            <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Legal</h4>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li>
+                <Link to="/privacy" className="transition-colors hover:text-foreground">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="transition-colors hover:text-foreground">
+                  Terms &amp; Conditions
+                </Link>
+              </li>
+              <li>
+                <Link to="/refund" className="transition-colors hover:text-foreground">
+                  Refund &amp; Cancellation
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-border/60 pt-5 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>� {new Date().getFullYear()} {siteMeta.brand}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {siteMeta.brand}. All rights reserved.</p>
           <p>{siteMeta.tagline}</p>
         </div>
       </div>
