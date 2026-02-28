@@ -1,0 +1,122 @@
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+
+export const AiOsScorecardForm = () => {
+     const [loading, setLoading] = useState(false);
+     const [formData, setFormData] = useState({
+          name: '',
+          email: '',
+          company: '',
+          biggestChallenge: '',
+     });
+
+     const handleSubmit = async (e: React.FormEvent) => {
+          e.preventDefault();
+          setLoading(true);
+
+          try {
+               // Use existing contact_submissions table or custom
+               const { error } = await supabase.from('contact_submissions').insert([
+                    {
+                         name: formData.name,
+                         email: formData.email,
+                         company: formData.company,
+                         message: `AI OS Scorecard Submission. Biggest Challenge: ${formData.biggestChallenge}`,
+                    }
+               ]);
+
+               if (error) throw error;
+
+               toast.success('Scorecard submitted successfully! Redirecting to booking...', {
+                    duration: 3000,
+               });
+
+               // Redirect to scheduling
+               setTimeout(() => {
+                    window.location.href = 'https://cal.com/sellatica'; // Replace with real booking link
+               }, 1500);
+
+          } catch (error) {
+               console.error('Submission error', error);
+               toast.error('Failed to submit. Please try again or contact us directly.');
+          } finally {
+               setLoading(false);
+          }
+     };
+
+     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+          setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+     };
+
+     return (
+          <form onSubmit={handleSubmit} className="space-y-4 w-full text-left">
+               <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                         <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
+                         <input
+                              id="name"
+                              name="name"
+                              required
+                              type="text"
+                              className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                              value={formData.name}
+                              onChange={handleChange}
+                              placeholder="John Doe"
+                         />
+                    </div>
+                    <div className="space-y-2">
+                         <label htmlFor="email" className="text-sm font-medium text-foreground">Work Email</label>
+                         <input
+                              id="email"
+                              name="email"
+                              required
+                              type="email"
+                              className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                              value={formData.email}
+                              onChange={handleChange}
+                              placeholder="john@company.com"
+                         />
+                    </div>
+               </div>
+
+               <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium text-foreground">Company Name</label>
+                    <input
+                         id="company"
+                         name="company"
+                         required
+                         type="text"
+                         className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                         value={formData.company}
+                         onChange={handleChange}
+                         placeholder="Acme Corp"
+                    />
+               </div>
+
+               <div className="space-y-2">
+                    <label htmlFor="biggestChallenge" className="text-sm font-medium text-foreground">What is your biggest operational bottleneck right now?</label>
+                    <textarea
+                         id="biggestChallenge"
+                         name="biggestChallenge"
+                         required
+                         rows={3}
+                         className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
+                         value={formData.biggestChallenge}
+                         onChange={handleChange}
+                         placeholder="e.g. Sales team spends 15 hours a week manually entering data..."
+                    />
+               </div>
+
+               <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading}>
+                    {loading ? 'Submitting...' : 'Get Your AI OS Scorecard & Book Call'}
+               </Button>
+               <p className="text-xs text-muted-foreground text-center mt-4">
+                    We'll never share your information. You'll be redirected to our calendar next.
+               </p>
+          </form>
+     );
+};
+
+export default AiOsScorecardForm;

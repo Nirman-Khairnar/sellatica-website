@@ -76,7 +76,7 @@ const About = () => {
               <span className="text-muted-foreground"> predictable execution</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Sellatica is an AI-powered systems integration firm that designs and implements
+              Sellatica is a Business AI Operating System firm that builds and deploys
               custom tech systems for mid-market businesses—turning fragmented tools into
               unified workflows that deliver measurable value.
             </p>
@@ -188,7 +188,7 @@ const About = () => {
               Ready to transform your operations?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Book a discovery call to discuss your operational challenges and explore how we can help.
+              Book an AI OS Audit to map your operational challenges and explore how our modules can help scale your business.
             </p>
             <Link to="/contact">
               <Button size="lg" className="group">

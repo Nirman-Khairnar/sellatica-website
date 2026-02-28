@@ -38,7 +38,7 @@ const faqs = [
     },
     {
         question: "How do I contact Sellatica?",
-        answer: "You can reach us at hello@sellatica.in for general inquiries. For project discussions, we recommend booking a discovery call through our website to help us better understand your specific operational challenges."
+        answer: "You can reach us at hello@sellatica.in for general inquiries. For project discussions, we recommend booking an AI OS Audit through our website to help us better understand your specific operational challenges."
     }
 ];
 

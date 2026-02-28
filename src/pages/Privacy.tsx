@@ -9,7 +9,7 @@ const sections = [
     content: [
       'This Privacy Policy explains how Sellatica collects, uses, stores, and protects data for B2B interactions.',
       'Sellatica provides business services only. We do not intentionally collect personal consumer data unrelated to business communication or delivery.',
-      'This policy applies to website inquiries, discovery calls, service delivery communication, and support interactions.',
+      'This policy applies to website inquiries, AI OS Audit bookings, service delivery communication, and support interactions.',
     ],
   },
   {

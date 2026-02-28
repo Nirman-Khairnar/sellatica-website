@@ -5,27 +5,21 @@ import { useRef } from 'react';
 const phases = [
   {
     number: '01',
-    title: 'Discovery & Strategy',
-    duration: '1-2 weeks',
-    description: 'Deep-dive into systems, workflows, and pain points. Data audit and architecture design with clear ROI projections.',
+    title: 'AI OS Audit',
+    duration: '7-10 days',
+    description: 'Deep-dive into systems, workflows, and pain points. You receive a workflow map, module backlog, and ROI projection.',
   },
   {
     number: '02',
-    title: 'Build & Integration',
-    duration: '4-10 weeks',
-    description: 'Phased development with highest-impact modules first. Weekly demos and real-time collaboration.',
+    title: 'Pilot Module',
+    duration: '14-28 days',
+    description: 'We build and deploy 1-2 high-impact AI modules end-to-end, including team training and stabilization.',
   },
   {
     number: '03',
-    title: 'Deployment & Training',
-    duration: '1-2 weeks',
-    description: 'Staged rollout, team training, and comprehensive documentation. Performance monitoring and stabilization.',
-  },
-  {
-    number: '04',
-    title: 'Optimization & Scale',
-    duration: 'Ongoing',
-    description: 'System performance tracking, learning loops, and quarterly reviews. Support for scaling as your business grows.',
+    title: 'AI OS Partner',
+    duration: 'Continuous',
+    description: 'System maintenance, learning loops, quarterly OS reviews, and on-demand scaling as your business grows.',
   },
 ];
 
@@ -34,7 +28,7 @@ const Process = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" ref={ref} className="py-24 lg:py-32 bg-card/30 border-t border-border/50">
+    <section id="process" ref={ref} className="py-24 lg:py-32 bg-muted/30 border-t border-border/50">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -50,7 +44,7 @@ const Process = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {phases.map((phase, index) => (
             <motion.div
               key={phase.number}
@@ -63,13 +57,13 @@ const Process = () => {
               {index < phases.length - 1 && (
                 <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-border/50 -z-10" />
               )}
-              
+
               <div className="mb-6">
                 <span className="font-display text-5xl lg:text-6xl font-medium text-muted-foreground/20">
                   {phase.number}
                 </span>
               </div>
-              
+
               <div className="flex items-center gap-3 mb-3">
                 <h3 className="font-display text-xl font-medium text-foreground">
                   {phase.title}

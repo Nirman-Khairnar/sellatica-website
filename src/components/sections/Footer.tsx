@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              AI-powered systems integration for mid-market businesses experiencing
+              Business AI Operating System for mid-market businesses experiencing
               operational chaos from growth.
             </p>
           </div>
@@ -63,8 +63,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Book a Call
+                <Link to="/ai-os-audit" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Book AI OS Audit
                 </Link>
               </li>
             </ul>

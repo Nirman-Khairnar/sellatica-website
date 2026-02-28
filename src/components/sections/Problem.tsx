@@ -46,10 +46,11 @@ const Problem = () => {
               Tech adoption ≠ tech value
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Most organizations invest heavily in technology but struggle to move 
+              Most organizations invest heavily in technology but struggle to move
               beyond pilots to production systems that deliver real business outcomes.
+              <strong>AI tools fail without an operating layer (workflow + data + governance).</strong>
             </p>
-            
+
             {/* Business Impact */}
             <div className="space-y-4">
               <h3 className="text-sm font-medium text-foreground uppercase tracking-wider">

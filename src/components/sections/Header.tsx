@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -11,6 +12,7 @@ const navItems = [
   { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Blog', href: 'https://blog.sellatica.in', external: true },
 ];
 
 const Header = () => {
@@ -37,8 +39,8 @@ const Header = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? 'bg-background/95 backdrop-blur-xl border-b border-border/50'
-            : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-xl border-b border-border/50'
+          : 'bg-transparent'
           }`}
       >
         <div className="container mx-auto px-6 lg:px-12">
@@ -62,36 +64,54 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`relative px-5 py-2 text-sm font-medium transition-colors duration-300 ${location.pathname === item.href
-                      ? 'text-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                >
-                  {item.name}
-                  {location.pathname === item.href && (
-                    <motion.div
-                      layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground"
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                const className = `relative px-5 py-2 text-sm font-medium transition-colors duration-300 ${isActive
+                  ? 'text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`;
+
+                if (item.external) {
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={className}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={className}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground"
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link to="/contact">
+              <ThemeToggle />
+              <Link to="/ai-os-audit">
                 <Button
                   variant="outline"
                   size="sm"
                   className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
                 >
-                  <span>Book Discovery Call</span>
+                  <span>Book AI OS Audit</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -152,33 +172,42 @@ const Header = () => {
               transition={{ duration: 0.3, delay: 0.1 }}
               className="relative flex flex-col items-center justify-center h-full gap-8"
             >
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-                >
-                  <Link
-                    to={item.href}
-                    className={`text-3xl font-display font-medium transition-colors ${location.pathname === item.href
-                        ? 'text-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
-                      }`}
+              {navItems.map((item, index) => {
+                const isActive = location.pathname === item.href;
+                const className = `text-3xl font-display font-medium transition-colors ${isActive
+                  ? 'text-foreground'
+                  : 'text-muted-foreground hover:text-foreground'
+                  }`;
+
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                   >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    {item.external ? (
+                      <a href={item.href} className={className}>
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link to={item.href} className={className}>
+                        {item.name}
+                      </Link>
+                    )}
+                  </motion.div>
+                );
+              })}
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.35 }}
-                className="mt-8"
+                className="mt-8 flex flex-col items-center gap-6"
               >
-                <Link to="/contact">
+                <ThemeToggle />
+                <Link to="/ai-os-audit">
                   <Button size="lg" className="text-lg">
-                    Book Discovery Call
+                    Book AI OS Audit
                   </Button>
                 </Link>
               </motion.div>

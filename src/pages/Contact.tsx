@@ -103,8 +103,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Sellatica | Schedule a Discovery Call"
-        description="Ready to transform your operations? Book a discovery call with Sellatica to discuss your challenges and explore AI solutions."
+        title="Contact Sellatica | Book an AI OS Audit"
+        description="Ready to transform your operations? Book an AI OS Audit with Sellatica to map your processes and design your new operational blueprint."
         canonical="https://www.sellatica.in/contact"
       />
       <Helmet>
@@ -146,7 +146,7 @@ const Contact = () => {
                 <span className="text-muted-foreground"> operations</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Every engagement starts with a discovery call. We'll explore your operational
+                Every engagement starts with the AI OS Audit. We'll explore your operational
                 challenges and determine if we're the right fit to help.
               </p>
 
@@ -167,7 +167,7 @@ const Contact = () => {
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <Calendar className="w-6 h-6 text-foreground mt-1" />
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Discovery Call</h3>
+                    <h3 className="font-medium text-foreground mb-1">AI OS Audit</h3>
                     <p className="text-sm text-muted-foreground">
                       30-minute call to understand your challenges and explore solutions.
                     </p>
@@ -276,7 +276,7 @@ const Contact = () => {
                   className="w-full group"
                   disabled={isSubmitting}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Request Discovery Call'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Request AI OS Audit'}</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
 

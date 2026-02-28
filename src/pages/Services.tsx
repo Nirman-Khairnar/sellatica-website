@@ -11,58 +11,44 @@ const services = [
   {
     icon: Search,
     phase: '01',
-    title: 'Strategic Assessment & Architecture Design',
-    description: 'We begin with a deep-dive analysis of your current systems, data flows, and manual workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a roadmap for ROI. We don\'t just look at technology; we look at business outcomes. For example, identifying where manual data entry in freight forwarding causes 20% delays.',
+    title: 'AI OS Audit',
+    description: 'We begin with a deep-dive diagnostic of your workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a clear roadmap. We do not just look at technology; we look at business outcomes.',
     features: [
-      'Comprehensive audit of current tech stack and workflows',
-      'Identification of integration gaps and automation opportunities',
-      'Design of end-to-end, scalable system architecture',
-      'ROI modeling and detailed business case development',
+      'Workflow map across your entire operation',
+      'Identification of integration gaps',
+      'AI OS module backlog tailored to your needs',
+      'ROI modeling with defensible projections',
     ],
-    whyMatters: 'Without a clear architectural blueprint, 60% of automation projects fail. We ensure every dollar spent drives specific, measurable operational improvements.',
+    whyMatters: 'An operating layer requires a blueprint. We ensure every dollar spent drives specific, measurable operational improvements.',
     duration: '1-2 weeks',
   },
   {
     icon: Cog,
     phase: '02',
-    title: 'System Build & Integration',
-    description: 'We execute the build, connecting fragmented tools (CRM, ERP, Email, Spreadsheets) into a unified ecosystem. We build custom AI agents and automation layers that handle repetitive tasks with human-like precision, creating a single source of truth for your data. We might automate invoice processing using optical character recognition (OCR) or build a custom CRM agent that pre-qualifies leads 24/7.',
+    title: 'AI OS Pilot',
+    description: 'We execute the build for 1-2 modules end-to-end (like Sales OS or Knowledge OS), proving value quickly. We connect fragmented tools into a unified ecosystem and deploy custom AI agents that handle repetitive tasks with human-like precision.',
     features: [
-      'Connect 8-15 fragmented systems via secure APIs',
-      'Build AI-powered automation layers for complex tasks',
-      'Create unified data warehouses for real-time insights',
-      'Deploy real-time dashboards and custom alert systems',
+      'Pilot module shipped and integrated',
+      'Connect required legacy systems via API',
+      'Build AI-powered automation layers for specific tasks',
+      'Deploy real-time reporting for the module',
     ],
-    whyMatters: 'Disconnected tools create data silos. A unified ecosystem provides a single source of truth, enabling real-time decision-making and eliminating manual reconciliation errors.',
-    duration: '4-10 weeks',
-  },
-  {
-    icon: Rocket,
-    phase: '03',
-    title: 'Deployment & Training',
-    description: 'Technology is only as good as its adoption. We manage a staged rollout to ensure system stability and provide hands-on training for your team. We ensure your staff feels empowered, not replaced, by the new tools. We conduct role-specific workshops, ensuring your sales team knows exactly how to leverage their new AI assistant effectively.',
-    features: [
-      'Staged, low-risk rollout to minimize operational disruption',
-      'Hands-on team training and workshops on new interfaces',
-      'Setup of comprehensive performance monitoring',
-      'Creation of detailed Documentation and SOPs',
-    ],
-    whyMatters: 'Adoption is the biggest hurdle in tech implementation. Our hands-on training ensures your team is confident and productive from day one, maximizing immediate ROI.',
-    duration: '1-2 weeks',
+    whyMatters: 'Fast time-to-value is critical. By deploying a focused pilot, we demonstrate immediate ROI and build team confidence in the new operating system.',
+    duration: '2-4 weeks',
   },
   {
     icon: TrendingUp,
-    phase: '04',
-    title: 'Optimization & Scale',
-    description: 'Launch is just the beginning. We implement feedback loops where the AI system learns from human corrections, improving accuracy over time. We support you as you scale, adding new capabilities and handling increased volume. If the AI misclassifies a complex customer query, our feedback loop allows a human to correct it, preventing the same error from happening twice.',
+    phase: '03',
+    title: 'AI OS Partner',
+    description: 'Launch is just the beginning. We provide ongoing maintenance, iteration, and monitoring. We implement feedback loops where the AI OS learns from human corrections, improving accuracy over time.',
     features: [
-      'Continuous system performance tracking and tuning',
-      'AI accuracy improvement mechanisms over time',
-      'Quarterly strategy and optimization reviews',
-      'On-demand scaling support as your business grows',
+      'Continuous system performance monitoring',
+      'AI accuracy improvement and iteration',
+      'Quarterly strategy and OS reviews',
+      'On-demand scaling support and change requests',
     ],
-    whyMatters: 'Static systems degrade. Our adaptive systems get smarter with use, compounding value over time and ensuring your infrastructure remains a competitive advantage.',
-    duration: 'Ongoing',
+    whyMatters: 'Static systems degrade. Our adaptive OS gets smarter with use, compounding value over time and ensuring your infrastructure remains a competitive advantage.',
+    duration: 'Monthly Retainer',
   },
 ];
 
@@ -141,8 +127,8 @@ const Services = () => {
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              Custom-built systems for
-              <span className="text-muted-foreground"> operational excellence</span>
+              AI OS: Audit → Pilot →
+              <span className="text-muted-foreground"> Partner</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
               Not generic consulting. Not off-the-shelf software. Every engagement is designed
@@ -191,7 +177,7 @@ const Services = () => {
                     {/* Why This Matters Subsection */}
                     <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
                       <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                         Why This Matters
+                        Why This Matters
                       </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {service.whyMatters}
@@ -282,11 +268,11 @@ const Services = () => {
               Ready to discuss your operations?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Every engagement starts with a discovery call to understand your specific challenges.
+              Every engagement starts with our flagship AI OS Audit to map operations.
             </p>
-            <Link to="/contact">
+            <Link to="/ai-os-audit">
               <Button size="lg" className="group">
-                <span>Book Discovery Call</span>
+                <span>Book AI OS Audit</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
