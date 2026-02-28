@@ -8,6 +8,7 @@ export const AiOsScorecardForm = () => {
           name: '',
           email: '',
           company: '',
+          teamSize: '',
           biggestChallenge: '',
      });
 
@@ -35,7 +36,7 @@ export const AiOsScorecardForm = () => {
           }
      };
 
-     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
           setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
      };
 
@@ -70,18 +71,38 @@ export const AiOsScorecardForm = () => {
                     </div>
                </div>
 
-               <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-foreground">Company Name</label>
-                    <input
-                         id="company"
-                         name="company"
-                         required
-                         type="text"
-                         className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
-                         value={formData.company}
-                         onChange={handleChange}
-                         placeholder="Acme Corp"
-                    />
+               <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                         <label htmlFor="company" className="text-sm font-medium text-foreground">Company Name</label>
+                         <input
+                              id="company"
+                              name="company"
+                              required
+                              type="text"
+                              className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                              value={formData.company}
+                              onChange={handleChange}
+                              placeholder="Acme Corp"
+                         />
+                    </div>
+                    <div className="space-y-2">
+                         <label htmlFor="teamSize" className="text-sm font-medium text-foreground">Team Size</label>
+                         <select
+                              id="teamSize"
+                              name="teamSize"
+                              required
+                              className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+                              value={formData.teamSize}
+                              onChange={handleChange}
+                         >
+                              <option value="" disabled>Select team size</option>
+                              <option value="Just me">Just me</option>
+                              <option value="2-5">2–5</option>
+                              <option value="6-20">6–20</option>
+                              <option value="21-50">21–50</option>
+                              <option value="50+">50+</option>
+                         </select>
+                    </div>
                </div>
 
                <div className="space-y-2">
@@ -94,7 +115,7 @@ export const AiOsScorecardForm = () => {
                          className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
                          value={formData.biggestChallenge}
                          onChange={handleChange}
-                         placeholder="e.g. Sales team spends 15 hours a week manually entering data..."
+                         placeholder="e.g. Our sales team manually enters data across 3 tools every day"
                     />
                </div>
 
