@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
 export const AiOsScorecardForm = () => {
@@ -17,16 +18,33 @@ export const AiOsScorecardForm = () => {
           setLoading(true);
 
           try {
-               // Skip database insertion and directly route to the Cal.com link
-               await new Promise(resolve => setTimeout(resolve, 1000));
+               // 1. Non-blocking Supabase database insert (Fire and forget)
+               supabase.from('leads').insert([
+                    {
+                         name: formData.name,
+                         email: formData.email,
+                         company: formData.company,
+                         team_size: formData.teamSize,
+                         bottleneck: formData.biggestChallenge,
+                         status: 'form_submitted',
+                         source: 'ai_os_audit'
+                    }
+               ]).then(({ error }) => {
+                    if (error) console.error('Supabase insert failed:', error);
+               });
 
                toast.success('Scorecard processed successfully! Redirecting to booking...', {
                     duration: 3000,
                });
 
-               // Redirect to scheduling
+               // 2. Build pre-filled Cal.com URL
+               const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');
+               calUrl.searchParams.append('name', formData.name);
+               calUrl.searchParams.append('email', formData.email);
+
+               // 3. Redirect to scheduling simultaneously
                setTimeout(() => {
-                    window.location.href = 'https://cal.com/sellatica-official/introductory-call';
+                    window.location.href = calUrl.toString();
                }, 1000);
 
           } catch (error) {
