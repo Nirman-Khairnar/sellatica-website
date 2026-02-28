@@ -21,16 +21,18 @@ import AiOsPartner from "./pages/AiOsPartner";
 import { HelmetProvider } from "react-helmet-async";
 
 import { ThemeProvider } from "./components/theme-provider";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+  <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <CustomCursor />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />

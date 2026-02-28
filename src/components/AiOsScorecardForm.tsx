@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { Turnstile } from '@marsidev/react-turnstile';
+import type { TurnstileInstance } from '@marsidev/react-turnstile';
 
 export const AiOsScorecardForm = () => {
      const [loading, setLoading] = useState(false);
+     const [turnstileToken, setTurnstileToken] = useState<string>('');
+     const turnstileRef = useRef<TurnstileInstance | null>(null);
      const [formData, setFormData] = useState({
           name: '',
           email: '',
@@ -15,25 +19,47 @@ export const AiOsScorecardForm = () => {
 
      const handleSubmit = async (e: React.FormEvent) => {
           e.preventDefault();
+
+          if (!turnstileToken) {
+               toast.error('Please wait for the security verification to complete.');
+               return;
+          }
+
           setLoading(true);
 
           try {
-               // 1. Await the Supabase database insert to catch errors
-               const { error: insertError } = await supabase.from('leads').insert([
-                    {
-                         name: formData.name,
-                         email: formData.email,
-                         company: formData.company,
-                         team_size: formData.teamSize,
-                         bottleneck: formData.biggestChallenge,
-                         status: 'form_submitted',
-                         source: 'ai_os_audit'
+               // 1. Await the Supabase Edge Function to prevent bot spam
+               const { data, error: invokeError } = await supabase.functions.invoke('submit-lead', {
+                    body: {
+                         token: turnstileToken,
+                         leadData: {
+                              name: formData.name,
+                              email: formData.email,
+                              company: formData.company,
+                              teamSize: formData.teamSize,
+                              biggestChallenge: formData.biggestChallenge
+                         }
                     }
-               ]);
+               });
 
-               if (insertError) {
-                    console.error('Supabase raw error:', insertError);
-                    throw new Error('Database insertion failed');
+               if (invokeError) {
+                    console.error('Edge function error:', invokeError);
+                    let errorMessage = 'Secure proxy insertion failed';
+                    // Extract message if it's a FunctionsHttpError with context
+                    if (invokeError.context) {
+                         try {
+                              const errData = await invokeError.context.json();
+                              if (errData.error) errorMessage = errData.error;
+                         } catch (e) {
+                              // non-json response
+                         }
+                    }
+                    throw new Error(errorMessage);
+               }
+
+               if (data?.error) {
+                    console.error('Edge function returned error payload:', data.error);
+                    throw new Error(data.error);
                }
 
                toast.success('Scorecard processed successfully! Redirecting to booking...', {
@@ -50,9 +76,9 @@ export const AiOsScorecardForm = () => {
                     window.location.href = calUrl.toString();
                }, 1000);
 
-          } catch (error) {
+          } catch (error: any) {
                console.error('Submission error', error);
-               toast.error('Failed to submit. Please try again or contact us directly.');
+               toast.error(`Failed to submit: ${error?.message || 'Please try again'}`);
                setLoading(false);
           }
      };
@@ -140,8 +166,21 @@ export const AiOsScorecardForm = () => {
                     />
                </div>
 
-               <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading}>
-                    {loading ? 'Submitting...' : 'Get Your AI OS Scorecard & Book Call'}
+               <div className="space-y-4 !mt-6 flex justify-center w-full">
+                    <Turnstile
+                         ref={turnstileRef}
+                         siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY as string}
+                         options={{ theme: 'light' }}
+                         onSuccess={(token) => setTurnstileToken(token)}
+                         onError={() => {
+                              toast.error('Security verification failed. Please refresh the page.');
+                              turnstileRef.current?.reset();
+                         }}
+                    />
+               </div>
+
+               <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading || !turnstileToken}>
+                    {loading ? 'Submitting & Verifying...' : 'Get Your AI OS Scorecard & Book Call'}
                </Button>
                <p className="text-xs text-muted-foreground text-center mt-4">
                     We'll never share your information. You'll be redirected to our calendar next.

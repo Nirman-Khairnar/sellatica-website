@@ -83,56 +83,56 @@ const Hero = () => {
               <div className="flex-1 p-6 grid grid-cols-2 gap-4 bg-blueprint">
 
                 {/* Metric Box */}
-                <div className="col-span-2 bg-card border border-border p-4 shadow-sm flex items-center justify-between">
+                <div className="col-span-2 bg-card border border-border p-4 flex items-center justify-between group cursor-crosshair hover:border-accent/50 transition-colors">
                   <div>
-                    <span className="font-mono text-[10px] text-muted-foreground uppercase mb-1 block">System Entropy</span>
+                    <span className="font-mono text-[10px] text-muted-foreground uppercase mb-1 block group-hover:text-accent transition-colors">System Entropy</span>
                     <span className="font-display text-4xl font-bold tracking-tighter">0.04%</span>
                   </div>
-                  <Activity className="w-8 h-8 text-accent opacity-50" />
+                  <Activity className="w-8 h-8 text-accent opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
 
                 {/* Status Box 1 */}
-                <div className="bg-card border border-border p-4 shadow-sm">
-                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block">Data Layer</span>
+                <div className="bg-card border border-border p-4 group cursor-crosshair hover:border-accent/50 transition-colors">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block group-hover:text-accent transition-colors">Data Layer</span>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-green-500/10 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 bg-green-500/10 rounded flex items-center justify-center border border-green-500/20 group-hover:bg-green-500/20 transition-colors">
                       <Database className="w-4 h-4 text-green-600" />
                     </div>
                     <div>
-                      <span className="block font-mono text-xs font-bold">SYNCED</span>
+                      <span className="block font-mono text-xs font-bold text-foreground">SYNCED</span>
                       <span className="block font-mono text-[10px] text-muted-foreground">14ms latency</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Status Box 2 */}
-                <div className="bg-card border border-border p-4 shadow-sm">
-                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block">Security</span>
+                <div className="bg-card border border-border p-4 group cursor-crosshair hover:border-accent/50 transition-colors">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block group-hover:text-accent transition-colors">Security</span>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-accent/10 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 bg-accent/10 rounded flex items-center justify-center border border-accent/20 group-hover:bg-accent/20 transition-colors">
                       <ShieldCheck className="w-4 h-4 text-accent" />
                     </div>
                     <div>
-                      <span className="block font-mono text-xs font-bold">ACTIVE</span>
+                      <span className="block font-mono text-xs font-bold text-foreground">ACTIVE</span>
                       <span className="block font-mono text-[10px] text-muted-foreground">SOC2 Compliant</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Workflow Animation Box */}
-                <div className="col-span-2 bg-foreground text-background p-4 shadow-sm relative overflow-hidden">
-                  <span className="font-mono text-[10px] text-background/50 uppercase mb-4 block">Active Workflows</span>
+                <div className="col-span-2 bg-card border border-border p-4 relative overflow-hidden group cursor-crosshair hover:border-accent/50 transition-colors">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-4 block group-hover:text-accent transition-colors">Active Workflows</span>
 
                   <div className="space-y-3">
                     <div className="h-6 w-full flex items-center gap-2">
                       <Zap className="w-3 h-3 text-accent" />
-                      <div className="h-1 flex-1 bg-background/20 overflow-hidden">
+                      <div className="h-1 flex-1 bg-border overflow-hidden rounded-full">
                         <motion.div animate={{ width: ["0%", "100%"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="h-full bg-accent" />
                       </div>
                     </div>
                     <div className="h-6 w-full flex items-center gap-2">
                       <Activity className="w-3 h-3 text-accent/50" />
-                      <div className="h-1 flex-1 bg-background/20 overflow-hidden">
+                      <div className="h-1 flex-1 bg-border overflow-hidden rounded-full">
                         <motion.div animate={{ width: ["0%", "100%"] }} transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }} className="h-full bg-accent/50" />
                       </div>
                     </div>

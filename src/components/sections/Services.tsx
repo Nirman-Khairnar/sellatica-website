@@ -95,7 +95,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card border-2 border-border shadow-sm p-8 relative overflow-hidden group hover:border-accent/30 transition-colors flex flex-col"
+            className="bg-card border-2 border-border shadow-sm p-8 relative overflow-hidden group hover:border-accent/50 cursor-pointer transition-all flex flex-col"
           >
             <div className="flex items-center justify-between mb-6">
               <div className="w-10 h-10 bg-secondary flex items-center justify-center border border-border">
@@ -123,23 +123,23 @@ const Services = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-foreground text-background shadow-sm p-8 relative overflow-hidden group flex flex-col"
+            className="bg-card border-2 border-accent/30 shadow-[0_0_15px_rgba(var(--accent-rgb),0.1)] p-8 relative overflow-hidden group hover:border-accent hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.2)] cursor-pointer transition-all flex flex-col"
           >
             <div className="flex items-center justify-between mb-6">
-              <div className="w-10 h-10 bg-background/10 flex items-center justify-center">
-                <TrendingUp className="w-4 h-4 text-background" />
+              <div className="w-10 h-10 bg-accent/10 flex items-center justify-center border border-accent/20">
+                <TrendingUp className="w-4 h-4 text-accent" />
               </div>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-background/50 bg-background/10 px-2 py-1">Phase 03</span>
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-accent bg-accent/10 px-2 py-1 border border-accent/20">Phase 03</span>
             </div>
 
-            <h3 className="font-display text-xl font-bold tracking-tight mb-3">AI OS Partner</h3>
-            <p className="text-background/70 font-mono text-xs leading-relaxed mb-6">
+            <h3 className="font-display text-xl font-bold tracking-tight mb-3 text-foreground group-hover:text-accent transition-colors">AI OS Partner</h3>
+            <p className="text-muted-foreground font-mono text-xs leading-relaxed mb-6">
               Ongoing governance and iteration. The adaptive OS gets smarter with use, compounding value over time.
             </p>
 
-            <div className="mt-auto pt-6 border-t border-background/20">
+            <div className="mt-auto pt-6 border-t border-border">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[10px] uppercase text-background/50">Engagement</span>
+                <span className="font-mono text-[10px] uppercase text-muted-foreground group-hover:text-foreground transition-colors">Engagement</span>
                 <span className="font-mono text-xs font-bold text-accent">Monthly Retainer</span>
               </div>
             </div>
