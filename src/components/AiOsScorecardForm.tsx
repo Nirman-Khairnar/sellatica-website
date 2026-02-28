@@ -18,8 +18,8 @@ export const AiOsScorecardForm = () => {
           setLoading(true);
 
           try {
-               // 1. Non-blocking Supabase database insert (Fire and forget)
-               supabase.from('leads').insert([
+               // 1. Await the Supabase database insert to catch errors
+               const { error: insertError } = await supabase.from('leads').insert([
                     {
                          name: formData.name,
                          email: formData.email,
@@ -29,9 +29,12 @@ export const AiOsScorecardForm = () => {
                          status: 'form_submitted',
                          source: 'ai_os_audit'
                     }
-               ]).then(({ error }) => {
-                    if (error) console.error('Supabase insert failed:', error);
-               });
+               ]);
+
+               if (insertError) {
+                    console.error('Supabase raw error:', insertError);
+                    throw new Error('Database insertion failed');
+               }
 
                toast.success('Scorecard processed successfully! Redirecting to booking...', {
                     duration: 3000,
