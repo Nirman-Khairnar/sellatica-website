@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
 export const AiOsScorecardForm = () => {
@@ -17,31 +16,21 @@ export const AiOsScorecardForm = () => {
           setLoading(true);
 
           try {
-               // Use existing contact_submissions table or custom
-               const { error } = await supabase.from('contact_submissions').insert([
-                    {
-                         name: formData.name,
-                         email: formData.email,
-                         company: formData.company,
-                         message: `AI OS Scorecard Submission. Biggest Challenge: ${formData.biggestChallenge}`,
-                    }
-               ]);
+               // Skip database insertion and directly route to the Cal.com link
+               await new Promise(resolve => setTimeout(resolve, 1000));
 
-               if (error) throw error;
-
-               toast.success('Scorecard submitted successfully! Redirecting to booking...', {
+               toast.success('Scorecard processed successfully! Redirecting to booking...', {
                     duration: 3000,
                });
 
                // Redirect to scheduling
                setTimeout(() => {
-                    window.location.href = 'https://cal.com/sellatica'; // Replace with real booking link
-               }, 1500);
+                    window.location.href = 'https://cal.com/sellatica-official/introductory-call';
+               }, 1000);
 
           } catch (error) {
                console.error('Submission error', error);
                toast.error('Failed to submit. Please try again or contact us directly.');
-          } finally {
                setLoading(false);
           }
      };
