@@ -1,16 +1,12 @@
 import { motion } from 'framer-motion';
 
 const enterpriseLogos = [
-     "GLOBEX LOGISTICS",
-     "ACME MANUFACTURING",
-     "CHOAM HEAVY IND.",
-     "TYRELL CORP",
-     "WAYLAND SUPPLY",
-     "MASSIVE DYNAMIC",
-     "UMBRELLA BIOSCI",
-     "INERGEN ENERGY",
-     "CYBERDYNE SYS",
-     "STARK INDUSTRIES"
+     "GLOBEX LOGISTICS: +24% MARGIN",
+     "VANGUARD MFG: -41% DOWNTIME",
+     "WAYLAND SUPPLY: 480% ROI",
+     "NEXUS ENERGY: AUTONOMOUS GRID",
+     "AERODYNE FREIGHT: +87% CAPACITY",
+     "CHOAM HEAVY IND: ZERO LEAKAGE"
 ];
 
 // We triple the array to ensure flawless infinite infinite scrolling without visual gaps
@@ -19,9 +15,9 @@ const repeatedLogos = [...enterpriseLogos, ...enterpriseLogos, ...enterpriseLogo
 const LogoTicker = () => {
      return (
           <div className="w-full bg-background border-b border-border py-6 overflow-hidden relative">
-               <div className="container mx-auto px-6 lg:px-12 mb-4">
+               <div className="container mx-auto px-6 lg:px-12 pb-4">
                     <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest text-center">
-                         &gt; Trusted by tier-one operational infrastructures
+                         &gt; Trusted by tier-one operational infrastructures delivering hard ROI metrics:
                     </p>
                </div>
 
