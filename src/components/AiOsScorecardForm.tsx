@@ -7,8 +7,6 @@ import type { TurnstileInstance } from '@marsidev/react-turnstile';
 
 export const AiOsScorecardForm = () => {
      const [loading, setLoading] = useState(false);
-     const [isScoreCalculated, setIsScoreCalculated] = useState(false);
-     const [scoreResult, setScoreResult] = useState<{ grade: string; text: string } | null>(null);
      const [turnstileToken, setTurnstileToken] = useState<string>('');
      const turnstileRef = useRef<TurnstileInstance | null>(null);
      const [formData, setFormData] = useState({
@@ -59,24 +57,19 @@ export const AiOsScorecardForm = () => {
                     throw new Error(data.error);
                }
 
-               toast.success('Analyzing operational bottlenecks...', {
-                    duration: 2000,
+               toast.success('Form submitted successfully! Redirecting to booking...', {
+                    duration: 3000,
                });
 
-               // Determine a simulated grade based on team size
-               let grade = "C";
-               let text = "Moderate SaaS Sprawl Detected. Manual data entry is severely bottlenecking your team's output.";
-               if (formData.teamSize === "50+") {
-                    grade = "D";
-                    text = "Critical Process Fragmentation. Massive enterprise overhead detected across siloed departments.";
-               } else if (formData.teamSize === "Just me" || formData.teamSize === "2-5") {
-                    grade = "B-";
-                    text = "High Automation Potential. Leadership time is being drained by administrative glue-work.";
-               }
+               // 2. Build pre-filled Cal.com URL
+               const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');
+               calUrl.searchParams.append('name', formData.name);
+               calUrl.searchParams.append('email', formData.email);
 
-               setScoreResult({ grade, text });
-               setIsScoreCalculated(true);
-               setLoading(false);
+               // 3. Redirect to scheduling
+               setTimeout(() => {
+                    window.location.href = calUrl.toString();
+               }, 1000);
 
           } catch (error: any) {
                console.error('Submission error', error);
@@ -88,37 +81,6 @@ export const AiOsScorecardForm = () => {
      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
           setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
      };
-
-     if (isScoreCalculated && scoreResult) {
-          const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');
-          calUrl.searchParams.append('name', formData.name);
-          calUrl.searchParams.append('email', formData.email);
-
-          return (
-               <div className="space-y-6 text-center py-8 bg-secondary/10 p-8 rounded-xl border border-border mt-4 w-full">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-foreground">AI Readiness Score</h3>
-
-                    <div className="flex justify-center items-center py-6">
-                         <div className="w-32 h-32 rounded-full border-4 border-accent flex items-center justify-center bg-background shadow-[0_0_30px_rgba(0,240,255,0.2)]">
-                              <span className="text-5xl font-display font-bold text-accent">{scoreResult.grade}</span>
-                         </div>
-                    </div>
-
-                    <p className="text-muted-foreground font-mono text-sm max-w-sm mx-auto leading-relaxed border-l-2 border-accent/50 pl-4 text-left">
-                         &gt; {scoreResult.text}
-                    </p>
-
-                    <div className="pt-8 mt-2 border-t border-border/50">
-                         <p className="font-medium text-foreground mb-4 text-sm">Review your custom OS Blueprint with an engineer.</p>
-                         <a href={calUrl.toString()} target="_blank" rel="noopener noreferrer" className="block w-full">
-                              <Button size="lg" className="w-full">
-                                   Book Architecture Review Call
-                              </Button>
-                         </a>
-                    </div>
-               </div>
-          );
-     }
 
      return (
           <form onSubmit={handleSubmit} className="space-y-4 w-full text-left">
