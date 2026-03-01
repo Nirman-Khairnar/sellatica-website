@@ -202,7 +202,7 @@ export const AiOsScorecardForm = () => {
                <div className="space-y-4 !mt-6 flex flex-col justify-center items-center w-full min-h-[65px]">
                     <Turnstile
                          ref={turnstileRef}
-                         siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY as string}
+                         siteKey="0x4AAAAAACj_6j74UwLAs3Fm"
                          options={{ theme: 'light' }}
                          onSuccess={(token) => setTurnstileToken(token)}
                          onError={() => {
