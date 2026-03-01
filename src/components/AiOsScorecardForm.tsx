@@ -217,7 +217,7 @@ export const AiOsScorecardForm = () => {
                     />
                </div>
 
-               <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading || !turnstileToken}>
+               <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading}>
                     {loading ? 'Submitting & Verifying...' : 'Get Your AI OS Scorecard & Book Call'}
                </Button>
                <p className="text-xs text-muted-foreground text-center mt-4">
