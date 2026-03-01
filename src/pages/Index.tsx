@@ -1,9 +1,11 @@
 import Header from '@/components/sections/Header';
 import Hero from '@/components/sections/Hero';
+import LogoTicker from '@/components/sections/LogoTicker';
 import Problem from '@/components/sections/Problem';
 import Services from '@/components/sections/Services';
 import Results from '@/components/sections/Results';
 import Process from '@/components/sections/Process';
+import NewsletterCapture from '@/components/sections/NewsletterCapture';
 import CTA from '@/components/sections/CTA';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -14,10 +16,12 @@ const Index = () => {
       <SEO canonical="https://www.sellatica.in" />
       <Header />
       <Hero />
+      <LogoTicker />
       <Problem />
       <Services />
       <Results />
       <Process />
+      <NewsletterCapture />
       <CTA />
       <Footer />
     </div>

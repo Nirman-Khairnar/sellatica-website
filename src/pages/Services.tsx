@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
+import NewsletterCapture from '@/components/sections/NewsletterCapture';
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Search, Cog, Rocket, TrendingUp, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -253,6 +254,8 @@ const Services = () => {
           </motion.div>
         </div>
       </section>
+
+      <NewsletterCapture />
 
       {/* CTA */}
       <section className="py-20 border-t border-border/50">

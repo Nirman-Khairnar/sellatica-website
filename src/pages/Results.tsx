@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
+import NewsletterCapture from '@/components/sections/NewsletterCapture';
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Building2, Home, Truck, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -242,6 +243,8 @@ const Results = () => {
           </motion.div>
         </div>
       </section>
+
+      <NewsletterCapture />
 
       {/* CTA */}
       <section className="py-20 border-t border-border/50">

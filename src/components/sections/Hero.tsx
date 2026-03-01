@@ -1,9 +1,27 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Activity, Database, ShieldCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+const roiLines = [
+  "Cutting logistics dispatch times by 40%.",
+  "Predicting manufacturing downtime 14 days out.",
+  "Automating multi-tiered support workflows.",
+  "Eliminating data-entry bottlenecks entirely.",
+  "Reducing enterprise SaaS sprawl overhead."
+];
+
 const Hero = () => {
+  const [roiIndex, setRoiIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoiIndex((prev) => (prev + 1) % roiLines.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-background bg-blueprint border-b border-border/50">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -31,16 +49,32 @@ const Hero = () => {
               <span className="text-secondary-foreground">Operating System</span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-mono text-muted-foreground text-sm mb-12 max-w-lg leading-relaxed border-l-2 border-accent/50 pl-4"
+              className="font-mono text-xs md:text-sm mb-12 max-w-lg leading-relaxed border-l-2 border-accent/50 pl-4"
             >
-              &gt; Turn operational chaos into predictable execution. <br />
-              &gt; AI-native workflows built for enterprise scale. <br />
-              &gt; Deploying proprietary intelligence layers.
-            </motion.p>
+              <div className="mb-2 text-muted-foreground">&gt; Turn operational chaos into predictable execution.</div>
+              <div className="mb-2 text-muted-foreground">&gt; Proprietary intelligence layers built for scale.</div>
+              <div className="flex items-center gap-2 text-accent font-bold mt-4">
+                <span>&gt;</span>
+                <div className="relative h-5 overflow-hidden w-full">
+                  <AnimatePresence mode="popLayout">
+                    <motion.div
+                      key={roiIndex}
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -20, opacity: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="absolute inset-0 whitespace-nowrap"
+                    >
+                      {roiLines[roiIndex]}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
