@@ -18,34 +18,36 @@ serve(async (req: Request) => {
      try {
           const { token, leadData } = await req.json();
 
-          // 1. Verify Cloudflare Turnstile Token
-          if (!token) {
-               return new Response(JSON.stringify({ error: "Missing Turnstile verification token" }), {
-                    status: 400,
-                    headers: { ...corsHeaders, "Content-Type": "application/json" },
-               });
+          // 1. Verify Cloudflare Turnstile Token (Soft Requirement)
+          let isVerifiedHuman = false;
+
+          if (!token || token === 'bypass_client_failure') {
+               console.warn("Turnstile token missing or bypassed by client. Proceeding without verification.");
+          } else {
+               const formData = new FormData();
+               formData.append("secret", TURNSTILE_SECRET_KEY);
+               formData.append("response", token);
+
+               try {
+                    const turnstileRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+                         method: "POST",
+                         body: formData,
+                    });
+
+                    const turnstileData = await turnstileRes.json();
+
+                    if (!turnstileData.success) {
+                         console.warn("Turnstile API verification failed for given token:", turnstileData);
+                         // Soft fail: We don't block the request, just log it.
+                    } else {
+                         isVerifiedHuman = true;
+                    }
+               } catch (err) {
+                    console.error("Error communicating with Cloudflare API:", err);
+               }
           }
 
-          const formData = new FormData();
-          formData.append("secret", TURNSTILE_SECRET_KEY);
-          formData.append("response", token);
-
-          const turnstileRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-               method: "POST",
-               body: formData,
-          });
-
-          const turnstileData = await turnstileRes.json();
-
-          if (!turnstileData.success) {
-               console.error("Turnstile verification failed for given token:", turnstileData);
-               return new Response(JSON.stringify({ error: "Cloudflare bot verification failed" }), {
-                    status: 403,
-                    headers: { ...corsHeaders, "Content-Type": "application/json" },
-               });
-          }
-
-          // 2. Token is verified, user is human. Proceed to Supabase insert via privileged Service Key
+          // 2. Token evaluated. Proceed to Supabase insert via privileged Service Key
           // Create an explicit superuser client by setting the bearer Token header
           const supabaseAdmin = createClient(
                Deno.env.get('SUPABASE_URL') ?? '',
@@ -58,7 +60,6 @@ serve(async (req: Request) => {
                     }
                }
           );
-
           const { error: insertError } = await supabaseAdmin.from("leads").insert([
                {
                     name: leadData.name,
@@ -66,7 +67,7 @@ serve(async (req: Request) => {
                     company: leadData.company,
                     team_size: leadData.teamSize,
                     bottleneck: leadData.biggestChallenge,
-                    status: "form_submitted",
+                    status: isVerifiedHuman ? "form_submitted" : "unverified_lead",
                     source: "ai_os_audit"
                }
           ]);
