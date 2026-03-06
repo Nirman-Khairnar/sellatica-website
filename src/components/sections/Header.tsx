@@ -46,7 +46,7 @@ const Header = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
-            <Link to="/" className="relative z-10">
+            <Link to="/" className="relative z-10" data-track="nav_logo_clicked">
               <motion.div
                 className="flex items-center gap-3"
                 whileHover={{ scale: 1.02 }}
@@ -77,6 +77,8 @@ const Header = () => {
                       key={item.name}
                       href={item.href}
                       className={className}
+                      data-track="nav_link_clicked"
+                      data-track-props={JSON.stringify({ destination: item.href, location: 'desktop_nav' })}
                     >
                       {item.name}
                     </a>
@@ -88,6 +90,8 @@ const Header = () => {
                     key={item.name}
                     to={item.href}
                     className={className}
+                    data-track="nav_link_clicked"
+                    data-track-props={JSON.stringify({ destination: item.href, location: 'desktop_nav' })}
                   >
                     {item.name}
                     {isActive && (
@@ -105,7 +109,7 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
-              <Link to="/ai-os-audit">
+              <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
                 <Button
                   variant="outline"
                   size="sm"
@@ -187,11 +191,21 @@ const Header = () => {
                     transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                   >
                     {item.external ? (
-                      <a href={item.href} className={className}>
+                      <a
+                        href={item.href}
+                        className={className}
+                        data-track="nav_link_clicked"
+                        data-track-props={JSON.stringify({ destination: item.href, location: 'mobile_nav' })}
+                      >
                         {item.name}
                       </a>
                     ) : (
-                      <Link to={item.href} className={className}>
+                      <Link
+                        to={item.href}
+                        className={className}
+                        data-track="nav_link_clicked"
+                        data-track-props={JSON.stringify({ destination: item.href, location: 'mobile_nav' })}
+                      >
                         {item.name}
                       </Link>
                     )}
@@ -205,7 +219,7 @@ const Header = () => {
                 className="mt-8 flex flex-col items-center gap-6"
               >
                 <ThemeToggle />
-                <Link to="/ai-os-audit">
+                <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
                   <Button size="lg" className="text-lg">
                     Book AI OS Audit
                   </Button>

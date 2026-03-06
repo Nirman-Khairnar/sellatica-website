@@ -4,6 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Turnstile } from '@marsidev/react-turnstile';
 import type { TurnstileInstance } from '@marsidev/react-turnstile';
+import { trackEvent } from '@/utils/analytics';
 
 export const AiOsScorecardForm = () => {
      const [loading, setLoading] = useState(false);
@@ -60,6 +61,8 @@ export const AiOsScorecardForm = () => {
                toast.success('Form submitted successfully! Redirecting to booking...', {
                     duration: 3000,
                });
+
+               trackEvent('form_submitted', { form_id: 'ai_os_audit_scorecard' });
 
                // 2. Build pre-filled Cal.com URL
                const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');

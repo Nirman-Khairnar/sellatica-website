@@ -32,6 +32,8 @@ const Services = () => {
             <Link
               to="/services"
               className="group flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+              data-track="nav_link_clicked"
+              data-track-props={JSON.stringify({ location: 'services_header', destination: '/services' })}
             >
               View Full Specs
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -160,7 +162,7 @@ const Services = () => {
               Every deployment begins with an Audit.
             </p>
           </div>
-          <Link to="/ai-os-audit" className="w-full sm:w-auto">
+          <Link to="/ai-os-audit" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'services_footer' })}>
             <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-12 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
               Initialize Audit Pipeline
               <ArrowRight className="w-4 h-4 ml-2" />

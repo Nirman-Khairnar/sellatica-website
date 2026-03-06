@@ -33,7 +33,12 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    data-track="nav_link_clicked"
+                    data-track-props={JSON.stringify({ destination: link.href, location: 'footer_company' })}
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -46,7 +51,12 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    data-track="nav_link_clicked"
+                    data-track-props={JSON.stringify({ destination: link.href, location: 'footer_resources' })}
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -58,12 +68,22 @@ const Footer = () => {
             <h4 className="text-sm font-medium text-foreground uppercase tracking-wider mb-6">Contact</h4>
             <ul className="space-y-4">
               <li>
-                <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  href="mailto:hello@sellatica.in"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-track="email_link_clicked"
+                  data-track-props={JSON.stringify({ location: 'footer_contact' })}
+                >
                   hello@sellatica.in
                 </a>
               </li>
               <li>
-                <Link to="/ai-os-audit" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/ai-os-audit"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  data-track="cta_clicked"
+                  data-track-props={JSON.stringify({ location: 'footer_contact' })}
+                >
                   Book AI OS Audit
                 </Link>
               </li>
@@ -76,19 +96,19 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Sellatica. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/privacy', location: 'footer_legal' })}>
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/terms', location: 'footer_legal' })}>
               Terms &amp; Conditions
             </Link>
-            <Link to="/refund" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/refund" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/refund', location: 'footer_legal' })}>
               Refund &amp; Cancellation
             </Link>
-            <Link to="/shipping" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/shipping" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/shipping', location: 'footer_legal' })}>
               Shipping Policy
             </Link>
-            <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/contact', location: 'footer_legal' })}>
               Contact Us
             </Link>
           </div>

@@ -82,13 +82,13 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center sm:items-start gap-4"
             >
-              <Link to="/ai-os-audit" className="w-full sm:w-auto">
+              <Link to="/ai-os-audit" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
                 <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
                   Initialize Audit
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services" className="w-full sm:w-auto">
+              <Link to="/services" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
                 <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 border-2 border-foreground hover:bg-foreground/5">
                   View Modules
                 </Button>

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -22,14 +23,53 @@ import { HelmetProvider } from "react-helmet-async";
 
 import { ThemeProvider } from "./components/theme-provider";
 import { CustomCursor } from "@/components/CustomCursor";
+import { trackEvent } from "./utils/analytics";
 
 const queryClient = new QueryClient();
+
+const GlobalTracking = () => {
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      // Find closest element with data-track attribute
+      const target = e.target as HTMLElement;
+      const trackableElement = target.closest('[data-track]');
+
+      if (trackableElement) {
+        const eventName = trackableElement.getAttribute('data-track');
+        const eventPropsStr = trackableElement.getAttribute('data-track-props');
+
+        let properties = {};
+        if (eventPropsStr) {
+          try {
+            properties = JSON.parse(eventPropsStr);
+          } catch (err) {
+            console.warn("Failed to parse tracking props:", eventPropsStr);
+          }
+        }
+
+        if (eventName) {
+          trackEvent(eventName, {
+            ...properties,
+            text: trackableElement.textContent?.trim() || '',
+            url: window.location.pathname
+          });
+        }
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick);
+    return () => document.removeEventListener('click', handleGlobalClick);
+  }, []);
+
+  return null;
+};
 
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <GlobalTracking />
           <Toaster />
           <Sonner />
           <CustomCursor />

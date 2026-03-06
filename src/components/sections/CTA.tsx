@@ -29,7 +29,7 @@ const CTA = () => {
             execution with a custom AI OS designed for your specific challenges.
           </p>
 
-          <Link to="/ai-os-audit">
+          <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>
             <Button size="lg" className="group">
               Book AI OS Audit
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

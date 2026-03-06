@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
+import { trackEvent } from '@/utils/analytics';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -74,6 +75,8 @@ const Contact = () => {
         title: "Message sent successfully",
         description: "We'll get back to you within 24 hours.",
       });
+
+      trackEvent('form_submitted', { form_id: 'contact_page_form' });
 
       setFormData({
         name: '',
