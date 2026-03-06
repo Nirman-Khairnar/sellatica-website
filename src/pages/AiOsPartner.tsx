@@ -13,7 +13,9 @@ const AiOsPartner = () => {
                     title="AI OS Partner | Sellatica"
                     description="Continuous maintenance, iteration, and scaling for your AI OS."
                     canonical="https://www.sellatica.in/ai-os-partner"
-               />
+               
+        breadcrumbs={[{ name: 'AI OS Partner', item: 'https://www.sellatica.in/ai-os-partner' }]} 
+      />
                <Header />
 
                <section className="pt-32 lg:pt-40 pb-20">

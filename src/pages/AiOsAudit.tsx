@@ -35,7 +35,9 @@ const AiOsAudit = () => {
                     title="AI OS Audit | Sellatica"
                     description="Get your AI OS Blueprint in 7-10 days. The flagship entry offer to transform operational chaos into scalable execution."
                     canonical="https://www.sellatica.in/ai-os-audit"
-               />
+               
+        breadcrumbs={[{ name: 'AI OS Audit', item: 'https://www.sellatica.in/ai-os-audit' }]} 
+      />
                <Header />
 
                <section className="pt-32 lg:pt-40 pb-20 border-b border-border/50">

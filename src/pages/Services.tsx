@@ -60,25 +60,11 @@ const Services = () => {
         title="AI Solutions & Services | Sellatica"
         description="Explore our custom AI system development services for mid-market businesses. Strategic assessment, system build, and optimization."
         canonical="https://www.sellatica.in/services"
+      
+        breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]} 
       />
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.sellatica.in"
-            }, {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Services",
-              "item": "https://www.sellatica.in/services"
-            }]
-          })}
-        </script>
+        
         {/* Service-Specific FAQ Schema */}
         <script type="application/ld+json">
           {JSON.stringify({

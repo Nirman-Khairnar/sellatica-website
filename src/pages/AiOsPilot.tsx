@@ -13,7 +13,9 @@ const AiOsPilot = () => {
                     title="AI OS Pilot | Sellatica"
                     description="Launch your first AI OS module in 14-28 days. Prove the ROI before scaling."
                     canonical="https://www.sellatica.in/ai-os-pilot"
-               />
+               
+        breadcrumbs={[{ name: 'AI OS Pilot', item: 'https://www.sellatica.in/ai-os-pilot' }]} 
+      />
                <Header />
 
                <section className="pt-32 lg:pt-40 pb-20">

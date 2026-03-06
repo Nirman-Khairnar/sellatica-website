@@ -79,26 +79,10 @@ const Results = () => {
         title="Case Studies & Results | Sellatica"
         description="See how Sellatica delivers measurable ROI for mid-market businesses. Real case studies with proven outcomes."
         canonical="https://www.sellatica.in/results"
+      
+        breadcrumbs={[{ name: 'Results', item: 'https://www.sellatica.in/results' }]} 
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.sellatica.in"
-            }, {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Results",
-              "item": "https://www.sellatica.in/results"
-            }]
-          })}
-        </script>
-      </Helmet>
+      
       <Header />
 
       {/* Hero Section */}

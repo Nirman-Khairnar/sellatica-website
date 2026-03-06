@@ -109,26 +109,10 @@ const Contact = () => {
         title="Contact Sellatica | Book an AI OS Audit"
         description="Ready to transform your operations? Book an AI OS Audit with Sellatica to map your processes and design your new operational blueprint."
         canonical="https://www.sellatica.in/contact"
+      
+        breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]} 
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.sellatica.in"
-            }, {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Contact",
-              "item": "https://www.sellatica.in/contact"
-            }]
-          })}
-        </script>
-      </Helmet>
+      
       <Header />
 
       {/* Hero Section */}

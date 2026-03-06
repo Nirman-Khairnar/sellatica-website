@@ -37,26 +37,10 @@ const About = () => {
         title="About Sellatica | AI System Integration Experts"
         description="We build custom AI systems that transform operational chaos into predictable execution. Learn about our mission and core principles."
         canonical="https://www.sellatica.in/about"
+      
+        breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]} 
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.sellatica.in"
-            }, {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "About",
-              "item": "https://www.sellatica.in/about"
-            }]
-          })}
-        </script>
-      </Helmet>
+      
       <Header />
 
       {/* Hero Section */}

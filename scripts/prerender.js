@@ -18,8 +18,10 @@ const routes = [
     '/faq',
     '/privacy',
     '/terms',
-    '/shipping',
-    '/refund'
+    '/refund',
+    '/ai-os-audit',
+    '/ai-os-pilot',
+    '/ai-os-partner'
 ];
 
 async function prerender() {

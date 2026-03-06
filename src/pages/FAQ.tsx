@@ -49,26 +49,10 @@ const FAQ = () => {
                 title="FAQ - Sellatica | AI Systems Questions"
                 description="Frequently asked questions about Sellatica's custom AI systems for mid-market businesses"
                 canonical="https://www.sellatica.in/faq"
-            />
-            <Helmet>
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [{
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Home",
-                            "item": "https://www.sellatica.in"
-                        }, {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "FAQ",
-                            "item": "https://www.sellatica.in/faq"
-                        }]
-                    })}
-                </script>
-            </Helmet>
+            
+        breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]} 
+      />
+            
 
             <Header />
 
