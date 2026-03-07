@@ -12,7 +12,7 @@ const navItems = [
   { name: 'About', href: '/about' },
   { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
-  { name: 'Blog', href: 'https://blog.sellatica.in', external: true },
+  { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
 ];
 
 const Header = () => {
