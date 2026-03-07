@@ -1,6 +1,6 @@
 import Header from '@/components/sections/Header';
 import Hero from '@/components/sections/Hero';
-import LogoTicker from '@/components/sections/LogoTicker';
+// import LogoTicker from '@/components/sections/LogoTicker';
 import Problem from '@/components/sections/Problem';
 import Services from '@/components/sections/Services';
 import Results from '@/components/sections/Results';
@@ -16,7 +16,7 @@ const Index = () => {
       <SEO canonical="https://www.sellatica.in" />
       <Header />
       <Hero />
-      <LogoTicker />
+      {/* <LogoTicker /> */}
       <Problem />
       <Services />
       <Results />
