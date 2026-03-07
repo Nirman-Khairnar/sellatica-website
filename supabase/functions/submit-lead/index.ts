@@ -68,7 +68,7 @@ serve(async (req: Request) => {
                     team_size: leadData.teamSize,
                     bottleneck: leadData.biggestChallenge,
                     status: isVerifiedHuman ? "form_submitted" : "unverified_lead",
-                    source: "ai_os_audit"
+                    source: leadData.source || "ai_os_audit"
                }
           ]);
 

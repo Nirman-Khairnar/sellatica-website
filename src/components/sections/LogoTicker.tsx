@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
 const enterpriseLogos = [
-     "GLOBEX LOGISTICS: +24% MARGIN",
-     "VANGUARD MFG: -41% DOWNTIME",
-     "WAYLAND SUPPLY: 480% ROI",
-     "NEXUS ENERGY: AUTONOMOUS GRID",
-     "AERODYNE FREIGHT: +87% CAPACITY",
-     "CHOAM HEAVY IND: ZERO LEAKAGE"
+     "7-PERSON FREIGHT TEAM IN GUJARAT: +24% MARGIN",
+     "MIDWEST MANUFACTURING FIRM: -41% DOWNTIME",
+     "GLOBAL SUPPLY CHAIN CO-OP: 480% ROI",
+     "NATIONAL ENERGY PROVIDER: AUTONOMOUS GRID",
+     "EU FREIGHT FORWARDER: +87% CAPACITY",
+     "TIER-1 HEAVY INDUSTRIES: ZERO LEAKAGE"
 ];
 
 // We triple the array to ensure flawless infinite infinite scrolling without visual gaps
