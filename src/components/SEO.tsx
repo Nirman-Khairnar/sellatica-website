@@ -14,8 +14,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Sellatica - Custom AI Systems for Mid-Market Businesses",
-  description = "Sellatica builds custom AI systems that transform operational chaos into scalable execution for mid-market businesses. Proven ROI in weeks, not months.",
+  title = "Sellatica - Custom AI Operating Systems",
+  description = "Sellatica builds custom AI operating systems for operations-heavy businesses. Proven ROI in weeks, not months. Every engagement begins with a free AI OS Audit.",
   canonical,
   image = "https://storage.googleapis.com/gpt-engineer-file-uploads/pUXKzUVcLsNkIiWmJAurN0HSxD33/social-images/social-1770104614326-Screenshot_20260203_130543_Gallery.png",
   breadcrumbs

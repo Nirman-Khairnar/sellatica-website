@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const roiLines = [
-  "Cutting logistics dispatch times by 40%.",
-  "Predicting manufacturing downtime 14 days out.",
-  "Automating multi-tiered support workflows.",
-  "Eliminating data-entry bottlenecks entirely.",
-  "Reducing enterprise SaaS sprawl overhead."
+  "50 coordination calls became 11. Same team, zero new hires.",
+  "Billing delays eliminated at a 42-attorney firm. Break-even: 3.3 weeks.",
+  "18-person brokerage. Zero deals lost to slow response.",
+  "22-person agency: 50 pieces/week became 300. Same headcount.",
+  "The problem is never the tool. It's that there's no system for AI to plug into."
 ];
 
 const Hero = () => {
@@ -45,8 +45,8 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 text-foreground leading-[1.05]"
             >
-              Business AI <br />
-              <span className="text-secondary-foreground">Operating System</span>
+              Your team is not<br />
+              <span className="text-secondary-foreground">the problem.</span>
             </motion.h1>
 
             <motion.div
@@ -55,8 +55,8 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="font-mono text-xs md:text-sm mb-12 max-w-lg leading-relaxed border-l-2 border-accent/50 pl-4"
             >
-              <div className="mb-2 text-muted-foreground">&gt; Turn operational chaos into predictable execution.</div>
-              <div className="mb-2 text-muted-foreground">&gt; Proprietary intelligence layers built for scale.</div>
+              <div className="mb-2 text-muted-foreground">&gt; Your operating system is.</div>
+              <div className="mb-2 text-muted-foreground">&gt; Build the layer that makes AI actually work.</div>
               <div className="flex items-center gap-2 text-accent font-bold mt-4">
                 <span>&gt;</span>
                 <div className="relative h-5 overflow-hidden w-full">
@@ -119,8 +119,8 @@ const Hero = () => {
                 {/* Metric Box */}
                 <div className="col-span-2 bg-card border border-border p-4 flex items-center justify-between group cursor-crosshair hover:border-accent/50 transition-colors">
                   <div>
-                    <span className="font-mono text-[10px] text-muted-foreground uppercase mb-1 block group-hover:text-accent transition-colors">System Entropy</span>
-                    <span className="font-display text-4xl font-bold tracking-tighter">0.04%</span>
+                    <span className="font-mono text-[10px] text-muted-foreground uppercase mb-1 block group-hover:text-accent transition-colors">Avg. Client Break-even</span>
+                    <span className="font-display text-4xl font-bold tracking-tighter">3.3 wks</span>
                   </div>
                   <Activity className="w-8 h-8 text-accent opacity-50 group-hover:opacity-100 transition-opacity" />
                 </div>
@@ -139,19 +139,19 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Status Box 2 */}
-                <div className="bg-card border border-border p-4 group cursor-crosshair hover:border-accent/50 transition-colors">
-                  <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block group-hover:text-accent transition-colors">Security</span>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-accent/10 rounded flex items-center justify-center border border-accent/20 group-hover:bg-accent/20 transition-colors">
-                      <ShieldCheck className="w-4 h-4 text-accent" />
-                    </div>
-                    <div>
-                      <span className="block font-mono text-xs font-bold text-foreground">ACTIVE</span>
-                      <span className="block font-mono text-[10px] text-muted-foreground">SOC2 Compliant</span>
-                    </div>
-                  </div>
-                </div>
+          {/* Status Box 2 */}
+          <div className="bg-card border border-border p-4 group cursor-crosshair hover:border-accent/50 transition-colors">
+            <span className="font-mono text-[10px] text-muted-foreground uppercase mb-3 block group-hover:text-accent transition-colors">Systems</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-accent/10 rounded flex items-center justify-center border border-accent/20 group-hover:bg-accent/20 transition-colors">
+                <ShieldCheck className="w-4 h-4 text-accent" />
+              </div>
+              <div>
+                <span className="block font-mono text-xs font-bold text-foreground">4</span>
+                <span className="block font-mono text-[10px] text-muted-foreground">Clients in production</span>
+              </div>
+            </div>
+          </div>
 
                 {/* Workflow Animation Box */}
                 <div className="col-span-2 bg-card border border-border p-4 relative overflow-hidden group cursor-crosshair hover:border-accent/50 transition-colors">
@@ -184,9 +184,9 @@ const Hero = () => {
             >
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span>Agent Deployed</span>
+                <span>OS Running</span>
               </div>
-              <span className="text-muted-foreground text-[10px]">Processing 14k events/sec</span>
+              <span className="text-muted-foreground text-[10px]">4 clients. 4 sectors. All measurable.</span>
             </motion.div>
 
           </motion.div>

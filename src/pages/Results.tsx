@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
-import NewsletterCapture from '@/components/sections/NewsletterCapture';
+
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Building2, Home, Truck, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -14,14 +14,14 @@ const caseStudies = [
     icon: Building2,
     industry: 'Legal',
     title: 'Law Firm Operations Intelligence Platform',
-    client: '42-attorney firm, $18M revenue',
+    client: '42-attorney firm',
     challenge: 'Zero operational visibility, 15 hours per week wasted on manual reporting, decisions made on 3-week-old data',
     solution: 'AI operations intelligence platform connecting 8 systems with natural language query interface',
     results: [
-      { value: 1576, suffix: '%', label: 'Year 1 ROI' },
-      { value: 835, prefix: '$', suffix: 'K', label: 'Revenue Protected' },
+      { value: 312, suffix: '%', label: 'Net ROI' },
+      { value: 180, prefix: '$', suffix: 'K', label: 'Revenue Protected' },
       { value: 15, suffix: ' hrs', label: 'Weekly Time Saved' },
-      { value: 40, suffix: '%', label: 'Burnout Reduction' },
+      { value: 3.3, suffix: ' wks', label: 'Break-even' },
     ],
     breakeven: '3.3 weeks',
   },
@@ -29,14 +29,14 @@ const caseStudies = [
     icon: Home,
     industry: 'Real Estate',
     title: 'Lead Intelligence System',
-    client: '18-person commercial real estate firm, $4.2M revenue',
+    client: '18-person brokerage',
     challenge: '8-12 hour response time losing deals, 25 hours per week burned on manual lead research',
     solution: 'AI lead intelligence engine with multi-source capture, enrichment layer, and priority scoring',
     results: [
-      { value: 1507, suffix: '%', label: 'Year 1 ROI' },
-      { value: 2.72, prefix: '$', suffix: 'M', label: 'New Revenue' },
+      { value: 280, suffix: '%', label: 'Net ROI' },
+      { value: 94, prefix: '$', suffix: 'K', label: 'New Revenue' },
       { value: 45, suffix: ' min', label: 'Response Time' },
-      { value: 94, suffix: '%', label: 'Lead Accuracy' },
+      { value: 3, suffix: ' wks', label: 'Break-even' },
     ],
     breakeven: '3 weeks',
   },
@@ -44,29 +44,29 @@ const caseStudies = [
     icon: Truck,
     industry: 'Logistics',
     title: 'Autonomous Operations System',
-    client: '7-person freight forwarding team, ₹8.5 Cr revenue',
-    challenge: '18-24 hour quote response time, 15-20% shipment delays from documentation errors',
-    solution: 'Autonomous operations with AI email parsing, agent rate orchestration, and document validation',
+    client: '23-truck logistics operation',
+    challenge: '50 daily coordination calls creating dispatch chaos, capacity constrained by manual coordination overhead',
+    solution: 'Autonomous dispatch system with AI-powered route coordination and real-time communication layer',
     results: [
-      { value: 480, suffix: '%', label: 'Year 1 ROI' },
-      { value: 87, suffix: '%', label: 'Capacity Increase' },
-      { value: 45, suffix: ' min', label: 'Quote Response' },
-      { value: 97, suffix: '%', label: 'Doc Accuracy' },
+      { value: 78, suffix: '%', label: 'Call Reduction' },
+      { value: 40, suffix: '%', label: 'Capacity Increase' },
+      { value: 11, suffix: '', label: 'Calls (down from 50)' },
+      { value: 9.2, suffix: ' wks', label: 'Break-even' },
     ],
-    breakeven: '2.3 months',
+    breakeven: '9.2 weeks',
   },
   {
     icon: Palette,
     industry: 'Marketing',
     title: 'Content Production Engine',
-    client: '22-person digital marketing agency, $2.1M revenue',
-    challenge: 'Content bottleneck (could deliver 50 pieces weekly, needed 150), team working 55-60 hour weeks',
+    client: '22-person digital marketing agency',
+    challenge: 'Content bottleneck: could deliver 50 pieces/week, client needed 150. Team working 55–60 hour weeks.',
     solution: 'AI content production engine with research automation, brand voice training, and multi-format adaptation',
     results: [
-      { value: 2871, suffix: '%', label: 'Year 1 ROI' },
-      { value: 1.44, prefix: '$', suffix: 'M', label: 'New Revenue' },
-      { value: 6.4, suffix: 'x', label: 'Output Increase' },
+      { value: 410, suffix: '%', label: 'Net ROI' },
+      { value: 6, suffix: 'x', label: 'Output Multiplier' },
       { value: 75, suffix: '%', label: 'Time Saved' },
+      { value: 1.9, suffix: ' wks', label: 'Break-even' },
     ],
     breakeven: '1.9 weeks',
   },
@@ -77,7 +77,7 @@ const Results = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Case Studies & Results | Sellatica"
-        description="See how Sellatica delivers measurable ROI for mid-market businesses. Real case studies with proven outcomes."
+        description="See how Sellatica delivers measurable ROI for operations-heavy businesses. Real case studies with verifiable outcomes."
         canonical="https://www.sellatica.in/results"
       
         breadcrumbs={[{ name: 'Results', item: 'https://www.sellatica.in/results' }]} 
@@ -228,7 +228,7 @@ const Results = () => {
         </div>
       </section>
 
-      <NewsletterCapture />
+
 
       {/* CTA */}
       <section className="py-20 border-t border-border/50">

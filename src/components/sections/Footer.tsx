@@ -23,8 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Business AI Operating System for mid-market businesses experiencing
-              operational chaos from growth.
+              We build the operating layer that makes AI actually work. Any sector. Any size. Measurable outcomes in weeks, not quarters.
             </p>
           </div>
 

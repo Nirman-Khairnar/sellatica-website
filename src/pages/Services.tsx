@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
-import NewsletterCapture from '@/components/sections/NewsletterCapture';
+
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Search, Cog, Rocket, TrendingUp, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -58,7 +58,7 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="AI Solutions & Services | Sellatica"
-        description="Explore our custom AI system development services for mid-market businesses. Strategic assessment, system build, and optimization."
+        description="Explore Sellatica's AI Operating System services. Strategic audit, pilot build, and ongoing partnership — for any business with operational chaos."
         canonical="https://www.sellatica.in/services"
       
         breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]} 
@@ -121,8 +121,8 @@ const Services = () => {
               Not generic consulting. Not off-the-shelf software. Every engagement is designed
               specifically for your operational chaos and business goals.
             </p>
-            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6 italic">
-              Our approach is rooted in direct operational experience. We don't just patch software holes; we re-architect how your data flows across the entire organization. By combining deep business logic with cutting-edge AI automation, we create systems that are not only efficient but resilient—capable of adapting as your business scales and market conditions change.
+            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6">
+              Every engagement begins with an Audit. I don't build before I know exactly what's broken and what fixing it is worth to you. The operating layer — workflow, data, governance — is what makes AI stick. Without it, you're buying tools your team will quietly stop using in four months.
             </p>
           </motion.div>
         </div>
@@ -241,7 +241,7 @@ const Services = () => {
         </div>
       </section>
 
-      <NewsletterCapture />
+
 
       {/* CTA */}
       <section className="py-20 border-t border-border/50">

@@ -12,18 +12,18 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-    {
-        question: "What AI services does Sellatica provide?",
-        answer: "Sellatica provides custom AI system development, business automation solutions, and operational efficiency tools specifically designed for mid-market businesses. We focus on scalable execution with proven ROI. Our services range from intelligent document processing and automated customer support agents to predictive analytics dashboards and complete workflow orchestration systems."
-    },
+  {
+    question: "What AI services does Sellatica provide?",
+    answer: "Sellatica provides custom AI system development, business automation solutions, and operational efficiency tools. We focus on scalable execution with proven ROI. Our services range from intelligent document processing and automated customer support agents to predictive analytics dashboards and complete workflow orchestration systems. Every engagement begins with an AI OS Audit—7-10 days, free—to map your operations and identify what is actually worth building."
+  },
     {
         question: "How long does AI implementation take?",
         answer: "We deliver proven ROI in weeks, not months. Our implementation timeline depends on project scope, but we prioritize rapid deployment and iterative improvements. typically, a pilot system is live within 2-3 weeks, with full-scale rollouts completing in 6-10 weeks depending on complexity and integration requirements."
     },
-    {
-        question: "What industries does Sellatica serve?",
-        answer: "We serve mid-market businesses across various industries seeking to transform operational chaos into scalable execution through custom AI systems. Our core expertise lies in Logistics, Real Estate, Legal Services, and Manufacturingâ€”sectors where high-volume data processing and operational precision are critical."
-    },
+  {
+    question: "What industries does Sellatica serve?",
+    answer: "We serve operations-heavy businesses across various industries seeking to transform operational chaos into scalable execution through custom AI systems. Our core expertise lies in Logistics, Real Estate, Legal Services, and Marketing—sectors where high-volume data processing and operational precision are critical. Every engagement begins with an AI OS Audit—7-10 days, free—to map your operations and identify what is actually worth building."
+  },
     {
         question: "Do I need technical expertise to manage these systems?",
         answer: "No. We build our systems with user-friendly interfaces designed for business operators, not just engineers. We provide comprehensive training, documentation, and ongoing support to ensure your team can manage and leverage the system effectively without needing a dedicated data science team."
@@ -45,10 +45,10 @@ const faqs = [
 const FAQ = () => {
     return (
         <div className="min-h-screen bg-background">
-            <SEO
-                title="FAQ - Sellatica | AI Systems Questions"
-                description="Frequently asked questions about Sellatica's custom AI systems for mid-market businesses"
-                canonical="https://www.sellatica.in/faq"
+      <SEO
+        title="FAQ - Sellatica | AI Systems Questions"
+        description="Frequently asked questions about Sellatica's custom AI operating systems for operations-heavy businesses"
+        canonical="https://www.sellatica.in/faq"
             
         breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]} 
       />

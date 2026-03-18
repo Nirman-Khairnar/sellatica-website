@@ -11,22 +11,22 @@ const values = [
   {
     icon: Target,
     title: 'Results-Obsessed',
-    description: 'Every system we build is measured by one standard: measurable business value delivered.',
+    description: 'If I cannot measure it and it cannot run without me checking on it daily, it does not ship.',
   },
   {
     icon: Users,
     title: 'Human-Centered',
-    description: 'Technology should augment human capability, not replace it. We build systems that empower teams.',
+    description: 'Technology augments human capability. I build systems that retain your best people by removing the work they hate.',
   },
   {
     icon: Zap,
     title: 'Speed to Value',
-    description: 'Phased deployment means you see results in weeks, not months. Highest impact modules first.',
+    description: 'Three phases. Seven days to blueprint. Three weeks to break-even. Every module must justify itself in measurable ROI.',
   },
   {
     icon: Shield,
     title: 'Client Ownership',
-    description: 'You own your infrastructure. No vendor lock-in, no ongoing subscription dependencies.',
+    description: 'You own your infrastructure. No ongoing subscription dependencies, no vendor lock-in, no surprises.',
   },
 ];
 
@@ -34,16 +34,15 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Sellatica | AI System Integration Experts"
-        description="We build custom AI systems that transform operational chaos into predictable execution. Learn about our mission and core principles."
+        title="About Nirman & Sellatica | AI Operating Systems Built for Operations"
+        description="I am Nirman Khairnar, founder of Sellatica. Three years as a copywriter, one pattern: operations, not messaging, was the real constraint."
         canonical="https://www.sellatica.in/about"
-      
-        breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]} 
+        breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]}
       />
-      
+
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero Section - Nirman's Narrative */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
@@ -53,22 +52,49 @@ const About = () => {
             className="max-w-4xl"
           >
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-              About Sellatica
+              Founder / Operator
             </span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              We transform operational chaos into
-              <span className="text-muted-foreground"> predictable execution</span>
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Sellatica is a Business AI Operating System firm that builds and deploys
-              custom tech systems for mid-market businesses—turning fragmented tools into
-              unified workflows that deliver measurable value.
+          <div className="grid md:grid-cols-12 gap-8 items-center mb-8">
+            <div className="md:col-span-8 md:col-start-2 lg:col-span-6 lg:col-start-1">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1]">
+                I am Nirman Khairnar.
+              </h1>
+            </div>
+            <div className="md:col-span-4 lg:col-span-5 lg:col-start-8 flex justify-center md:justify-end">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                <div className="relative">
+                  <img
+                    src="/nirman-portrait.png"
+                    alt="Nirman Khairnar, founder of Sellatica"
+                    className="rounded-full object-cover border-2 border-border w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 transition-transform duration-300 group-hover:scale-105"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              For three years I worked as a copywriter, convinced the problem was messaging. It was not. Every client, whether in logistics, legal, or real estate, had the same constraint: operations, not marketing. Work had no clear path, no owner, and no automatic next step.
             </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              I co-founded Flow Bait. The pattern repeated. Clients bought AI tools, ran demos, set up integrations, and six months later, the team was still doing everything manually. The tool was never the problem. The missing operating system was.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Sellatica launched in September 2024 on a simple premise: build the layer that makes AI work. Not tools. Not consulting. Custom-built operating systems that run without the owner in every loop.
+            </p>
+          <div className="mt-8 p-6 bg-card border border-border">
+            <span className="font-mono text-[10px] opacity-70 block mb-2">CLIENT STANDARD</span>
+            <p className="font-display text-xl font-medium leading-snug">
+              Every system I build has a number attached to it and runs without me in the loop. If it does not meet both conditions, it does not leave my desk.
+            </p>
+          </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Mission Section - Updated with global positioning */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -79,19 +105,16 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                Our Mission
+                The Mission
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-                Bridging the gap between tech investment and business value
+                Making AI work for businesses, not the other way around
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                89% of enterprises adopt AI and automation tools, but only 51% achieve expected outcomes.
-                The problem isn't the technology—it's the implementation.
+                89% of enterprises adopt AI tools. Only 51% achieve expected outcomes. The gap is not better tools—it is the operating layer that connects them.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                We exist to close that gap. Through custom-built operational systems, we help
-                growth-stage businesses move beyond pilots to production-ready infrastructure
-                that scales with them.
+                Sellatica builds that layer. Global delivery. Same rigor. In-person where geography allows, remote where it does not. The outcome is the same.
               </p>
             </motion.div>
 
@@ -115,7 +138,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Values Section - Updated with Nirman's direct voice */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
@@ -126,10 +149,10 @@ const About = () => {
             className="text-center mb-16"
           >
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-              What We Stand For
+              What Drives This
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground">
-              Core Principles
+              Operating Principles
             </h2>
           </motion.div>
 
@@ -169,14 +192,14 @@ const About = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Ready to transform your operations?
+              Ready to discuss your operations?
             </h2>
             <p className="text-muted-foreground mb-8">
               Book an AI OS Audit to map your operational challenges and explore how our modules can help scale your business.
             </p>
-            <Link to="/contact">
+            <Link to="/ai-os-audit">
               <Button size="lg" className="group">
-                <span>Get Started</span>
+                <span>Book AI OS Audit</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>
