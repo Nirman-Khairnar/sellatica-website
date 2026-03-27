@@ -33,7 +33,7 @@ const AiOsAudit = () => {
           <div className="min-h-screen bg-background">
                <SEO
                     title="AI OS Audit | Sellatica"
-                    description="Get your AI OS Blueprint in 7-10 days. The flagship entry offer to transform operational chaos into scalable execution."
+                    description="Book your AI Operations Diagnostic: 45 minutes, written report in 48 hours, and a money-back guarantee."
                     canonical="https://www.sellatica.in/ai-os-audit"
                
         breadcrumbs={[{ name: 'AI OS Audit', item: 'https://www.sellatica.in/ai-os-audit' }]} 
