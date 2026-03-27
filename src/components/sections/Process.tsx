@@ -5,21 +5,21 @@ import { useRef } from 'react';
 const phases = [
   {
     number: '01',
-    title: 'AI OS Audit',
-    duration: '7-10 days',
-    description: 'Deep-dive into systems, workflows, and pain points. You receive a workflow map, module backlog, and ROI projection.',
+    title: 'AI Operations Diagnostic',
+    duration: '45 minutes + 48 hr report',
+    description: 'A focused session to identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap — delivered within 48 hours.',
   },
   {
     number: '02',
-    title: 'Pilot Module',
-    duration: '14-28 days',
-    description: 'We build and deploy 1-2 high-impact AI modules end-to-end, including team training and stabilization.',
+    title: 'AI Strategy Engagement',
+    duration: '2–4 weeks',
+    description: 'For clients who want to go deeper after the Diagnostic. We develop a full operational strategy — prioritised initiatives, ownership mapping, and an execution plan tailored to your business.',
   },
   {
     number: '03',
-    title: 'AI OS Partner',
-    duration: 'Continuous',
-    description: 'System maintenance, learning loops, quarterly OS reviews, and on-demand scaling as your business grows.',
+    title: 'Build',
+    duration: 'Project-based',
+    description: 'Custom AI systems and automation, offered exclusively to Strategy Engagement clients where we\'ve already established the roadmap and trust.',
   },
 ];
 
@@ -40,7 +40,7 @@ const Process = () => {
             How We Work
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-            Every engagement is custom-designed
+            The path from visitor to result
           </h2>
         </motion.div>
 

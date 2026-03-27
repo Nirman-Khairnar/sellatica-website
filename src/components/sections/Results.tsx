@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
-import { ArrowRight, Terminal } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
 const caseStudies = [
   {
     id: 'LGL_092',
     industry: 'Legal',
-    title: 'Operations Intelligence Platform',
+    title: 'Operations Intelligence',
     client: '42-attorney firm',
     result: '312% Net ROI',
     breakeven: '3.3 weeks',
-    built: 'Intake automation + Document analysis module',
+    finding: 'Intake was routing 15 hrs/week through the managing partner unnecessarily.',
+    change: 'A clear ownership map and decision path removed the bottleneck entirely.',
     metrics: [
       { value: 312, suffix: '%', label: 'Net ROI' },
       { value: 180, prefix: '$', suffix: 'K', label: 'Rev Protected' },
@@ -22,11 +22,12 @@ const caseStudies = [
   {
     id: 'EST_144',
     industry: 'Real Estate',
-    title: 'Lead Intelligence System',
+    title: 'Lead Intelligence',
     client: '18-person brokerage',
     result: '280% Net ROI',
     breakeven: '3.0 weeks',
-    built: 'Lead scoring module + CRM integration',
+    finding: 'High-value leads were going cold within 4 hours due to manual follow-up delays.',
+    change: 'A response-time ownership map and prioritisation system cut lead response to under 20 minutes.',
     metrics: [
       { value: 280, suffix: '%', label: 'Net ROI' },
       { value: 94, prefix: '$', suffix: 'K', label: 'New Revenue' },
@@ -39,7 +40,8 @@ const caseStudies = [
     client: '23-truck operation',
     result: '78% Call Reduction',
     breakeven: '9.2 weeks',
-    built: 'Dispatch automation module + Route optimization',
+    finding: '50 daily coordination calls were creating dispatch chaos — every driver called in for routing.',
+    change: 'Clear decision rules and a communication layer eliminated the need for manual coordination.',
     metrics: [
       { value: 78, suffix: '%', label: 'Call Reduction' },
       { value: 40, suffix: '%', label: 'Cap. Increase' },
@@ -48,11 +50,12 @@ const caseStudies = [
   {
     id: 'MKT_210',
     industry: 'Marketing',
-    title: 'Content Production Engine',
+    title: 'Content Production',
     client: '22-person agency',
     result: '410% Net ROI',
     breakeven: '1.9 weeks',
-    built: 'Content OS module + Research automation',
+    finding: 'The team was rebuilding briefs from scratch each week — no reuse of research or structure.',
+    change: 'A content operations system created reusable frameworks, multiplying output 6x with the same headcount.',
     metrics: [
       { value: 410, suffix: '%', label: 'Net ROI' },
       { value: 6, suffix: 'x', label: 'Output Multiplier' },
@@ -76,19 +79,12 @@ const Results = () => {
           <div className="max-w-2xl">
             <span className="flex items-center gap-2 text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-widest mb-4">
               <Terminal className="w-3 h-3" />
-              System Readouts
+              Client Results
             </span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1]">
-              Performance <br /> Data Logs
+              What we found. <br /> What changed.
             </h2>
           </div>
-          <Link
-            to="/results"
-            className="group flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
-          >
-            Access Full Database
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -111,7 +107,7 @@ const Results = () => {
 
               {/* Data Body */}
               <div className="p-6 lg:p-8 flex-1 flex flex-col">
-                <div className="mb-8 border-b border-border/50 pb-6">
+                <div className="mb-6 border-b border-border/50 pb-6">
                   <span className="font-mono text-[10px] font-bold text-muted-foreground uppercase tracking-widest block mb-2">
                     Sector: {study.industry}
                   </span>
@@ -119,13 +115,19 @@ const Results = () => {
                     {study.title}
                   </h3>
                   <p className="text-xs font-mono text-muted-foreground">
-                    Target: {study.client}
+                    Client: {study.client}
                   </p>
                 </div>
 
-                <div className="bg-muted p-4 border border-border/50 mb-8">
-                  <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-2">Deployed Architecture:</p>
-                  <p className="text-xs font-mono text-foreground font-medium leading-relaxed">{study.built}</p>
+                <div className="bg-muted p-4 border border-border/50 mb-6 space-y-3">
+                  <div>
+                    <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-1">What we found:</p>
+                    <p className="text-xs font-mono text-foreground leading-relaxed">{study.finding}</p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-1">What changed:</p>
+                    <p className="text-xs font-mono text-foreground leading-relaxed">{study.change}</p>
+                  </div>
                 </div>
 
                 <div className="mt-auto grid grid-cols-2 gap-4">
@@ -143,8 +145,8 @@ const Results = () => {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-border flex justify-between items-center">
-                  <span className="font-mono text-[10px] uppercase text-muted-foreground">TTV Break-even</span>
+                <div className="mt-6 pt-4 border-t border-border flex justify-between items-center">
+                  <span className="font-mono text-[10px] uppercase text-muted-foreground">Break-even</span>
                   <span className="font-mono text-xs font-bold text-foreground">{study.breakeven}</span>
                 </div>
               </div>

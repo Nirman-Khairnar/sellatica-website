@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              We build the operating layer that makes AI actually work. Any sector. Any size. Measurable outcomes in weeks, not quarters.
+              AI Operations Consulting. I find where your business is leaking revenue — and give you the exact roadmap to stop it.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ const Footer = () => {
                   data-track="cta_clicked"
                   data-track-props={JSON.stringify({ location: 'footer_contact' })}
                 >
-                  Book AI OS Audit
+                  Book AI Operations Diagnostic
                 </Link>
               </li>
             </ul>

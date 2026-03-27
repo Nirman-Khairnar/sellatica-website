@@ -57,7 +57,7 @@ const Header = () => {
                 </span>
                 <span className="hidden sm:block w-px h-6 bg-border" />
                 <span className="hidden sm:block text-xs font-body text-muted-foreground uppercase tracking-[0.2em]">
-                  Systems
+                  Consulting
                 </span>
               </motion.div>
             </Link>
@@ -115,7 +115,7 @@ const Header = () => {
                   size="sm"
                   className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
                 >
-                  <span>Book AI OS Audit</span>
+                  <span>Book AI Operations Diagnostic</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -221,7 +221,7 @@ const Header = () => {
                 <ThemeToggle />
                 <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
                   <Button size="lg" className="text-lg">
-                    Book AI OS Audit
+                    Book AI Operations Diagnostic
                   </Button>
                 </Link>
               </motion.div>
