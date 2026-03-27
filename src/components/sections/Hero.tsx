@@ -4,20 +4,19 @@ import { ArrowRight, Activity, Database, ShieldCheck, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
-const roiLines = [
-  "50 coordination calls became 11. Same team, zero new hires.",
-  "Billing delays eliminated at a 42-attorney firm. Break-even: 3.3 weeks.",
-  "18-person brokerage. Zero deals lost to slow response.",
-  "22-person agency: 50 pieces/week became 300. Same headcount.",
-  "The problem is never the tool. It's that there's no system for AI to plug into."
+const proofLines = [
+  "312% ROI — 42-attorney firm. Break-even: 3.3 weeks.",
+  "280% ROI — 18-person brokerage. Zero deals lost to slow response.",
+  "78% call reduction — 23-truck logistics operation.",
+  "410% ROI — 22-person agency: 50 pieces/week became 300.",
 ];
 
 const Hero = () => {
-  const [roiIndex, setRoiIndex] = useState(0);
+  const [proofIndex, setProofIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setRoiIndex((prev) => (prev + 1) % roiLines.length);
+      setProofIndex((prev) => (prev + 1) % proofLines.length);
     }, 3500);
     return () => clearInterval(interval);
   }, []);
@@ -29,70 +28,79 @@ const Hero = () => {
 
           {/* Left Column: Typography & CTAs */}
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-2 text-xs font-mono font-medium text-accent bg-accent/10 px-3 py-1.5 rounded-sm w-fit mb-8 uppercase tracking-wider border border-accent/20"
-            >
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              System Online // V.2026.1
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-8 text-foreground leading-[1.05]"
+              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]"
             >
-              Your team is not<br />
-              <span className="text-secondary-foreground">the problem.</span>
+              Your business is<br />
+              <span className="text-secondary-foreground">leaking revenue.</span>
             </motion.h1>
 
-            <motion.div
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="font-display text-2xl md:text-3xl font-medium text-muted-foreground mb-8 leading-snug"
+            >
+              Most owners don't know where.
+            </motion.p>
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-mono text-xs md:text-sm mb-12 max-w-lg leading-relaxed border-l-2 border-accent/50 pl-4"
+              className="text-lg text-muted-foreground mb-10 max-w-lg leading-relaxed"
             >
-              <div className="mb-2 text-muted-foreground">&gt; Your operating system is.</div>
-              <div className="mb-2 text-muted-foreground">&gt; Build the layer that makes AI actually work.</div>
-              <div className="flex items-center gap-2 text-accent font-bold mt-4">
-                <span>&gt;</span>
-                <div className="relative h-5 overflow-hidden w-full">
-                  <AnimatePresence mode="popLayout">
-                    <motion.div
-                      key={roiIndex}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 whitespace-nowrap"
-                    >
-                      {roiLines[roiIndex]}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              </div>
-            </motion.div>
+              I find it — and give you the exact roadmap to stop it.
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-4"
+              className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6"
             >
               <Link to="/ai-os-audit" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
                 <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
-                  Initialize Audit
+                  Book AI Operations Diagnostic
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
-                <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 border-2 border-foreground hover:bg-foreground/5">
-                  View Modules
-                </Button>
-              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="font-mono text-xs text-muted-foreground border-l-2 border-accent/50 pl-4 mb-8 space-y-1"
+            >
+              <div>45 minutes. Written report in 48 hours.</div>
+              <div className="text-accent font-bold">Guarantee: If I don't find $5,000+ in operational waste — you pay nothing.</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex items-center gap-2 font-mono text-xs text-accent"
+            >
+              <span>&gt;</span>
+              <div className="relative h-5 overflow-hidden flex-1">
+                <AnimatePresence mode="popLayout">
+                  <motion.div
+                    key={proofIndex}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="absolute inset-0 whitespace-nowrap font-bold"
+                  >
+                    {proofLines[proofIndex]}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </motion.div>
           </div>
 

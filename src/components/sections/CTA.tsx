@@ -19,19 +19,18 @@ const CTA = () => {
           className="max-w-3xl mx-auto text-center"
         >
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-            Get Started
+            Start Here
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground mb-6 leading-[1.1]">
-            Get your AI OS Blueprint in 7–10 days
+            Book Your AI Operations Diagnostic
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            Let's discuss how we can turn your operational chaos into predictable
-            execution with a custom AI OS designed for your specific challenges.
+            45 minutes. I'll show you exactly where your business is leaking revenue and give you a written roadmap to fix it — delivered within 48 hours.
           </p>
 
           <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>
             <Button size="lg" className="group">
-              Book AI OS Audit
+              Book AI Operations Diagnostic
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
@@ -43,23 +42,23 @@ const CTA = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mt-16 pt-10 border-t border-border/50"
           >
-            <p className="text-sm text-muted-foreground mb-6">What you get from the AI OS Audit:</p>
+            <p className="text-sm text-muted-foreground mb-6">What you get from the Diagnostic:</p>
             <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-foreground" />
-                Workflow map
+                Revenue leakage identified
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-foreground" />
-                AI OS module backlog
+                Prioritised action roadmap
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-foreground" />
-                ROI model
+                Written report in 48 hrs
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-foreground" />
-                Pilot plan
+                Money-back guarantee
               </span>
             </div>
           </motion.div>

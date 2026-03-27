@@ -14,8 +14,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Sellatica - Custom AI Operating Systems",
-  description = "Sellatica builds custom AI operating systems for operations-heavy businesses. Proven ROI in weeks, not months. Every engagement begins with a free AI OS Audit.",
+  title = "AI Operations Consulting — Sellatica",
+  description = "I find where your business is leaking revenue — and give you the exact roadmap to stop it. Book an AI Operations Diagnostic: 45 minutes, written report in 48 hours, money-back guarantee.",
   canonical,
   image = "https://storage.googleapis.com/gpt-engineer-file-uploads/pUXKzUVcLsNkIiWmJAurN0HSxD33/social-images/social-1770104614326-Screenshot_20260203_130543_Gallery.png",
   breadcrumbs
