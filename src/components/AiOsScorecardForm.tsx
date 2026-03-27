@@ -20,11 +20,9 @@ export const AiOsScorecardForm = () => {
 
      const handleSubmit = async (e: React.FormEvent) => {
           e.preventDefault();
-
           setLoading(true);
 
           try {
-               // 1. Await the Supabase Edge Function to prevent bot spam
                const { data, error: invokeError } = await supabase.functions.invoke('submit-lead', {
                     body: {
                          token: turnstileToken,
@@ -41,7 +39,6 @@ export const AiOsScorecardForm = () => {
                if (invokeError) {
                     console.error('Edge function error:', invokeError);
                     let errorMessage = 'Secure proxy insertion failed';
-                    // Extract message if it's a FunctionsHttpError with context
                     if (invokeError.context) {
                          try {
                               const errData = await invokeError.context.json();
@@ -58,18 +55,16 @@ export const AiOsScorecardForm = () => {
                     throw new Error(data.error);
                }
 
-               toast.success('Form submitted successfully! Redirecting to booking...', {
+               toast.success('Submitted successfully. Redirecting to booking...', {
                     duration: 3000,
                });
 
-               trackEvent('form_submitted', { form_id: 'ai_os_audit_scorecard' });
+               trackEvent('form_submitted', { form_id: 'ai_operations_diagnostic' });
 
-               // 2. Build pre-filled Cal.com URL
                const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');
                calUrl.searchParams.append('name', formData.name);
                calUrl.searchParams.append('email', formData.email);
 
-               // 3. Redirect to scheduling
                setTimeout(() => {
                     window.location.href = calUrl.toString();
                }, 1000);
@@ -89,7 +84,7 @@ export const AiOsScorecardForm = () => {
           <form onSubmit={handleSubmit} className="space-y-4 w-full text-left">
                <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                         <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
+                         <label htmlFor="name" className="text-sm font-medium text-foreground">Full Name</label>
                          <input
                               id="name"
                               name="name"
@@ -142,9 +137,9 @@ export const AiOsScorecardForm = () => {
                          >
                               <option value="" disabled>Select team size</option>
                               <option value="Just me">Just me</option>
-                              <option value="2-5">2–5</option>
-                              <option value="6-20">6–20</option>
-                              <option value="21-50">21–50</option>
+                              <option value="2-5">2 to 5</option>
+                              <option value="6-20">6 to 20</option>
+                              <option value="21-50">21 to 50</option>
                               <option value="50+">50+</option>
                          </select>
                     </div>
@@ -171,17 +166,17 @@ export const AiOsScorecardForm = () => {
                          options={{ theme: 'light' }}
                          onSuccess={(token) => setTurnstileToken(token)}
                          onError={() => {
-                              console.warn('Turnstile widget failed to solve securely. Proceeding with unverified session.');
+                              console.warn('Turnstile widget failed to solve securely.');
                               turnstileRef.current?.reset();
                          }}
                     />
                </div>
 
                <Button type="submit" size="lg" className="w-full group !mt-8" disabled={loading}>
-                    {loading ? 'Submitting & Verifying...' : 'Get Your AI OS Scorecard & Book Call'}
+                    {loading ? 'Submitting...' : 'Book AI Operations Diagnostic'}
                </Button>
                <p className="text-xs text-muted-foreground text-center mt-4">
-                    We'll never share your information. You'll be redirected to our calendar next.
+                    We will never share your information. You will be redirected to our calendar next.
                </p>
           </form>
      );

@@ -25,7 +25,7 @@ const CTA = () => {
             Book Your AI Operations Diagnostic
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            One offer: AI Operations Diagnostic (₹7,999 / ~$97). 45 minutes, written report in 48 hours, money-back guarantee.
+            One offer: AI Operations Diagnostic (Rs. 7,999 / ~$97). 45 minutes, written report in 48 hours, money-back guarantee.
           </p>
 
           <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>
@@ -35,7 +35,6 @@ const CTA = () => {
             </Button>
           </Link>
 
-          {/* Trust signals */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}

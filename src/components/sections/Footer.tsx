@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              AI Operations Consulting. I find where your business is leaking revenue — and give you the exact roadmap to stop it.
+              AI Operations Consulting. We find where your business is leaking revenue and give you the exact roadmap to stop it.
             </p>
           </div>
 
@@ -95,21 +95,17 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Sellatica. All rights reserved.
             </p>
-            <p className="text-sm text-muted-foreground">
-              Built by <a href="https://www.nirmankhairnar.in" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Nirman Khairnar</a>
-            </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/privacy', location: 'footer_legal' })}>
               Privacy Policy
             </Link>
             <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/terms', location: 'footer_legal' })}>
-              Terms &amp; Conditions
+              Terms and Conditions
             </Link>
             <Link to="/refund" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/refund', location: 'footer_legal' })}>
-              Refund &amp; Cancellation
+              Refund and Cancellation
             </Link>
-
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/contact', location: 'footer_legal' })}>
               Contact Us
             </Link>

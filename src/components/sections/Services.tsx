@@ -37,7 +37,6 @@ const Services = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="bg-card border-2 border-accent/30 shadow-sm p-8 lg:p-12 relative overflow-hidden group hover:border-accent/60 transition-colors"
         >
-          {/* Background Graphic */}
           <div className="absolute right-0 top-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
 
           <div className="relative z-10">
@@ -48,13 +47,13 @@ const Services = () => {
                     <Search className="w-5 h-5 text-accent" />
                   </div>
                   <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-accent bg-accent/10 px-2 py-1 border border-accent/20">
-                    ₹7,999 / ~$97
+                    Rs. 7,999 / ~$97
                   </span>
                 </div>
 
                 <h3 className="font-display text-3xl font-bold tracking-tight mb-4">AI Operations Diagnostic</h3>
                 <p className="text-muted-foreground font-mono text-sm leading-relaxed mb-8 max-w-lg">
-                  A focused 45-minute session where I analyse your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap — delivered within 48 hours.
+                  A focused 45-minute session where our consultants analyse your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap delivered within 48 hours.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -81,7 +80,7 @@ const Services = () => {
                 </div>
 
                 <div className="bg-muted border border-border p-4 font-mono text-xs text-accent font-bold">
-                  Guarantee: If I don't find $5,000+ in operational waste — you pay nothing.
+                  Guarantee: If we do not find $5,000+ in operational waste, you pay nothing.
                 </div>
               </div>
 

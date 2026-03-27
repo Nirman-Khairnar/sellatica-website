@@ -6,22 +6,22 @@ const problems = [
   {
     stat: '89%',
     label: 'Adopt AI Tools',
-    description: 'But only 51% achieve expected outcomes',
+    description: 'But only 51% achieve expected outcomes.',
   },
   {
     stat: '6-15',
     label: 'Disconnected Systems',
-    description: 'Data scattered across tools that don\'t talk to each other',
+    description: 'Data scattered across tools that do not talk to each other.',
   },
   {
     stat: '82%',
     label: 'Integration Struggles',
-    description: 'Data quality and integration blocking progress',
+    description: 'Data quality and integration blocking operational progress.',
   },
   {
     stat: '$400K+',
     label: 'Annual Revenue Leakage',
-    description: 'Lost to operational inefficiencies',
+    description: 'Lost to operational inefficiencies in mid-market businesses.',
   },
 ];
 
@@ -43,15 +43,14 @@ const Problem = () => {
               The Problem
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
-              Tech adoption ≠ tech value
+              Tech adoption is not the same as tech value.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Most organizations invest heavily in technology but struggle to move
+              Most organisations invest heavily in technology but struggle to move
               beyond pilots to production systems that deliver real business outcomes.
-              <strong>AI tools fail without an operating layer (workflow + data + governance).</strong>
+              <strong> AI tools fail without an operating layer: workflow, data, and governance.</strong>
             </p>
 
-            {/* Business Impact */}
             <div className="space-y-4">
               <h3 className="text-sm font-medium text-foreground uppercase tracking-wider">
                 The Business Impact
@@ -77,7 +76,7 @@ const Problem = () => {
             </div>
           </motion.div>
 
-          {/* Right Column - Stats Grid */}
+          {/* Right Column */}
           <div className="grid grid-cols-2 gap-6">
             {problems.map((problem, index) => (
               <motion.div

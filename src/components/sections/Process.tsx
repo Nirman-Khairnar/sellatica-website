@@ -6,8 +6,20 @@ const phases = [
   {
     number: '01',
     title: 'AI Operations Diagnostic',
-    duration: '45 minutes + 48 hr report',
-    description: 'A focused session to identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap — delivered within 48 hours.',
+    duration: '45 minutes + 48 hr written report',
+    description: 'A focused session where our consultants identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap delivered within 48 hours.',
+  },
+  {
+    number: '02',
+    title: 'Strategy Engagement',
+    duration: 'Offered after the Diagnostic',
+    description: 'For clients who want to go deeper. We work with your operations lead to design the system changes required and build the execution plan.',
+  },
+  {
+    number: '03',
+    title: 'Implementation',
+    duration: 'Offered to Strategy clients only',
+    description: 'We build and deploy the operational changes. Every system runs on your infrastructure. No vendor lock-in. Full ownership.',
   },
 ];
 
@@ -28,31 +40,25 @@ const Process = () => {
             How We Work
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-            The path from visitor to result
+            The path from first call to measurable result
           </h2>
         </motion.div>
 
-        <div className="grid gap-8">
+        <div className="grid gap-12">
           {phases.map((phase, index) => (
             <motion.div
               key={phase.number}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative"
+              className="relative border-l-2 border-border pl-8"
             >
-              {/* Connecting line for desktop */}
-              {index < phases.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-border/50 -z-10" />
-              )}
-
-              <div className="mb-6">
+              <div className="mb-4">
                 <span className="font-display text-5xl lg:text-6xl font-medium text-muted-foreground/20">
                   {phase.number}
                 </span>
               </div>
-
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-2">
                 <h3 className="font-display text-xl font-medium text-foreground">
                   {phase.title}
                 </h3>
