@@ -9,18 +9,6 @@ const phases = [
     duration: '45 minutes + 48 hr report',
     description: 'A focused session to identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap — delivered within 48 hours.',
   },
-  {
-    number: '02',
-    title: 'AI Strategy Engagement',
-    duration: '2–4 weeks',
-    description: 'For clients who want to go deeper after the Diagnostic. We develop a full operational strategy — prioritised initiatives, ownership mapping, and an execution plan tailored to your business.',
-  },
-  {
-    number: '03',
-    title: 'Build',
-    duration: 'Project-based',
-    description: 'Custom AI systems and automation, offered exclusively to Strategy Engagement clients where we\'ve already established the roadmap and trust.',
-  },
 ];
 
 const Process = () => {
@@ -44,7 +32,7 @@ const Process = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid gap-8">
           {phases.map((phase, index) => (
             <motion.div
               key={phase.number}

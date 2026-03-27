@@ -25,7 +25,7 @@ const CTA = () => {
             Book Your AI Operations Diagnostic
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            45 minutes. I'll show you exactly where your business is leaking revenue and give you a written roadmap to fix it — delivered within 48 hours.
+            One offer: AI Operations Diagnostic (₹7,999 / ~$97). 45 minutes, written report in 48 hours, money-back guarantee.
           </p>
 
           <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>

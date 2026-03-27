@@ -34,18 +34,8 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]"
             >
-              Your business is<br />
-              <span className="text-secondary-foreground">leaking revenue.</span>
+              Your business is leaking revenue. <span className="text-secondary-foreground">I find it.</span>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="font-display text-2xl md:text-3xl font-medium text-muted-foreground mb-8 leading-snug"
-            >
-              Most owners don't know where.
-            </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
