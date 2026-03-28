@@ -179,22 +179,4 @@
       linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
     background-size: 40px 40px;
   }
-}
-
-@layer utilities {
-
-  /* Hide default cursor on desktop since we use a custom reactive cursor */
-  @media (min-width: 768px) {
-
-    *,
-    *::before,
-    *::after {
-      cursor: none !important;
-    }
-
-    input,
-    textarea {
-      cursor: text !important;
-    }
-  }
-}
+}

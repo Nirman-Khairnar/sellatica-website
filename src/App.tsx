@@ -20,7 +20,7 @@ import AiOsAudit from "./pages/AiOsAudit";
 import { HelmetProvider } from "react-helmet-async";
 
 import { ThemeProvider } from "./components/theme-provider";
-import { CustomCursor } from "@/components/CustomCursor";
+
 import { trackEvent } from "./utils/analytics";
 import { GeoProvider } from "./context/GeoContext";
 
@@ -72,7 +72,7 @@ const App = () => (
             <GlobalTracking />
             <Toaster />
             <Sonner />
-            <CustomCursor />
+
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
