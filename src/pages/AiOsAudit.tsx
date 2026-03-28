@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
-import AiOsScorecardForm from '@/components/AiOsScorecardForm';
+import DiagnosticCheckout from '@/components/DiagnosticCheckout';
 import { Network, CheckCircle2, DollarSign, LayoutList } from 'lucide-react';
 import { usePrice } from '@/hooks/usePrice';
 
@@ -88,18 +88,18 @@ const AiOsAudit = () => {
                                    initial={{ opacity: 0, scale: 0.95 }}
                                    animate={{ opacity: 1, scale: 1 }}
                                    transition={{ duration: 0.8, delay: 0.2 }}
-                                   className="bg-card border border-border/50 p-8 lg:p-10 rounded-2xl sticky top-32"
+                                   className="bg-card border border-border/50 p-8 lg:p-10 rounded-2xl sticky top-32 shadow-2xl shadow-primary/5"
                               >
                                    <div className="mb-8">
                                         <h2 className="font-display text-2xl font-medium text-foreground mb-3">
                                              Secure your diagnostic
                                         </h2>
                                         <p className="text-sm text-muted-foreground">
-                                             Fill out this brief scorecard to qualify for the AI Operations Diagnostic. We will review your submission and redirect you to book our kickoff call.
+                                             Complete your payment to secure the AI Operations Diagnostic. Your spot will be confirmed immediately.
                                         </p>
                                    </div>
 
-                                   <AiOsScorecardForm />
+                                   <DiagnosticCheckout />
 
                               </motion.div>
                          </div>
