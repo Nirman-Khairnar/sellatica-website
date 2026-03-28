@@ -1,15 +1,55 @@
 import { motion } from 'framer-motion';
+import { 
+  OpenAI, 
+  Aws, 
+  GoogleCloud, 
+  Make, 
+  Zapier, 
+  N8n, 
+  Anthropic 
+} from '@lobehub/icons';
 
 const partners = [
-  { name: 'OpenAI', src: '/logos/openai.svg', mask: true, hoverColor: 'group-hover:bg-[#74aa9c]' },
-  { name: 'AWS', src: '/logos/aws.svg', mask: true, hoverColor: 'group-hover:bg-[#ff9900]' },
-  { name: 'Google Cloud', src: '/logos/gcp.svg', mask: true, hoverColor: 'group-hover:bg-[#4285F4]' },
-  { name: 'Make', src: '/logos/make.svg', mask: true, hoverColor: 'group-hover:bg-[#6c47ff]' },
-  { name: 'Oracle', src: '/logos/oracle.svg', mask: true, hoverColor: 'group-hover:bg-[#f80000]' },
-  { name: 'Zapier', src: '/logos/zapier.svg', mask: true, hoverColor: 'group-hover:bg-[#ff4f00]' },
-  { name: 'n8n', src: '/logos/n8n.svg', mask: true, hoverColor: 'group-hover:bg-[#f14c4c]' },
-  { name: 'Razorpay', src: '/logos/razorpay.svg', mask: true, hoverColor: 'group-hover:bg-[#3395ff]' },
-  { name: 'Anthropic', src: '/logos/anthropic.svg', mask: true, hoverColor: 'group-hover:bg-[#D97757]' }
+  { 
+    name: 'OpenAI', 
+    component: <OpenAI.Combine size={40} /> 
+  },
+  { 
+    name: 'AWS', 
+    component: <Aws.Color size={40} /> 
+  },
+  { 
+    name: 'Google Cloud', 
+    component: <GoogleCloud.Color size={40} /> 
+  },
+  { 
+    name: 'Make', 
+    component: <Make.Combine size={40} type={'color'} /> 
+  },
+  { 
+    name: 'Oracle', 
+    src: '/logos/oracle.svg', 
+    mask: true, 
+    hoverColor: 'group-hover:bg-[#f80000]' 
+  },
+  { 
+    name: 'Zapier', 
+    component: <Zapier.Combine size={40} type={'color'} /> 
+  },
+  { 
+    name: 'n8n', 
+    component: <N8n.Color size={40} /> 
+  },
+  { 
+    name: 'Razorpay', 
+    src: '/logos/razorpay.svg', 
+    mask: true, 
+    hoverColor: 'group-hover:bg-[#3395ff]' 
+  },
+  { 
+    name: 'Anthropic', 
+    component: <Anthropic.Combine size={40} /> 
+  }
 ];
 
 // Double the array to ensure perfect "-50%" sliding math for infinite loop
@@ -39,9 +79,13 @@ const LogoTicker = () => {
             key={i} 
             className="flex items-center justify-center mx-10 md:mx-16 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 group cursor-default"
           >
-            {partner.mask ? (
+            {partner.component ? (
+              <div className="h-10 md:h-12 flex items-center justify-center">
+                {partner.component}
+              </div>
+            ) : partner.mask ? (
               <div 
-                className={`h-8 md:h-10 w-48 bg-foreground/60 transition-colors duration-300 ${partner.hoverColor}`}
+                className={`h-8 md:h-10 w-40 bg-foreground/60 transition-colors duration-300 ${partner.hoverColor}`}
                 style={{ 
                   WebkitMaskImage: `url('${partner.src}')`, 
                   WebkitMaskSize: 'contain', 
