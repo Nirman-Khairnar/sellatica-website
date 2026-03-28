@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
 
 const partners = [
-  { name: 'OpenAI', src: '/logos/openai.svg' },
-  { name: 'AWS', src: '/logos/aws.svg' },
-  { name: 'Google Cloud', src: '/logos/gcp.svg' },
-  { name: 'Make', src: '/logos/make.svg' },
-  { name: 'Oracle', src: '/logos/oracle.svg' },
-  { name: 'Zapier', src: '/logos/zapier.svg' },
-  { name: 'n8n', src: '/logos/n8n.svg' },
-  { name: 'Razorpay', src: '/logos/razorpay.svg' },
+  { name: 'OpenAI', src: '/logos/openai.svg', mask: true, hoverColor: 'group-hover:bg-[#74aa9c]' },
+  { name: 'AWS', src: '/logos/aws.svg', mask: true, hoverColor: 'group-hover:bg-[#ff9900]' },
+  { name: 'Google Cloud', src: '/logos/gcp.svg', mask: true, hoverColor: 'group-hover:bg-[#4285F4]' },
+  { name: 'Make', src: '/logos/make.svg', mask: true, hoverColor: 'group-hover:bg-[#6c47ff]' },
+  { name: 'Oracle', src: '/logos/oracle.svg', mask: true, hoverColor: 'group-hover:bg-[#f80000]' },
+  { name: 'Zapier', src: '/logos/zapier.svg', mask: true, hoverColor: 'group-hover:bg-[#ff4f00]' },
+  { name: 'n8n', src: '/logos/n8n.svg', mask: true, hoverColor: 'group-hover:bg-[#f14c4c]' },
+  { name: 'Razorpay', src: '/logos/razorpay.svg', mask: true, hoverColor: 'group-hover:bg-[#3395ff]' },
   { name: 'Anthropic', src: '/logos/anthropic.svg', mask: true, hoverColor: 'group-hover:bg-[#D97757]' }
 ];
 
