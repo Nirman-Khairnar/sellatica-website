@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Lock, ShieldCheck } from 'lucide-react';
 import { usePrice } from '@/hooks/usePrice';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { Turnstile } from '@marsidev/react-turnstile';
+import type { TurnstileInstance } from '@marsidev/react-turnstile';
 
 declare global {
   interface Window {
@@ -15,6 +17,8 @@ const DiagnosticCheckout = () => {
      const price = usePrice();
      const [isSubmitting, setIsSubmitting] = useState(false);
      const [formData, setFormData] = useState({ name: '', email: '' });
+     const [turnstileToken, setTurnstileToken] = useState<string>('');
+     const turnstileRef = useRef<TurnstileInstance | null>(null);
 
      useEffect(() => {
           // Dynamically load Razorpay SDK securely when the component mounts
@@ -79,6 +83,8 @@ const DiagnosticCheckout = () => {
                     modal: {
                          ondismiss: function() {
                               setIsSubmitting(false); // Enable the button again if user closes the modal
+                              setTurnstileToken(''); // Clear token to force re-verification
+                              turnstileRef.current?.reset();
                          }
                     }
                };
@@ -90,6 +96,8 @@ const DiagnosticCheckout = () => {
                          description: response.error.description || "The payment could not be processed."
                     });
                     setIsSubmitting(false);
+                    setTurnstileToken('');
+                    turnstileRef.current?.reset();
                });
 
                rzp.open();
@@ -100,6 +108,8 @@ const DiagnosticCheckout = () => {
                     description: err.message || "Failed to initialize secure checkout. Please try again."
                });
                setIsSubmitting(false);
+               setTurnstileToken('');
+               turnstileRef.current?.reset();
           }
      };
 
@@ -136,12 +146,22 @@ const DiagnosticCheckout = () => {
                     </div>
                </div>
 
+               <div className="pt-4 flex flex-col items-center justify-center min-h-[65px]">
+                    <Turnstile
+                         ref={turnstileRef}
+                         siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} // Test token by default if env fails
+                         options={{ theme: 'dark' }}
+                         onSuccess={(token) => setTurnstileToken(token)}
+                         onError={() => toast.error("Verification failed. Please refresh the page.")}
+                    />
+               </div>
+
                <div className="pt-2">
                     <Button
                          type="submit"
                          size="lg"
                          className="w-full group h-14 text-lg font-medium tracking-wide flex items-center justify-between px-6"
-                         disabled={isSubmitting || price.loading}
+                         disabled={isSubmitting || price.loading || !turnstileToken}
                     >
                          <span className="flex items-center gap-2">
                               <Lock className="w-5 h-5 opacity-70" />

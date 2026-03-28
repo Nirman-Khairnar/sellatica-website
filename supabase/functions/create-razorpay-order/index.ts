@@ -13,7 +13,8 @@ serve(async (req: Request) => {
      }
 
      try {
-          const { currency } = await req.json();
+          const body = await req.json().catch(() => ({}));
+          const currency = body.currency || "INR";
 
           // Safely extract our securely stored keys at runtime
           const RAZORPAY_KEY_ID = Deno.env.get("RAZORPAY_KEY_ID");
@@ -22,13 +23,12 @@ serve(async (req: Request) => {
           if (!RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET) {
                console.error("Razorpay credentials are not configured in edge function environment.");
                return new Response(JSON.stringify({ error: "Server Configuration Error: Missing Secret Keys" }), {
-                    status: 500,
+                    status: 200, // Returning 200 so the client can read the JSON error payload
                     headers: { ...corsHeaders, "Content-Type": "application/json" },
                });
           }
 
           // Determine precise amount based on currency request
-          // Rs. 7,999 = 799900 paise. $97 = 9700 cents.
           let amount = 0;
           let paymentCurrency = "USD";
 
@@ -54,7 +54,7 @@ serve(async (req: Request) => {
                body: JSON.stringify({
                     amount,
                     currency: paymentCurrency,
-                    receipt: `receipt_${crypto.randomUUID()}`
+                    receipt: crypto.randomUUID()
                })
           });
 
@@ -62,7 +62,7 @@ serve(async (req: Request) => {
 
           if (!orderRes.ok || orderData.error) {
                console.error("Razorpay API Error Response:", orderData.error);
-               throw new Error(orderData.error?.description || "Failed to generate Razorpay transaction.");
+               throw new Error(orderData.error?.description || "Failed to generate Razorpay transaction (API Error).");
           }
 
           // 2. Return ONLY the public information to the frontend
@@ -79,8 +79,9 @@ serve(async (req: Request) => {
 
      } catch (error: any) {
           console.error("Razorpay edge function error:", error);
-          return new Response(JSON.stringify({ error: error.message }), {
-               status: 500,
+          // Return 200 with error property so the `supabase-js` client resolves it and doesn't throw a generic non-2xx error.
+          return new Response(JSON.stringify({ error: error.message || "Unknown server error" }), {
+               status: 200,
                headers: { ...corsHeaders, "Content-Type": "application/json" },
           });
      }
