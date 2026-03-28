@@ -11,6 +11,7 @@ import { z } from 'zod';
 import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
 import { trackEvent } from '@/utils/analytics';
+import { usePrice } from '@/hooks/usePrice';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -24,6 +25,7 @@ const CONTACT_WEBHOOK_URL =
   'https://n8n.sellatica.in/webhook/sellatica/company-contact-web-v1';
 
 const Contact = () => {
+  const price = usePrice();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -310,7 +312,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-medium text-foreground mb-2">What is the investment for the diagnostic?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  The AI Operations Diagnostic is $97 / Rs. 7,999. It carries a firm $5,000 efficiency guarantee. If we don't locate at least $5,000 in recoverable waste, the diagnostic is refunded immediately.
+                  The AI Operations Diagnostic is {price.loading ? '...' : price.display}. It carries a firm $5,000 efficiency guarantee. If we don't locate at least $5,000 in recoverable waste, the diagnostic is refunded immediately.
                 </p>
               </div>
 

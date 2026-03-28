@@ -4,8 +4,10 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { usePrice } from '@/hooks/usePrice';
 
 const Services = () => {
+  const price = usePrice();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -47,7 +49,7 @@ const Services = () => {
                     <Search className="w-5 h-5 text-accent" />
                   </div>
                   <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-accent bg-accent/10 px-2 py-1 border border-accent/20">
-                    Rs. 7,999 / ~$97
+                    {price.loading ? '...' : price.display}
                   </span>
                 </div>
 
