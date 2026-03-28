@@ -149,7 +149,7 @@ const DiagnosticCheckout = () => {
                <div className="pt-4 flex flex-col items-center justify-center min-h-[65px]">
                     <Turnstile
                          ref={turnstileRef}
-                         siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} // Test token by default if env fails
+                         siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAACj_6j74UwLAs3Fm'}
                          options={{ theme: 'dark' }}
                          onSuccess={(token) => setTurnstileToken(token)}
                          onError={() => toast.error("Verification failed. Please refresh the page.")}
