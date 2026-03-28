@@ -12,15 +12,14 @@ import { Helmet } from 'react-helmet-async';
 const caseStudies = [
   {
     icon: Building2,
-    industry: 'Legal',
-    title: 'Law Firm Operations Intelligence Platform',
-    client: '42-attorney firm',
-    challenge: 'Zero operational visibility, 15 hours per week wasted on manual reporting, decisions made on 3-week-old data',
-    solution: 'AI operations intelligence platform connecting 8 systems with natural language query interface',
+    industry: 'Legal Sector',
+    title: 'Managing partner bottleneck',
+    client: 'ID: LGL_092',
+    challenge: 'High-value decision cycles were stalled by manual administrative requirements for senior counsel, causing systemic revenue leakage.',
+    solution: 'Replaced manual administrative loops with intelligent assessment protocols, directly recovering senior partner bandwidth.',
     results: [
       { value: 312, suffix: '%', label: 'Net ROI' },
       { value: 180, prefix: '$', suffix: 'K', label: 'Revenue Protected' },
-      { value: 15, suffix: ' hrs', label: 'Weekly Time Saved' },
       { value: 3.3, suffix: ' wks', label: 'Break-even' },
     ],
     breakeven: '3.3 weeks',
@@ -28,45 +27,40 @@ const caseStudies = [
   {
     icon: Home,
     industry: 'Real Estate',
-    title: 'Lead Intelligence System',
-    client: '18-person brokerage',
-    challenge: '8-12 hour response time losing deals, 25 hours per week burned on manual lead research',
-    solution: 'AI lead intelligence engine with multi-source capture, enrichment layer, and priority scoring',
+    title: 'Lead response delays',
+    client: 'ID: EST_144',
+    challenge: 'Initial inquiry response lag causing warm deals to go cold while team manually assembled contextual data.',
+    solution: 'Orchestrated automated data enrichment and instant response routing, eliminating manual wait times entirely.',
     results: [
-      { value: 280, suffix: '%', label: 'Net ROI' },
+      { value: 280, suffix: '%', label: 'Efficiency ROI' },
       { value: 94, prefix: '$', suffix: 'K', label: 'New Revenue' },
-      { value: 45, suffix: ' min', label: 'Response Time' },
-      { value: 3, suffix: ' wks', label: 'Break-even' },
+      { value: 3, suffix: ' wks', label: 'Time to Neutral' },
     ],
     breakeven: '3 weeks',
   },
   {
     icon: Truck,
     industry: 'Logistics',
-    title: 'Autonomous Operations System',
-    client: '23-truck logistics operation',
-    challenge: '50 daily coordination calls creating dispatch chaos, capacity constrained by manual coordination overhead',
-    solution: 'Autonomous dispatch system with AI-powered route coordination and real-time communication layer',
+    title: 'Dispatch coordination calls',
+    client: 'ID: LOG_031 // DISPATCH',
+    challenge: 'Verbal dispatch confirmation was creating an operational bottleneck that hard-capped overall fleet capacity.',
+    solution: 'Deployed autonomous routing confirmation, removing the manual call requirement for the vast majority of dispatch workflows.',
     results: [
-      { value: 78, suffix: '%', label: 'Call Reduction' },
-      { value: 40, suffix: '%', label: 'Capacity Increase' },
-      { value: 11, suffix: '', label: 'Calls (down from 50)' },
-      { value: 9.2, suffix: ' wks', label: 'Break-even' },
+      { value: 78, suffix: '%', label: 'Call Volume Reduction' },
+      { value: 40, suffix: '%', label: 'Fleet Capacity Increase' },
     ],
-    breakeven: '9.2 weeks',
+    breakeven: 'Immediate',
   },
   {
     icon: Palette,
     industry: 'Marketing',
-    title: 'Content Production Engine',
-    client: '22-person digital marketing agency',
-    challenge: 'Content bottleneck: could deliver 50 pieces/week, client needed 150. Team working 55–60 hour weeks.',
-    solution: 'AI content production engine with research automation, brand voice training, and multi-format adaptation',
+    title: 'Manual content briefs',
+    client: 'ID: MKT_210',
+    challenge: 'Manual research and formatting workflows were dragging output speed and burning out creative capacity.',
+    solution: 'Elimination of manual research and structuring cycles through AI-augmented intelligence frameworks.',
     results: [
-      { value: 410, suffix: '%', label: 'Net ROI' },
+      { value: 410, suffix: '%', label: 'Measured Return' },
       { value: 6, suffix: 'x', label: 'Output Multiplier' },
-      { value: 75, suffix: '%', label: 'Time Saved' },
-      { value: 1.9, suffix: ' wks', label: 'Break-even' },
     ],
     breakeven: '1.9 weeks',
   },
@@ -95,15 +89,14 @@ const Results = () => {
             className="max-w-4xl"
           >
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-              Case Studies
+              Verified Engagements 2025-2026
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              Proven results across
-              <span className="text-muted-foreground"> industries</span>
+              PRECISION
+              <span className="text-muted-foreground"> ENGAGEMENTS</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Real outcomes from real clients. Every system we build delivers measurable
-              business value—typically within weeks of deployment.
+              A definitive breakdown of operational evolution. We quantify impact through rigorous data tracking, moving beyond speculation into verifiable economic recovery.
             </p>
           </motion.div>
         </div>
@@ -241,14 +234,14 @@ const Results = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              What could we build for you?
+              These results started with one 45-minute call.
             </h2>
             <p className="text-muted-foreground mb-8">
-              Every business has unique operational challenges. Let's discuss yours.
+              If we do not find $5,000 in recoverable waste, the diagnostic is free.
             </p>
-            <Link to="/contact">
+            <Link to="/ai-os-audit">
               <Button size="lg" className="group">
-                <span>Start Your Transformation</span>
+                <span>Book the Diagnostic</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

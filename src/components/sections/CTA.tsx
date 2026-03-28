@@ -4,8 +4,10 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { usePrice } from '@/hooks/usePrice';
 
 const CTA = () => {
+  const price = usePrice();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -25,7 +27,7 @@ const CTA = () => {
             Book Your AI Operations Diagnostic
           </h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-            One offer: AI Operations Diagnostic (Rs. 7,999 / ~$97). 45 minutes, written report in 48 hours, money-back guarantee.
+            One offer: AI Operations Diagnostic ({price.loading ? '...' : price.display}). 45 minutes, written report in 48 hours, money-back guarantee.
           </p>
 
           <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>

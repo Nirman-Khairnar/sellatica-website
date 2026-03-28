@@ -4,6 +4,7 @@ import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
 import { HelpCircle } from 'lucide-react';
+import { usePrice } from '@/hooks/usePrice';
 import {
     Accordion,
     AccordionContent,
@@ -11,38 +12,28 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
-  {
-    question: "What AI services does Sellatica provide?",
-    answer: "Sellatica provides custom AI system development, business automation solutions, and operational efficiency tools. We focus on scalable execution with proven ROI. Our services range from intelligent document processing and automated customer support agents to predictive analytics dashboards and complete workflow orchestration systems. Every engagement begins with an AI OS Audit—7-10 days, free—to map your operations and identify what is actually worth building."
-  },
-    {
-        question: "How long does AI implementation take?",
-        answer: "We deliver proven ROI in weeks, not months. Our implementation timeline depends on project scope, but we prioritize rapid deployment and iterative improvements. typically, a pilot system is live within 2-3 weeks, with full-scale rollouts completing in 6-10 weeks depending on complexity and integration requirements."
-    },
-  {
-    question: "What industries does Sellatica serve?",
-    answer: "We serve operations-heavy businesses across various industries seeking to transform operational chaos into scalable execution through custom AI systems. Our core expertise lies in Logistics, Real Estate, Legal Services, and Marketing—sectors where high-volume data processing and operational precision are critical. Every engagement begins with an AI OS Audit—7-10 days, free—to map your operations and identify what is actually worth building."
-  },
-    {
-        question: "Do I need technical expertise to manage these systems?",
-        answer: "No. We build our systems with user-friendly interfaces designed for business operators, not just engineers. We provide comprehensive training, documentation, and ongoing support to ensure your team can manage and leverage the system effectively without needing a dedicated data science team."
-    },
-    {
-        question: "Is my data secure?",
-        answer: "Absolutely. Security is a cornerstone of our architecture. We implement enterprise-grade security protocols, including encryption at rest and in transit, role-based access control, and strict data isolation. We do not use your proprietary data to train public models."
-    },
-    {
-        question: "What is Sellatica's pricing model?",
-        answer: "Our pricing is customized based on your specific needs and project scope. We typically work on a project basis for initial builds with optional retainer models for ongoing optimization and support. Contact us at hello@sellatica.in for a detailed consultation and quote."
-    },
-    {
-        question: "How do I contact Sellatica?",
-        answer: "You can reach us at hello@sellatica.in for general inquiries. For project discussions, we recommend booking an AI OS Audit through our website to help us better understand your specific operational challenges."
-    }
-];
-
 const FAQ = () => {
+    const price = usePrice();
+    
+    const faqs = [
+      {
+        question: "What is the format?",
+        answer: "The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows—no fluff, just discovery."
+      },
+      {
+        question: "What is the price?",
+        answer: `Our pricing is fixed to ensure transparency. The comprehensive AI Operations Diagnostic is priced at a flat rate of ${price.display}. There are no hidden fees or retainer requirements for this initial phase.`
+      },
+      {
+        question: "What is the guarantee?",
+        answer: "We operate on a performance-first model. If we cannot identify at least $5,000 in recoverable operational waste within your current systems, you receive a full 100% refund. No questions asked."
+      },
+      {
+        question: "What is the deliverable?",
+        answer: "You receive a comprehensive Intelligence Dossier following the call, which includes a Revenue Leakage Map, a detailed Bottleneck Analysis, and a prioritized AI Implementation Roadmap."
+      }
+    ];
+
     return (
         <div className="min-h-screen bg-background">
       <SEO
@@ -66,14 +57,14 @@ const FAQ = () => {
                     >
                         <div className="text-center mb-16">
                             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-                                Common Questions
+                                FAQ
                             </span>
                             <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] mb-6 flex items-center justify-center gap-4">
-                                Frequently Asked Questions
-                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground/50" />
+                                Common Questions.
+                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground/50 hidden md:block" />
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                Everything you need to know about our services, process, and results.
+                                Everything you need to know before booking. No jargon.
                             </p>
                         </div>
 

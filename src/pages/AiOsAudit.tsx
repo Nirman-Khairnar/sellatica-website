@@ -4,36 +4,39 @@ import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
 import AiOsScorecardForm from '@/components/AiOsScorecardForm';
 import { Network, CheckCircle2, DollarSign, LayoutList } from 'lucide-react';
+import { usePrice } from '@/hooks/usePrice';
 
 const auditDeliverables = [
      {
           icon: Network,
-          title: 'Workflow Map',
-          description: 'We document your current processes to identify precisely where time is leaking.',
+          title: 'Revenue Leakage Map',
+          description: 'A forensic mapping of where manual friction is explicitly costing your business margin.',
      },
      {
           icon: LayoutList,
-          title: 'AI OS Module Backlog',
-          description: 'A prioritized list of AI modules specific to your operations, ranked by impact.',
+          title: 'Bottleneck Analysis',
+          description: 'Priority ranking of operational blockers that can be solved immediately with automation.',
      },
      {
           icon: DollarSign,
-          title: 'ROI Model',
+          title: 'ROI Projection Model',
           description: 'Defensible projections on capacity increase and cost savings before you build.',
      },
      {
           icon: CheckCircle2,
-          title: 'Pilot Plan',
-          description: 'A clear roadmap for the next 14-28 days to build your first module.',
+          title: 'AI Integration Roadmap',
+          description: 'A strict 90-day execution plan outlining exactly how to replace the identified friction points.',
      },
 ];
 
 const AiOsAudit = () => {
+     const price = usePrice();
+
      return (
           <div className="min-h-screen bg-background">
                <SEO
-                    title="AI OS Audit | Sellatica"
-                    description="Book your AI Operations Diagnostic: 45 minutes, written report in 48 hours, and a money-back guarantee."
+                    title="AI Operations Diagnostic | Sellatica"
+                    description="Book your AI Operations Diagnostic: 45 minutes, written report in 48 hours, and a $5k money-back guarantee."
                     canonical="https://www.sellatica.in/ai-os-audit"
                
         breadcrumbs={[{ name: 'AI OS Audit', item: 'https://www.sellatica.in/ai-os-audit' }]} 
@@ -49,16 +52,16 @@ const AiOsAudit = () => {
                                    transition={{ duration: 0.8 }}
                               >
                                    <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-                                        Flagship Entry Offer
+                                        Primary Engagement
                                    </span>
                                    <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-                                        The AI OS <span className="text-muted-foreground">Audit</span>
+                                        AI Operations <span className="text-muted-foreground">Diagnostic</span>
                                    </h1>
                                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                                        Most AI pilots fail because they lack an operational blueprint. The AI OS Audit is a 7–10 day paid diagnostic that maps your business processes and designs the architecture for your new operating layer.
+                                        Most AI pilots fail because they lack an operational blueprint. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction—delivered via a 45-minute intensive call.
                                    </p>
-                                   <p className="text-base text-muted-foreground leading-relaxed mb-12">
-                                        Instead of jumping straight into building, we first identify exactly where your operations are bleeding margin, and then we prescribe the specific AI OS modules to fix it.
+                                   <p className="text-base text-muted-foreground leading-relaxed mb-12 border-l-2 border-primary/40 pl-4 py-1 italic">
+                                        Flat Rate: {price.loading ? '...' : price.display}. Includes a comprehensive action plan delivered within 48 hours. If we don't find at least $5,000 in annual savings, the fee is fully refunded.
                                    </p>
 
                                    <div className="space-y-8">
@@ -89,10 +92,10 @@ const AiOsAudit = () => {
                               >
                                    <div className="mb-8">
                                         <h2 className="font-display text-2xl font-medium text-foreground mb-3">
-                                             Score your operations
+                                             Secure your diagnostic
                                         </h2>
                                         <p className="text-sm text-muted-foreground">
-                                             Fill out this brief scorecard to qualify for an AI OS Audit. We will review your submission and redirect you to book our kickoff call.
+                                             Fill out this brief scorecard to qualify for the AI Operations Diagnostic. We will review your submission and redirect you to book our kickoff call.
                                         </p>
                                    </div>
 

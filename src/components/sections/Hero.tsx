@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { usePrice } from '@/hooks/usePrice';
 
 const proofLines = [
   "312% ROI -- 42-attorney firm. Break-even: 3.3 weeks.",
@@ -13,6 +14,7 @@ const proofLines = [
 
 const Hero = () => {
   const [proofIndex, setProofIndex] = useState(0);
+  const price = usePrice();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,9 +34,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05]"
+              className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05] uppercase"
             >
-              Your business is leaking revenue. <span className="text-secondary-foreground">We find it.</span>
+              WE FIND WHERE YOUR BUSINESS IS LEAKING REVENUE.
             </motion.h1>
 
             <motion.p
@@ -43,7 +45,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-muted-foreground mb-10 max-w-lg leading-relaxed"
             >
-              We give you the exact roadmap to stop it.
+              Sellatica identifies the operational gaps costing you money, quantifies the exact dollar amount, and delivers a written action plan to fix them.
             </motion.p>
 
             <motion.div
@@ -52,22 +54,28 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6"
             >
-              <Link to="/ai-os-audit" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
+              <Link to="/ai-os-audit" className="w-full xl:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
                 <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
                   Book AI Operations Diagnostic
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+              <div className="flex h-14 items-center px-4 font-mono text-xs border-2 border-border bg-card">
+                {price.loading ? '...' : price.display}
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="font-mono text-xs text-muted-foreground border-l-2 border-accent/50 pl-4 mb-8 space-y-1"
+              className="font-mono text-xs text-muted-foreground border-l-2 border-accent/50 pl-4 mb-8 space-y-2 flex flex-col"
             >
-              <div>45 minutes. Written report in 48 hours.</div>
-              <div className="text-accent font-bold">Guarantee: If we don't find $5,000+ in operational waste, you pay nothing.</div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-accent" />
+                <span className="text-accent font-bold uppercase tracking-wider">{price.footer}</span>
+              </div>
+              <div>45 minutes. Written report in 48 hours. Fixed price.</div>
             </motion.div>
 
             <motion.div

@@ -15,7 +15,7 @@ const caseStudies = [
     finding: 'Intake was routing 15 hrs/week through the managing partner unnecessarily.',
     change: 'A clear ownership map and decision path removed the bottleneck entirely.',
     metrics: [
-      { value: 312, suffix: '%', label: 'Net ROI' },
+      { value: 312, suffix: '%', label: 'ROI (Legal)' },
       { value: 180, prefix: '$', suffix: 'K', label: 'Rev Protected' },
     ],
   },
@@ -29,7 +29,7 @@ const caseStudies = [
     finding: 'High-value leads were going cold within 4 hours due to manual follow-up delays.',
     change: 'A response-time ownership map and prioritisation system cut lead response to under 20 minutes.',
     metrics: [
-      { value: 280, suffix: '%', label: 'Net ROI' },
+      { value: 280, suffix: '%', label: 'ROI (Real Estate)' },
       { value: 94, prefix: '$', suffix: 'K', label: 'New Revenue' },
     ],
   },
@@ -43,7 +43,7 @@ const caseStudies = [
     finding: '50 daily coordination calls were creating dispatch chaos — every driver called in for routing.',
     change: 'Clear decision rules and a communication layer eliminated the need for manual coordination.',
     metrics: [
-      { value: 78, suffix: '%', label: 'Call Reduction' },
+      { value: 78, suffix: '%', label: 'Reduction in Calls (Logistics)' },
       { value: 40, suffix: '%', label: 'Cap. Increase' },
     ],
   },
@@ -57,7 +57,7 @@ const caseStudies = [
     finding: 'The team was rebuilding briefs from scratch each week — no reuse of research or structure.',
     change: 'A content operations system created reusable frameworks, multiplying output 6x with the same headcount.',
     metrics: [
-      { value: 410, suffix: '%', label: 'Net ROI' },
+      { value: 410, suffix: '%', label: 'ROI (Marketing)' },
       { value: 6, suffix: 'x', label: 'Output Multiplier' },
     ],
   },

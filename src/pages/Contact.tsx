@@ -106,8 +106,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Sellatica | Book an AI OS Audit"
-        description="Ready to transform your operations? Book an AI OS Audit with Sellatica to map your processes and design your new operational blueprint."
+        title="Contact Sellatica | Book an AI Operations Diagnostic"
+        description="Ready to transform your operations? Book an AI Operations Diagnostic with Sellatica to map your processes and design your new operational blueprint."
         canonical="https://www.sellatica.in/contact"
       
         breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]} 
@@ -133,8 +133,8 @@ const Contact = () => {
                 <span className="text-muted-foreground"> operations</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Every engagement starts with the AI OS Audit. We'll explore your operational
-                challenges and determine if we're the right fit to help.
+                Every engagement starts with the AI Operations Diagnostic. We'll forensically map your
+                challenges and determine exactly where you are leaking revenue.
               </p>
 
               {/* Contact Methods */}
@@ -154,9 +154,9 @@ const Contact = () => {
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <Calendar className="w-6 h-6 text-foreground mt-1" />
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">AI OS Audit</h3>
+                    <h3 className="font-medium text-foreground mb-1">Operations Diagnostic</h3>
                     <p className="text-sm text-muted-foreground">
-                      30-minute call to understand your challenges and explore solutions.
+                      45-minute intensive call to calculate your manual waste and establish ROI.
                     </p>
                   </div>
                 </div>
@@ -263,7 +263,7 @@ const Contact = () => {
                   className="w-full group"
                   disabled={isSubmitting}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Request AI OS Audit'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Book AI Operations Diagnostic'}</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
 
@@ -301,20 +301,16 @@ const Contact = () => {
               </div>
 
               <div>
-                <h3 className="font-medium text-foreground mb-2">How long does a typical engagement take?</h3>
+                <h3 className="font-medium text-foreground mb-2">How quickly do you deliver the roadmap?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Total timeline is typically 6-14 weeks from discovery to deployment.
-                  However, we deploy highest-impact modules first, so you'll see results
-                  within weeks, not months.
+                  Following the 45-minute diagnostic call, your comprehensive Revenue Leakage Map and 90-Day Execution Roadmap are delivered within 48 hours.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-medium text-foreground mb-2">What's the investment range?</h3>
+                <h3 className="font-medium text-foreground mb-2">What is the investment for the diagnostic?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Every engagement is custom-designed based on your specific challenges and goals.
-                  We provide detailed proposals with clear ROI projections after the discovery phase.
-                  Typical projects achieve break-even within 2-4 weeks.
+                  The AI Operations Diagnostic is $97 / Rs. 7,999. It carries a firm $5,000 efficiency guarantee. If we don't locate at least $5,000 in recoverable waste, the diagnostic is refunded immediately.
                 </p>
               </div>
 

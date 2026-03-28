@@ -17,13 +17,12 @@ import Terms from "./pages/Terms";
 import Refund from "./pages/Refund";
 import NotFound from "./pages/NotFound";
 import AiOsAudit from "./pages/AiOsAudit";
-import AiOsPilot from "./pages/AiOsPilot";
-import AiOsPartner from "./pages/AiOsPartner";
 import { HelmetProvider } from "react-helmet-async";
 
 import { ThemeProvider } from "./components/theme-provider";
 import { CustomCursor } from "@/components/CustomCursor";
 import { trackEvent } from "./utils/analytics";
+import { GeoProvider } from "./context/GeoContext";
 
 const queryClient = new QueryClient();
 
@@ -67,32 +66,32 @@ const GlobalTracking = () => {
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <GlobalTracking />
-          <Toaster />
-          <Sonner />
-          <CustomCursor />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/results" element={<Results />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
+      <GeoProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <GlobalTracking />
+            <Toaster />
+            <Sonner />
+            <CustomCursor />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/results" element={<Results />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
-              <Route path="/refund" element={<Refund />} />
-              <Route path="/ai-os-audit" element={<AiOsAudit />} />
-              <Route path="/ai-os-pilot" element={<AiOsPilot />} />
-              <Route path="/ai-os-partner" element={<AiOsPartner />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+                <Route path="/refund" element={<Refund />} />
+                <Route path="/ai-os-audit" element={<AiOsAudit />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </GeoProvider>
     </HelmetProvider>
   </ThemeProvider>
 );

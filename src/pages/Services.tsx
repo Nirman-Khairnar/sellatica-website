@@ -7,53 +7,53 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
+import { usePrice } from '@/hooks/usePrice';
 
 const services = [
   {
     icon: Search,
     phase: '01',
-    title: 'AI OS Audit',
-    description: 'We begin with a deep-dive diagnostic of your workflows. Our team identifies bottlenecks, integration gaps, and high-impact automation opportunities to create a clear roadmap. We do not just look at technology; we look at business outcomes.',
+    title: 'AI Operations Diagnostic',
+    description: 'Stop guessing where your margins are disappearing. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction.',
     features: [
-      'Workflow map across your entire operation',
-      'Identification of integration gaps',
-      'AI OS module backlog tailored to your needs',
-      'ROI modeling with defensible projections',
+      'Revenue Leakage Heatmap',
+      'Bottleneck Priority Analysis',
+      '90-Day AI Integration Roadmap',
     ],
-    whyMatters: 'An operating layer requires a blueprint. We ensure every dollar spent drives specific, measurable operational improvements.',
-    duration: '1-2 weeks',
+    whyMatters: 'We directly audit your current workflows and tech debt in a 45-minute intensive call, delivering a full Action Roadmap within 48 hours.',
+    duration: '45-Minute Call / 48-Hour Delivery',
   },
   {
     icon: Cog,
     phase: '02',
-    title: 'AI OS Pilot',
-    description: 'We execute the build for 1-2 modules end-to-end (like Sales OS or Knowledge OS), proving value quickly. We connect fragmented tools into a unified ecosystem and deploy custom AI agents that handle repetitive tasks with human-like precision.',
+    title: 'Strategy Engagement',
+    description: 'Design the fix alongside your operations lead. We translate the Diagnostic roadmap into technical blueprints, vendor selection, and system architecture.',
     features: [
-      'Pilot module shipped and integrated',
-      'Connect required legacy systems via API',
-      'Build AI-powered automation layers for specific tasks',
-      'Deploy real-time reporting for the module',
+      'Custom Workflow Prototyping',
+      'Vendor Neutrality Assessment',
+      'ROI Projection Modeling',
     ],
-    whyMatters: 'Fast time-to-value is critical. By deploying a focused pilot, we demonstrate immediate ROI and build team confidence in the new operating system.',
-    duration: '2-4 weeks',
+    whyMatters: 'Translating strategy into a deployable tech stack minimizes risk. This step is only available after a diagnostic secures the baseline.',
+    duration: 'Blueprint Phase',
   },
   {
     icon: TrendingUp,
     phase: '03',
-    title: 'AI OS Partner',
-    description: 'Launch is just the beginning. We provide ongoing maintenance, iteration, and monitoring. We implement feedback loops where the AI OS learns from human corrections, improving accuracy over time.',
+    title: 'Implementation',
+    description: 'We build and deploy the system changes. Full client ownership, zero vendor lock-in. You own the code, the accounts, and the infrastructure.',
     features: [
-      'Continuous system performance monitoring',
-      'AI accuracy improvement and iteration',
-      'Quarterly strategy and OS reviews',
-      'On-demand scaling support and change requests',
+      'Full-Stack Integration Deployment',
+      'Staff Training & Documentation',
+      'Post-Launch Optimization (30 Days)',
     ],
-    whyMatters: 'Static systems degrade. Our adaptive OS gets smarter with use, compounding value over time and ensuring your infrastructure remains a competitive advantage.',
-    duration: 'Monthly Retainer',
+    whyMatters: 'Execution without dependency. Our objective is to build sustainable automation, train your team, and get out of the way.',
+    duration: 'Execution Phase',
   },
 ];
 
 const Services = () => {
+  const price = usePrice();
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -114,16 +114,16 @@ const Services = () => {
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              AI OS: Audit → Pilot →
-              <span className="text-muted-foreground"> Partner</span>
+              How We<br />
+              <span className="text-muted-foreground">Work.</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
-              Not generic consulting. Not off-the-shelf software. Every engagement is designed
-              specifically for your operational chaos and business goals.
+              We don't sell software. We eliminate friction. Our three-tier architecture identifies leakage, designs the fix, and deploys the system.
             </p>
-            <p className="text-base text-muted-foreground/80 leading-relaxed max-w-3xl border-l-2 border-primary/20 pl-6">
-              Every engagement begins with an Audit. I don't build before I know exactly what's broken and what fixing it is worth to you. The operating layer — workflow, data, governance — is what makes AI stick. Without it, you're buying tools your team will quietly stop using in four months.
-            </p>
+            <div className="flex items-center gap-3 text-primary mb-8 border-l-2 border-primary/20 pl-6">
+              <Check className="w-5 h-5" />
+              <span className="font-medium tracking-tight">$5,000 Efficiency Guarantee on Diagnostics</span>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -153,7 +153,12 @@ const Services = () => {
                   <div className="lg:col-span-6">
                     <div className="flex items-center gap-4 mb-4">
                       <service.icon className="w-6 h-6 text-foreground" />
-                      <span className="text-sm text-muted-foreground">{service.duration}</span>
+                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        {service.phase === '01' ? (price.loading ? '...' : price.display + ' Flat Fee') : service.duration}
+                      </span>
+                      {service.phase === '01' && (
+                        <span className="text-sm text-muted-foreground hidden sm:inline-block">({service.duration})</span>
+                      )}
                     </div>
                     <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
                       {service.title}
@@ -254,14 +259,14 @@ const Services = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Ready to discuss your operations?
+              Your competitors are already fixing this. Are you?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Every engagement starts with our flagship AI OS Audit to map operations.
+              Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
             </p>
             <Link to="/ai-os-audit">
               <Button size="lg" className="group">
-                <span>Book AI OS Audit</span>
+                <span>Start with the Diagnostic</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

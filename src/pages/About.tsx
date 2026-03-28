@@ -10,23 +10,18 @@ import { Helmet } from 'react-helmet-async';
 const values = [
   {
     icon: Target,
-    title: 'Results-Obsessed',
-    description: 'If I cannot measure it and it cannot run without me checking on it daily, it does not ship.',
-  },
-  {
-    icon: Users,
-    title: 'Human-Centered',
-    description: 'Technology augments human capability. I build systems that retain your best people by removing the work they hate.',
+    title: 'Absolute Precision',
+    description: 'We do not deal in approximations. Every recommendation is backed by a specific data point and a projected ROI. Our focus is on the measurable.',
   },
   {
     icon: Zap,
-    title: 'Speed to Value',
-    description: 'Three phases. Seven days to blueprint. Three weeks to break-even. Every module must justify itself in measurable ROI.',
+    title: 'Zero Jargon',
+    description: 'Complex systems do not require complex language. We communicate with clarity so your team can execute without friction or confusion.',
   },
   {
     icon: Shield,
-    title: 'Client Ownership',
-    description: 'You own your infrastructure. No ongoing subscription dependencies, no vendor lock-in, no surprises.',
+    title: 'Data Sovereignty',
+    description: 'Your data is the primary asset. We build systems that ensure you own, control, and understand the metrics that drive your bottom line.',
   },
 ];
 
@@ -105,16 +100,16 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                The Mission
+                The Efficiency Standard
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-                Making AI work for businesses, not the other way around
+                We find what is costing you money. Then we fix it.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                89% of enterprises adopt AI tools. Only 51% achieve expected outcomes. The gap is not better tools—it is the operating layer that connects them.
+                Sellatica is a bespoke consulting firm dedicated to the elimination of operational waste. We replace ambiguity with data-driven clarity.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Sellatica builds that layer. Global delivery. Same rigor. In-person where geography allows, remote where it does not. The outcome is the same.
+              <p className="text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4 py-1 italic">
+                If our initial diagnostic fails to identify at least $5,000 in annual operational savings, the engagement is free of charge.
               </p>
             </motion.div>
 
@@ -125,11 +120,11 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-square bg-gradient-to-br from-secondary to-background rounded-2xl border border-border/50 flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-secondary to-background rounded-2xl border border-border/50 flex items-center justify-center p-8">
                 <div className="text-center p-12">
-                  <div className="font-display text-6xl md:text-7xl font-medium text-foreground mb-4">51%</div>
-                  <p className="text-muted-foreground text-sm max-w-xs mx-auto">
-                    Only half of enterprises achieve expected outcomes from their tech investments
+                  <div className="font-display text-5xl md:text-6xl font-medium text-foreground mb-4 border-b border-border/50 pb-4 inline-block">$5,000</div>
+                  <p className="text-muted-foreground text-lg max-w-xs mx-auto mt-4 leading-snug">
+                    Guaranteed efficiency savings from our flagship diagnostic.
                   </p>
                 </div>
               </div>
@@ -156,7 +151,7 @@ const About = () => {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}

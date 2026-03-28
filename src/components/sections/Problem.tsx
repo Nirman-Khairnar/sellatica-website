@@ -19,9 +19,9 @@ const problems = [
     description: 'Data quality and integration blocking operational progress.',
   },
   {
-    stat: '$400K+',
-    label: 'Annual Revenue Leakage',
-    description: 'Lost to operational inefficiencies in mid-market businesses.',
+    stat: '$12,400',
+    label: 'Hidden Waste',
+    description: 'Average monthly revenue leakage identified in initial Sellatica diagnostics.',
   },
 ];
 
