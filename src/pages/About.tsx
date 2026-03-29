@@ -46,45 +46,48 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-              Founder / Operator
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 md:mb-6 block">
+              Founder / Advisor
             </span>
-          <div className="grid md:grid-cols-12 gap-8 items-center mb-8">
-            <div className="md:col-span-8 md:col-start-2 lg:col-span-6 lg:col-start-1">
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1]">
-                I am Nirman Khairnar.
-              </h1>
-            </div>
-            <div className="md:col-span-4 lg:col-span-5 lg:col-start-8 flex justify-center md:justify-end">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                <div className="relative">
-                  <img
-                    src="/nirman-portrait.png"
-                    alt="Nirman Khairnar, founder of Sellatica"
-                    className="rounded-full object-cover border-2 border-border w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 transition-transform duration-300 group-hover:scale-105"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
+            <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-center mb-10">
+              <div className="md:col-span-8 lg:col-span-7">
+                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1]">
+                  I am Nirman Khairnar.
+                </h1>
+              </div>
+              <div className="md:col-span-4 lg:col-span-4 lg:col-start-9 flex justify-center md:justify-end">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-accent/20 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                  <div className="relative">
+                    <img
+                      src="/nirman-portrait.png"
+                      alt="Nirman Khairnar, founder of Sellatica"
+                      className="rounded-full object-cover border-2 border-border w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 transition-transform duration-300 group-hover:rotate-1"
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              For three years I worked as a copywriter, convinced the problem was messaging. It was not. Every client, whether in logistics, legal, or real estate, had the same constraint: operations, not marketing. Work had no clear path, no owner, and no automatic next step.
+
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              For three years I worked as a copywriter, convinced the problem was messaging. It was not. Every client—whether in logistics, legal, or real estate—had the same constraint: operations, not marketing. Work had no clear path, no owner, and no automatic next step.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I co-founded Flow Bait. The pattern repeated. Clients bought AI tools, ran demos, set up integrations, and six months later, the team was still doing everything manually. The tool was never the problem. The missing operating system was.
+              I co-founded Flow Bait and the pattern repeated. Clients bought shiny AI tools, watched demos, and set up integrations. But six months later, their teams were still doing everything manually. The tool was never the problem—the missing operating system was.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Sellatica launched in September 2024 on a simple premise: build the layer that makes AI work. Not tools. Not consulting. Custom-built operating systems that run without the owner in every loop.
+              Sellatica launched in September 2024 to solve this through intensive consulting and coaching. We don't just "build" software; we diagnose the friction together and design a shared operational blueprint. We work side-by-side with your team to ensure the transition actually sticks, turning manual chaos into a measurable system.
             </p>
-          <div className="mt-8 p-6 bg-card border border-border">
-            <span className="font-mono text-[10px] opacity-70 block mb-2">CLIENT STANDARD</span>
-            <p className="font-display text-xl font-medium leading-snug">
-              Every system I build has a number attached to it and runs without me in the loop. If it does not meet both conditions, it does not leave my desk.
-            </p>
-          </div>
+
+            <div className="mt-12 p-8 bg-card border border-border/60 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <span className="font-mono text-[10px] opacity-70 block mb-3 tracking-widest uppercase">The Diagnostic Standard</span>
+              <p className="font-display text-xl md:text-2xl font-medium leading-tight relative z-10">
+                "We don't sell 'projects.' We sell outcomes. Every roadmap I design is built through direct partnership and anchored to a firm $5,000 efficiency guarantee."
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
