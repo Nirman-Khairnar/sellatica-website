@@ -109,7 +109,7 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
-              <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
+              <Link to="/diagnostic" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
                 <Button
                   variant="outline"
                   size="sm"
@@ -219,7 +219,7 @@ const Header = () => {
                 className="mt-8 flex flex-col items-center gap-6"
               >
                 <ThemeToggle />
-                <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
+                <Link to="/diagnostic" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
                   <Button size="lg" className="text-lg">
                     Book AI Operations Diagnostic
                   </Button>

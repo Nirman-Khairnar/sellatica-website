@@ -6,7 +6,7 @@ import DiagnosticCheckout from '@/components/DiagnosticCheckout';
 import { Network, CheckCircle2, DollarSign, LayoutList } from 'lucide-react';
 import { usePrice } from '@/hooks/usePrice';
 
-const auditDeliverables = [
+const diagnosticDeliverables = [
      {
           icon: Network,
           title: 'Revenue Leakage Map',
@@ -20,7 +20,7 @@ const auditDeliverables = [
      {
           icon: DollarSign,
           title: 'ROI Projection Model',
-          description: 'Defensible projections on capacity increase and cost savings before you build.',
+          description: 'Defensible projections on capacity increase and cost savings before you implement.',
      },
      {
           icon: CheckCircle2,
@@ -29,7 +29,7 @@ const auditDeliverables = [
      },
 ];
 
-const AiOsAudit = () => {
+const Diagnostic = () => {
      const price = usePrice();
 
      return (
@@ -37,9 +37,9 @@ const AiOsAudit = () => {
                <SEO
                     title="AI Operations Diagnostic | Sellatica"
                     description="Book your AI Operations Diagnostic: 45 minutes, written report in 48 hours, and a $5k money-back guarantee."
-                    canonical="https://www.sellatica.in/ai-os-audit"
+                    canonical="https://www.sellatica.in/diagnostic"
                
-        breadcrumbs={[{ name: 'AI OS Audit', item: 'https://www.sellatica.in/ai-os-audit' }]} 
+        breadcrumbs={[{ name: 'AI Operations Diagnostic', item: 'https://www.sellatica.in/diagnostic' }]} 
       />
                <Header />
 
@@ -57,9 +57,9 @@ const AiOsAudit = () => {
                                    <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
                                         AI Operations <span className="text-muted-foreground">Diagnostic</span>
                                    </h1>
-                                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                                        Most AI pilots fail because they lack an operational blueprint. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction—delivered via a 45-minute intensive call.
-                                   </p>
+                                   <p className="text-xl text-muted-foreground leading-relaxed mb-10">
+              Most AI pilots fail because they lack an operational blueprint. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction. This is delivered via a 45-minute intensive call.
+            </p>
                                    <p className="text-base text-muted-foreground leading-relaxed mb-12 border-l-2 border-primary/40 pl-4 py-1 italic">
                                         Flat Rate: {price.loading ? '...' : price.display}. Includes a comprehensive action plan delivered within 48 hours. If we don't find at least $5,000 in annual savings, the fee is fully refunded.
                                    </p>
@@ -67,7 +67,7 @@ const AiOsAudit = () => {
                                    <div className="space-y-8">
                                         <h3 className="font-medium text-foreground text-xl">What's Included:</h3>
                                         <div className="grid sm:grid-cols-2 gap-8">
-                                             {auditDeliverables.map((item, i) => (
+                                             {diagnosticDeliverables.map((item, i) => (
                                                   <motion.div
                                                        key={item.title}
                                                        initial={{ opacity: 0, y: 20 }}
@@ -94,9 +94,9 @@ const AiOsAudit = () => {
                                         <h2 className="font-display text-2xl font-medium text-foreground mb-3">
                                              Secure your diagnostic
                                         </h2>
-                                        <p className="text-sm text-muted-foreground">
-                                             Complete your payment to secure the AI Operations Diagnostic. Your spot will be confirmed immediately.
-                                        </p>
+                                        <p className="text-muted-foreground mb-8">
+                The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows. No fluff. Just discovery.
+              </p>
                                    </div>
 
                                    <DiagnosticCheckout />
@@ -111,4 +111,4 @@ const AiOsAudit = () => {
      );
 };
 
-export default AiOsAudit;
+export default Diagnostic;

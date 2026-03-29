@@ -16,7 +16,7 @@ import Terms from "./pages/Terms";
 
 import Refund from "./pages/Refund";
 import NotFound from "./pages/NotFound";
-import AiOsAudit from "./pages/AiOsAudit";
+import Diagnostic from "./pages/Diagnostic";
 import { HelmetProvider } from "react-helmet-async";
 
 import { ThemeProvider } from "./components/theme-provider";
@@ -85,7 +85,7 @@ const App = () => (
                 <Route path="/terms" element={<Terms />} />
 
                 <Route path="/refund" element={<Refund />} />
-                <Route path="/ai-os-audit" element={<AiOsAudit />} />
+                <Route path="/diagnostic" element={<Diagnostic />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

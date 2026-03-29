@@ -10,18 +10,18 @@ import { Helmet } from 'react-helmet-async';
 const values = [
   {
     icon: Target,
-    title: 'Absolute Precision',
-    description: 'We do not deal in approximations. Every recommendation is backed by a specific data point and a projected ROI. Our focus is on the measurable.',
+    title: 'Precision in Measurement',
+    description: 'We avoid approximations. Every recommendation relies on specific data points and projected ROI calculations. Measurement is our primary focus.',
   },
   {
     icon: Zap,
-    title: 'Zero Jargon',
-    description: 'Complex systems do not require complex language. We communicate with clarity so your team can execute without friction or confusion.',
+    title: 'Direct and Clear Communication',
+    description: 'Complex systems require simple language. We use straightforward terminology so teams can execute without confusion.',
   },
   {
     icon: Shield,
-    title: 'Data Sovereignty',
-    description: 'Your data is the primary asset. We build systems that ensure you own, control, and understand the metrics that drive your bottom line.',
+    title: 'Data Ownership',
+    description: 'Data is your businesss primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
   },
 ];
 
@@ -29,8 +29,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Nirman & Sellatica | AI Operating Systems Built for Operations"
-        description="I am Nirman Khairnar, founder of Sellatica. Three years as a copywriter, one pattern: operations, not messaging, was the real constraint."
+        title="About Nirman & Sellatica | Operational Consulting for High-Growth Firms"
+        description="I am Nirman Khairnar, founder of Sellatica. We replace operational chaos with data-driven clarity through intensive consulting and coaching."
         canonical="https://www.sellatica.in/about"
         breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]}
       />
@@ -72,20 +72,20 @@ const About = () => {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              For three years I worked as a copywriter, convinced the problem was messaging. It was not. Every client—whether in logistics, legal, or real estate—had the same constraint: operations, not marketing. Work had no clear path, no owner, and no automatic next step.
+              For three years I worked as a copywriter under the assumption that messaging was the primary constraint for growth. My experience with clients in logistics, legal, and real estate proved otherwise. The common bottleneck was operations. Work lacked clear paths, ownership, or automatic next steps.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I co-founded Flow Bait and the pattern repeated. Clients bought shiny AI tools, watched demos, and set up integrations. But six months later, their teams were still doing everything manually. The tool was never the problem—the missing operating system was.
+              The pattern repeated when I co-founded Flow Bait. Strategy failed at the implementation layer. Clients would buy expensive AI tools and watch demos, yet teams remained trapped in manual processes six months later. The missing operating system was the real failure point.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Sellatica launched in September 2024 to solve this through intensive consulting and coaching. We don't just "build" software; we diagnose the friction together and design a shared operational blueprint. We work side-by-side with your team to ensure the transition actually sticks, turning manual chaos into a measurable system.
+              Sellatica launched in September 2024 to solve this through consulting and coaching. We diagnose operational friction alongside your team and design shared blueprints that work. Our side-by-side implementation ensures transitions stick and manual chaos becomes a measurable system.
             </p>
 
             <div className="mt-12 p-8 bg-card border border-border/60 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
               <span className="font-mono text-[10px] opacity-70 block mb-3 tracking-widest uppercase">The Diagnostic Standard</span>
               <p className="font-display text-xl md:text-2xl font-medium leading-tight relative z-10">
-                "We don't sell 'projects.' We sell outcomes. Every roadmap I design is built through direct partnership and anchored to a firm $5,000 efficiency guarantee."
+                "We provide outcomes. Every roadmap follows a direct partnership model and carries a $5,000 efficiency guarantee."
               </p>
             </div>
           </motion.div>
@@ -109,10 +109,10 @@ const About = () => {
                 We find what is costing you money. Then we fix it.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Sellatica is a bespoke consulting firm dedicated to the elimination of operational waste. We replace ambiguity with data-driven clarity.
+                Sellatica is a bespoke consulting firm focused on eliminating operational waste. We provide data-driven clarity for businesses experiencing growth friction.
               </p>
               <p className="text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4 py-1 italic">
-                If our initial diagnostic fails to identify at least $5,000 in annual operational savings, the engagement is free of charge.
+                Our initial diagnostic identifies recoverable operational waste. If we find less than $5,000 in annual savings, the engagement is free.
               </p>
             </motion.div>
 
@@ -193,11 +193,11 @@ const About = () => {
               Ready to discuss your operations?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Book an AI OS Audit to map your operational challenges and explore how our modules can help scale your business.
+              Book an AI Operations Diagnostic to map your operational challenges and explore how our consulting modules can help scale your business.
             </p>
-            <Link to="/ai-os-audit">
+            <Link to="/diagnostic">
               <Button size="lg" className="group">
-                <span>Book AI OS Audit</span>
+                <span>Book AI Operations Diagnostic</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

@@ -15,7 +15,7 @@ const sections = [
   {
     title: '2. Nature of Services',
     content: [
-      'Sellatica provides B2B AI automation consulting, workflow architecture, systems integration, and implementation support.',
+      'Sellatica provides B2B operational consulting, workflow architecture, systems integration, and implementation support.',
       'Detailed scope, deliverables, timelines, and commercials are defined in signed proposals, statements of work (SOW), or master service agreements (MSA).',
       'If there is any conflict, signed client agreements prevail over website-level terms.',
     ],
@@ -74,7 +74,7 @@ const Terms = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Terms & Conditions | Sellatica"
-        description="Terms and Conditions for Sellatica B2B AI automation consulting services."
+        description="Terms and Conditions for Sellatica B2B operational consulting services."
         canonical="https://www.sellatica.in/terms"
       />
 
@@ -94,7 +94,7 @@ const Terms = () => {
               </span>
               <h1 className="mt-4 font-display text-4xl md:text-5xl font-medium text-foreground">Terms &amp; Conditions</h1>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                These terms govern use of the Sellatica website and all B2B AI automation consulting engagements.
+                These terms govern use of the Sellatica website and all B2B operational consulting engagements.
               </p>
             </motion.div>
           </div>

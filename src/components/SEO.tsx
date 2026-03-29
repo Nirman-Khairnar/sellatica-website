@@ -13,9 +13,16 @@ interface SEOProps {
   breadcrumbs?: BreadcrumbItem[];
 }
 
+const proofLines = [
+  "312% ROI: 42-attorney firm. Break-even in 3.3 weeks.",
+  "280% ROI: 18-person brokerage. Zero deals lost to slow response.",
+  "78% call reduction: 23-truck logistics operation.",
+  "410% ROI: 22-person agency. 50 pieces per week became 300.",
+];
+
 const SEO = ({
-  title = "AI Operations Consulting — Sellatica",
-  description = "I find where your business is leaking revenue — and give you the exact roadmap to stop it. Book an AI Operations Diagnostic: 45 minutes, written report in 48 hours, money-back guarantee.",
+  title = "AI Operations Consulting | Sellatica",
+  description = "We find where your business is leaking revenue and give you the exact roadmap to stop it. Book an AI Operations Diagnostic: 45 minutes, written report in 48 hours, money-back guarantee.",
   canonical,
   image = "https://storage.googleapis.com/gpt-engineer-file-uploads/pUXKzUVcLsNkIiWmJAurN0HSxD33/social-images/social-1770104614326-Screenshot_20260203_130543_Gallery.png",
   breadcrumbs

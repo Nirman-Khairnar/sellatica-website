@@ -55,7 +55,7 @@ const Services = () => {
 
                 <h3 className="font-display text-3xl font-bold tracking-tight mb-4">AI Operations Diagnostic</h3>
                 <p className="text-muted-foreground font-mono text-sm leading-relaxed mb-8 max-w-lg">
-                  A focused 45-minute session where our consultants analyse your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap delivered within 48 hours.
+                  A focused 45-minute session where we analyze your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap delivered within 48 hours.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
@@ -113,7 +113,7 @@ const Services = () => {
               45 min. Written report. Guaranteed.
             </p>
           </div>
-          <Link to="/ai-os-audit" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'services_footer' })}>
+          <Link to="/diagnostic" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'services_footer' })}>
             <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-12 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
               Book AI Operations Diagnostic
               <ArrowRight className="w-4 h-4 ml-2" />

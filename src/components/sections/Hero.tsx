@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 import { usePrice } from '@/hooks/usePrice';
 
 const proofLines = [
-  "312% ROI -- 42-attorney firm. Break-even: 3.3 weeks.",
-  "280% ROI -- 18-person brokerage. Zero deals lost to slow response.",
-  "78% call reduction -- 23-truck logistics operation.",
-  "410% ROI -- 22-person agency: 50 pieces/week became 300.",
+  "312% ROI: 42-attorney firm. Break-even in 3.3 weeks.",
+  "280% ROI: 18-person brokerage. Zero deals lost to slow response.",
+  "78% call reduction: 23-truck logistics operation.",
+  "410% ROI: 22-person agency. 50 pieces per week became 300.",
+  "140% ROI: 12-person SaaS. 12 hours/week saved on onboarding.",
 ];
 
 const Hero = () => {
@@ -54,7 +55,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6"
             >
-              <Link to="/ai-os-audit" className="w-full xl:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
+              <Link to="/diagnostic" className="w-full xl:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'hero' })}>
                 <Button size="lg" className="w-full sm:w-auto rounded-none font-mono tracking-wide uppercase text-xs h-14 px-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
                   Book AI Operations Diagnostic
                   <ArrowRight className="ml-2 h-4 w-4" />

@@ -41,8 +41,7 @@ const caseStudies = [
   {
     icon: Truck,
     industry: 'Logistics',
-    title: 'Dispatch coordination calls',
-    client: 'ID: LOG_031 // DISPATCH',
+    finding: '50 daily coordination calls were creating dispatch chaos: every driver called in for routing.',
     challenge: 'Verbal dispatch confirmation was creating an operational bottleneck that hard-capped overall fleet capacity.',
     solution: 'Deployed autonomous routing confirmation, removing the manual call requirement for the vast majority of dispatch workflows.',
     results: [
@@ -54,10 +53,11 @@ const caseStudies = [
   {
     icon: Palette,
     industry: 'Marketing',
+    finding: 'The team was rebuilding briefs from scratch each week: no reuse of research or structure.',
     title: 'Manual content briefs',
     client: 'ID: MKT_210',
     challenge: 'Manual research and formatting workflows were dragging output speed and burning out creative capacity.',
-    solution: 'Elimination of manual research and structuring cycles through AI-augmented intelligence frameworks.',
+    solution: 'Elimination of manual research and structuring cycles through augmented intelligence frameworks.',
     results: [
       { value: 410, suffix: '%', label: 'Measured Return' },
       { value: 6, suffix: 'x', label: 'Output Multiplier' },
@@ -70,11 +70,10 @@ const Results = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Case Studies & Results | Sellatica"
-        description="See how Sellatica delivers measurable ROI for operations-heavy businesses. Real case studies with verifiable outcomes."
+        title="Case Studies & ROI | Sellatica Operational Consulting"
+        description="Detailed ROI analysis and operational impact reports from Sellatica's recent consulting engagements in logistics, legal, and real estate."
         canonical="https://www.sellatica.in/results"
-      
-        breadcrumbs={[{ name: 'Results', item: 'https://www.sellatica.in/results' }]} 
+        breadcrumbs={[{ name: 'Results', item: 'https://www.sellatica.in/results' }]}
       />
       
       <Header />
@@ -221,8 +220,6 @@ const Results = () => {
         </div>
       </section>
 
-
-
       {/* CTA */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6 lg:px-12">
@@ -237,9 +234,9 @@ const Results = () => {
               These results started with one 45-minute call.
             </h2>
             <p className="text-muted-foreground mb-8">
-              If we do not find $5,000 in recoverable waste, the diagnostic is free.
+              Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
             </p>
-            <Link to="/ai-os-audit">
+            <Link to="/diagnostic">
               <Button size="lg" className="group">
                 <span>Book the Diagnostic</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />

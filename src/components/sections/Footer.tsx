@@ -78,7 +78,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/ai-os-audit"
+                  to="/diagnostic"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-track="cta_clicked"
                   data-track-props={JSON.stringify({ location: 'footer_contact' })}

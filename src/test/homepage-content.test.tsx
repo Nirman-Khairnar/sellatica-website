@@ -16,7 +16,7 @@ describe('homepage content regressions', () => {
       </HelmetProvider>
     );
     return waitFor(() => {
-      expect(document.title).toBe('AI Operations Consulting — Sellatica');
+      expect(document.title).toBe('AI Operations Consulting | Sellatica');
     });
   });
 

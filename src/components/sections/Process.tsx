@@ -7,7 +7,7 @@ const phases = [
     number: '01',
     title: 'AI Operations Diagnostic',
     duration: '45 minutes + 48 hr written report',
-    description: 'A focused session where our consultants identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap delivered within 48 hours.',
+    description: 'A focused session where we identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap delivered within 48 hours.',
   },
   {
     number: '02',
@@ -19,7 +19,7 @@ const phases = [
     number: '03',
     title: 'Implementation',
     duration: 'Offered to Strategy clients only',
-    description: 'We build and deploy the operational changes. Every system runs on your infrastructure. No vendor lock-in. Full ownership.',
+    description: 'We architect and guide the implementation of operational changes. Every system runs on your infrastructure. No vendor lock-in. Full ownership.',
   },
 ];
 

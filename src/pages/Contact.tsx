@@ -109,7 +109,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact Sellatica | Book an AI Operations Diagnostic"
-        description="Ready to transform your operations? Book an AI Operations Diagnostic with Sellatica to map your processes and design your new operational blueprint."
+        description="The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows: no fluff, just discovery."
         canonical="https://www.sellatica.in/contact"
       
         breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]} 
@@ -135,7 +135,7 @@ const Contact = () => {
                 <span className="text-muted-foreground"> operations</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Every engagement starts with the AI Operations Diagnostic. We'll forensically map your
+                Every engagement starts with the AI Operations Diagnostic. We'll map your
                 challenges and determine exactly where you are leaking revenue.
               </p>
 
@@ -320,8 +320,8 @@ const Contact = () => {
                 <h3 className="font-medium text-foreground mb-2">Do I need technical expertise to work with you?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   No. We handle all technical implementation. Your team just needs to share
-                  how they work today and what outcomes they want. We build systems that integrate
-                  with existing workflowsâ€”minimal behavior change required.
+                  how they work today and what outcomes they want. We architect systems that integrate
+                  with existing workflows: minimal behavior change required.
                 </p>
               </div>
             </div>

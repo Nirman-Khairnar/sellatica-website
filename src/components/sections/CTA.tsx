@@ -30,7 +30,7 @@ const CTA = () => {
             One offer: AI Operations Diagnostic ({price.loading ? '...' : price.display}). 45 minutes, written report in 48 hours, money-back guarantee.
           </p>
 
-          <Link to="/ai-os-audit" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>
+          <Link to="/diagnostic" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'bottom_cta' })}>
             <Button size="lg" className="group">
               Book AI Operations Diagnostic
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

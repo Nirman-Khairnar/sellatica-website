@@ -18,7 +18,7 @@ const FAQ = () => {
     const faqs = [
       {
         question: "What is the format?",
-        answer: "The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows—no fluff, just discovery."
+        answer: "The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows: no fluff, just discovery."
       },
       {
         question: "What is the price?",
@@ -37,10 +37,10 @@ const FAQ = () => {
     return (
         <div className="min-h-screen bg-background">
       <SEO
-        title="FAQ - Sellatica | AI Systems Questions"
-        description="Frequently asked questions about Sellatica's custom AI operating systems for operations-heavy businesses"
+        title="FAQ - Sellatica | Operational Consulting Questions"
+        description="Frequently asked questions about Sellatica's custom operational diagnostics for high-growth businesses."
         canonical="https://www.sellatica.in/faq"
-            
+             
         breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]} 
       />
             

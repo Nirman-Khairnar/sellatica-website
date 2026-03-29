@@ -40,7 +40,7 @@ const caseStudies = [
     client: '23-truck operation',
     result: '78% Call Reduction',
     breakeven: '9.2 weeks',
-    finding: '50 daily coordination calls were creating dispatch chaos — every driver called in for routing.',
+    finding: '50 daily coordination calls were creating dispatch chaos: every driver called in for routing.',
     change: 'Clear decision rules and a communication layer eliminated the need for manual coordination.',
     metrics: [
       { value: 78, suffix: '%', label: 'Reduction in Calls (Logistics)' },
@@ -54,7 +54,7 @@ const caseStudies = [
     client: '22-person agency',
     result: '410% Net ROI',
     breakeven: '1.9 weeks',
-    finding: 'The team was rebuilding briefs from scratch each week — no reuse of research or structure.',
+    finding: 'The team was rebuilding briefs from scratch each week: no reuse of research or structure.',
     change: 'A content operations system created reusable frameworks, multiplying output 6x with the same headcount.',
     metrics: [
       { value: 410, suffix: '%', label: 'ROI (Marketing)' },

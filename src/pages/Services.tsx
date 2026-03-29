@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Search, Cog, Rocket, TrendingUp, Check } from 'lucide-react';
+import { ArrowRight, Check, Cog, Lightbulb, Rocket, Target, Zap, Shield, Search, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
@@ -14,24 +14,24 @@ const services = [
     icon: Search,
     phase: '01',
     title: 'AI Operations Diagnostic',
-    description: 'Stop guessing where your margins are disappearing. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction.',
+    description: 'Design the fix alongside our operational experts. We translate the Diagnostic roadmap into technical blueprints, vendor selection, and system architecture.',
     features: [
       'Revenue Leakage Heatmap',
       'Bottleneck Priority Analysis',
       '90-Day AI Integration Roadmap',
     ],
-    whyMatters: 'We directly audit your current workflows and tech debt in a 45-minute intensive call, delivering a full Action Roadmap within 48 hours.',
+    whyMatters: 'We directly analyze your current workflows and tech debt in a 45-minute intensive call, delivering a full Action Roadmap within 48 hours.',
     duration: '45-Minute Call / 48-Hour Delivery',
   },
   {
     icon: Cog,
     phase: '02',
-    title: 'Strategy Engagement',
-    description: 'Design the fix alongside your operations lead. We translate the Diagnostic roadmap into technical blueprints, vendor selection, and system architecture.',
+    title: 'Strategy engagement',
+    description: 'Design the solution alongside our operational experts. We translate the Diagnostic roadmap into strategic blueprints, vendor selection, and system architecture.',
     features: [
-      'Custom Workflow Prototyping',
-      'Vendor Neutrality Assessment',
-      'ROI Projection Modeling',
+      'Custom workflow prototyping',
+      'Vendor neutrality assessment',
+      'ROI projection modeling',
     ],
     whyMatters: 'Translating strategy into a deployable tech stack minimizes risk. This step is only available after a diagnostic secures the baseline.',
     duration: 'Blueprint Phase',
@@ -40,14 +40,32 @@ const services = [
     icon: TrendingUp,
     phase: '03',
     title: 'Implementation',
-    description: 'We build and deploy the system changes. Full client ownership, zero vendor lock-in. You own the code, the accounts, and the infrastructure.',
+    description: 'We architect and guide the implementation of system changes. Full client ownership, zero vendor lock-in. You own the code, the accounts, and the infrastructure.',
     features: [
-      'Full-Stack Integration Deployment',
-      'Staff Training & Documentation',
-      'Post-Launch Optimization (30 Days)',
+      'Full-stack integration deployment',
+      'Staff training & documentation',
+      'Post-launch optimization (30 days)',
     ],
-    whyMatters: 'Execution without dependency. Our objective is to build sustainable automation, train your team, and get out of the way.',
+    whyMatters: 'Execution without dependency. Our objective is to implement sustainable efficiency, coach your team, and get out of the way.',
     duration: 'Execution Phase',
+  },
+];
+
+const values = [
+  {
+    icon: Target,
+    title: 'Precision in measurement',
+    description: 'We avoid approximations. Every recommendation relies on specific data points and projected ROI calculations. Measurement is our primary focus.',
+  },
+  {
+    icon: Zap,
+    title: 'Direct and clear communication',
+    description: 'Complex systems require simple language. We use straightforward terminology so teams can execute without confusion.',
+  },
+  {
+    icon: Shield,
+    title: 'Data ownership',
+    description: 'Data is your businesss primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
   },
 ];
 
@@ -57,8 +75,8 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="AI Solutions & Services | Sellatica"
-        description="Explore Sellatica's AI Operating System services. Strategic audit, pilot build, and ongoing partnership — for any business with operational chaos."
+        title="Operational Architecture & Consulting Modules | Sellatica"
+        description="Explore Sellatica's operational consulting services: strategic diagnostics, module implementation, and ongoing partnerships for firms experiencing growth friction."
         canonical="https://www.sellatica.in/services"
       
         breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]} 
@@ -76,7 +94,7 @@ const Services = () => {
                 "name": "How long does a typical implementation take?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A typical end-to-end implementation ranges from 6 to 14 weeks. This includes 1-2 weeks for assessment, 4-10 weeks for build and integration, and 1-2 weeks for deployment and training."
+                  "text": "A typical end-to-end implementation ranges from 6 to 14 weeks. This includes 1-2 weeks for diagnostic, 4-10 weeks for architecture and implementation, and 1-2 weeks for deployment and coaching."
                 }
               },
               {
@@ -92,7 +110,7 @@ const Services = () => {
                 "name": "How do you ensure data security?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "We build on secure, enterprise-grade cloud infrastructure (like AWS or Google Cloud) with strict access controls. Your data remains yours; we design systems where we do not retain or sell your proprietary information."
+                  "text": "Our solutions are architected on secure, enterprise-grade cloud infrastructure (like AWS or Google Cloud) with strict access controls. Your data remains yours; we design systems where we do not retain or sell your proprietary information."
                 }
               }
             ]
@@ -111,18 +129,18 @@ const Services = () => {
             className="max-w-4xl"
           >
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-              Our Services
+              Our services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              How We<br />
-              <span className="text-muted-foreground">Work.</span>
+              How we<br />
+              <span className="text-muted-foreground">work.</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
-              We don't sell software. We eliminate friction. Our three-tier architecture identifies leakage, designs the fix, and deploys the system.
+              We eliminate operational friction. Our three-tier architecture identifies revenue leaks, designs the structural fix, and handles the implementation.
             </p>
             <div className="flex items-center gap-3 text-primary mb-8 border-l-2 border-primary/20 pl-6">
               <Check className="w-5 h-5" />
-              <span className="font-medium tracking-tight">$5,000 Efficiency Guarantee on Diagnostics</span>
+              <span className="font-medium tracking-tight">$5,000 efficiency guarantee on diagnostics</span>
             </div>
           </motion.div>
         </div>
@@ -160,7 +178,7 @@ const Services = () => {
                         <span className="text-sm text-muted-foreground hidden sm:inline-block">({service.duration})</span>
                       )}
                     </div>
-                    <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
+                    <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4 capitalize">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-6">
@@ -169,7 +187,7 @@ const Services = () => {
                     {/* Why This Matters Subsection */}
                     <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
                       <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                        Why This Matters
+                        Why this matters
                       </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {service.whyMatters}
@@ -183,7 +201,7 @@ const Services = () => {
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
                           <Check className="w-4 h-4 text-foreground mt-1 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <span className="text-sm text-muted-foreground capitalize">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -207,37 +225,43 @@ const Services = () => {
           >
             <div>
               <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                What Makes Us Different
+                What makes us different
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-                Industry-specific intelligence, not generic tools
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Our systems understand your business context—legal metrics, real estate deal cycles,
-                freight Incoterms, content brand voice. We build for your existing workflows,
-                meeting teams where they already work.
-              </p>
+              Operating principles
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-10">
+              Our systems integrate with your specific business context: legal billing cycles, real estate deal tracking, or logistics dispatch rules.
+            </p>
             </div>
 
             <div className="space-y-6">
-              <div className="p-6 rounded-xl bg-card border border-border/50">
-                <h3 className="font-medium text-foreground mb-2">Built for Existing Workflows</h3>
-                <p className="text-sm text-muted-foreground">
-                  Systems integrate where teams already work—Slack, WhatsApp, Gmail.
-                  Minimal behavior change required.
-                </p>
-              </div>
-              <div className="p-6 rounded-xl bg-card border border-border/50">
-                <h3 className="font-medium text-foreground mb-2">Learning Systems</h3>
-                <p className="text-sm text-muted-foreground">
-                  AI accuracy improves as systems learn from team feedback—one client saw
-                  accuracy increase from 82% to 94% in 4 months.
-                </p>
-              </div>
+                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Check className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">Native Integration</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Systems operate where teams already work: Slack, WhatsApp, and Gmail.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Check className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">Feedback Loops</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Accuracy improves as systems learn from team feedback. One client saw a 45% reduction in manual data entry within 30 days.
+                    </p>
+                  </div>
+                </div>
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
                 <p className="text-sm text-muted-foreground">
-                  Custom-built infrastructure deployed on your accounts. You own the system,
+                  Custom-architected infrastructure deployed on your accounts. You own the system,
                   not dependent on subscriptions to us.
                 </p>
               </div>
@@ -264,7 +288,7 @@ const Services = () => {
             <p className="text-muted-foreground mb-8">
               Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
             </p>
-            <Link to="/ai-os-audit">
+            <Link to="/diagnostic">
               <Button size="lg" className="group">
                 <span>Start with the Diagnostic</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />

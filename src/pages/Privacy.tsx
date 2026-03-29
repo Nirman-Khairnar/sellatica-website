@@ -9,7 +9,7 @@ const sections = [
     content: [
       'This Privacy Policy explains how Sellatica collects, uses, stores, and protects data for B2B interactions.',
       'Sellatica provides business services only. We do not intentionally collect personal consumer data unrelated to business communication or delivery.',
-      'This policy applies to website inquiries, AI OS Audit bookings, service delivery communication, and support interactions.',
+      'This policy applies to website inquiries, AI Operations Diagnostic bookings, service delivery communication, and support interactions.',
     ],
   },
   {
@@ -77,7 +77,7 @@ const Privacy = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Privacy Policy | Sellatica"
-        description="Privacy Policy for Sellatica B2B AI automation consulting services."
+        description="Privacy Policy for Sellatica B2B operational consulting services."
         canonical="https://www.sellatica.in/privacy"
       />
 
