@@ -21,8 +21,8 @@ const proofLines = [
 ];
 
 const SEO = ({
-  title = "AI Operations Consulting | Sellatica",
-  description = "We find where your business is leaking revenue and give you the exact roadmap to stop it. Book an AI Operations Diagnostic: 45 minutes, written report in 48 hours, money-back guarantee.",
+  title = "AI Operations Consulting Firm | Sellatica",
+  description = "Sellatica is a bespoke AI Operations Consulting Firm. We help businesses identify and eliminate operational waste with a 45-minute architectural diagnostic.",
   canonical,
   image = "https://storage.googleapis.com/gpt-engineer-file-uploads/pUXKzUVcLsNkIiWmJAurN0HSxD33/social-images/social-1770104614326-Screenshot_20260203_130543_Gallery.png",
   breadcrumbs
