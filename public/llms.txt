@@ -1,0 +1,18 @@
+# Sellatica
+
+> Sellatica is an operational consulting firm that helps mid-market businesses ($5M-$100M revenue) identify and eliminate revenue leakage through data-driven diagnostics, strategic blueprints, and hands-on implementation.
+
+Sellatica provides a three-tier consulting architecture: AI Operations Diagnostic, Strategy Engagement, and Implementation. The approach starts with a 45-minute intensive diagnostic call that maps operational friction, quantifies dollar-level waste, and delivers a written action plan within 48 hours. Every diagnostic carries a $5,000 efficiency guarantee. Strategy and implementation phases follow for clients who want to deploy system-level fixes with full ownership and zero vendor lock-in.
+
+## Pages
+
+- [Home](https://www.sellatica.in/) — Main landing page with value proposition, proof points, service overview, client results, and process breakdown.
+- [About](https://www.sellatica.in/about) — Founder story (Nirman Khairnar), company mission, operating principles, and the $5,000 efficiency guarantee.
+- [Services](https://www.sellatica.in/services) — Detailed breakdown of the three consulting phases: AI Operations Diagnostic, Strategy Engagement, and Implementation.
+- [Results](https://www.sellatica.in/results) — Verified case studies with ROI data across legal, real estate, logistics, and marketing sectors.
+- [Contact](https://www.sellatica.in/contact) — Contact form, business details (email, address), and common questions about fit, pricing, and process.
+- [FAQ](https://www.sellatica.in/faq) — Frequently asked questions about diagnostic format, pricing, guarantee, and deliverables.
+- [Diagnostic](https://www.sellatica.in/diagnostic) — Dedicated booking page for the AI Operations Diagnostic with deliverable details and checkout.
+- [Privacy Policy](https://www.sellatica.in/privacy) — Privacy policy covering B2B data collection, usage, retention, and user rights.
+- [Terms & Conditions](https://www.sellatica.in/terms) — Terms of service for website use and B2B consulting engagements.
+- [Refund & Cancellation Policy](https://www.sellatica.in/refund) — Cancellation and refund eligibility for pre-kickoff, post-kickoff, and milestone-based engagements.

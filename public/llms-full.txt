@@ -1,0 +1,457 @@
+# Sellatica — Full Site Content
+
+## Home
+
+### Headline
+
+WE FIND WHERE YOUR BUSINESS IS LEAKING REVENUE.
+
+Sellatica identifies the operational gaps costing you money, quantifies the exact dollar amount, and delivers a written action plan to fix them.
+
+$5,000 efficiency guarantee. 45 minutes. Written report in 48 hours. Fixed price.
+
+### Proof Points
+
+- 312% ROI: 42-attorney firm. Break-even in 3.3 weeks.
+- 280% ROI: 18-person brokerage. Zero deals lost to slow response.
+- 78% call reduction: 23-truck logistics operation.
+- 410% ROI: 22-person agency. 50 pieces per week became 300.
+- 140% ROI: 12-person SaaS. 12 hours/week saved on onboarding.
+
+### The Problem
+
+Tech adoption is not the same as tech value.
+
+Most organisations invest heavily in technology but struggle to move beyond pilots to production systems that deliver real business outcomes. AI tools fail without an operating layer: workflow, data, and governance.
+
+The Business Impact:
+- Revenue leakage from slow response times
+- Cash flow surprises from invisible receivables
+- Team burnout from constant firefighting
+- Growth paralysis without proportional hiring
+
+Key Statistics:
+- 89% adopt AI tools, but only 51% achieve expected outcomes.
+- 6-15 disconnected systems: data scattered across tools that do not talk to each other.
+- 82% face integration struggles: data quality and integration blocking operational progress.
+- $12,400 average monthly revenue leakage identified in initial Sellatica diagnostics.
+
+### AI Operations Diagnostic (Service Overview)
+
+A focused 45-minute session where we analyze your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap delivered within 48 hours.
+
+Includes:
+- Revenue leakage identification
+- Operational bottleneck map
+- Prioritised action roadmap
+- Written report in 48 hours
+
+Guarantee: If we do not find $5,000+ in operational waste, you pay nothing.
+
+Duration: 45 minutes. Report Delivery: 48 hours.
+
+### Client Results (Summary)
+
+**Legal (ID: LGL_092)** — 42-attorney firm
+What we found: Intake was routing 15 hrs/week through the managing partner unnecessarily.
+What changed: A clear ownership map and decision path removed the bottleneck entirely.
+Results: 312% ROI, $180K revenue protected. Break-even: 3.3 weeks.
+
+**Real Estate (ID: EST_144)** — 18-person brokerage
+What we found: High-value leads were going cold within 4 hours due to manual follow-up delays.
+What changed: A response-time ownership map and prioritisation system cut lead response to under 20 minutes.
+Results: 280% ROI, $94K new revenue. Break-even: 3.0 weeks.
+
+**Logistics (ID: LOG_031)** — 23-truck operation
+What we found: 50 daily coordination calls were creating dispatch chaos: every driver called in for routing.
+What changed: Clear decision rules and a communication layer eliminated the need for manual coordination.
+Results: 78% reduction in calls, 40% capacity increase. Break-even: 9.2 weeks.
+
+**Marketing (ID: MKT_210)** — 22-person agency
+What we found: The team was rebuilding briefs from scratch each week: no reuse of research or structure.
+What changed: A content operations system created reusable frameworks, multiplying output 6x with the same headcount.
+Results: 410% ROI, 6x output multiplier. Break-even: 1.9 weeks.
+
+### How We Work
+
+**Phase 01: AI Operations Diagnostic**
+Duration: 45 minutes + 48 hr written report.
+A focused session where we identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap delivered within 48 hours.
+
+**Phase 02: Strategy Engagement**
+Offered after the Diagnostic.
+For clients who want to go deeper. We work with your operations lead to design the system changes required and build the execution plan.
+
+**Phase 03: Implementation**
+Offered to Strategy clients only.
+We architect and guide the implementation of operational changes. Every system runs on your infrastructure. No vendor lock-in. Full ownership.
+
+### Call to Action
+
+Book Your AI Operations Diagnostic. One offer: AI Operations Diagnostic. 45 minutes, written report in 48 hours, money-back guarantee.
+
+What you get from the Diagnostic:
+- Revenue leakage identified
+- Prioritised action roadmap
+- Written report in 48 hrs
+- Money-back guarantee
+
+---
+
+## About
+
+### Founder
+
+I am Nirman Khairnar. Founder / Advisor.
+
+For three years I worked as a copywriter under the assumption that messaging was the primary constraint for growth. My experience with clients in logistics, legal, and real estate proved otherwise. The common bottleneck was operations. Work lacked clear paths, ownership, or automatic next steps.
+
+The pattern repeated when I co-founded Flow Bait. Strategy failed at the implementation layer. Clients would buy expensive AI tools and watch demos, yet teams remained trapped in manual processes six months later. The missing operating system was the real failure point.
+
+Sellatica launched in September 2024 to solve this through consulting and coaching. We diagnose operational friction alongside your team and design shared blueprints that work. Our side-by-side implementation ensures transitions stick and manual chaos becomes a measurable system.
+
+"We provide outcomes. Every roadmap follows a direct partnership model and carries a $5,000 efficiency guarantee."
+
+### The Efficiency Standard
+
+We find what is costing you money. Then we fix it.
+
+Sellatica is a bespoke consulting firm focused on eliminating operational waste. We provide data-driven clarity for businesses experiencing growth friction.
+
+Our initial diagnostic identifies recoverable operational waste. If we find less than $5,000 in annual savings, the engagement is free.
+
+Guaranteed efficiency savings from our flagship diagnostic: $5,000.
+
+### Operating Principles
+
+**Precision in Measurement**
+We avoid approximations. Every recommendation relies on specific data points and projected ROI calculations. Measurement is our primary focus.
+
+**Direct and Clear Communication**
+Complex systems require simple language. We use straightforward terminology so teams can execute without confusion.
+
+**Data Ownership**
+Data is your business's primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.
+
+### Call to Action
+
+Ready to discuss your operations? Book an AI Operations Diagnostic to map your operational challenges and explore how our consulting modules can help scale your business.
+
+---
+
+## Services
+
+### How We Work
+
+We eliminate operational friction. Our three-tier architecture identifies revenue leaks, designs the structural fix, and handles the implementation.
+
+$5,000 efficiency guarantee on diagnostics.
+
+### Phase 01: AI Operations Diagnostic
+
+Duration: 45-Minute Call / 48-Hour Delivery.
+
+Design the fix alongside our operational experts. We translate the Diagnostic roadmap into technical blueprints, vendor selection, and system architecture.
+
+Includes:
+- Revenue Leakage Heatmap
+- Bottleneck Priority Analysis
+- 90-Day AI Integration Roadmap
+
+Why this matters: We directly analyze your current workflows and tech debt in a 45-minute intensive call, delivering a full Action Roadmap within 48 hours.
+
+### Phase 02: Strategy Engagement
+
+Duration: Blueprint Phase.
+
+Design the solution alongside our operational experts. We translate the Diagnostic roadmap into strategic blueprints, vendor selection, and system architecture.
+
+Includes:
+- Custom workflow prototyping
+- Vendor neutrality assessment
+- ROI projection modeling
+
+Why this matters: Translating strategy into a deployable tech stack minimizes risk. This step is only available after a diagnostic secures the baseline.
+
+### Phase 03: Implementation
+
+Duration: Execution Phase.
+
+We architect and guide the implementation of system changes. Full client ownership, zero vendor lock-in. You own the code, the accounts, and the infrastructure.
+
+Includes:
+- Full-stack integration deployment
+- Staff training & documentation
+- Post-launch optimization (30 days)
+
+Why this matters: Execution without dependency. Our objective is to implement sustainable efficiency, coach your team, and get out of the way.
+
+### Operating Principles
+
+Our systems integrate with your specific business context: legal billing cycles, real estate deal tracking, or logistics dispatch rules.
+
+**Native Integration**
+Systems operate where teams already work: Slack, WhatsApp, and Gmail.
+
+**Feedback Loops**
+Accuracy improves as systems learn from team feedback. One client saw a 45% reduction in manual data entry within 30 days.
+
+**You Own Everything**
+Custom-architected infrastructure deployed on your accounts. You own the system, not dependent on subscriptions to us.
+
+### Call to Action
+
+Your competitors are already fixing this. Are you? Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
+
+---
+
+## Results
+
+### Precision Engagements
+
+Verified Engagements 2025-2026.
+
+A definitive breakdown of operational evolution. We quantify impact through rigorous data tracking, moving beyond speculation into verifiable economic recovery.
+
+### Case Study: Legal Sector — Managing Partner Bottleneck (ID: LGL_092)
+
+Challenge: High-value decision cycles were stalled by manual administrative requirements for senior counsel, causing systemic revenue leakage.
+Solution: Replaced manual administrative loops with intelligent assessment protocols, directly recovering senior partner bandwidth.
+Results: 312% Net ROI, $180K Revenue Protected. Break-even: 3.3 weeks.
+
+### Case Study: Real Estate — Lead Response Delays (ID: EST_144)
+
+Challenge: Initial inquiry response lag causing warm deals to go cold while team manually assembled contextual data.
+Solution: Orchestrated automated data enrichment and instant response routing, eliminating manual wait times entirely.
+Results: 280% Efficiency ROI, $94K New Revenue. Break-even: 3 weeks.
+
+### Case Study: Logistics — Dispatch Coordination (ID: LOG_031)
+
+Challenge: Verbal dispatch confirmation was creating an operational bottleneck that hard-capped overall fleet capacity.
+Solution: Deployed autonomous routing confirmation, removing the manual call requirement for the vast majority of dispatch workflows.
+Results: 78% Call Volume Reduction, 40% Fleet Capacity Increase. Break-even: Immediate.
+
+### Case Study: Marketing — Manual Content Briefs (ID: MKT_210)
+
+Challenge: Manual research and formatting workflows were dragging output speed and burning out creative capacity.
+Solution: Elimination of manual research and structuring cycles through augmented intelligence frameworks.
+Results: 410% Measured Return, 6x Output Multiplier. Break-even: 1.9 weeks.
+
+### Summary Statistics
+
+- 1500% Average Year 1 ROI
+- 3 weeks Avg. Break-even
+- 94% AI Accuracy Achieved
+- 8-15 Systems Integrated
+
+### Call to Action
+
+These results started with one 45-minute call. Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
+
+---
+
+## Contact
+
+### Let's Discuss Your Operations
+
+Every engagement starts with the AI Operations Diagnostic. We'll map your challenges and determine exactly where you are leaking revenue.
+
+### Business Contact Details
+
+- Business Name: Sellatica
+- Email: hello@sellatica.in
+- Address: Vadodara, Gujarat
+
+### Operations Diagnostic
+
+45-minute intensive call to calculate your manual waste and establish ROI.
+
+### Quick Response
+
+We respond to all inquiries within 24 hours.
+
+### Direct Email
+
+hello@sellatica.in
+
+### Contact Form
+
+Fields: Full Name, Work Email, Company Name, Message (Tell us about your operational challenges).
+
+By submitting this form, you agree to our privacy policy. We'll never share your information.
+
+### Common Questions
+
+**Who is Sellatica a good fit for?**
+Mid-market businesses ($5M-$100M revenue) experiencing operational chaos from growth. If you have data trapped in multiple systems, manual processes killing productivity, or can't scale without proportional hiring, we can help.
+
+**How quickly do you deliver the roadmap?**
+Following the 45-minute diagnostic call, your comprehensive Revenue Leakage Map and 90-Day Execution Roadmap are delivered within 48 hours.
+
+**What is the investment for the diagnostic?**
+The AI Operations Diagnostic carries a firm $5,000 efficiency guarantee. If we don't locate at least $5,000 in recoverable waste, the diagnostic is refunded immediately.
+
+**Do I need technical expertise to work with you?**
+No. We handle all technical implementation. Your team just needs to share how they work today and what outcomes they want. We architect systems that integrate with existing workflows: minimal behavior change required.
+
+---
+
+## FAQ
+
+### Common Questions
+
+Everything you need to know before booking. No jargon.
+
+**What is the format?**
+The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows: no fluff, just discovery.
+
+**What is the price?**
+Our pricing is fixed to ensure transparency. The comprehensive AI Operations Diagnostic is priced at a flat rate. There are no hidden fees or retainer requirements for this initial phase.
+
+**What is the guarantee?**
+We operate on a performance-first model. If we cannot identify at least $5,000 in recoverable operational waste within your current systems, you receive a full 100% refund. No questions asked.
+
+**What is the deliverable?**
+You receive a comprehensive Intelligence Dossier following the call, which includes a Revenue Leakage Map, a detailed Bottleneck Analysis, and a prioritized AI Implementation Roadmap.
+
+---
+
+## AI Operations Diagnostic
+
+### Primary Engagement
+
+Most AI pilots fail because they lack an operational blueprint. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction. This is delivered via a 45-minute intensive call.
+
+Flat rate. Includes a comprehensive action plan delivered within 48 hours. If we don't find at least $5,000 in annual savings, the fee is fully refunded.
+
+### What's Included
+
+**Revenue Leakage Map**
+A forensic mapping of where manual friction is explicitly costing your business margin.
+
+**Bottleneck Analysis**
+Priority ranking of operational blockers that can be solved immediately with automation.
+
+**ROI Projection Model**
+Defensible projections on capacity increase and cost savings before you implement.
+
+**AI Integration Roadmap**
+A strict 90-day execution plan outlining exactly how to replace the identified friction points.
+
+### Secure Your Diagnostic
+
+The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows. No fluff. Just discovery.
+
+---
+
+## Privacy Policy
+
+This policy explains what business data we collect, why we collect it, and how Sellatica protects and processes it.
+
+### 1. Scope and B2B Context
+
+This Privacy Policy explains how Sellatica collects, uses, stores, and protects data for B2B interactions. Sellatica provides business services only. We do not intentionally collect personal consumer data unrelated to business communication or delivery. This policy applies to website inquiries, AI Operations Diagnostic bookings, service delivery communication, and support interactions.
+
+### 2. Data We Collect
+
+Business contact data such as name, work email, company name, role, phone details you choose to share, and inquiry content. Operational/project context such as workflow requirements, software stack information, and delivery notes shared for execution. Communication records such as emails, call notes, and support exchanges. Technical data such as IP metadata, browser details, timestamps, and security logs for reliability and fraud prevention.
+
+### 3. How Data Is Used
+
+To respond to inquiries, schedule meetings, and evaluate B2B fit. To prepare proposals and deliver consulting and implementation services. To operate, secure, and improve website and delivery infrastructure. To comply with legal, tax, accounting, and contractual obligations.
+
+### 4. Third-Party Sharing
+
+We do not sell personal data. Data may be shared with trusted third-party providers for hosting, analytics, communication, cloud infrastructure, and workflow operations under access controls. Data may be disclosed if required by law, regulator direction, or court order.
+
+### 5. Cookies and Tracking
+
+The website may use essential cookies and analytics tools for performance, usability, and security. You can control cookie settings in your browser. Disabling cookies may affect website behavior.
+
+### 6. Data Retention
+
+Inquiry and pre-sales records are retained for a limited period for operations and compliance. Project records may be retained based on service continuity, legal obligations, and accounting requirements. When no longer required, data is deleted, anonymized, or archived with restricted access.
+
+### 7. User Rights
+
+Subject to applicable law, you may request access, correction, or deletion of relevant information. You may request opt-out from non-essential communication. Reasonable identity verification may be required before processing sensitive requests.
+
+### 8. Privacy Contact
+
+For privacy requests, email contact@sellatica.in with subject line: Privacy Request. Business Name: Sellatica. Address: Vadodara, Gujarat. Last updated: February 23, 2026.
+
+---
+
+## Terms & Conditions
+
+These terms govern use of the Sellatica website and all B2B operational consulting engagements.
+
+### 1. Acceptance of Terms
+
+By using this website or engaging Sellatica services, you agree to these Terms and Conditions. If you do not accept these terms, please do not use the website or engage services. These terms apply to B2B service engagements and business users only.
+
+### 2. Nature of Services
+
+Sellatica provides B2B operational consulting, workflow architecture, systems integration, and implementation support. Detailed scope, deliverables, timelines, and commercials are defined in signed proposals, statements of work (SOW), or master service agreements (MSA). If there is any conflict, signed client agreements prevail over website-level terms.
+
+### 3. Payment Terms
+
+Fees, milestone schedules, taxes, and due dates are defined in written commercial documents. Payments must be made on agreed dates to avoid delivery delays or temporary service suspension. Late payments may pause work until outstanding dues are cleared.
+
+### 4. Intellectual Property Ownership
+
+Each party retains ownership of its pre-existing intellectual property. Ownership and licensing of project outputs are governed by signed contracts. Sellatica retains rights to reusable methods, frameworks, templates, and non-client-specific implementation know-how.
+
+### 5. Limitation of Liability
+
+To the maximum extent permitted by law, Sellatica is not liable for indirect, incidental, consequential, or special damages. Sellatica is not responsible for losses caused by client-side misuse, third-party tools, outages, or policy changes outside our control. Aggregate liability, if any, is limited to fees paid for the specific services giving rise to the claim, unless otherwise stated in a signed agreement.
+
+### 6. Governing Law
+
+These Terms are governed by the laws of India. Business location reference: Vadodara, Gujarat.
+
+### 7. Dispute Resolution
+
+Any dispute must first be raised in writing at contact@sellatica.in for good-faith resolution. If unresolved, disputes are subject to competent courts in Gujarat, India, unless otherwise agreed in writing.
+
+### 8. Business Contact
+
+Business Name: Sellatica. Address: Vadodara, Gujarat. Contact: contact@sellatica.in. Last updated: February 23, 2026.
+
+---
+
+## Refund & Cancellation Policy
+
+This policy defines how cancellations and refund eligibility are handled for Sellatica's B2B services.
+
+### 1. Policy Scope
+
+This Cancellation and Refunds Policy applies to Sellatica B2B AI automation consulting and implementation services. Services are custom and capacity-based, so this policy differs from physical product return models.
+
+### 2. Pre-kickoff Cancellation
+
+If cancellation is requested before formal project kickoff, eligible fees are fully refundable. Approved refunds for pre-kickoff cancellations are processed within 7 business days.
+
+### 3. Post-kickoff Cancellation
+
+If cancellation occurs after kickoff, refunds are partial and based on work completed and committed costs. Completed discovery, architecture, implementation, and documentation effort up to cancellation date is billable.
+
+### 4. Milestone-based Payments
+
+Milestone payments are non-refundable once the milestone deliverable is submitted or made available for review. Any partial adjustment is considered only for clearly undelivered scope where applicable in writing.
+
+### 5. Completed and Delivered Work
+
+No refunds are provided for completed and delivered work, including automation workflows, advisory deliverables, and implementation outputs. Post-delivery change requests are handled through scoped rework, not retroactive refunds.
+
+### 6. Dispute Process
+
+For delivery or billing disputes, email contact@sellatica.in within 7 days of delivery. Include project name, invoice/milestone reference, and issue details for review.
+
+### 7. Refund Processing
+
+Once a refund is approved in writing, payment is initiated to the original payment method. Final credit time may vary by payment gateway and banking timelines.
+
+### 8. Contact
+
+Business Name: Sellatica. Address: Vadodara, Gujarat. Email: contact@sellatica.in. Last updated: February 23, 2026.
