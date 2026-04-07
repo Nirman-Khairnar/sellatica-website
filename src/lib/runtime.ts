@@ -3,7 +3,8 @@ export const runtimeConfig = {
     import.meta.env.VITE_CONTACT_WEBHOOK_URL ||
     "https://n8n.sellatica.in/webhook/sellatica/company-contact-web-v1",
   diagnosticLeadWebhookUrl:
-    import.meta.env.VITE_DIAGNOSTIC_LEAD_WEBHOOK_URL || "",
+    import.meta.env.VITE_DIAGNOSTIC_LEAD_WEBHOOK_URL ||
+    "https://n8n.sellatica.in/webhook/sellatica/company-diagnostic-lead-v1",
   razorpayOrderWebhookUrl:
     import.meta.env.VITE_RAZORPAY_ORDER_WEBHOOK_URL || "",
   razorpayVerifyWebhookUrl:
