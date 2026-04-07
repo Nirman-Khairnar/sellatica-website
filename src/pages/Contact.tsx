@@ -12,6 +12,7 @@ import SEO from '@/components/SEO';
 import { Helmet } from 'react-helmet-async';
 import { trackEvent } from '@/utils/analytics';
 import { usePrice } from '@/hooks/usePrice';
+import { submitContactInquiry } from '@/lib/backend';
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -19,10 +20,6 @@ const contactSchema = z.object({
   company: z.string().trim().min(1, "Company name is required").max(200, "Company name must be less than 200 characters"),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
 });
-
-const CONTACT_WEBHOOK_URL =
-  import.meta.env.VITE_CONTACT_WEBHOOK_URL ||
-  'https://n8n.sellatica.in/webhook/sellatica/company-contact-web-v1';
 
 const Contact = () => {
   const price = usePrice();
@@ -60,18 +57,7 @@ const Contact = () => {
         source: 'sellatica_website_contact_form',
       };
 
-      const response = await fetch(CONTACT_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-      const responseData = await response.json().catch(() => null);
-
-      if (!response.ok || responseData?.status !== 'accepted') {
-        throw new Error(`Contact webhook request failed with status ${response.status}`);
-      }
+      await submitContactInquiry(payload);
 
       toast({
         title: "Message sent successfully",

@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Lock, ShieldCheck } from 'lucide-react';
 import { usePrice } from '@/hooks/usePrice';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Turnstile } from '@marsidev/react-turnstile';
 import type { TurnstileInstance } from '@marsidev/react-turnstile';
+import { createDiagnosticOrder, verifyDiagnosticPayment } from '@/lib/backend';
 
 declare global {
   interface Window {
@@ -44,14 +44,15 @@ const DiagnosticCheckout = () => {
                const currency = isIndia ? 'INR' : 'USD';
 
                // 1. Call Secure Supabase Engine
-               const { data, error } = await supabase.functions.invoke('create-razorpay-order', {
-                    body: { currency }
+               const { orderId, keyId, amount } = await createDiagnosticOrder({
+                    currency,
+                    token: turnstileToken,
+                    leadData: {
+                         name: formData.name,
+                         email: formData.email,
+                         source: 'sellatica_diagnostic_checkout'
+                    }
                });
-
-               if (error) throw error;
-               if (data?.error) throw new Error(data.error);
-
-               const { orderId, keyId, amount } = data;
 
                if (!window.Razorpay) {
                     throw new Error("Secure payment system is still loading. Please try again in a moment.");
@@ -65,13 +66,37 @@ const DiagnosticCheckout = () => {
                     name: "Sellatica",
                     description: "AI Operations Diagnostic",
                     order_id: orderId,
-                    handler: function () {
-                         // 3. Successful Payment -> Redirect silently to Calendar
-                         toast.success("Payment Received", {
-                              description: "Redirecting to priority booking calendar..."
-                         });
-                         const calComUrl = `https://cal.com/sellatica-official/introductory-call?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
-                         window.location.href = calComUrl;
+                    handler: async function (response: any) {
+                         try {
+                              const verification = await verifyDiagnosticPayment({
+                                   payment: {
+                                        razorpay_payment_id: response.razorpay_payment_id,
+                                        razorpay_order_id: response.razorpay_order_id,
+                                        razorpay_signature: response.razorpay_signature,
+                                   },
+                                   leadData: {
+                                        name: formData.name,
+                                        email: formData.email,
+                                        source: 'sellatica_diagnostic_checkout'
+                                   }
+                              });
+
+                              toast.success("Payment Received", {
+                                   description: verification.verified
+                                        ? "Redirecting to priority booking calendar..."
+                                        : "Payment captured. Redirecting to booking..."
+                              });
+
+                              window.location.href = verification.bookingUrl;
+                         } catch (verificationError: any) {
+                              console.error("Payment verification error:", verificationError);
+                              toast.error("Payment verification failed", {
+                                   description: verificationError.message || "Please contact us and we will help you complete the booking."
+                              });
+                              setIsSubmitting(false);
+                              setTurnstileToken('');
+                              turnstileRef.current?.reset();
+                         }
                     },
                     prefill: {
                          name: formData.name,

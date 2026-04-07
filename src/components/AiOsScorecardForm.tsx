@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Turnstile } from '@marsidev/react-turnstile';
 import type { TurnstileInstance } from '@marsidev/react-turnstile';
 import { trackEvent } from '@/utils/analytics';
+import { buildCalcomBookingUrl } from '@/lib/booking';
+import { submitDiagnosticLead } from '@/lib/backend';
 
 export const AiOsScorecardForm = () => {
      const [loading, setLoading] = useState(false);
@@ -23,37 +24,17 @@ export const AiOsScorecardForm = () => {
           setLoading(true);
 
           try {
-               const { data, error: invokeError } = await supabase.functions.invoke('submit-lead', {
-                    body: {
-                         token: turnstileToken,
-                         leadData: {
-                              name: formData.name,
-                              email: formData.email,
-                              company: formData.company,
-                              teamSize: formData.teamSize,
-                              biggestChallenge: formData.biggestChallenge
-                         }
+               await submitDiagnosticLead({
+                    token: turnstileToken,
+                    leadData: {
+                         name: formData.name,
+                         email: formData.email,
+                         company: formData.company,
+                         teamSize: formData.teamSize,
+                         biggestChallenge: formData.biggestChallenge,
+                         source: 'ai_operations_diagnostic'
                     }
                });
-
-               if (invokeError) {
-                    console.error('Edge function error:', invokeError);
-                    let errorMessage = 'Secure proxy insertion failed';
-                    if (invokeError.context) {
-                         try {
-                              const errData = await invokeError.context.json();
-                              if (errData.error) errorMessage = errData.error;
-                         } catch (e) {
-                              // non-json response
-                         }
-                    }
-                    throw new Error(errorMessage);
-               }
-
-               if (data?.error) {
-                    console.error('Edge function returned error payload:', data.error);
-                    throw new Error(data.error);
-               }
 
                toast.success('Submitted successfully. Redirecting to booking...', {
                     duration: 3000,
@@ -61,12 +42,11 @@ export const AiOsScorecardForm = () => {
 
                trackEvent('form_submitted', { form_id: 'ai_operations_diagnostic' });
 
-               const calUrl = new URL('https://cal.com/sellatica-official/introductory-call');
-               calUrl.searchParams.append('name', formData.name);
-               calUrl.searchParams.append('email', formData.email);
-
                setTimeout(() => {
-                    window.location.href = calUrl.toString();
+                    window.location.href = buildCalcomBookingUrl({
+                         name: formData.name,
+                         email: formData.email
+                    });
                }, 1000);
 
           } catch (error: any) {
