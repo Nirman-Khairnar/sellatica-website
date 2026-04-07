@@ -6,9 +6,11 @@ export const runtimeConfig = {
     import.meta.env.VITE_DIAGNOSTIC_LEAD_WEBHOOK_URL ||
     "https://n8n.sellatica.in/webhook/sellatica/company-diagnostic-lead-v1",
   razorpayOrderWebhookUrl:
-    import.meta.env.VITE_RAZORPAY_ORDER_WEBHOOK_URL || "",
+    import.meta.env.VITE_RAZORPAY_ORDER_WEBHOOK_URL ||
+    "https://n8n.sellatica.in/webhook/sellatica/razorpay-diagnostic-order-v1",
   razorpayVerifyWebhookUrl:
-    import.meta.env.VITE_RAZORPAY_VERIFY_WEBHOOK_URL || "",
+    import.meta.env.VITE_RAZORPAY_VERIFY_WEBHOOK_URL ||
+    "https://n8n.sellatica.in/webhook/sellatica/razorpay-diagnostic-verify-v1",
   calcomBookingUrl:
     import.meta.env.VITE_CALCOM_BOOKING_URL ||
     "https://cal.com/sellatica-official/introductory-call",
