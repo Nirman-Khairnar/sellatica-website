@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
@@ -23,6 +23,7 @@ import { ThemeProvider } from "./components/theme-provider";
 
 import { trackEvent } from "./utils/analytics";
 import { GeoProvider } from "./context/GeoContext";
+import BrandLoader from "./components/BrandLoader";
 
 const queryClient = new QueryClient();
 
@@ -63,37 +64,84 @@ const GlobalTracking = () => {
   return null;
 };
 
-const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-    <HelmetProvider>
-      <GeoProvider>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <GlobalTracking />
-            <Toaster />
-            <Sonner />
+const App = () => {
+  const [loaderVisible, setLoaderVisible] = useState(true);
+  const [loaderExiting, setLoaderExiting] = useState(false);
 
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/results" element={<Results />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
+  useEffect(() => {
+    let minimumDelayComplete = false;
+    let pageReady = document.readyState === "complete";
+    let exitTimer: number | undefined;
+    let removeTimer: number | undefined;
 
-                <Route path="/refund" element={<Refund />} />
-                <Route path="/diagnostic" element={<Diagnostic />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </QueryClientProvider>
-      </GeoProvider>
-    </HelmetProvider>
-  </ThemeProvider>
-);
+    const maybeDismissLoader = () => {
+      if (!minimumDelayComplete || !pageReady || loaderExiting) return;
+
+      setLoaderExiting(true);
+      exitTimer = window.setTimeout(() => {
+        setLoaderVisible(false);
+      }, 420);
+    };
+
+    const minimumTimer = window.setTimeout(() => {
+      minimumDelayComplete = true;
+      maybeDismissLoader();
+    }, 700);
+
+    const handleLoad = () => {
+      pageReady = true;
+      maybeDismissLoader();
+    };
+
+    if (!pageReady) {
+      window.addEventListener("load", handleLoad, { once: true });
+    } else {
+      maybeDismissLoader();
+    }
+
+    return () => {
+      window.clearTimeout(minimumTimer);
+      if (exitTimer) window.clearTimeout(exitTimer);
+      if (removeTimer) window.clearTimeout(removeTimer);
+      window.removeEventListener("load", handleLoad);
+    };
+  }, [loaderExiting]);
+
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+      <HelmetProvider>
+        <GeoProvider>
+          <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+              <GlobalTracking />
+              <Toaster />
+              <Sonner />
+
+              <BrowserRouter>
+                <ScrollToTop />
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/results" element={<Results />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+
+                  <Route path="/refund" element={<Refund />} />
+                  <Route path="/diagnostic" element={<Diagnostic />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+
+              {loaderVisible ? <BrandLoader exiting={loaderExiting} /> : null}
+            </TooltipProvider>
+          </QueryClientProvider>
+        </GeoProvider>
+      </HelmetProvider>
+    </ThemeProvider>
+  );
+};
 
 export default App;

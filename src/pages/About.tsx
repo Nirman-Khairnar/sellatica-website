@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Target, Users, Zap, Shield } from 'lucide-react';
+import { ArrowRight, Target, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
-import { Helmet } from 'react-helmet-async';
 
 const values = [
   {
@@ -21,7 +20,7 @@ const values = [
   {
     icon: Shield,
     title: 'Data Ownership',
-    description: 'Data is your businesss primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
+    description: 'Data is your business\'s primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
   },
 ];
 
@@ -30,7 +29,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="About Nirman & Sellatica | Operational Consulting for High-Growth Firms"
-        description="I am Nirman Khairnar, founder of Sellatica. We replace operational chaos with data-driven clarity through intensive consulting and coaching."
+        description="I am Nirman Khairnar, founder of Sellatica. I help operations-heavy businesses find where execution is breaking down and what to fix first."
         canonical="https://www.sellatica.in/about"
         breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]}
       />
@@ -83,9 +82,9 @@ const About = () => {
 
             <div className="mt-12 p-8 bg-card border border-border/60 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              <span className="font-mono text-[10px] opacity-70 block mb-3 tracking-widest uppercase">The Diagnostic Standard</span>
+              <span className="font-mono text-[10px] opacity-70 block mb-3 tracking-widest uppercase">Operating Rule</span>
               <p className="font-display text-xl md:text-2xl font-medium leading-tight relative z-10">
-                "We provide outcomes. Every roadmap follows a direct partnership model and carries a $5,000 efficiency guarantee."
+                "If I cannot measure it and it cannot run without me checking on it daily, it does not ship."
               </p>
             </div>
           </motion.div>
@@ -103,16 +102,16 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                The Efficiency Standard
+                The Work
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-                We find what is costing you money. Then we fix it.
+                I work on the part most teams keep patching.
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Sellatica is a bespoke consulting firm focused on eliminating operational waste. We provide data-driven clarity for businesses experiencing growth friction.
+                Sellatica exists for businesses where revenue is being lost in the gaps between tools, people, and decisions. The work is not to add more software. The work is to make execution reliable.
               </p>
               <p className="text-muted-foreground leading-relaxed border-l-2 border-primary/40 pl-4 py-1 italic">
-                Our initial diagnostic identifies recoverable operational waste. If we find less than $5,000 in annual savings, the engagement is free.
+                We start by diagnosing the breakpoints, quantifying the cost, and deciding what should actually be fixed first.
               </p>
             </motion.div>
 
@@ -125,9 +124,9 @@ const About = () => {
             >
               <div className="aspect-square bg-gradient-to-br from-secondary to-background rounded-2xl border border-border/50 flex items-center justify-center p-8">
                 <div className="text-center p-12">
-                  <div className="font-display text-5xl md:text-6xl font-medium text-foreground mb-4 border-b border-border/50 pb-4 inline-block">$5,000</div>
+                  <div className="font-display text-5xl md:text-6xl font-medium text-foreground mb-4 border-b border-border/50 pb-4 inline-block">45 min</div>
                   <p className="text-muted-foreground text-lg max-w-xs mx-auto mt-4 leading-snug">
-                    Guaranteed efficiency savings from our flagship diagnostic.
+                    One concentrated session. Written action plan in 48 hours.
                   </p>
                 </div>
               </div>

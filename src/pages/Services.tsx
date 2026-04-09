@@ -2,11 +2,10 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Check, Cog, Lightbulb, Rocket, Target, Zap, Shield, Search, TrendingUp } from 'lucide-react';
+import { ArrowRight, Check, Cog, Target, Zap, Shield, Search, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
-import { Helmet } from 'react-helmet-async';
 import { usePrice } from '@/hooks/usePrice';
 
 const services = [
@@ -14,40 +13,40 @@ const services = [
     icon: Search,
     phase: '01',
     title: 'AI Operations Diagnostic',
-    description: 'Design the fix alongside our operational experts. We translate the Diagnostic roadmap into technical blueprints, vendor selection, and system architecture.',
+    description: 'We map where follow-up, handoffs, approvals, and reporting are leaking revenue, then rank the fixes by speed, cost, and likely impact.',
     features: [
-      'Revenue Leakage Heatmap',
-      'Bottleneck Priority Analysis',
-      '90-Day AI Integration Roadmap',
+      'Revenue leakage map',
+      'Bottleneck priority list',
+      '90-day action roadmap',
     ],
-    whyMatters: 'We directly analyze your current workflows and tech debt in a 45-minute intensive call, delivering a full Action Roadmap within 48 hours.',
+    whyMatters: 'You do not need another AI brainstorm. You need a decision-ready view of what is broken, what it costs, and what to fix first.',
     duration: '45-Minute Call / 48-Hour Delivery',
   },
   {
     icon: Cog,
     phase: '02',
-    title: 'Strategy engagement',
-    description: 'Design the solution alongside our operational experts. We translate the Diagnostic roadmap into strategic blueprints, vendor selection, and system architecture.',
+    title: 'System design',
+    description: 'Reserved for diagnostic clients. We turn the findings into workflow rules, ownership maps, tool choices, data flows, and rollout order.',
     features: [
-      'Custom workflow prototyping',
-      'Vendor neutrality assessment',
-      'ROI projection modeling',
+      'Workflow and owner map',
+      'Tool and data architecture',
+      'Rollout sequence and constraints',
     ],
-    whyMatters: 'Translating strategy into a deployable tech stack minimizes risk. This step is only available after a diagnostic secures the baseline.',
-    duration: 'Blueprint Phase',
+    whyMatters: 'This is where we remove ambiguity. The team gets a concrete operating design instead of a stack of disconnected ideas.',
+    duration: 'Reserved for Diagnostic clients',
   },
   {
     icon: TrendingUp,
     phase: '03',
     title: 'Implementation',
-    description: 'We architect and guide the implementation of system changes. Full client ownership, zero vendor lock-in. You own the code, the accounts, and the infrastructure.',
+    description: 'Reserved for system design clients. We implement the changes, train the team, and hand over a system you can run without depending on us for every next step.',
     features: [
-      'Full-stack integration deployment',
-      'Staff training & documentation',
-      'Post-launch optimization (30 days)',
+      'Implementation and rollout',
+      'Team training and handoff',
+      'Post-launch stabilization',
     ],
-    whyMatters: 'Execution without dependency. Our objective is to implement sustainable efficiency, coach your team, and get out of the way.',
-    duration: 'Execution Phase',
+    whyMatters: 'The goal is not to create reliance on Sellatica. The goal is to leave you with a system your operators can trust.',
+    duration: 'Reserved for System Design clients',
   },
 ];
 
@@ -65,7 +64,7 @@ const values = [
   {
     icon: Shield,
     title: 'Data ownership',
-    description: 'Data is your businesss primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
+    description: 'Data is your business\'s primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
   },
 ];
 
@@ -76,47 +75,11 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Operational Architecture & Consulting Modules | Sellatica"
-        description="Explore Sellatica's operational consulting services: strategic diagnostics, module implementation, and ongoing partnerships for firms experiencing growth friction."
+        description="Sellatica works in three steps: diagnose the revenue leak, design the operating system, then implement the fix."
         canonical="https://www.sellatica.in/services"
       
         breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]} 
       />
-      <Helmet>
-        
-        {/* Service-Specific FAQ Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How long does a typical implementation take?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A typical end-to-end implementation ranges from 6 to 14 weeks. This includes 1-2 weeks for diagnostic, 4-10 weeks for architecture and implementation, and 1-2 weeks for deployment and coaching."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do I need to replace my existing software?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. Our methodology focuses on integrating your existing tools (like CRMs, ERPs, and spreadsheets) into a unified system. We only recommend replacements if a tool is critically blocking automation."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do you ensure data security?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Our solutions are architected on secure, enterprise-grade cloud infrastructure (like AWS or Google Cloud) with strict access controls. Your data remains yours; we design systems where we do not retain or sell your proprietary information."
-                }
-              }
-            ]
-          })}
-        </script>
-      </Helmet>
       <Header />
 
       {/* Hero Section */}
@@ -132,15 +95,15 @@ const Services = () => {
               Our services
             </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              How we<br />
-              <span className="text-muted-foreground">work.</span>
+              Diagnose. Design.<br />
+              <span className="text-muted-foreground">Implement.</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
-              We eliminate operational friction. Our three-tier architecture identifies revenue leaks, designs the structural fix, and handles the implementation.
+              There is one public starting point: the Diagnostic. Everything else happens only after we have measured the problem and agreed on what should be fixed.
             </p>
             <div className="flex items-center gap-3 text-primary mb-8 border-l-2 border-primary/20 pl-6">
               <Check className="w-5 h-5" />
-              <span className="font-medium tracking-tight">$5,000 efficiency guarantee on diagnostics</span>
+              <span className="font-medium tracking-tight">Every engagement begins with the Diagnostic</span>
             </div>
           </motion.div>
         </div>
@@ -225,14 +188,14 @@ const Services = () => {
           >
             <div>
               <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                What makes us different
+                Why clients move forward
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Operating principles
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">
-              Our systems integrate with your specific business context: legal billing cycles, real estate deal tracking, or logistics dispatch rules.
-            </p>
+                What they are buying
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-10">
+                Not generic AI advice. Not a tool demo. Not a pile of automation ideas with no owner. Clients buy diagnosis first, then a system that can actually run.
+              </p>
             </div>
 
             <div className="space-y-6">
@@ -241,9 +204,9 @@ const Services = () => {
                     <Check className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Native Integration</h3>
+                    <h3 className="font-medium text-foreground mb-1">Measured Before Built</h3>
                     <p className="text-sm text-muted-foreground">
-                      Systems operate where teams already work: Slack, WhatsApp, and Gmail.
+                      We quantify the cost of the problem before recommending the fix.
                     </p>
                   </div>
                 </div>
@@ -252,17 +215,16 @@ const Services = () => {
                     <Check className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Feedback Loops</h3>
+                    <h3 className="font-medium text-foreground mb-1">Decision Rules, Not Tool Hype</h3>
                     <p className="text-sm text-muted-foreground">
-                      Accuracy improves as systems learn from team feedback. One client saw a 45% reduction in manual data entry within 30 days.
+                      We define who owns the next step, what triggers the action, and what data the team needs to move.
                     </p>
                   </div>
                 </div>
               <div className="p-6 rounded-xl bg-card border border-border/50">
                 <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
                 <p className="text-sm text-muted-foreground">
-                  Custom-architected infrastructure deployed on your accounts. You own the system,
-                  not dependent on subscriptions to us.
+                  The system runs on your accounts, your tools, and your infrastructure. No vendor lock-in. No black box dependency.
                 </p>
               </div>
             </div>
@@ -283,10 +245,10 @@ const Services = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Your competitors are already fixing this. Are you?
+              If the problem is real, diagnose it properly.
             </h2>
             <p className="text-muted-foreground mb-8">
-              Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
+              The fastest way to improve operations is not another brainstorm. It is a better first decision. Start with the Diagnostic.
             </p>
             <Link to="/diagnostic">
               <Button size="lg" className="group">

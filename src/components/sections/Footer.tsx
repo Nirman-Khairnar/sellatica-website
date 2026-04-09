@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              AI Operations Consulting. We find where your business is leaking revenue and give you the exact roadmap to stop it.
+              We diagnose where follow-up, handoffs, approvals, and reporting are leaking revenue, then give you the roadmap to fix it.
             </p>
           </div>
 

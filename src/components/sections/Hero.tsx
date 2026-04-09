@@ -10,7 +10,6 @@ const proofLines = [
   "280% ROI: 18-person brokerage. Zero deals lost to slow response.",
   "78% call reduction: 23-truck logistics operation.",
   "410% ROI: 22-person agency. 50 pieces per week became 300.",
-  "140% ROI: 12-person SaaS. 12 hours/week saved on onboarding.",
 ];
 
 const Hero = () => {
@@ -37,7 +36,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 text-foreground leading-[1.05] uppercase"
             >
-              WE FIND WHERE YOUR BUSINESS IS LEAKING REVENUE.
+              REVENUE IS LEAKING THROUGH YOUR OPERATIONS.
             </motion.h1>
 
             <motion.p
@@ -46,7 +45,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-muted-foreground mb-10 max-w-lg leading-relaxed"
             >
-              Sellatica identifies the operational gaps costing you money, quantifies the exact dollar amount, and delivers a written action plan to fix them.
+              We diagnose where follow-up, handoffs, approvals, and reporting are breaking down, quantify the cost, and deliver a written action plan within 48 hours.
             </motion.p>
 
             <motion.div
@@ -76,7 +75,7 @@ const Hero = () => {
                 <ShieldCheck className="w-4 h-4 text-accent" />
                 <span className="text-accent font-bold uppercase tracking-wider">{price.footer}</span>
               </div>
-              <div>45 minutes. Written report in 48 hours. Fixed price.</div>
+              <div>45 minutes. Written report in 48 hours. Refund if we cannot find $5,000 in recoverable waste.</div>
             </motion.div>
 
             <motion.div

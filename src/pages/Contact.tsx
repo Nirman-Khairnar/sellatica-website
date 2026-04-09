@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Mail, Calendar, MessageSquare } from 'lucide-react';
@@ -9,7 +10,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import SEO from '@/components/SEO';
-import { Helmet } from 'react-helmet-async';
 import { trackEvent } from '@/utils/analytics';
 import { usePrice } from '@/hooks/usePrice';
 import { submitContactInquiry } from '@/lib/backend';
@@ -36,7 +36,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Validate form data
     const validation = contactSchema.safeParse(formData);
     if (!validation.success) {
       toast({
@@ -95,19 +94,16 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact Sellatica | Book an AI Operations Diagnostic"
-        description="The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows: no fluff, just discovery."
+        description="Contact Sellatica if you need to ask a question before booking the Diagnostic. If you are ready to start, book the Diagnostic directly."
         canonical="https://www.sellatica.in/contact"
-      
-        breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]} 
+        breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]}
       />
-      
+
       <Header />
 
-      {/* Hero Section */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            {/* Left Column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,15 +113,22 @@ const Contact = () => {
                 Get in Touch
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-                Let's discuss your
-                <span className="text-muted-foreground"> operations</span>
+                Questions before you book?
+                <span className="text-muted-foreground"> Ask here.</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Every engagement starts with the AI Operations Diagnostic. We'll map your
-                challenges and determine exactly where you are leaking revenue.
+                If you are ready for the Diagnostic, book it directly. Use this page if you need to ask about fit, scope, timing, or whether the Diagnostic is the right next step.
               </p>
 
-              {/* Contact Methods */}
+              <div className="mb-8">
+                <Link to="/diagnostic">
+                  <Button size="lg" className="group">
+                    <span>Book The Diagnostic Directly</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+
               <div className="space-y-6">
                 <div className="p-6 rounded-xl bg-card border border-border/50">
                   <h3 className="font-medium text-foreground mb-3">Business Contact Details</h3>
@@ -135,7 +138,7 @@ const Contact = () => {
                       <span className="text-foreground font-medium">Email:</span>{' '}
                       <a href="mailto:hello@sellatica.in" className="hover:text-foreground transition-colors">hello@sellatica.in</a>
                     </p>
-                    <p><span className="text-foreground font-medium">Address:</span> Vadodara, Gujarat</p>
+                    <p><span className="text-foreground font-medium">Delivery:</span> Remote worldwide. In-person when appropriate.</p>
                   </div>
                 </div>
 
@@ -144,7 +147,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-foreground mb-1">Operations Diagnostic</h3>
                     <p className="text-sm text-muted-foreground">
-                      45-minute intensive call to calculate your manual waste and establish ROI.
+                      45-minute session to identify revenue leakage and rank the fixes.
                     </p>
                   </div>
                 </div>
@@ -171,7 +174,6 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Right Column - Form */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -211,27 +213,25 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-1 gap-6">
-                  <div>
-                    <label htmlFor="company" className="text-sm font-medium text-foreground block mb-2">
-                      Company Name *
-                    </label>
-                    <Input
-                      id="company"
-                      name="company"
-                      type="text"
-                      required
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Acme Inc."
-                      className="bg-card border-border/50 focus:border-foreground/50"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="company" className="text-sm font-medium text-foreground block mb-2">
+                    Company Name *
+                  </label>
+                  <Input
+                    id="company"
+                    name="company"
+                    type="text"
+                    required
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Acme Inc."
+                    className="bg-card border-border/50 focus:border-foreground/50"
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="text-sm font-medium text-foreground block mb-2">
-                    Tell us about your operational challenges *
+                    What do you need to ask before booking? *
                   </label>
                   <Textarea
                     id="message"
@@ -239,7 +239,7 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="What systems are you using? Where are you experiencing bottlenecks? What outcomes are you hoping to achieve?"
+                    placeholder="Tell us about the business, the operational issue, and what you need clarified."
                     rows={6}
                     className="bg-card border-border/50 focus:border-foreground/50 resize-none"
                   />
@@ -251,7 +251,7 @@ const Contact = () => {
                   className="w-full group"
                   disabled={isSubmitting}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Book AI Operations Diagnostic'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Send Inquiry'}</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
 
@@ -264,7 +264,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
@@ -282,32 +281,30 @@ const Contact = () => {
               <div>
                 <h3 className="font-medium text-foreground mb-2">Who is Sellatica a good fit for?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Mid-market businesses ($5M-$100M revenue) experiencing operational chaos from growth.
-                  If you have data trapped in multiple systems, manual processes killing productivity,
-                  or can't scale without proportional hiringâ€”we can help.
+                  Owner-led and operations-heavy businesses with 15 to 500 people.
+                  If revenue is being lost in slow follow-up, broken handoffs, manual reporting,
+                  or tool sprawl, you are likely a fit.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-medium text-foreground mb-2">How quickly do you deliver the roadmap?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Following the 45-minute diagnostic call, your comprehensive Revenue Leakage Map and 90-Day Execution Roadmap are delivered within 48 hours.
+                  Following the 45-minute diagnostic call, your written action plan is delivered within 48 hours.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-medium text-foreground mb-2">What is the investment for the diagnostic?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  The AI Operations Diagnostic is {price.loading ? '...' : price.display}. It carries a firm $5,000 efficiency guarantee. If we don't locate at least $5,000 in recoverable waste, the diagnostic is refunded immediately.
+                  The AI Operations Diagnostic is {price.loading ? '...' : price.display}. If we do not locate at least $5,000 in recoverable waste, the diagnostic is refunded.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-medium text-foreground mb-2">Do I need technical expertise to work with you?</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  No. We handle all technical implementation. Your team just needs to share
-                  how they work today and what outcomes they want. We architect systems that integrate
-                  with existing workflows: minimal behavior change required.
+                  No. We need operational truth, not technical jargon. Your team shows us how work currently moves. We handle the diagnosis and system design from there.
                 </p>
               </div>
             </div>

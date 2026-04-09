@@ -34,9 +34,9 @@ const Diagnostic = () => {
 
      return (
           <div className="min-h-screen bg-background">
-               <SEO
+      <SEO
                     title="AI Operations Diagnostic | Sellatica"
-                    description="Book your AI Operations Diagnostic: 45 minutes, written report in 48 hours, and a $5k money-back guarantee."
+                    description="Book the Sellatica AI Operations Diagnostic: one focused 45-minute session, a written action plan in 48 hours, and a refund if we cannot identify $5,000 in recoverable waste."
                     canonical="https://www.sellatica.in/diagnostic"
                
         breadcrumbs={[{ name: 'AI Operations Diagnostic', item: 'https://www.sellatica.in/diagnostic' }]} 
@@ -58,10 +58,10 @@ const Diagnostic = () => {
                                         AI Operations <span className="text-muted-foreground">Diagnostic</span>
                                    </h1>
                                    <p className="text-xl text-muted-foreground leading-relaxed mb-10">
-              Most AI pilots fail because they lack an operational blueprint. Our diagnostic is a surgical assessment of your operational stack to find exactly where AI can replace manual friction. This is delivered via a 45-minute intensive call.
+              This is where we find the expensive breakpoints in your operation: slow follow-up, broken handoffs, approval bottlenecks, reporting drag, and admin work nobody should still be doing manually.
             </p>
                                    <p className="text-base text-muted-foreground leading-relaxed mb-12 border-l-2 border-primary/40 pl-4 py-1 italic">
-                                        Flat Rate: {price.loading ? '...' : price.display}. Includes a comprehensive action plan delivered within 48 hours. If we don't find at least $5,000 in annual savings, the fee is fully refunded.
+                                        Flat Rate: {price.loading ? '...' : price.display}. Includes a written action plan delivered within 48 hours. If we do not identify at least $5,000 in recoverable annual waste, we refund the fee.
                                    </p>
 
                                    <div className="space-y-8">
@@ -95,7 +95,7 @@ const Diagnostic = () => {
                                              Secure your diagnostic
                                         </h2>
                                         <p className="text-muted-foreground mb-8">
-                The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows. No fluff. Just discovery.
+                One focused virtual session. We review how work actually moves through the business, where it stalls, and what should be fixed first.
               </p>
                                    </div>
 

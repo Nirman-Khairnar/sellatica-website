@@ -7,19 +7,19 @@ const phases = [
     number: '01',
     title: 'AI Operations Diagnostic',
     duration: '45 minutes + 48 hr written report',
-    description: 'A focused session where we identify exactly where your business is leaking revenue. You receive a written report with a clear, prioritised roadmap delivered within 48 hours.',
+    description: 'We identify where follow-up, approvals, reporting, and handoffs are leaking revenue, then rank the fixes by speed and financial impact.',
   },
   {
     number: '02',
-    title: 'Strategy Engagement',
-    duration: 'Offered after the Diagnostic',
-    description: 'For clients who want to go deeper. We work with your operations lead to design the system changes required and build the execution plan.',
+    title: 'System Design',
+    duration: 'Reserved for Diagnostic clients',
+    description: 'We turn the findings into a decision-ready system: owner map, workflow rules, tool choices, rollout order, and operating constraints.',
   },
   {
     number: '03',
     title: 'Implementation',
-    duration: 'Offered to Strategy clients only',
-    description: 'We architect and guide the implementation of operational changes. Every system runs on your infrastructure. No vendor lock-in. Full ownership.',
+    duration: 'Reserved for System Design clients',
+    description: 'We implement the changes, train the team, and hand over a system your business can run without depending on us for every next step.',
   },
 ];
 
@@ -37,10 +37,10 @@ const Process = () => {
           className="max-w-2xl mb-16"
         >
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-            How We Work
+            The Engagement Path
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-[1.1]">
-            The path from first call to measurable result
+            Diagnose first. Build second.
           </h2>
         </motion.div>
 

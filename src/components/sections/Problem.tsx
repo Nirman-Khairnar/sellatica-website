@@ -4,24 +4,24 @@ import { useRef } from 'react';
 
 const problems = [
   {
-    stat: '89%',
-    label: 'Adopt AI Tools',
-    description: 'But only 51% achieve expected outcomes.',
+    stat: '50/day',
+    label: 'Dispatch Calls',
+    description: 'One logistics team was routing every driver through manual coordination.',
   },
   {
-    stat: '6-15',
-    label: 'Disconnected Systems',
-    description: 'Data scattered across tools that do not talk to each other.',
+    stat: '4 hrs',
+    label: 'Lead Response Lag',
+    description: 'High-value inquiries were going cold before anyone owned the reply.',
   },
   {
-    stat: '82%',
-    label: 'Integration Struggles',
-    description: 'Data quality and integration blocking operational progress.',
+    stat: '15 hrs/wk',
+    label: 'Partner Admin Load',
+    description: 'Senior decision-makers were trapped in intake and review loops.',
   },
   {
-    stat: '$12,400',
-    label: 'Hidden Waste',
-    description: 'Average monthly revenue leakage identified in initial Sellatica diagnostics.',
+    stat: '48 hrs',
+    label: 'To A Fix Plan',
+    description: 'The Diagnostic turns hidden waste into a ranked action roadmap.',
   },
 ];
 
@@ -40,15 +40,15 @@ const Problem = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-              The Problem
+              What We See First
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6 leading-[1.1]">
-              Tech adoption is not the same as tech value.
+              The tool is rarely the problem.
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Most organisations invest heavily in technology but struggle to move
-              beyond pilots to production systems that deliver real business outcomes.
-              <strong> AI tools fail without an operating layer: workflow, data, and governance.</strong>
+              The break usually happens underneath the tool: no clear owner, no response-time rule,
+              no clean handoff, and no automatic next step. AI does not fix that by itself.
+              <strong> It exposes it.</strong>
             </p>
 
             <div className="space-y-4">
@@ -58,19 +58,19 @@ const Problem = () => {
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  Revenue leakage from slow response times
+                  Follow-up depends on one busy person
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  Cash flow surprises from invisible receivables
+                  Approvals and updates live in inboxes
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  Team burnout from constant firefighting
+                  Reporting is manual, delayed, or both
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-1 h-1 rounded-full bg-foreground mt-2 flex-shrink-0" />
-                  Growth paralysis without proportional hiring
+                  Growth adds headcount before it adds control
                 </li>
               </ul>
             </div>

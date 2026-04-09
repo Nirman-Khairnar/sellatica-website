@@ -14,14 +14,12 @@ const routes = [
     '/about',
     '/services',
     '/results',
+    '/diagnostic',
     '/contact',
     '/faq',
     '/privacy',
     '/terms',
-    '/refund',
-    '/ai-os-audit',
-    '/ai-os-pilot',
-    '/ai-os-partner'
+    '/refund'
 ];
 
 async function prerender() {
@@ -49,9 +47,12 @@ async function prerender() {
 
                 // Navigate to the route
                 await page.goto(`http://localhost:${PORT}${route}`, {
-                    waitUntil: 'networkidle0',
+                    waitUntil: 'domcontentloaded',
                     timeout: 60000
                 });
+
+                // Allow route effects, analytics boot, and the branded loader to settle.
+                await new Promise((resolve) => setTimeout(resolve, 1800));
 
                 // Get the HTML
                 let html = await page.content();

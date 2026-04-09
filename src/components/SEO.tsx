@@ -13,18 +13,11 @@ interface SEOProps {
   breadcrumbs?: BreadcrumbItem[];
 }
 
-const proofLines = [
-  "312% ROI: 42-attorney firm. Break-even in 3.3 weeks.",
-  "280% ROI: 18-person brokerage. Zero deals lost to slow response.",
-  "78% call reduction: 23-truck logistics operation.",
-  "410% ROI: 22-person agency. 50 pieces per week became 300.",
-];
-
 const SEO = ({
   title = "AI Operations Consulting Firm | Sellatica",
-  description = "Sellatica is a bespoke AI Operations Consulting Firm. We help businesses identify and eliminate operational waste with a 45-minute architectural diagnostic.",
+  description = "Sellatica helps operations-heavy businesses find where follow-up, handoffs, approvals, and reporting are leaking revenue, then delivers a written action plan in 48 hours.",
   canonical,
-  image = "https://storage.googleapis.com/gpt-engineer-file-uploads/pUXKzUVcLsNkIiWmJAurN0HSxD33/social-images/social-1770104614326-Screenshot_20260203_130543_Gallery.png",
+  image = "https://www.sellatica.in/og-image.png",
   breadcrumbs
 }: SEOProps) => {
   const getCanonicalUrl = () => {

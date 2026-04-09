@@ -27,7 +27,7 @@ const Services = () => {
               How We Start
             </span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-foreground leading-[1.1]">
-              One offer. <br /> One guarantee.
+              Start with the Diagnostic.
             </h2>
           </motion.div>
         </div>
@@ -55,24 +55,24 @@ const Services = () => {
 
                 <h3 className="font-display text-3xl font-bold tracking-tight mb-4">AI Operations Diagnostic</h3>
                 <p className="text-muted-foreground font-mono text-sm leading-relaxed mb-8 max-w-lg">
-                  A focused 45-minute session where we analyze your operations and identify exactly where revenue is leaking. You walk away with a written report and a clear roadmap delivered within 48 hours.
+                  One focused session to find where follow-up, handoffs, approvals, and reporting are costing you money. You get a written report with the highest-value fixes ranked in order.
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-8">
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 font-mono text-xs text-muted-foreground">
                       <Check className="w-3 h-3 text-accent mt-0.5 shrink-0" />
-                      <span>Revenue leakage identification</span>
+                      <span>Revenue leakage map</span>
                     </li>
                     <li className="flex items-start gap-2 font-mono text-xs text-muted-foreground">
                       <Check className="w-3 h-3 text-accent mt-0.5 shrink-0" />
-                      <span>Operational bottleneck map</span>
+                      <span>Bottleneck priority list</span>
                     </li>
                   </ul>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 font-mono text-xs text-muted-foreground">
                       <Check className="w-3 h-3 text-accent mt-0.5 shrink-0" />
-                      <span>Prioritised action roadmap</span>
+                      <span>90-day action roadmap</span>
                     </li>
                     <li className="flex items-start gap-2 font-mono text-xs text-muted-foreground">
                       <Check className="w-3 h-3 text-accent mt-0.5 shrink-0" />
@@ -82,13 +82,13 @@ const Services = () => {
                 </div>
 
                 <div className="bg-muted border border-border p-4 font-mono text-xs text-accent font-bold">
-                  Guarantee: If we do not find $5,000+ in operational waste, you pay nothing.
+                  Guarantee: If we do not identify at least $5,000 in recoverable annual waste, we refund the fee.
                 </div>
               </div>
 
               <div className="lg:w-64 flex-shrink-0 flex flex-col items-start lg:items-end gap-4 lg:pt-16">
-                <div className="w-full lg:w-auto text-center lg:text-right">
-                  <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest block mb-1">Duration</span>
+              <div className="w-full lg:w-auto text-center lg:text-right">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest block mb-1">Session</span>
                   <span className="font-display text-2xl font-bold text-foreground">45 minutes</span>
                 </div>
                 <div className="w-full lg:w-auto text-center lg:text-right">
@@ -110,7 +110,7 @@ const Services = () => {
           <div className="flex items-center gap-4">
             <div className="w-2 h-2 rounded-full bg-accent animate-pulse hidden sm:block" />
             <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
-              45 min. Written report. Guaranteed.
+              Public offer: Diagnostic first. Design and implementation only after that.
             </p>
           </div>
           <Link to="/diagnostic" className="w-full sm:w-auto" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'services_footer' })}>
