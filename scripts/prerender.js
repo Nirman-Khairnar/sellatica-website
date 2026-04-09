@@ -22,6 +22,20 @@ const routes = [
     '/refund'
 ];
 
+function restoreBootShell(html) {
+    let nextHtml = html.replace(
+        /<html([^>]*)data-app-ready="true"([^>]*)>/i,
+        '<html$1data-app-ready="false"$2>'
+    );
+
+    nextHtml = nextHtml.replace(
+        /<html((?:(?!data-app-ready=)[^>])*)>/i,
+        '<html$1 data-app-ready="false">'
+    );
+
+    return nextHtml;
+}
+
 async function prerender() {
     // 1. Start a simple server to serve the built assets
     const app = express();
@@ -54,8 +68,9 @@ async function prerender() {
                 // Allow route effects, analytics boot, and the branded loader to settle.
                 await new Promise((resolve) => setTimeout(resolve, 1800));
 
-                // Get the HTML
-                let html = await page.content();
+                // Get the HTML and restore the boot-shell state so the
+                // prerendered document still opens behind the branded loader.
+                let html = restoreBootShell(await page.content());
 
                 // Inject BingPreview if strictly needed (though index.html should have it)
                 // But doing it here ensures it's in the static snapshot

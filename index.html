@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-app-ready="false">
 
 <head>
   <!-- Google tag (gtag.js) -->
@@ -121,16 +121,136 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@nirmankhairnar">
   <meta name="twitter:creator" content="@nirmankhairnar">
+
+  <style>
+    html[data-app-ready="false"] {
+      background: #0d0d0d;
+      color: #f5f5f5;
+    }
+
+    html[data-app-ready="false"] body {
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 35%),
+        #0d0d0d;
+    }
+
+    html[data-app-ready="false"] #root {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .boot-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 35%),
+        #0d0d0d;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.42s ease, visibility 0.42s ease;
+    }
+
+    .boot-loader__mark {
+      position: relative;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .boot-loader__mark::before,
+    .boot-loader__mark::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0.9;
+    }
+
+    .boot-loader__mark::before {
+      top: 0;
+    }
+
+    .boot-loader__mark::after {
+      bottom: 0;
+    }
+
+    .boot-loader__name {
+      display: inline-block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #f5f5f5;
+      animation: boot-loader-pulse 1.4s ease-in-out infinite;
+    }
+
+    html[data-app-ready="true"] body {
+      overflow: auto;
+    }
+
+    html[data-app-ready="true"] #root {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.42s ease;
+    }
+
+    html[data-app-ready="true"] .boot-loader {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    @keyframes boot-loader-pulse {
+      0%,
+      100% {
+        opacity: 0.65;
+        transform: translateY(0);
+        text-shadow: 0 0 0 rgba(59, 130, 246, 0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(-2px);
+        text-shadow: 0 0 24px rgba(59, 130, 246, 0.18);
+      }
+    }
+  </style>
 </head>
 
 <body>
   <noscript>
+    <style>
+      html[data-app-ready="false"] body {
+        overflow: auto;
+      }
+
+      html[data-app-ready="false"] .boot-loader {
+        display: none;
+      }
+
+      html[data-app-ready="false"] #root {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
     <h1>Sellatica: AI Operations Consulting Firm</h1>
     <p>We find where your business is leaking revenue and provide the exact roadmap to stop it. Our 45-minute Diagnostic identifies recoverable operational waste and delivers a written action plan in 48 hours.</p>
     <p>Services: AI Operations Consulting, revenue leakage analysis, workflow diagnosis, operational systems advisory.</p>
     <p>Contact: hello@sellatica.in</p>
   </noscript>
 
+  <div class="boot-loader" id="boot-loader" aria-hidden="true">
+    <div class="boot-loader__mark">
+      <span class="boot-loader__name">Sellatica AI</span>
+    </div>
+  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

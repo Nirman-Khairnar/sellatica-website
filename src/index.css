@@ -112,10 +112,10 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: var(--font-body);
-  }
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-body);
+}
 
   h1,
   h2,
@@ -127,10 +127,10 @@
   }
 }
 
-.brand-loader {
+.boot-loader {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,18 +142,34 @@
   transition: opacity 0.42s ease, visibility 0.42s ease;
 }
 
-.brand-loader--exit {
+html[data-app-ready="false"] body {
+  overflow: hidden;
+}
+
+html[data-app-ready="false"] #root {
   opacity: 0;
   visibility: hidden;
 }
 
-.brand-loader__mark {
+html[data-app-ready="true"] #root {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.42s ease;
+}
+
+html[data-app-ready="true"] .boot-loader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.boot-loader__mark {
   position: relative;
   padding: 1.25rem 1.5rem;
 }
 
-.brand-loader__mark::before,
-.brand-loader__mark::after {
+.boot-loader__mark::before,
+.boot-loader__mark::after {
   content: "";
   position: absolute;
   left: 0;
@@ -163,15 +179,15 @@
   opacity: 0.9;
 }
 
-.brand-loader__mark::before {
+.boot-loader__mark::before {
   top: 0;
 }
 
-.brand-loader__mark::after {
+.boot-loader__mark::after {
   bottom: 0;
 }
 
-.brand-loader__name {
+.boot-loader__name {
   display: inline-block;
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 5vw, 3.2rem);
@@ -179,10 +195,10 @@
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: hsl(var(--foreground));
-  animation: brand-loader-pulse 1.4s ease-in-out infinite;
+  animation: boot-loader-pulse 1.4s ease-in-out infinite;
 }
 
-@keyframes brand-loader-pulse {
+@keyframes boot-loader-pulse {
   0%,
   100% {
     opacity: 0.65;
