@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import SEO from '@/components/SEO';
-import { Helmet } from 'react-helmet-async';
 
 const caseStudies = [
   {
@@ -41,6 +40,8 @@ const caseStudies = [
   {
     icon: Truck,
     industry: 'Logistics',
+    title: 'Autonomous operations',
+    client: 'ID: LOG_031',
     finding: '50 daily coordination calls were creating dispatch chaos: every driver called in for routing.',
     challenge: 'Verbal dispatch confirmation was creating an operational bottleneck that hard-capped overall fleet capacity.',
     solution: 'Deployed autonomous routing confirmation, removing the manual call requirement for the vast majority of dispatch workflows.',
@@ -48,7 +49,7 @@ const caseStudies = [
       { value: 78, suffix: '%', label: 'Call Volume Reduction' },
       { value: 40, suffix: '%', label: 'Fleet Capacity Increase' },
     ],
-    breakeven: 'Immediate',
+    breakeven: '9.2 weeks',
   },
   {
     icon: Palette,
