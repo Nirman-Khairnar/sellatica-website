@@ -236,9 +236,9 @@ const Results = () => {
             <p className="text-muted-foreground mb-8">
               Every engagement starts with the AI Operations Diagnostic. Secure your roadmap today.
             </p>
-            <Link to="/diagnostic">
+            <Link to="/contact">
               <Button size="lg" className="group">
-                <span>Book the Diagnostic</span>
+                <span>Book a Strategy Review</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

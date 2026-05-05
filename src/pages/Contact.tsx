@@ -1,123 +1,72 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, CalendarDays, Mail, ShieldCheck } from 'lucide-react';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { z } from 'zod';
 import SEO from '@/components/SEO';
+import { runtimeConfig } from '@/lib/runtime';
 import { trackEvent } from '@/utils/analytics';
-import { submitContactInquiry } from '@/lib/backend';
-
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  company: z.string().trim().min(1, "Company name is required").max(200, "Company name must be less than 200 characters"),
-  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
-});
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const bookingUrl = runtimeConfig.calcomBookingUrl;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const validation = contactSchema.safeParse(formData);
-    if (!validation.success) {
-      toast({
-        title: "Validation Error",
-        description: validation.error.errors[0]?.message || "Please check your input",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    try {
-      const payload = {
-        name: validation.data.name,
-        email: validation.data.email,
-        company: validation.data.company,
-        message: validation.data.message,
-        source: 'sellatica_website_contact_form',
-      };
-
-      await submitContactInquiry(payload);
-
-      toast({
-        title: "Message sent successfully",
-        description: "We'll get back to you within 24 hours.",
-      });
-
-      trackEvent('form_submitted', { form_id: 'contact_page_form' });
-
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        message: '',
-      });
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast({
-        title: "Submission failed",
-        description: "Something went wrong. Please try again or email us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+  const handleBookClick = () => {
+    trackEvent('cta_clicked', {
+      location: 'contact_page',
+      type: 'strategy_review_booking',
+    });
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact | Sellatica"
-        description="Book a Strategy Review or get in touch with the Sellatica team."
-        breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]}
+        title="Book a Strategy Review | Sellatica"
+        description="Book a Strategy Review with Sellatica and get a clear view of what needs fixing in your business."
+        breadcrumbs={[{ name: 'Book', item: 'https://www.sellatica.in/contact' }]}
       />
 
       <Header />
 
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-4xl md:text-5xl lg:text-5xl font-medium text-foreground leading-[1.15] mb-8">
-                Let's figure out if we are the right fit.
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                <CalendarDays className="h-3.5 w-3.5" />
+                Strategy Review booking
+              </span>
+              <h1 className="mt-6 mb-8 font-display text-4xl font-medium leading-[1.15] text-foreground md:text-5xl lg:text-5xl">
+                Book the Strategy Review.
               </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                Book a Strategy Review and we will spend 45 minutes looking at how your business operates. You will leave with a clear picture of what to fix, in what order, and what the impact will be. Whether you work with us after that is entirely your decision.
+              <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
+                This is the normal booking funnel. You reserve the session, we confirm by email,
+                and the booking workflow handles the follow-up sequence after the meeting is
+                scheduled.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
-                  <Mail className="w-6 h-6 text-foreground mt-1" />
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 rounded-xl border border-border/50 bg-card p-6">
+                  <ShieldCheck className="mt-1 h-6 w-6 text-foreground" />
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Prefer to send a message first?</h3>
-                    <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    <h3 className="mb-1 font-medium text-foreground">After booking</h3>
+                    <p className="text-sm text-muted-foreground">
+                      You receive the confirmation email, then the booked-lead follow-up sequence
+                      starts automatically with resources and reminders.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 rounded-xl border border-border/50 bg-card p-6">
+                  <Mail className="mt-1 h-6 w-6 text-foreground" />
+                  <div>
+                    <h3 className="mb-1 font-medium text-foreground">Prefer email first?</h3>
+                    <a
+                      href="mailto:hello@sellatica.in"
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
                       hello@sellatica.in
                     </a>
                   </div>
@@ -129,90 +78,35 @@ const Contact = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
+              className="rounded-2xl border border-border/50 bg-card p-8 shadow-2xl shadow-primary/5 lg:p-10"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="text-sm font-medium text-foreground block mb-2">
-                      Full Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Smith"
-                      className="bg-card border-border/50 focus:border-foreground/50"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="text-sm font-medium text-foreground block mb-2">
-                      Business Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@company.com"
-                      className="bg-card border-border/50 focus:border-foreground/50"
-                    />
-                  </div>
-                </div>
+              <div className="mb-8">
+                <h2 className="mb-3 font-display text-2xl font-medium text-foreground">
+                  Ready to book?
+                </h2>
+                <p className="leading-relaxed text-muted-foreground">
+                  Open the calendar, pick a time, and you will get the standard confirmation and
+                  follow-up workflow.
+                </p>
+              </div>
 
-                <div>
-                  <label htmlFor="company" className="text-sm font-medium text-foreground block mb-2">
-                    Company Name *
-                  </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    required
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Acme Inc."
-                    className="bg-card border-border/50 focus:border-foreground/50"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="text-sm font-medium text-foreground block mb-2">
-                    Tell us about your business and what you need help with *
-                  </label>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    What does your business do, how big is your team, and what is the main operational problem you are dealing with?
-                  </p>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your situation here..."
-                    rows={6}
-                    className="bg-card border-border/50 focus:border-foreground/50 resize-none"
-                  />
-                </div>
-
+              <div className="space-y-5">
                 <Button
-                  type="submit"
+                  asChild
                   size="lg"
-                  className="w-full group"
-                  disabled={isSubmitting}
+                  className="h-14 w-full px-8 text-base group"
+                  onClick={handleBookClick}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Book a Strategy Review'}</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  <a href={bookingUrl} target="_blank" rel="noreferrer">
+                    <span>Book a Strategy Review</span>
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
                 </Button>
 
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy. We will never share your information.
+                <p className="text-center text-xs text-muted-foreground">
+                  No lead magnet path here. This page is only for booking the meeting funnel.
                 </p>
-              </form>
+              </div>
             </motion.div>
           </div>
         </div>

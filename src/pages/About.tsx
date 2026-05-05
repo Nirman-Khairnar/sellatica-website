@@ -125,7 +125,7 @@ const About = () => {
             </p>
             <Link to="/contact">
               <Button size="lg" className="group">
-                <span>Book a Strategy Call</span>
+                <span>Book a Strategy Review</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

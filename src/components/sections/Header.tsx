@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Services', href: '/services' },
   { name: 'Work', href: '/work' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Book', href: '/contact' },
   { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
 ];
 
@@ -110,7 +110,7 @@ const Header = () => {
                   size="sm"
                   className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
                 >
-                  <span>Book a Strategy Call</span>
+                  <span>Book a Strategy Review</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -216,7 +216,7 @@ const Header = () => {
                 <ThemeToggle />
                 <Link to="/contact" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
                   <Button size="lg" className="text-lg">
-                    Book a Strategy Call
+                    Book a Strategy Review
                   </Button>
                 </Link>
               </motion.div>

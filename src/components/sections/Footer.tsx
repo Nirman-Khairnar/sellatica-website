@@ -5,7 +5,7 @@ const footerLinks = {
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Work', href: '/work' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Book', href: '/contact' },
   ],
   resources: [
     { name: 'Case Studies', href: '/work' },
@@ -94,7 +94,7 @@ const Footer = () => {
                   data-track="cta_clicked"
                   data-track-props={JSON.stringify({ location: 'footer_contact' })}
                 >
-                  Book a Strategy Call
+                  Book a Strategy Review
                 </Link>
               </li>
             </ul>
@@ -118,7 +118,7 @@ const Footer = () => {
               Engagement Terms
             </Link>
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/contact', location: 'footer_legal' })}>
-              Contact Us
+              Book a Strategy Review
             </Link>
           </div>
         </div>
