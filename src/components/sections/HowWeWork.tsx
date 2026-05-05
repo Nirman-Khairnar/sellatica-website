@@ -11,7 +11,7 @@ const steps = [
   {
     number: '02',
     title: 'Systems Design',
-    body: 'For clients who want to go further. We work directly with your team to design the systems and workflows that solve the problems we identified. No vague recommendations — a specific, buildable plan.',
+    body: 'For clients who want to go further. We work directly with your team to design the systems and workflows that solve the problems we identified. No vague recommendations. A specific, buildable plan.',
   },
   {
     number: '03',

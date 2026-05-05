@@ -5,15 +5,15 @@ import { useRef } from 'react';
 const caseStudies = [
   {
     industry: 'Legal firm, 42 attorneys',
-    story: 'Their intake process was routing work through the managing partner for decisions that did not need to be there. It cost him 15 hours a week and created a bottleneck that slowed every case in the firm.',
-    outcome: 'We redesigned how work was routed and who owned each decision. The bottleneck disappeared. Partner time was redirected to client work.',
-    metrics: 'Revenue protected: $180K per year. Break-even: 3.3 weeks.',
+    story: 'Their intake process was routing every decision through the managing partner, even when it did not need to be there. It cost him 15 hours a week and created a single point of failure that slowed every case in the firm.',
+    outcome: 'We redesigned how work was routed and who owned each decision. The constraint disappeared. Partner time was redirected to client work.',
+    metrics: '$180K in annual revenue protected. Break-even: 3.3 weeks.',
   },
   {
     industry: 'Logistics operator, 23 trucks',
     story: 'Every driver called in for routing every morning. 50 calls per day, every day. The dispatcher could not handle anything else because the entire operation ran through one person\'s phone.',
     outcome: 'We built a clear decision layer so drivers could resolve 90% of situations without calling in. Dispatch capacity increased 40%.',
-    metrics: 'Capacity increase: 40%. Coordination calls reduced: 78%.',
+    metrics: '40% capacity increase. 78% fewer coordination calls.',
   },
 ];
 
@@ -35,29 +35,29 @@ const ClientResults = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
           {caseStudies.map((study, index) => (
             <motion.div
               key={study.industry}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="bg-card border border-border/50 p-8 lg:p-10 rounded-xl"
+              className="bg-card border border-border/50 p-10 lg:p-12 rounded-xl"
             >
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider block mb-6">
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider block mb-8">
                 {study.industry}
               </span>
 
-              <p className="text-foreground leading-relaxed mb-6">
+              <p className="text-foreground leading-relaxed mb-6 text-lg">
                 {study.story}
               </p>
 
-              <p className="text-foreground leading-relaxed mb-8">
+              <p className="text-foreground leading-relaxed mb-10 text-lg">
                 {study.outcome}
               </p>
 
-              <div className="pt-6 border-t border-border/50">
-                <p className="text-sm font-medium text-foreground">
+              <div className="pt-8 border-t border-border/50">
+                <p className="text-lg font-medium text-foreground">
                   {study.metrics}
                 </p>
               </div>

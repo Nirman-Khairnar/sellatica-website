@@ -32,7 +32,7 @@ const About = () => {
             </h1>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Sellatica was built for businesses that are good at what they do but operationally inefficient in how they do it. Most of our clients have tried software tools. Some have hired operations managers. The problem was never a lack of tools or people — it was a lack of designed systems.
+                Sellatica was built for businesses that are good at what they do but operationally inefficient in how they do it. Most of our clients have tried software tools. Some have hired operations managers. The problem was never a lack of tools or people. It was a lack of designed systems.
               </p>
               <p>
                 We bring the thinking, the design, and the build. We work inside your business, understand how it actually runs, and make it run better.
@@ -75,32 +75,32 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
           >
-            <div className="grid md:grid-cols-12 gap-8 items-start">
-              <div className="md:col-span-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+              {/* Image - shows first on mobile */}
+              <div className="order-first md:order-last">
+                <img
+                  src="/nirman-portrait.png"
+                  alt="Nirman Khairnar, founder of Sellatica"
+                  className="w-full aspect-square object-cover object-top block"
+                  style={{ borderRadius: 0 }}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+
+              {/* Text */}
+              <div>
                 <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-8 leading-[1.15]">
                   Built by someone who has done it.
                 </h2>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Nirman Khairnar founded Sellatica after three years of working inside businesses and seeing the same pattern: teams buying tools, attending strategy sessions, and watching AI demos while the actual operational problems stayed exactly where they were.
+                    Nirman Khairnar founded Sellatica after three years of working inside logistics companies, law firms, real estate teams, and agencies. The same pattern appeared everywhere: teams buying tools, attending strategy sessions, and watching AI demos while the actual operational problems stayed exactly where they were.
                   </p>
                   <p>
-                    Every engagement is led directly — no account managers, no offshore delivery teams. When you work with Sellatica, you work with the person responsible for the result.
+                    Every engagement is led directly. No account managers, no offshore delivery teams. When you work with Sellatica, you work with the person responsible for the result.
                   </p>
-                </div>
-              </div>
-              <div className="md:col-span-4 flex justify-center md:justify-end">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-accent/10 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                  <img
-                    src="/nirman-portrait.png"
-                    alt="Nirman Khairnar, founder of Sellatica"
-                    className="relative rounded-full object-cover border-2 border-border w-32 h-32 md:w-40 md:h-40 transition-transform duration-300 group-hover:rotate-1"
-                    loading="eager"
-                    fetchPriority="high"
-                  />
                 </div>
               </div>
             </div>

@@ -8,7 +8,6 @@ const partners = [
   { name: 'Oracle', src: '/logos/oracle.svg', hoverColor: 'group-hover:bg-[#f80000]' },
   { name: 'Zapier', src: '/logos/zapier.svg', hoverColor: 'group-hover:bg-[#ff4f00]' },
   { name: 'n8n', src: '/logos/n8n.svg', hoverColor: 'group-hover:bg-[#f14c4c]' },
-  { name: 'Razorpay', src: '/logos/razorpay.svg', hoverColor: 'group-hover:bg-[#3395ff]' },
   { name: 'Anthropic', src: '/logos/anthropic.svg', hoverColor: 'group-hover:bg-[#D97757]' }
 ];
 

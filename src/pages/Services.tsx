@@ -13,7 +13,7 @@ const services = [
     tagline: 'Where we start.',
     description: 'A 45-minute working session where we analyse how your business operates and identify the highest-impact problems to fix. We do not deliver a generic list of suggestions. We tell you specifically what to fix, why it is costing you, and what the result looks like when it is resolved.',
     deliverables: [
-      'A written action plan delivered within 48 hours',
+      'A clear picture of what to fix and in what order',
       'Clear priority order: what to fix first, second, and third',
       'An honest answer on whether Sellatica is the right fit for implementation',
     ],
@@ -23,7 +23,7 @@ const services = [
     phase: '02',
     title: 'Systems Design',
     tagline: 'The blueprint for the fix.',
-    description: 'For clients who want to move beyond diagnosis into action. We work with your operations lead to design the exact systems and workflows that solve the identified problems. This is not a slide deck or a recommendation document. It is a buildable plan — specific enough to hand off to a developer, a no-code builder, or our own implementation team.',
+    description: 'For clients who want to move beyond diagnosis into action. We work with your operations lead to design the exact systems and workflows that solve the identified problems. This is not a slide deck or a recommendation document. It is a buildable plan, specific enough to hand off to a developer, a no-code builder, or our own implementation team.',
     deliverables: [
       'Workflow maps for every process being redesigned',
       'Tool and integration recommendations based on your existing stack',
@@ -35,7 +35,7 @@ const services = [
     phase: '03',
     title: 'Implementation',
     tagline: 'We build it.',
-    description: 'We architect and build the systems defined in the design phase. This means actual automation, actual integrations, and actual working tools inside your business — not prototypes or proof-of-concepts. Everything is built on infrastructure you own. There is no ongoing subscription to Sellatica unless you choose to retain us for support.',
+    description: 'We architect and build the systems defined in the design phase. This means actual automation, actual integrations, and actual working tools inside your business. Not prototypes or proof-of-concepts. Everything is built on infrastructure you own. There is no ongoing subscription to Sellatica unless you choose to retain us for support.',
     deliverables: [
       'Fully functional systems delivered and tested',
       'Handover documentation so your team can operate everything independently',
@@ -49,7 +49,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Services — Sellatica"
+        title="Services | Sellatica"
         description="Strategy Review, Systems Design, and Implementation. Three ways to work with Sellatica on your operations."
         canonical="https://www.sellatica.in/services"
         breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]}
@@ -66,7 +66,7 @@ const Services = () => {
             className="max-w-3xl"
           >
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              How we work
+              Our services
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
               We work in three stages. You can start at any point. Most clients begin with a Strategy Review, then choose whether to go deeper.
@@ -107,9 +107,9 @@ const Services = () => {
                     <p className="text-muted-foreground leading-relaxed mb-6">
                       {service.description}
                     </p>
-                    <div className="bg-card/50 border border-border/50 rounded-lg p-5">
+                    <div className="bg-secondary border border-border/50 rounded-lg p-5">
                       <p className="text-sm font-medium text-foreground mb-1">Who this is for</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-foreground/70 leading-relaxed">
                         {service.audience}
                       </p>
                     </div>

@@ -115,7 +115,7 @@ const Footer = () => {
               Terms and Conditions
             </Link>
             <Link to="/refund" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/refund', location: 'footer_legal' })}>
-              Refund and Cancellation
+              Engagement Terms
             </Link>
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/contact', location: 'footer_legal' })}>
               Contact Us

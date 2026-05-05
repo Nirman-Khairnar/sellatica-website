@@ -90,7 +90,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact — Sellatica"
+        title="Contact | Sellatica"
         description="Book a Strategy Review or get in touch with the Sellatica team."
         canonical="https://www.sellatica.in/contact"
         breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]}
@@ -150,7 +150,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="text-sm font-medium text-foreground block mb-2">
-                      Work Email *
+                      Business Email *
                     </label>
                     <Input
                       id="email"
@@ -185,13 +185,16 @@ const Contact = () => {
                   <label htmlFor="message" className="text-sm font-medium text-foreground block mb-2">
                     Tell us about your business and what you need help with *
                   </label>
+                  <p className="text-xs text-muted-foreground mb-3">
+                    What does your business do, how big is your team, and what is the main operational problem you are dealing with?
+                  </p>
                   <Textarea
                     id="message"
                     name="message"
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="What does your business do, how big is your team, and what is the main operational problem you are dealing with?"
+                    placeholder="Describe your situation here..."
                     rows={6}
                     className="bg-card border-border/50 focus:border-foreground/50 resize-none"
                   />

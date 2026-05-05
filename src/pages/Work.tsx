@@ -10,7 +10,7 @@ const caseStudies = [
   {
     industry: 'Legal',
     client: '42-attorney law firm',
-    problem: 'The managing partner was the decision bottleneck for intake — 15 hours per week routed through one person unnecessarily.',
+    problem: 'The managing partner was the single decision point for intake. 15 hours per week routed through one person unnecessarily.',
     solution: 'Redesigned the intake routing and ownership structure so decisions were made at the right level without partner involvement.',
     result: '$180K in annual revenue protected. Break-even in 3.3 weeks.',
   },
@@ -41,7 +41,7 @@ const Work = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Client Work — Sellatica"
+        title="Client Work | Sellatica"
         description="How Sellatica has helped legal firms, real estate teams, logistics operators, and agencies fix their operations."
         canonical="https://www.sellatica.in/work"
         breadcrumbs={[{ name: 'Work', item: 'https://www.sellatica.in/work' }]}

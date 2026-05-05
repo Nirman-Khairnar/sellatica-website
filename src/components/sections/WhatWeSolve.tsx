@@ -9,7 +9,7 @@ const problems = [
   },
   {
     title: 'Slow response, lost revenue',
-    body: 'Leads go cold. Clients wait. Requests fall through the gaps between your team members. Most of the time it is not a people problem — it is a systems problem. Fixing the system fixes the result.',
+    body: 'Leads go cold. Clients wait. Requests fall through the gaps between your team members. Most of the time it is not a people problem. It is a systems problem. Fixing the system fixes the result.',
   },
   {
     title: 'Growth that creates chaos',

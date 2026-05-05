@@ -25,24 +25,16 @@ const CTA = () => {
             Book a Strategy Review. 45 minutes, a clear written plan, and a direct answer on whether working with Sellatica makes sense for you.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-6">
-            <Link
-              to="/contact"
-              data-track="cta_clicked"
-              data-track-props={JSON.stringify({ location: 'bottom_cta' })}
-            >
-              <Button size="lg" className="group text-base px-8 h-14">
-                Book Your Strategy Review
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link
-              to="/work"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 pt-4 sm:pt-5"
-            >
-              Not ready yet? View case studies
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            data-track="cta_clicked"
+            data-track-props={JSON.stringify({ location: 'bottom_cta' })}
+          >
+            <Button size="lg" className="group text-base px-8 h-14">
+              Book Your Strategy Review
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>

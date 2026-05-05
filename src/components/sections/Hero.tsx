@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-[85vh] flex items-center pt-32 pb-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-[640px]">
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +24,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg lg:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
           >
-            We help growing businesses remove manual bottlenecks, fix broken follow-up, and build systems that run without constant management.
+            We help growing businesses remove manual work, fix broken follow-up, and build systems that run without constant management.
           </motion.p>
 
           <motion.div

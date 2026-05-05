@@ -26,7 +26,7 @@ const WhoWeWorkWith = () => {
               Built for businesses that are already growing.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-              Our clients are not struggling startups. They are operators running teams of 10 to 100 people who have outgrown spreadsheets and manual processes. Their business works — it just takes too much effort to run.
+              Our clients are not struggling startups. They are operators running teams of 10 to 100 people who have outgrown spreadsheets and manual processes. Their business works. It just takes too much effort to run.
             </p>
           </motion.div>
 

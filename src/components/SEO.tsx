@@ -14,7 +14,7 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Sellatica — AI Operations for Growing Businesses",
+  title = "Sellatica | AI Operations for Growing Businesses",
   description = "We help service businesses, agencies, and operators remove manual work and build systems that scale. Strategy, design, and implementation.",
   canonical,
   image = "https://www.sellatica.in/og-image.png",
