@@ -137,6 +137,7 @@ const getBand = (score: number) => {
       bgColor: 'bg-red-500/10 border-red-500/20',
       interpretation:
         'You are losing revenue to manual work every week. The gaps in your operations are actively costing you time and money. The good news: the biggest wins are usually the first fixes.',
+      ctaHeadline: "Your score shows your business is losing time and money right now. Let's fix the top two things first.",
     };
   }
 
@@ -147,6 +148,7 @@ const getBand = (score: number) => {
       bgColor: 'bg-amber-500/10 border-amber-500/20',
       interpretation:
         'Your systems work, but they depend on you personally. Growth will amplify the problems you are already seeing. Fixing the top two gaps would free up significant time.',
+      ctaHeadline: "You're close to the next level. One focused session will show you exactly what's holding you back.",
     };
   }
 
@@ -157,6 +159,7 @@ const getBand = (score: number) => {
       bgColor: 'bg-blue-500/10 border-blue-500/20',
       interpretation:
         'Good foundation. You have clear gaps to fix, but your business is not bleeding. Targeted improvements in one or two areas will unlock the next stage of growth.',
+      ctaHeadline: "Good foundation. A strategy review will identify the highest-leverage moves.",
     };
   }
 
@@ -166,6 +169,7 @@ const getBand = (score: number) => {
     bgColor: 'bg-emerald-500/10 border-emerald-500/20',
     interpretation:
       'Strong operational maturity. You are either very advanced or answering generously. Either way, there may still be high-leverage improvements we can identify together.',
+    ctaHeadline: "Let's validate what you have and find where the next stage of growth comes from.",
   };
 };
 
@@ -198,6 +202,9 @@ const Score = () => {
   const progress = (currentQ / questions.length) * 100;
   const band = getBand(totalScore);
   const dimensionBreakdown = getDimensionBreakdown(answers);
+  
+  const sortedDimensions = [...dimensionBreakdown].sort((a, b) => a.percent - b.percent);
+  const weakestDimensionsText = sortedDimensions.slice(0, 2).map(d => d.dimension).join(' and ');
 
   const handleAnswer = (score: number) => {
     const nextAnswers = [...answers, { score, dimension: q.dimension }];
@@ -531,7 +538,7 @@ const Score = () => {
 
                   <div className="border-t border-border/50 pt-10">
                     <h3 className="mb-4 font-display text-2xl font-medium text-foreground md:text-3xl">
-                      Want to know exactly what to fix first?
+                      {band.ctaHeadline}
                     </h3>
                     <p className="mb-8 leading-relaxed text-muted-foreground">
                       Book a free 45-minute Strategy Review. We will look at your specific
@@ -539,12 +546,16 @@ const Score = () => {
                       written plan.
                     </p>
                     <div className="flex flex-col items-start gap-4 sm:flex-row">
-                      <Link to="/contact">
+                      <a 
+                        href={`https://cal.com/sellatica/strategy-review?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&company=${encodeURIComponent(company)}&notes=${encodeURIComponent(`Score: ${totalScore} - ${band.label}. Weakest areas: ${weakestDimensionsText}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Button size="lg" className="group h-14 px-8 text-base">
                           Book a Strategy Review
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
-                      </Link>
+                      </a>
                       <Link
                         to="/work"
                         className="pt-4 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground sm:pt-5"
