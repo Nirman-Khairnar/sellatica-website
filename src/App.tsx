@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
+import Score from "./pages/Score";
 import FAQ from "./pages/FAQ";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -93,6 +94,7 @@ const App = () => {
                 <Route path="/services" element={<Services />} />
                 <Route path="/work" element={<Work />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/score" element={<Score />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />

@@ -31,22 +31,38 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-start gap-4"
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
             <Link
-              to="/contact"
+              to="/score"
               data-track="cta_clicked"
-              data-track-props={JSON.stringify({ location: 'hero' })}
+              data-track-props={JSON.stringify({ location: 'hero', type: 'primary' })}
             >
               <Button size="lg" className="group text-base px-8 h-14">
-                Book a Strategy Call
+                Find Out Your Operations Score
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              45 minutes. No commitment. We will tell you exactly what to fix.
-            </p>
+            <Link
+              to="/contact"
+              data-track="cta_clicked"
+              data-track-props={JSON.stringify({ location: 'hero', type: 'secondary' })}
+            >
+              <Button variant="outline" size="lg" className="group text-base px-8 h-14 border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5">
+                Book a Strategy Review
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-sm text-muted-foreground mt-5"
+          >
+            3 minutes. 10 questions. A clear score that shows where you stand.
+          </motion.p>
 
         </div>
       </div>
