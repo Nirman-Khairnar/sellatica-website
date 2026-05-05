@@ -73,7 +73,6 @@ const Results = () => {
       <SEO
         title="Case Studies & ROI | Sellatica Operational Consulting"
         description="Detailed ROI analysis and operational impact reports from Sellatica's recent consulting engagements in logistics, legal, and real estate."
-        canonical="https://www.sellatica.in/results"
         breadcrumbs={[{ name: 'Results', item: 'https://www.sellatica.in/results' }]}
       />
       

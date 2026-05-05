@@ -75,7 +75,6 @@ const Terms = () => {
       <SEO
         title="Terms & Conditions | Sellatica"
         description="Terms and Conditions for Sellatica B2B operational consulting services."
-        canonical="https://www.sellatica.in/terms"
       />
 
       <Header />

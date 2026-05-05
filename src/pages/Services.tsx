@@ -51,7 +51,6 @@ const Services = () => {
       <SEO
         title="Services | Sellatica"
         description="Strategy Review, Systems Design, and Implementation. Three ways to work with Sellatica on your operations."
-        canonical="https://www.sellatica.in/services"
         breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]}
       />
       <Header />

@@ -37,7 +37,6 @@ const Diagnostic = () => {
       <SEO
                     title="AI Operations Diagnostic | Sellatica"
                     description="Book the Sellatica AI Operations Diagnostic: one focused 45-minute session, a written action plan in 48 hours, and a refund if we cannot identify $5,000 in recoverable waste."
-                    canonical="https://www.sellatica.in/diagnostic"
                
         breadcrumbs={[{ name: 'AI Operations Diagnostic', item: 'https://www.sellatica.in/diagnostic' }]} 
       />

@@ -1,16 +1,30 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Link } from 'react-router-dom';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
+import { submitOperationsScore } from '@/lib/backend';
 import { trackEvent } from '@/utils/analytics';
 
-// ── Questions ──────────────────────────────────────────────────────────
-const questions = [
+type Question = {
+  dimension: string;
+  question: string;
+  options: Array<{
+    label: string;
+    score: number;
+  }>;
+};
+
+type AnswerRecord = {
+  dimension: string;
+  score: number;
+};
+
+const questions: Question[] = [
   {
     dimension: 'Lead Follow-up',
     question: 'When a new lead comes in, how quickly does your team typically respond?',
@@ -113,9 +127,10 @@ const questions = [
   },
 ];
 
-// ── Score Bands ────────────────────────────────────────────────────────
+const dimensions = Array.from(new Set(questions.map((question) => question.dimension)));
+
 const getBand = (score: number) => {
-  if (score <= 40)
+  if (score <= 40) {
     return {
       label: 'At Risk',
       color: 'text-red-500',
@@ -123,7 +138,9 @@ const getBand = (score: number) => {
       interpretation:
         'You are losing revenue to manual work every week. The gaps in your operations are actively costing you time and money. The good news: the biggest wins are usually the first fixes.',
     };
-  if (score <= 60)
+  }
+
+  if (score <= 60) {
     return {
       label: 'Functional',
       color: 'text-amber-500',
@@ -131,7 +148,9 @@ const getBand = (score: number) => {
       interpretation:
         'Your systems work, but they depend on you personally. Growth will amplify the problems you are already seeing. Fixing the top two gaps would free up significant time.',
     };
-  if (score <= 80)
+  }
+
+  if (score <= 80) {
     return {
       label: 'Operational',
       color: 'text-blue-500',
@@ -139,6 +158,8 @@ const getBand = (score: number) => {
       interpretation:
         'Good foundation. You have clear gaps to fix, but your business is not bleeding. Targeted improvements in one or two areas will unlock the next stage of growth.',
     };
+  }
+
   return {
     label: 'Optimised',
     color: 'text-emerald-500',
@@ -148,70 +169,106 @@ const getBand = (score: number) => {
   };
 };
 
-// ── Component ──────────────────────────────────────────────────────────
+const getDimensionBreakdown = (answers: AnswerRecord[]) =>
+  dimensions.map((dimension) => {
+    const dimensionAnswers = answers.filter((answer) => answer.dimension === dimension);
+    const score = dimensionAnswers.reduce((sum, answer) => sum + answer.score, 0);
+    const maxScore = questions.filter((question) => question.dimension === dimension).length * 10;
+
+    return {
+      dimension,
+      score,
+      maxScore,
+      percent: maxScore > 0 ? (score / maxScore) * 100 : 0,
+    };
+  });
+
 const Score = () => {
   const [currentQ, setCurrentQ] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
+  const [answers, setAnswers] = useState<AnswerRecord[]>([]);
   const [phase, setPhase] = useState<'intro' | 'quiz' | 'email' | 'result'>('intro');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const totalScore = answers.reduce((sum, a) => sum + a, 0);
+  const q = questions[currentQ];
+  const totalScore = answers.reduce((sum, answer) => sum + answer.score, 0);
   const progress = (currentQ / questions.length) * 100;
+  const band = getBand(totalScore);
+  const dimensionBreakdown = getDimensionBreakdown(answers);
 
   const handleAnswer = (score: number) => {
-    const newAnswers = [...answers, score];
-    setAnswers(newAnswers);
+    const nextAnswers = [...answers, { score, dimension: q.dimension }];
+    setAnswers(nextAnswers);
 
     if (currentQ < questions.length - 1) {
       setCurrentQ(currentQ + 1);
-    } else {
-      setPhase('email');
+      return;
     }
+
+    setPhase('email');
   };
 
   const handleBack = () => {
-    if (currentQ > 0) {
-      setCurrentQ(currentQ - 1);
-      setAnswers(answers.slice(0, -1));
-    }
+    if (currentQ === 0) return;
+
+    setCurrentQ(currentQ - 1);
+    setAnswers(answers.slice(0, -1));
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
 
     trackEvent('scorecard_completed', {
       score: totalScore,
-      band: getBand(totalScore).label,
+      band: band.label,
       email,
     });
 
-    // Brief delay for feel, then show results
-    await new Promise((resolve) => setTimeout(resolve, 600));
-    setIsSubmitting(false);
-    setPhase('result');
-  };
+    try {
+      await submitOperationsScore({
+        name,
+        email,
+        company,
+        score: totalScore,
+        band: band.label,
+        interpretation: band.interpretation,
+        answers,
+        dimensions: dimensionBreakdown,
+        submittedAt: new Date().toISOString(),
+        source: 'sellatica_operations_score',
+      });
 
-  const band = getBand(totalScore);
-  const q = questions[currentQ];
+      setPhase('result');
+    } catch (error) {
+      console.error('Score submission failed:', error);
+      setSubmitError(
+        'We could not send your results right now. Please try again in a moment or contact hello@sellatica.in.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
         title="Operations Score | Sellatica"
         description="Find out how well your business operations actually run. Take the free 3-minute assessment and get your score."
-        canonical="https://www.sellatica.in/score"
+        ogTitle="How well does your business actually run? Find out in 3 minutes."
+        ogDescription="Take the free Operations Score assessment. 10 questions. A clear score showing exactly where your business stands and what to fix first."
+        image="https://www.sellatica.in/og-score.svg"
       />
       <Header />
 
-      <main className="pt-32 lg:pt-40 pb-20">
+      <main className="pt-32 pb-20 lg:pt-40">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mx-auto">
+          <div className="mx-auto max-w-2xl">
             <AnimatePresence mode="wait">
-              {/* ── INTRO ────────────────────────────────── */}
               {phase === 'intro' && (
                 <motion.div
                   key="intro"
@@ -220,49 +277,49 @@ const Score = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
+                  <h1 className="mb-8 font-display text-4xl font-medium leading-[1.1] text-foreground md:text-5xl lg:text-6xl">
                     The Sellatica Operations Score
                   </h1>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                    Find out how well your business operations actually run. Ten questions. Three minutes. A clear score that tells you where you stand and what to fix first.
+                  <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
+                    Find out how well your business operations actually run. Ten questions. Three
+                    minutes. A clear score that tells you where you stand and what to fix first.
                   </p>
-                  <div className="space-y-4 text-muted-foreground mb-10">
+                  <div className="mb-10 space-y-4 text-muted-foreground">
                     <p className="flex items-start gap-3">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                      <span className="mt-2.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                       Lead follow-up speed and consistency
                     </p>
                     <p className="flex items-start gap-3">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                      <span className="mt-2.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                       Client onboarding and delivery
                     </p>
                     <p className="flex items-start gap-3">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                      <span className="mt-2.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                       Internal task management
                     </p>
                     <p className="flex items-start gap-3">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                      <span className="mt-2.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                       Revenue tracking and reporting
                     </p>
                     <p className="flex items-start gap-3">
-                      <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground mt-2.5 flex-shrink-0" />
+                      <span className="mt-2.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground" />
                       Team dependency and resilience
                     </p>
                   </div>
                   <Button
                     size="lg"
-                    className="group text-base px-8 h-14"
+                    className="group h-14 px-8 text-base"
                     onClick={() => setPhase('quiz')}
                   >
                     Start the Assessment
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
-                  <p className="text-sm text-muted-foreground mt-4">
+                  <p className="mt-4 text-sm text-muted-foreground">
                     No signup required to take the assessment. Email collected only at the end.
                   </p>
                 </motion.div>
               )}
 
-              {/* ── QUIZ ─────────────────────────────────── */}
               {phase === 'quiz' && q && (
                 <motion.div
                   key={`q-${currentQ}`}
@@ -271,23 +328,24 @@ const Score = () => {
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ duration: 0.35 }}
                 >
-                  {/* Progress bar */}
                   <div className="mb-12">
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-3">
-                      <span>Question {currentQ + 1} of {questions.length}</span>
+                    <div className="mb-3 flex items-center justify-between text-sm text-muted-foreground">
+                      <span>
+                        Question {currentQ + 1} of {questions.length}
+                      </span>
                       <span className="text-xs uppercase tracking-wider">{q.dimension}</span>
                     </div>
-                    <div className="w-full h-1 bg-border rounded-full overflow-hidden">
+                    <div className="h-1 w-full overflow-hidden rounded-full bg-border">
                       <motion.div
-                        className="h-full bg-foreground rounded-full"
-                        initial={{ width: `${((currentQ) / questions.length) * 100}%` }}
+                        className="h-full rounded-full bg-foreground"
+                        initial={{ width: `${(currentQ / questions.length) * 100}%` }}
                         animate={{ width: `${progress}%` }}
                         transition={{ duration: 0.3 }}
                       />
                     </div>
                   </div>
 
-                  <h2 className="font-display text-2xl md:text-3xl font-medium text-foreground leading-[1.2] mb-10">
+                  <h2 className="mb-10 font-display text-2xl font-medium leading-[1.2] text-foreground md:text-3xl">
                     {q.question}
                   </h2>
 
@@ -295,10 +353,11 @@ const Score = () => {
                     {q.options.map((option) => (
                       <button
                         key={option.label}
+                        type="button"
                         onClick={() => handleAnswer(option.score)}
-                        className="w-full text-left p-5 rounded-xl border border-border/50 bg-card hover:bg-secondary hover:border-foreground/20 transition-all duration-200 group"
+                        className="group w-full rounded-xl border border-border/50 bg-card p-5 text-left transition-all duration-200 hover:border-foreground/20 hover:bg-secondary"
                       >
-                        <span className="text-foreground group-hover:text-foreground transition-colors">
+                        <span className="text-foreground transition-colors group-hover:text-foreground">
                           {option.label}
                         </span>
                       </button>
@@ -307,17 +366,17 @@ const Score = () => {
 
                   {currentQ > 0 && (
                     <button
+                      type="button"
                       onClick={handleBack}
-                      className="mt-8 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="mt-8 flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      <ArrowLeft className="w-4 h-4" />
+                      <ArrowLeft className="h-4 w-4" />
                       Previous question
                     </button>
                   )}
                 </motion.div>
               )}
 
-              {/* ── EMAIL GATE ───────────────────────────── */}
               {phase === 'email' && (
                 <motion.div
                   key="email"
@@ -326,21 +385,27 @@ const Score = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <div className="flex items-center gap-3 mb-8">
-                    <CheckCircle className="w-6 h-6 text-emerald-500" />
-                    <span className="text-sm font-medium text-muted-foreground">Assessment complete</span>
+                  <div className="mb-8 flex items-center gap-3">
+                    <CheckCircle className="h-6 w-6 text-emerald-500" />
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Assessment complete
+                    </span>
                   </div>
 
-                  <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground leading-[1.15] mb-4">
+                  <h2 className="mb-4 font-display text-3xl font-medium leading-[1.15] text-foreground md:text-4xl">
                     Your score is ready.
                   </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-                    Enter your details below to see your full Operations Score with a personalized interpretation and recommendations.
+                  <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
+                    Enter your details below to see your full Operations Score with a
+                    personalized interpretation and recommendations.
                   </p>
 
                   <form onSubmit={handleEmailSubmit} className="space-y-5">
                     <div>
-                      <label htmlFor="score-name" className="text-sm font-medium text-foreground block mb-2">
+                      <label
+                        htmlFor="score-name"
+                        className="mb-2 block text-sm font-medium text-foreground"
+                      >
                         Full Name
                       </label>
                       <Input
@@ -350,11 +415,14 @@ const Score = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Your name"
-                        className="bg-card border-border/50 focus:border-foreground/50"
+                        className="border-border/50 bg-card focus:border-foreground/50"
                       />
                     </div>
                     <div>
-                      <label htmlFor="score-email" className="text-sm font-medium text-foreground block mb-2">
+                      <label
+                        htmlFor="score-email"
+                        className="mb-2 block text-sm font-medium text-foreground"
+                      >
                         Business Email
                       </label>
                       <Input
@@ -364,11 +432,14 @@ const Score = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@company.com"
-                        className="bg-card border-border/50 focus:border-foreground/50"
+                        className="border-border/50 bg-card focus:border-foreground/50"
                       />
                     </div>
                     <div>
-                      <label htmlFor="score-company" className="text-sm font-medium text-foreground block mb-2">
+                      <label
+                        htmlFor="score-company"
+                        className="mb-2 block text-sm font-medium text-foreground"
+                      >
                         Company Name
                       </label>
                       <Input
@@ -378,26 +449,30 @@ const Score = () => {
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
                         placeholder="Your company"
-                        className="bg-card border-border/50 focus:border-foreground/50"
+                        className="border-border/50 bg-card focus:border-foreground/50"
                       />
                     </div>
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full group text-base h-14"
+                      className="group h-14 w-full text-base"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Calculating...' : 'See My Score'}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      {isSubmitting ? 'Sending your results...' : 'See My Score'}
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
-                    <p className="text-xs text-muted-foreground text-center">
+                    {submitError && (
+                      <p className="text-sm text-red-500" role="alert">
+                        {submitError}
+                      </p>
+                    )}
+                    <p className="text-center text-xs text-muted-foreground">
                       We will send your results to this email. No spam, ever.
                     </p>
                   </form>
                 </motion.div>
               )}
 
-              {/* ── RESULT ───────────────────────────────── */}
               {phase === 'result' && (
                 <motion.div
                   key="result"
@@ -405,81 +480,74 @@ const Score = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <p className="text-sm text-muted-foreground mb-6">
+                  <p className="mb-4 text-sm text-emerald-600">We sent your results to {email}.</p>
+                  <p className="mb-6 text-sm text-muted-foreground">
                     {name ? `${name}, here` : 'Here'} is your result.
                   </p>
 
-                  {/* Score Display */}
                   <div className="mb-12">
-                    <div className="flex items-end gap-4 mb-4">
-                      <span className="font-display text-7xl md:text-8xl font-medium text-foreground leading-none">
+                    <div className="mb-4 flex items-end gap-4">
+                      <span className="font-display text-7xl font-medium leading-none text-foreground md:text-8xl">
                         {totalScore}
                       </span>
-                      <span className="text-2xl text-muted-foreground mb-2">/ 100</span>
+                      <span className="mb-2 text-2xl text-muted-foreground">/ 100</span>
                     </div>
-                    <div className={`inline-flex items-center px-4 py-2 rounded-full border text-sm font-medium ${band.bgColor} ${band.color}`}>
+                    <div
+                      className={`inline-flex items-center rounded-full border px-4 py-2 text-sm font-medium ${band.bgColor} ${band.color}`}
+                    >
                       {band.label}
                     </div>
                   </div>
 
-                  {/* Interpretation */}
                   <div className="mb-12">
-                    <p className="text-lg text-foreground leading-relaxed">
-                      {band.interpretation}
-                    </p>
+                    <p className="text-lg leading-relaxed text-foreground">{band.interpretation}</p>
                   </div>
 
-                  {/* Score Breakdown */}
                   <div className="mb-12">
-                    <h3 className="font-display text-xl font-medium text-foreground mb-6">
+                    <h3 className="mb-6 font-display text-xl font-medium text-foreground">
                       Your scores by area
                     </h3>
                     <div className="space-y-4">
-                      {['Lead Follow-up', 'Client Delivery', 'Task Management', 'Revenue Tracking', 'Team Dependency'].map(
-                        (dim, i) => {
-                          const dimAnswers = answers.slice(i * 2, i * 2 + 2);
-                          const dimScore = dimAnswers.reduce((s, a) => s + a, 0);
-                          const dimMax = 20;
-                          const dimPercent = (dimScore / dimMax) * 100;
-                          return (
-                            <div key={dim}>
-                              <div className="flex items-center justify-between text-sm mb-2">
-                                <span className="text-foreground">{dim}</span>
-                                <span className="text-muted-foreground">{dimScore} / {dimMax}</span>
-                              </div>
-                              <div className="w-full h-2 bg-border rounded-full overflow-hidden">
-                                <motion.div
-                                  className="h-full bg-foreground rounded-full"
-                                  initial={{ width: 0 }}
-                                  animate={{ width: `${dimPercent}%` }}
-                                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                                />
-                              </div>
-                            </div>
-                          );
-                        }
-                      )}
+                      {dimensionBreakdown.map((dimension, index) => (
+                        <div key={dimension.dimension}>
+                          <div className="mb-2 flex items-center justify-between text-sm">
+                            <span className="text-foreground">{dimension.dimension}</span>
+                            <span className="text-muted-foreground">
+                              {dimension.score} / {dimension.maxScore}
+                            </span>
+                          </div>
+                          <div className="h-2 w-full overflow-hidden rounded-full bg-border">
+                            <motion.div
+                              className="h-full rounded-full bg-foreground"
+                              initial={{ width: 0 }}
+                              animate={{ width: `${dimension.percent}%` }}
+                              transition={{ duration: 0.6, delay: index * 0.1 }}
+                            />
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* CTA */}
                   <div className="border-t border-border/50 pt-10">
-                    <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-4">
+                    <h3 className="mb-4 font-display text-2xl font-medium text-foreground md:text-3xl">
                       Want to know exactly what to fix first?
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-8">
-                      Book a free 45-minute Strategy Review. We will look at your specific situation, tell you what is costing you the most, and give you a clear written plan.
+                    <p className="mb-8 leading-relaxed text-muted-foreground">
+                      Book a free 45-minute Strategy Review. We will look at your specific
+                      situation, tell you what is costing you the most, and give you a clear
+                      written plan.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-start gap-4">
+                    <div className="flex flex-col items-start gap-4 sm:flex-row">
                       <Link to="/contact">
-                        <Button size="lg" className="group text-base px-8 h-14">
+                        <Button size="lg" className="group h-14 px-8 text-base">
                           Book a Strategy Review
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                       </Link>
                       <Link
                         to="/work"
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 pt-4 sm:pt-5"
+                        className="pt-4 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground sm:pt-5"
                       >
                         See what we have fixed for others
                       </Link>

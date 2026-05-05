@@ -70,7 +70,6 @@ const Refund = () => {
       <SEO
         title="Refund & Cancellation Policy | Sellatica"
         description="Cancellation and Refunds Policy for Sellatica B2B AI automation consulting services."
-        canonical="https://www.sellatica.in/refund"
       />
 
       <Header />

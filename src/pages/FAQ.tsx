@@ -38,7 +38,6 @@ const FAQ = () => {
       <SEO
         title="FAQ | Sellatica"
         description="Frequently asked questions about working with Sellatica on your business operations."
-        canonical="https://www.sellatica.in/faq"
         breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]}
       />
 

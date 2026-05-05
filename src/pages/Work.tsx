@@ -43,7 +43,6 @@ const Work = () => {
       <SEO
         title="Client Work | Sellatica"
         description="How Sellatica has helped legal firms, real estate teams, logistics operators, and agencies fix their operations."
-        canonical="https://www.sellatica.in/work"
         breadcrumbs={[{ name: 'Work', item: 'https://www.sellatica.in/work' }]}
       />
       <Header />

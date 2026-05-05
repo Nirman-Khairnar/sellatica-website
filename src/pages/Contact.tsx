@@ -92,7 +92,6 @@ const Contact = () => {
       <SEO
         title="Contact | Sellatica"
         description="Book a Strategy Review or get in touch with the Sellatica team."
-        canonical="https://www.sellatica.in/contact"
         breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]}
       />
 

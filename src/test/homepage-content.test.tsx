@@ -12,7 +12,9 @@ describe('homepage content regressions', () => {
   it('uses the updated homepage title copy', () => {
     render(
       <HelmetProvider>
-        <SEO canonical="https://www.sellatica.in" />
+        <MemoryRouter initialEntries={['/']}>
+          <SEO canonical="https://www.sellatica.in" />
+        </MemoryRouter>
       </HelmetProvider>
     );
     return waitFor(() => {

@@ -78,7 +78,6 @@ const Privacy = () => {
       <SEO
         title="Privacy Policy | Sellatica"
         description="Privacy Policy for Sellatica B2B operational consulting services."
-        canonical="https://www.sellatica.in/privacy"
       />
 
       <Header />

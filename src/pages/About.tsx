@@ -12,7 +12,6 @@ const About = () => {
       <SEO
         title="About Sellatica"
         description="Who we are, how we think about business operations, and why we built Sellatica."
-        canonical="https://www.sellatica.in/about"
         breadcrumbs={[{ name: 'About', item: 'https://www.sellatica.in/about' }]}
       />
 

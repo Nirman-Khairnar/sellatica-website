@@ -45,6 +45,31 @@ type ContactPayload = {
   source: string;
 };
 
+type ScoreAnswerPayload = {
+  dimension: string;
+  score: number;
+};
+
+type ScoreDimensionPayload = {
+  dimension: string;
+  score: number;
+  maxScore: number;
+  percent: number;
+};
+
+type OperationsScorePayload = {
+  name: string;
+  email: string;
+  company: string;
+  score: number;
+  band: string;
+  interpretation: string;
+  answers: ScoreAnswerPayload[];
+  dimensions: ScoreDimensionPayload[];
+  submittedAt: string;
+  source: string;
+};
+
 type OrderResponse = {
   orderId: string;
   keyId: string;
@@ -95,6 +120,23 @@ export const submitContactInquiry = async (payload: ContactPayload) => {
   }
 
   throw new Error("Contact webhook did not accept the submission.");
+};
+
+export const submitOperationsScore = async (payload: OperationsScorePayload) => {
+  const response = await requestJson<{ status?: string; success?: boolean }>(
+    runtimeConfig.scoreWebhookUrl,
+    payload
+  );
+
+  if (
+    response.success === true ||
+    response.status === "accepted" ||
+    response.status === "ok"
+  ) {
+    return response;
+  }
+
+  throw new Error("Score webhook did not accept the submission.");
 };
 
 export const submitDiagnosticLead = async (payload: DiagnosticLeadPayload) => {

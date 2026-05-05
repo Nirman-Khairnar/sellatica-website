@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F4EFE7"/>
+  <rect x="40" y="40" width="1120" height="550" rx="28" fill="#111111"/>
+  <rect x="88" y="92" width="300" height="42" rx="21" fill="#E8FF63" fill-opacity="0.16" stroke="#E8FF63" stroke-opacity="0.4"/>
+  <text x="112" y="120" fill="#E8FF63" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="1.2">SELLATICA OPERATIONS SCORE</text>
+  <text x="88" y="224" fill="#F7F3EE" font-family="Arial, sans-serif" font-size="66" font-weight="700">How well does your</text>
+  <text x="88" y="300" fill="#F7F3EE" font-family="Arial, sans-serif" font-size="66" font-weight="700">business actually run?</text>
+  <text x="88" y="384" fill="#CFC7BC" font-family="Arial, sans-serif" font-size="30" font-weight="400">10 questions. 3 minutes. A clear score showing where</text>
+  <text x="88" y="424" fill="#CFC7BC" font-family="Arial, sans-serif" font-size="30" font-weight="400">your operations are strong and what to fix first.</text>
+  <rect x="88" y="484" width="356" height="64" rx="32" fill="#E8FF63"/>
+  <text x="127" y="524" fill="#111111" font-family="Arial, sans-serif" font-size="28" font-weight="700">Take the free assessment</text>
+  <circle cx="960" cy="232" r="116" fill="#1F1F1F" stroke="#343434" stroke-width="2"/>
+  <circle cx="960" cy="232" r="92" fill="#F4EFE7"/>
+  <path d="M960 140C1000.87 140 1034 173.131 1034 214V232H960V140Z" fill="#E8FF63"/>
+  <path d="M886 232C886 191.131 919.131 158 960 158V232H886Z" fill="#D8D1C7"/>
+  <path d="M960 232H1034C1034 272.869 1000.87 306 960 306V232Z" fill="#111111"/>
+  <text x="922" y="252" fill="#111111" font-family="Arial, sans-serif" font-size="34" font-weight="700">78</text>
+  <text x="970" y="252" fill="#6A645D" font-family="Arial, sans-serif" font-size="18" font-weight="700">/100</text>
+  <rect x="820" y="402" width="280" height="118" rx="24" fill="#161616" stroke="#343434" stroke-width="2"/>
+  <text x="852" y="446" fill="#F7F3EE" font-family="Arial, sans-serif" font-size="22" font-weight="700">Lead Follow-up</text>
+  <rect x="852" y="468" width="216" height="12" rx="6" fill="#2B2B2B"/>
+  <rect x="852" y="468" width="178" height="12" rx="6" fill="#E8FF63"/>
+  <text x="852" y="510" fill="#CFC7BC" font-family="Arial, sans-serif" font-size="18" font-weight="400">See your breakdown by area</text>
+</svg>

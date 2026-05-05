@@ -6,6 +6,9 @@ export const runtimeConfig = {
   contactWebhookUrl:
     import.meta.env.VITE_CONTACT_WEBHOOK_URL ||
     `${n8nWebhookBaseUrl}/webhook/sellatica/company-contact-web-v1`,
+  scoreWebhookUrl:
+    import.meta.env.VITE_SCORE_WEBHOOK_URL ||
+    `${n8nWebhookBaseUrl}/webhook/sellatica/company-operations-score-v1`,
   diagnosticLeadWebhookUrl:
     import.meta.env.VITE_DIAGNOSTIC_LEAD_WEBHOOK_URL ||
     `${n8nWebhookBaseUrl}/webhook/sellatica/company-diagnostic-lead-v1`,
