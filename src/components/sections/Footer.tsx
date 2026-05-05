@@ -4,12 +4,12 @@ const footerLinks = {
   company: [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Results', href: '/results' },
+    { name: 'Work', href: '/work' },
     { name: 'Contact', href: '/contact' },
   ],
   resources: [
-    { name: 'Case Studies', href: '/results' },
-    { name: 'Process', href: '/services' },
+    { name: 'Case Studies', href: '/work' },
+    { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
   ],
 };
 
@@ -23,7 +23,7 @@ const Footer = () => {
               <span className="font-display text-2xl font-semibold text-foreground">Sellatica</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              We diagnose where follow-up, handoffs, approvals, and reporting are leaking revenue, then give you the roadmap to fix it.
+              We help growing businesses simplify operations using AI and automation. Strategy, system design, and implementation.
             </p>
           </div>
 
@@ -50,14 +50,25 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    data-track="nav_link_clicked"
-                    data-track-props={JSON.stringify({ destination: link.href, location: 'footer_resources' })}
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      data-track="nav_link_clicked"
+                      data-track-props={JSON.stringify({ destination: link.href, location: 'footer_resources' })}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      data-track="nav_link_clicked"
+                      data-track-props={JSON.stringify({ destination: link.href, location: 'footer_resources' })}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -78,12 +89,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/diagnostic"
+                  to="/contact"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-track="cta_clicked"
                   data-track-props={JSON.stringify({ location: 'footer_contact' })}
                 >
-                  Book AI Operations Diagnostic
+                  Book a Strategy Call
                 </Link>
               </li>
             </ul>

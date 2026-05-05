@@ -1,11 +1,10 @@
 import Header from '@/components/sections/Header';
 import Hero from '@/components/sections/Hero';
 import LogoTicker from '@/components/sections/LogoTicker';
-import Problem from '@/components/sections/Problem';
-import Services from '@/components/sections/Services';
-import Results from '@/components/sections/Results';
-import Process from '@/components/sections/Process';
-
+import WhoWeWorkWith from '@/components/sections/WhoWeWorkWith';
+import WhatWeSolve from '@/components/sections/WhatWeSolve';
+import HowWeWork from '@/components/sections/HowWeWork';
+import ClientResults from '@/components/sections/ClientResults';
 import CTA from '@/components/sections/CTA';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
@@ -17,11 +16,10 @@ const Index = () => {
       <Header />
       <Hero />
       <LogoTicker />
-      <Problem />
-      <Services />
-      <Results />
-      <Process />
-
+      <WhoWeWorkWith />
+      <WhatWeSolve />
+      <HowWeWork />
+      <ClientResults />
       <CTA />
       <Footer />
     </div>

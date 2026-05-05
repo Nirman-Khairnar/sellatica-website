@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Mail, Calendar, MessageSquare } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,7 +10,6 @@ import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import SEO from '@/components/SEO';
 import { trackEvent } from '@/utils/analytics';
-import { usePrice } from '@/hooks/usePrice';
 import { submitContactInquiry } from '@/lib/backend';
 
 const contactSchema = z.object({
@@ -22,7 +20,6 @@ const contactSchema = z.object({
 });
 
 const Contact = () => {
-  const price = usePrice();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -83,7 +80,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -93,8 +90,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Sellatica | Book an AI Operations Diagnostic"
-        description="Contact Sellatica if you need to ask a question before booking the Diagnostic. If you are ready to start, book the Diagnostic directly."
+        title="Contact — Sellatica"
+        description="Book a Strategy Review or get in touch with the Sellatica team."
         canonical="https://www.sellatica.in/contact"
         breadcrumbs={[{ name: 'Contact', item: 'https://www.sellatica.in/contact' }]}
       />
@@ -109,63 +106,18 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-                Get in Touch
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-                Questions before you book?
-                <span className="text-muted-foreground"> Ask here.</span>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-5xl font-medium text-foreground leading-[1.15] mb-8">
+                Let's figure out if we are the right fit.
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-                If you are ready for the Diagnostic, book it directly. Use this page if you need to ask about fit, scope, timing, or whether the Diagnostic is the right next step.
+                Book a Strategy Review and we will spend 45 minutes looking at how your business operates. You will leave with a clear picture of what to fix, in what order, and what the impact will be. Whether you work with us after that is entirely your decision.
               </p>
 
-              <div className="mb-8">
-                <Link to="/diagnostic">
-                  <Button size="lg" className="group">
-                    <span>Book The Diagnostic Directly</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-              </div>
-
               <div className="space-y-6">
-                <div className="p-6 rounded-xl bg-card border border-border/50">
-                  <h3 className="font-medium text-foreground mb-3">Business Contact Details</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <p><span className="text-foreground font-medium">Business Name:</span> Sellatica</p>
-                    <p>
-                      <span className="text-foreground font-medium">Email:</span>{' '}
-                      <a href="mailto:hello@sellatica.in" className="hover:text-foreground transition-colors">hello@sellatica.in</a>
-                    </p>
-                    <p><span className="text-foreground font-medium">Delivery:</span> Remote worldwide. In-person when appropriate.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
-                  <Calendar className="w-6 h-6 text-foreground mt-1" />
-                  <div>
-                    <h3 className="font-medium text-foreground mb-1">Operations Diagnostic</h3>
-                    <p className="text-sm text-muted-foreground">
-                      45-minute session to identify revenue leakage and rank the fixes.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
-                  <MessageSquare className="w-6 h-6 text-foreground mt-1" />
-                  <div>
-                    <h3 className="font-medium text-foreground mb-1">Quick Response</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We respond to all inquiries within 24 hours.
-                    </p>
-                  </div>
-                </div>
-
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
                   <Mail className="w-6 h-6 text-foreground mt-1" />
                   <div>
-                    <h3 className="font-medium text-foreground mb-1">Direct Email</h3>
+                    <h3 className="font-medium text-foreground mb-1">Prefer to send a message first?</h3>
                     <a href="mailto:hello@sellatica.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       hello@sellatica.in
                     </a>
@@ -231,7 +183,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="text-sm font-medium text-foreground block mb-2">
-                    What do you need to ask before booking? *
+                    Tell us about your business and what you need help with *
                   </label>
                   <Textarea
                     id="message"
@@ -239,7 +191,7 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about the business, the operational issue, and what you need clarified."
+                    placeholder="What does your business do, how big is your team, and what is the main operational problem you are dealing with?"
                     rows={6}
                     className="bg-card border-border/50 focus:border-foreground/50 resize-none"
                   />
@@ -251,64 +203,16 @@ const Contact = () => {
                   className="w-full group"
                   disabled={isSubmitting}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Send Inquiry'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Book a Strategy Review'}</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy. We'll never share your information.
+                  By submitting this form, you agree to our privacy policy. We will never share your information.
                 </p>
               </form>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 border-t border-border/50">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto"
-          >
-            <h2 className="font-display text-3xl font-medium text-foreground text-center mb-12">
-              Common Questions
-            </h2>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="font-medium text-foreground mb-2">Who is Sellatica a good fit for?</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Owner-led and operations-heavy businesses with 15 to 500 people.
-                  If revenue is being lost in slow follow-up, broken handoffs, manual reporting,
-                  or tool sprawl, you are likely a fit.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-medium text-foreground mb-2">How quickly do you deliver the roadmap?</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Following the 45-minute diagnostic call, your written action plan is delivered within 48 hours.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-medium text-foreground mb-2">What is the investment for the diagnostic?</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  The AI Operations Diagnostic is {price.loading ? '...' : price.display}. If we do not locate at least $5,000 in recoverable waste, the diagnostic is refunded.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-medium text-foreground mb-2">Do I need technical expertise to work with you?</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  No. We need operational truth, not technical jargon. Your team shows us how work currently moves. We handle the diagnosis and system design from there.
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
 

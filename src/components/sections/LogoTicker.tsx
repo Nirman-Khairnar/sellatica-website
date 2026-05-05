@@ -19,8 +19,8 @@ const LogoTicker = () => {
   return (
     <div className="w-full bg-background border-b border-border py-8 overflow-hidden relative">
       <div className="container mx-auto px-6 lg:px-12 pb-8">
-        <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest text-center">
-          &gt; Trusted ecosystem partners and integrations:
+        <p className="font-body text-xs text-muted-foreground uppercase tracking-widest text-center">
+          Trusted ecosystem partners and integrations
         </p>
       </div>
 

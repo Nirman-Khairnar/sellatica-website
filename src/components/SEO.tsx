@@ -14,8 +14,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "AI Operations Consulting Firm | Sellatica",
-  description = "Sellatica helps operations-heavy businesses find where follow-up, handoffs, approvals, and reporting are leaking revenue, then delivers a written action plan in 48 hours.",
+  title = "Sellatica — AI Operations for Growing Businesses",
+  description = "We help service businesses, agencies, and operators remove manual work and build systems that scale. Strategy, design, and implementation.",
   canonical,
   image = "https://www.sellatica.in/og-image.png",
   breadcrumbs

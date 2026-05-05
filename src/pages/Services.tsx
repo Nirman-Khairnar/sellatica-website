@@ -1,110 +1,76 @@
 import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
-
 import Footer from '@/components/sections/Footer';
-import { ArrowRight, Check, Cog, Target, Zap, Shield, Search, TrendingUp } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
-import { usePrice } from '@/hooks/usePrice';
 
 const services = [
   {
-    icon: Search,
     phase: '01',
-    title: 'AI Operations Diagnostic',
-    description: 'We map where follow-up, handoffs, approvals, and reporting are leaking revenue, then rank the fixes by speed, cost, and likely impact.',
-    features: [
-      'Revenue leakage map',
-      'Bottleneck priority list',
-      '90-day action roadmap',
+    title: 'Strategy Review',
+    tagline: 'Where we start.',
+    description: 'A 45-minute working session where we analyse how your business operates and identify the highest-impact problems to fix. We do not deliver a generic list of suggestions. We tell you specifically what to fix, why it is costing you, and what the result looks like when it is resolved.',
+    deliverables: [
+      'A written action plan delivered within 48 hours',
+      'Clear priority order: what to fix first, second, and third',
+      'An honest answer on whether Sellatica is the right fit for implementation',
     ],
-    whyMatters: 'You do not need another AI brainstorm. You need a decision-ready view of what is broken, what it costs, and what to fix first.',
-    duration: '45-Minute Call / 48-Hour Delivery',
+    audience: 'Business owners and operators who want clarity on what is actually broken before committing to a larger engagement.',
   },
   {
-    icon: Cog,
     phase: '02',
-    title: 'System design',
-    description: 'Reserved for diagnostic clients. We turn the findings into workflow rules, ownership maps, tool choices, data flows, and rollout order.',
-    features: [
-      'Workflow and owner map',
-      'Tool and data architecture',
-      'Rollout sequence and constraints',
+    title: 'Systems Design',
+    tagline: 'The blueprint for the fix.',
+    description: 'For clients who want to move beyond diagnosis into action. We work with your operations lead to design the exact systems and workflows that solve the identified problems. This is not a slide deck or a recommendation document. It is a buildable plan — specific enough to hand off to a developer, a no-code builder, or our own implementation team.',
+    deliverables: [
+      'Workflow maps for every process being redesigned',
+      'Tool and integration recommendations based on your existing stack',
+      'A phased build plan so you know exactly what gets done and in what order',
     ],
-    whyMatters: 'This is where we remove ambiguity. The team gets a concrete operating design instead of a stack of disconnected ideas.',
-    duration: 'Reserved for Diagnostic clients',
+    audience: 'Clients who have completed a Strategy Review and are ready to build.',
   },
   {
-    icon: TrendingUp,
     phase: '03',
     title: 'Implementation',
-    description: 'Reserved for system design clients. We implement the changes, train the team, and hand over a system you can run without depending on us for every next step.',
-    features: [
-      'Implementation and rollout',
-      'Team training and handoff',
-      'Post-launch stabilization',
+    tagline: 'We build it.',
+    description: 'We architect and build the systems defined in the design phase. This means actual automation, actual integrations, and actual working tools inside your business — not prototypes or proof-of-concepts. Everything is built on infrastructure you own. There is no ongoing subscription to Sellatica unless you choose to retain us for support.',
+    deliverables: [
+      'Fully functional systems delivered and tested',
+      'Handover documentation so your team can operate everything independently',
+      'One month of support post-launch included in every implementation engagement',
     ],
-    whyMatters: 'The goal is not to create reliance on Sellatica. The goal is to leave you with a system your operators can trust.',
-    duration: 'Reserved for System Design clients',
-  },
-];
-
-const values = [
-  {
-    icon: Target,
-    title: 'Precision in measurement',
-    description: 'We avoid approximations. Every recommendation relies on specific data points and projected ROI calculations. Measurement is our primary focus.',
-  },
-  {
-    icon: Zap,
-    title: 'Direct and clear communication',
-    description: 'Complex systems require simple language. We use straightforward terminology so teams can execute without confusion.',
-  },
-  {
-    icon: Shield,
-    title: 'Data ownership',
-    description: 'Data is your business\'s primary asset. We architect systems that keep you in control of the metrics that drive your revenue. No vendor lock-in.',
+    audience: 'Clients who want Sellatica to do the work, not just advise on it.',
   },
 ];
 
 const Services = () => {
-  const price = usePrice();
-
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Operational Architecture & Consulting Modules | Sellatica"
-        description="Sellatica works in three steps: diagnose the revenue leak, design the operating system, then implement the fix."
+        title="Services — Sellatica"
+        description="Strategy Review, Systems Design, and Implementation. Three ways to work with Sellatica on your operations."
         canonical="https://www.sellatica.in/services"
-      
-        breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]} 
+        breadcrumbs={[{ name: 'Services', item: 'https://www.sellatica.in/services' }]}
       />
       <Header />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="pt-32 lg:pt-40 pb-20">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-3xl"
           >
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-              Our services
-            </span>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-foreground leading-[1.1] mb-8">
-              Diagnose. Design.<br />
-              <span className="text-muted-foreground">Implement.</span>
+              How we work
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-8">
-              There is one public starting point: the Diagnostic. Everything else happens only after we have measured the problem and agreed on what should be fixed.
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              We work in three stages. You can start at any point. Most clients begin with a Strategy Review, then choose whether to go deeper.
             </p>
-            <div className="flex items-center gap-3 text-primary mb-8 border-l-2 border-primary/20 pl-6">
-              <Check className="w-5 h-5" />
-              <span className="font-medium tracking-tight">Every engagement begins with the Diagnostic</span>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -120,51 +86,43 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group border-t border-border/50 py-16 lg:py-20"
+                className="border-t border-border/50 py-16 lg:py-20"
               >
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
                   {/* Phase Number */}
                   <div className="lg:col-span-2">
-                    <span className="font-display text-4xl lg:text-5xl font-medium text-muted-foreground/30 group-hover:text-muted-foreground/50 transition-colors">
+                    <span className="font-display text-4xl lg:text-5xl font-medium text-border">
                       {service.phase}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="lg:col-span-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <service.icon className="w-6 h-6 text-foreground" />
-                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                        {service.phase === '01' ? (price.loading ? '...' : price.display + ' Flat Fee') : service.duration}
-                      </span>
-                      {service.phase === '01' && (
-                        <span className="text-sm text-muted-foreground hidden sm:inline-block">({service.duration})</span>
-                      )}
-                    </div>
-                    <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4 capitalize">
+                    <span className="text-sm text-muted-foreground block mb-2">
+                      {service.tagline}
+                    </span>
+                    <h3 className="font-display text-2xl lg:text-3xl font-medium text-foreground mb-4">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-6">
                       {service.description}
                     </p>
-                    {/* Why This Matters Subsection */}
-                    <div className="bg-secondary/20 p-5 rounded-lg border border-border/50">
-                      <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
-                        Why this matters
-                      </h4>
+                    <div className="bg-card/50 border border-border/50 rounded-lg p-5">
+                      <p className="text-sm font-medium text-foreground mb-1">Who this is for</p>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        {service.whyMatters}
+                        {service.audience}
                       </p>
                     </div>
                   </div>
 
-                  {/* Features */}
+                  {/* Deliverables */}
                   <div className="lg:col-span-4">
+                    <p className="text-sm font-medium text-foreground mb-4">What you receive</p>
                     <ul className="space-y-3">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-foreground mt-1 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground capitalize">{feature}</span>
+                      {service.deliverables.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                          <span className="text-sm text-muted-foreground">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -176,64 +134,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* What We Don't Do */}
-      <section className="py-20 border-t border-border/50 bg-card/30">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-2 gap-16"
-          >
-            <div>
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-4 block">
-                Why clients move forward
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-                What they are buying
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-10">
-                Not generic AI advice. Not a tool demo. Not a pile of automation ideas with no owner. Clients buy diagnosis first, then a system that can actually run.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Check className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-foreground mb-1">Measured Before Built</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We quantify the cost of the problem before recommending the fix.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Check className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-foreground mb-1">Decision Rules, Not Tool Hype</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We define who owns the next step, what triggers the action, and what data the team needs to move.
-                    </p>
-                  </div>
-                </div>
-              <div className="p-6 rounded-xl bg-card border border-border/50">
-                <h3 className="font-medium text-foreground mb-2">You Own Everything</h3>
-                <p className="text-sm text-muted-foreground">
-                  The system runs on your accounts, your tools, and your infrastructure. No vendor lock-in. No black box dependency.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-
-
       {/* CTA */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6 lg:px-12">
@@ -242,17 +142,17 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-2xl mx-auto"
+            className="max-w-2xl"
           >
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              If the problem is real, diagnose it properly.
+              Most clients start with a Strategy Review.
             </h2>
-            <p className="text-muted-foreground mb-8">
-              The fastest way to improve operations is not another brainstorm. It is a better first decision. Start with the Diagnostic.
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              45 minutes, a clear written plan, and a direct answer on whether we are the right fit. No commitment required.
             </p>
-            <Link to="/diagnostic">
+            <Link to="/contact">
               <Button size="lg" className="group">
-                <span>Start with the Diagnostic</span>
+                <span>Book a Strategy Call</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </Link>

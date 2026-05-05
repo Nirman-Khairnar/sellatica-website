@@ -8,9 +8,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
-  { name: 'Results', href: '/results' },
+  { name: 'Work', href: '/work' },
   { name: 'About', href: '/about' },
-  { name: 'FAQ', href: '/faq' },
   { name: 'Contact', href: '/contact' },
   { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
 ];
@@ -54,10 +53,6 @@ const Header = () => {
               >
                 <span className="font-display text-2xl lg:text-3xl font-semibold text-foreground tracking-tight">
                   Sellatica
-                </span>
-                <span className="hidden sm:block w-px h-6 bg-border" />
-                <span className="hidden sm:block text-xs font-body text-muted-foreground uppercase tracking-[0.2em]">
-                  Consulting
                 </span>
               </motion.div>
             </Link>
@@ -109,13 +104,13 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
-              <Link to="/diagnostic" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
+              <Link to="/contact" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
                 <Button
                   variant="outline"
                   size="sm"
                   className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
                 >
-                  <span>Book AI Operations Diagnostic</span>
+                  <span>Book a Strategy Call</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -219,9 +214,9 @@ const Header = () => {
                 className="mt-8 flex flex-col items-center gap-6"
               >
                 <ThemeToggle />
-                <Link to="/diagnostic" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
+                <Link to="/contact" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
                   <Button size="lg" className="text-lg">
-                    Book AI Operations Diagnostic
+                    Book a Strategy Call
                   </Button>
                 </Link>
               </motion.div>

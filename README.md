@@ -25,6 +25,7 @@ Use `.env` locally. Public frontend env expectations are documented in `.env.exa
 Current important runtime variables:
 
 - `VITE_TURNSTILE_SITE_KEY`
+- `VITE_N8N_WEBHOOK_BASE_URL` (base host for webhook defaults)
 - `VITE_CONTACT_WEBHOOK_URL`
 - `VITE_DIAGNOSTIC_LEAD_WEBHOOK_URL`
 - `VITE_RAZORPAY_ORDER_WEBHOOK_URL`

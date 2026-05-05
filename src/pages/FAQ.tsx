@@ -2,9 +2,6 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
-import { Helmet } from 'react-helmet-async';
-import { HelpCircle } from 'lucide-react';
-import { usePrice } from '@/hooks/usePrice';
 import {
     Accordion,
     AccordionContent,
@@ -13,37 +10,37 @@ import {
 } from "@/components/ui/accordion";
 
 const FAQ = () => {
-    const price = usePrice();
-    
     const faqs = [
       {
-        question: "What is the format?",
-        answer: "The diagnostic is delivered via one concentrated 45-minute virtual session. We dive directly into your current tech stack and operational workflows: no fluff, just discovery."
+        question: "Who is Sellatica a good fit for?",
+        answer: "Owner-led and operations-heavy businesses with 10 to 100 people. If you are spending too much time on manual work, losing leads to slow follow-up, or hiring people to manage problems that should be solved by systems, we can help."
       },
       {
-        question: "What is the price?",
-        answer: `Our pricing is fixed to ensure transparency. The comprehensive AI Operations Diagnostic is priced at a flat rate of ${price.display}. There are no hidden fees or retainer requirements for this initial phase.`
+        question: "What is the Strategy Review?",
+        answer: "A 45-minute working session where we look at how your business actually operates and identify the highest-impact problems to fix. You receive a written action plan within 48 hours, whether or not you work with us after."
       },
       {
-        question: "What is the guarantee?",
-        answer: "We operate on a performance-first model. If we cannot identify at least $5,000 in recoverable operational waste within your current systems, you receive a full 100% refund. No questions asked."
+        question: "What happens after the Strategy Review?",
+        answer: "You decide. Some clients take the action plan and run with it on their own. Others move into Systems Design and Implementation with us. There is no pressure and no automatic upsell."
       },
       {
-        question: "What is the deliverable?",
-        answer: "You receive a comprehensive Intelligence Dossier following the call, which includes a Revenue Leakage Map, a detailed Bottleneck Analysis, and a prioritized AI Implementation Roadmap."
+        question: "Do I need technical expertise to work with you?",
+        answer: "No. We need to understand how your business runs, not your tech stack. Your team shows us how work moves. We handle the system design and build from there."
+      },
+      {
+        question: "What industries do you work with?",
+        answer: "Service businesses, agencies, real estate teams, logistics operators, and professional services firms. If your business runs on processes and people, we can likely help."
       }
     ];
 
     return (
         <div className="min-h-screen bg-background">
       <SEO
-        title="FAQ - Sellatica | Operational Consulting Questions"
-        description="Frequently asked questions about Sellatica's custom operational diagnostics for high-growth businesses."
+        title="FAQ — Sellatica"
+        description="Frequently asked questions about working with Sellatica on your business operations."
         canonical="https://www.sellatica.in/faq"
-             
-        breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]} 
+        breadcrumbs={[{ name: 'FAQ', item: 'https://www.sellatica.in/faq' }]}
       />
-            
 
             <Header />
 
@@ -55,13 +52,9 @@ const FAQ = () => {
                         transition={{ duration: 0.8 }}
                         className="max-w-3xl mx-auto"
                     >
-                        <div className="text-center mb-16">
-                            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em] mb-6 block">
-                                FAQ
-                            </span>
-                            <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] mb-6 flex items-center justify-center gap-4">
-                                Common Questions.
-                                <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground/50 hidden md:block" />
+                        <div className="mb-16">
+                            <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] mb-6">
+                                Common questions.
                             </h1>
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 Everything you need to know before booking. No jargon.
