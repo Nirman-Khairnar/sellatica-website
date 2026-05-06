@@ -8,6 +8,7 @@ const footerLinks = {
     { name: 'Services', href: '/services' },
     { name: 'Work', href: '/work' },
     { name: 'Book', href: runtimeConfig.calcomBookingUrl, external: true },
+    { name: 'Contact', href: '/contact' },
   ],
   resources: [
     { name: 'Case Studies', href: '/work' },
@@ -34,14 +35,25 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    data-track="nav_link_clicked"
-                    data-track-props={JSON.stringify({ destination: link.href, location: 'footer_company' })}
-                  >
-                    {link.name}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      data-track="nav_link_clicked"
+                      data-track-props={JSON.stringify({ destination: link.href, location: 'footer_company' })}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      data-track="nav_link_clicked"
+                      data-track-props={JSON.stringify({ destination: link.href, location: 'footer_company' })}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
