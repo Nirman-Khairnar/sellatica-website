@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
+import { runtimeConfig } from '@/lib/runtime';
 
 const About = () => {
   return (
@@ -123,12 +123,16 @@ const About = () => {
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Book a Strategy Review and we will spend 45 minutes looking at how your business operates. You will leave with a clear plan.
             </p>
-            <Link to="/contact">
-              <Button size="lg" className="group">
+            <Button asChild size="lg" className="group">
+              <a
+                href={runtimeConfig.calcomBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>Book a Strategy Review</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>

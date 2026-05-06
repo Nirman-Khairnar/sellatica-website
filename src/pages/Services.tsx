@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import { ArrowRight, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
+import { runtimeConfig } from '@/lib/runtime';
 
 const services = [
   {
@@ -149,12 +149,16 @@ const Services = () => {
             <p className="text-muted-foreground mb-8 leading-relaxed">
               45 minutes, a clear written plan, and a direct answer on whether we are the right fit. No commitment required.
             </p>
-            <Link to="/contact">
-              <Button size="lg" className="group">
+            <Button asChild size="lg" className="group">
+              <a
+                href={runtimeConfig.calcomBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span>Book a Strategy Review</span>
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </motion.div>
         </div>
       </section>

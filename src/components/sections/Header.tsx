@@ -4,13 +4,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { runtimeConfig } from '@/lib/runtime';
 
 const navItems = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'Work', href: '/work' },
   { name: 'About', href: '/about' },
-  { name: 'Book', href: '/contact' },
+  { name: 'Book', href: runtimeConfig.calcomBookingUrl, external: true },
   { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
 ];
 
@@ -104,16 +105,23 @@ const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
               <ThemeToggle />
-              <Link to="/contact" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'header' })}>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="group border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5"
+              >
+                <a
+                  href={runtimeConfig.calcomBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="cta_clicked"
+                  data-track-props={JSON.stringify({ location: 'header' })}
                 >
                   <span>Book a Strategy Review</span>
                   <ArrowRight className="w-3 h-3 ml-1 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
+                </a>
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -214,11 +222,17 @@ const Header = () => {
                 className="mt-8 flex flex-col items-center gap-6"
               >
                 <ThemeToggle />
-                <Link to="/contact" data-track="cta_clicked" data-track-props={JSON.stringify({ location: 'mobile_menu' })}>
-                  <Button size="lg" className="text-lg">
+                <Button asChild size="lg" className="text-lg">
+                  <a
+                    href={runtimeConfig.calcomBookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="cta_clicked"
+                    data-track-props={JSON.stringify({ location: 'mobile_menu' })}
+                  >
                     Book a Strategy Review
-                  </Button>
-                </Link>
+                  </a>
+                </Button>
               </motion.div>
             </motion.nav>
           </motion.div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { runtimeConfig } from '@/lib/runtime';
 
 const Hero = () => {
   return (
@@ -43,16 +44,18 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link
-              to="/contact"
-              data-track="cta_clicked"
-              data-track-props={JSON.stringify({ location: 'hero', type: 'secondary' })}
-            >
-              <Button variant="outline" size="lg" className="group text-base px-8 h-14 border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5">
+            <Button asChild variant="outline" size="lg" className="group text-base px-8 h-14 border-foreground/20 hover:border-foreground/40 hover:bg-foreground/5">
+              <a
+                href={runtimeConfig.calcomBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="cta_clicked"
+                data-track-props={JSON.stringify({ location: 'hero', type: 'secondary' })}
+              >
                 Book a Strategy Review
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </a>
+            </Button>
           </motion.div>
 
           <motion.p

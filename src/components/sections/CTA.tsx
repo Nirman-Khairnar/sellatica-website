@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { runtimeConfig } from '@/lib/runtime';
 
 const CTA = () => {
   const ref = useRef(null);
@@ -25,16 +25,18 @@ const CTA = () => {
             Book a Strategy Review. 45 minutes, a clear written plan, and a direct answer on whether working with Sellatica makes sense for you.
           </p>
 
-          <Link
-            to="/contact"
-            data-track="cta_clicked"
-            data-track-props={JSON.stringify({ location: 'bottom_cta' })}
-          >
-            <Button size="lg" className="group text-base px-8 h-14">
+          <Button asChild size="lg" className="group text-base px-8 h-14">
+            <a
+              href={runtimeConfig.calcomBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="cta_clicked"
+              data-track-props={JSON.stringify({ location: 'bottom_cta' })}
+            >
               Book Your Strategy Review
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>

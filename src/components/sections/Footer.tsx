@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { runtimeConfig } from '@/lib/runtime';
 
 const footerLinks = {
   company: [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Work', href: '/work' },
-    { name: 'Book', href: '/contact' },
+    { name: 'Book', href: runtimeConfig.calcomBookingUrl, external: true },
   ],
   resources: [
     { name: 'Case Studies', href: '/work' },
@@ -88,14 +90,17 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link
-                  to="/contact"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  data-track="cta_clicked"
-                  data-track-props={JSON.stringify({ location: 'footer_contact' })}
-                >
-                  Book a Strategy Review
-                </Link>
+                <Button asChild variant="link" className="h-auto p-0 text-sm font-normal text-muted-foreground hover:text-foreground transition-colors">
+                  <a
+                    href={runtimeConfig.calcomBookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="cta_clicked"
+                    data-track-props={JSON.stringify({ location: 'footer_contact' })}
+                  >
+                    Book a Strategy Review
+                  </a>
+                </Button>
               </li>
             </ul>
           </div>
@@ -117,9 +122,16 @@ const Footer = () => {
             <Link to="/refund" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/refund', location: 'footer_legal' })}>
               Engagement Terms
             </Link>
-            <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors" data-track="nav_link_clicked" data-track-props={JSON.stringify({ destination: '/contact', location: 'footer_legal' })}>
+            <a
+              href={runtimeConfig.calcomBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              data-track="nav_link_clicked"
+              data-track-props={JSON.stringify({ destination: runtimeConfig.calcomBookingUrl, location: 'footer_legal' })}
+            >
               Book a Strategy Review
-            </Link>
+            </a>
           </div>
         </div>
       </div>

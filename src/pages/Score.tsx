@@ -8,6 +8,7 @@ import Header from '@/components/sections/Header';
 import Footer from '@/components/sections/Footer';
 import SEO from '@/components/SEO';
 import { submitOperationsScore } from '@/lib/backend';
+import { buildCalcomBookingUrl } from '@/lib/booking';
 import { trackEvent } from '@/utils/analytics';
 
 type Question = {
@@ -546,8 +547,14 @@ const Score = () => {
                       written plan.
                     </p>
                     <div className="flex flex-col items-start gap-4 sm:flex-row">
-                      <a 
-                        href={`https://cal.com/sellatica/strategy-review?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&company=${encodeURIComponent(company)}&notes=${encodeURIComponent(`Score: ${totalScore} - ${band.label}. Weakest areas: ${weakestDimensionsText}`)}`}
+                      <a
+                        href={buildCalcomBookingUrl(
+                          { name, email },
+                          {
+                            company,
+                            notes: `Score: ${totalScore} - ${band.label}. Weakest areas: ${weakestDimensionsText}`,
+                          },
+                        )}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

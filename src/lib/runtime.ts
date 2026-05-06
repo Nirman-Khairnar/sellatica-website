@@ -5,10 +5,7 @@ const n8nWebhookBaseUrl = (
 export const runtimeConfig = {
   contactWebhookUrl:
     import.meta.env.VITE_CONTACT_WEBHOOK_URL ||
-    `${n8nWebhookBaseUrl}/webhook/sellatica/company-contact-inquiry-v1`,
-  prebookingWebhookUrl:
-    import.meta.env.VITE_PREBOOKING_WEBHOOK_URL ||
-    `${n8nWebhookBaseUrl}/webhook/sellatica/prebooking-capture-v1`,
+    `${n8nWebhookBaseUrl}/webhook/sellatica/company-contact-web-v1`,
   scoreWebhookUrl:
     import.meta.env.VITE_SCORE_WEBHOOK_URL ||
     `${n8nWebhookBaseUrl}/webhook/sellatica/company-operations-score-v1`,
