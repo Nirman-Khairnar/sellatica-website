@@ -12,7 +12,6 @@ const footerLinks = {
   ],
   resources: [
     { name: 'Case Studies', href: '/work' },
-    { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
   ],
 };
 

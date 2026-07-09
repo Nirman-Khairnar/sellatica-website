@@ -12,7 +12,6 @@ const navItems = [
   { name: 'Work', href: '/work' },
   { name: 'About', href: '/about' },
   { name: 'Book', href: runtimeConfig.calcomBookingUrl, external: true },
-  { name: 'Blog', href: 'https://blogs.sellatica.in', external: true },
   { name: 'Contact', href: '/contact' },
 ];
 
