@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/SEO';
-import { runtimeConfig } from '@/lib/runtime';
 
 const contactTopics = [
   'Strategy Review',
@@ -34,8 +33,9 @@ const Contact = () => {
     setContactSuccess(false);
 
     try {
-      const response = await fetch(runtimeConfig.contactWebhookUrl, {
+      await fetch('https://script.google.com/macros/s/AKfycbwo29wpL-QtNcPdi6J4j5xgp6d8H5A2UYbmfL_ITK7jdtx__gcXE-gOINPnDNDFsj1gbA/exec', {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name,
@@ -47,10 +47,6 @@ const Contact = () => {
           timestamp: new Date().toISOString(),
         }),
       });
-
-      if (!response.ok) {
-        throw new Error(`Contact webhook failed with status ${response.status}`);
-      }
 
       setContactSuccess(true);
       setContactForm({
