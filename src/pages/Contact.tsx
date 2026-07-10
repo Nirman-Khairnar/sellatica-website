@@ -33,7 +33,7 @@ const Contact = () => {
     setContactSuccess(false);
 
     try {
-      await fetch('https://script.google.com/macros/s/AKfycbwo29wpL-QtNcPdi6J4j5xgp6d8H5A2UYbmfL_ITK7jdtx__gcXE-gOINPnDNDFsj1gbA/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwD_QJAAXjX3X5j8btVzgwnt4FvkS8Aq6gmD0pSxzU30JnXSofIp2lIpRKiMX4FWFIYKg/exec', {
         method: 'POST',
         mode: 'no-cors',
         // The critical fix: use text/plain to bypass CORS stripping
