@@ -41,7 +41,7 @@ const Contact = () => {
         body: JSON.stringify({
           name,
           email,
-          company: topic, // Included mapping to company just in case
+          company: "", // FIXED: Now passes an empty string so the column stays blank
           topic,
           message,
           source: window.location.pathname, // Dynamically grabs the route
