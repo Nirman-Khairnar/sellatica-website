@@ -36,18 +36,20 @@ const Contact = () => {
       await fetch('https://script.google.com/macros/s/AKfycbwo29wpL-QtNcPdi6J4j5xgp6d8H5A2UYbmfL_ITK7jdtx__gcXE-gOINPnDNDFsj1gbA/exec', {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        // The critical fix: use text/plain to bypass CORS stripping
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           name,
           email,
-          company: topic,
+          company: topic, // Included mapping to company just in case
           topic,
           message,
-          source: 'website_contact_form',
+          source: window.location.pathname, // Dynamically grabs the route
           timestamp: new Date().toISOString(),
         }),
       });
 
+      // Maintain that smooth, minimal feedback loop
       setContactSuccess(true);
       setContactForm({
         name: '',
@@ -55,6 +57,10 @@ const Contact = () => {
         topic: '',
         message: '',
       });
+      
+      // Optional: Hide success message after a few seconds to keep UI clean
+      setTimeout(() => setContactSuccess(false), 5000);
+      
     } catch (error) {
       console.error('Contact form submission failed', error);
     } finally {
@@ -77,7 +83,7 @@ const Contact = () => {
         </p>
 
         {contactSuccess && (
-          <div className="mt-8 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 text-sm text-foreground">
+          <div className="mt-8 rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3 text-sm text-foreground transition-all">
             Message sent. We&apos;ll reply within 24 hours.
           </div>
         )}
@@ -88,6 +94,7 @@ const Contact = () => {
             <input
               type="text"
               required
+              name="name"
               className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               value={contactForm.name}
               onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
@@ -100,6 +107,7 @@ const Contact = () => {
             <input
               type="email"
               required
+              name="email"
               className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               value={contactForm.email}
               onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
@@ -113,6 +121,7 @@ const Contact = () => {
             </label>
             <select
               required
+              name="topic"
               className="w-full rounded-md border border-border bg-background px-4 py-3 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               value={contactForm.topic}
               onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
@@ -132,6 +141,7 @@ const Contact = () => {
             <label className="mb-2 block text-sm font-medium text-foreground">Message</label>
             <textarea
               required
+              name="message"
               className="w-full min-h-[160px] rounded-md border border-border bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               value={contactForm.message}
               onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
